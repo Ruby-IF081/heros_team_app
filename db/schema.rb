@@ -9,9 +9,6 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-<<<<<<< ea81743517a4cb98768d1bd64b4ac85017359587
-=======
 ActiveRecord::Schema.define(version: 20171208130810) do
 
   # These are extensions that must be enabled in order to support this database
@@ -38,4 +35,3 @@ ActiveRecord::Schema.define(version: 20171208130810) do
   end
 
 end
->>>>>>> Added devise model User and migration for it
