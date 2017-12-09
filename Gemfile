@@ -20,7 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'devise'
-
+gem 'rspec-rails'
 gem 'slim'
 
 # Use CoffeeScript for .coffee assets and views
