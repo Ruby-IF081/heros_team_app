@@ -1,5 +1,8 @@
+<<<<<<< 4e3e24f060ac2b265343278b6726c4b01a0aba16
 # require database cleaner at the top level
 require 'database_cleaner'
+=======
+>>>>>>> Added rspec-tests for User model validation
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
@@ -28,6 +31,7 @@ require 'rspec/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+<<<<<<< 4e3e24f060ac2b265343278b6726c4b01a0aba16
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
@@ -55,6 +59,9 @@ RSpec.configure do |config|
     end
   end
 
+=======
+RSpec.configure do |config|
+>>>>>>> Added rspec-tests for User model validation
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
