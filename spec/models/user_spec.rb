@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'is invalid without duplicate e-mail' do
-    first_user = User.create(
+    User.create(
       first_name: 'Homer',
       last_name:  'Simpson',
       email:      'homie@gmail.com',
