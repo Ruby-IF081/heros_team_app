@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  enum role: %i[sale admin moderator]
+  ROLES = %i[sale admin moderator].freeze
+  enum role: ROLES
   before_save { email.downcase! }
   validates :first_name,
             presence: true,
@@ -14,8 +15,6 @@ class User < ApplicationRecord
             format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :validatable
 end
