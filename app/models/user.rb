@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  ROLES = %i[sale admin moderator].freeze
+  ROLES = { sale: 0, admin: 1, moderator: 2 }.freeze
   enum role: ROLES
   before_save { email.downcase! }
   validates :first_name,
