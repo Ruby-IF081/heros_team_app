@@ -19,7 +19,7 @@ end
 
 RSpec.configure do |config|
 
-  config.before(:all) do
+  config.before(:suite) do
   FactoryBot.reload
 
   config.include FactoryBot::Syntax::Methods
