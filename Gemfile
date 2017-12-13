@@ -16,7 +16,7 @@ gem 'slim'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'byebug', '~> 9.0', '>= 9.0.6'
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
@@ -34,4 +34,4 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.3'
