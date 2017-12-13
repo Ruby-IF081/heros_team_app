@@ -18,31 +18,21 @@ Shoulda::Matchers.configure do |config|
 end
 
 RSpec.configure do |config|
-  # add `FactoryBot` methods
-  config.include FactoryBot::Syntax::Methods
-    FactoryBot.reload
-  end
-
-  FactoryBot.reload
-
-  config.include FactoryBot::Syntax::Methods
-
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.around(:each) do |example|
-    DatabaseCleaner.cleaning do
-      example.run
+    FactoryBot.reload
+    config.include FactoryBot::Syntax::Methods
+    config.before(:suite) do
+      DatabaseCleaner.clean_with(:truncation)
+      DatabaseCleaner.strategy = :transaction
     end
+    config.around(:each) do |example|
+      DatabaseCleaner.cleaning do
+        example.run
+      end
+    end
+    config.fixture_path = "#{::Rails.root}/spec/fixtures"
+    config.use_transactional_fixtures = true
+    config.infer_spec_type_from_file_location!
+    config.filter_rails_from_backtrace!
   end
-
-RSpec.configure do |config|
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.use_transactional_fixtures = true
-  config.infer_spec_type_from_file_location!
-  config.filter_rails_from_backtrace!
 end

@@ -1,12 +1,7 @@
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
-<<<<<<< fddc51c9b1cb6dcc913caef9672b3f13a7647dbc
-    expectations.syntax = [:should, :expect]
-
-=======
     expectations.syntax = %i[should expect]
->>>>>>> Clean code with RuboCop
   end
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
