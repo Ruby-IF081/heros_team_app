@@ -16,7 +16,7 @@
 
 FactoryBot.define do
   factory :page do
-    page_type { 'bing' }
+    page_type { %i[bing angle.co linkedin crunchbase].sample }
     title { Faker::Beer.name }
     content_html { Faker::Lorem.paragraphs(10) }
     content { Faker::Lorem.paragraphs(10) }

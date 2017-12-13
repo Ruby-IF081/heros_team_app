@@ -14,6 +14,6 @@ class PagesController < ApplicationController
   end
 
   def collection
-    Page.all
+    Page.page(params[:page]).per(10)
   end
 end

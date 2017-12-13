@@ -1,15 +1,21 @@
-h1= @page.title
-.field
-  p= "Page title: #{ @page.page_type }"
+.container
+  h1= @page.title
+  .row
+    h3 Page type:
+    p= @page.page_type
 
-.field
-  p= "Status: #{ @page.status }"
+  .row
+    h3 Status:
+    p= @page.status
 
-.field
-  p= "Content: #{ @page.content.split('", "').join(" ") }"
+  .row
+    h3 Content:
+    p= @page.content.split('", "').join(" ")
 
-.field
-  p= "Content html: #{ @page.content_html.split('", "').join(" ") }"
+  .row
+    h3 Content html:
+    p= @page.content_html.split('", "').join(" ")
 
-.field
-  p= "Screenshot url: #{ @page.screenshot }"
+  .row
+    h3 Screenshot url:
+    p= @page.screenshot

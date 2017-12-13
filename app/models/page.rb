@@ -15,5 +15,7 @@
 #
 class Page < ApplicationRecord
   STATUSES = %i[active pending finished].freeze
+  PAGE_TYPES = %i[bing angle.co linkedin crunchbase].freeze
   enum status: STATUSES
+  enum page_type: PAGE_TYPES
 end

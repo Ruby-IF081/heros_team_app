@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20171211131211) do
   enable_extension "plpgsql"
 
   create_table "pages", force: :cascade do |t|
-    t.string "page_type"
+    t.integer "page_type"
     t.string "title"
     t.string "content_html"
     t.string "content"

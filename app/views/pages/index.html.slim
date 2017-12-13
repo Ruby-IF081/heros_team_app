@@ -1,1 +1,4 @@
-= render partial: 'pages/page_title', collection: @pages, as: :page
+.container
+  /= render partial: 'pages/page_title', collection: @pages, as: :page
+  = paginate @pages
+  = render partial: 'pages/page_title', collection: @pages, as: :page
