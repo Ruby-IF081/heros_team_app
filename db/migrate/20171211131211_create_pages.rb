@@ -7,7 +7,7 @@ class CreatePages < ActiveRecord::Migration[5.1]
       t.string :content_html
       t.string :content
       t.string :source_url
-      t.string :status
+      t.integer :status
       t.string :screenshot
 
       t.timestamps

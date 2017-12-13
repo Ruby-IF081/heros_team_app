@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20171211131211) do
     t.string "content_html"
     t.string "content"
     t.string "source_url"
-    t.string "status"
+    t.integer "status"
     t.string "screenshot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

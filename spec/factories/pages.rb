@@ -8,7 +8,7 @@
 #  content_html :string
 #  content      :string
 #  source_url   :string
-#  status       :string
+#  status       :integer
 #  screenshot   :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -18,10 +18,10 @@ FactoryBot.define do
   factory :page do
     page_type { 'bing' }
     title { Faker::Beer.name }
-    content_html { Faker::Lorem.paragraphs(3) }
-    content { Faker::Lorem.paragraphs(3) }
+    content_html { Faker::Lorem.paragraphs(10) }
+    content { Faker::Lorem.paragraphs(10) }
     source_url { Faker::Internet.url }
-    status { 'active' }
+    status { %i[active pending finished].sample }
     screenshot { Faker::Avatar.image }
   end
 end

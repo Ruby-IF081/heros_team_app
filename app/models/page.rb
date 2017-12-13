@@ -8,11 +8,12 @@
 #  content_html :string
 #  content      :string
 #  source_url   :string
-#  status       :string
+#  status       :integer
 #  screenshot   :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
-
 class Page < ApplicationRecord
+  STATUSES = %i[active pending finished].freeze
+  enum status: STATUSES
 end

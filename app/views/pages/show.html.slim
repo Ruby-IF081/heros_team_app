@@ -1,2 +1,15 @@
-<h1>Pages#show</h1>
-<p>Find me in app/views/pages/show.html.erb</p>
+h1= @page.title
+.field
+  p= "Page title: #{ @page.page_type }"
+
+.field
+  p= "Status: #{ @page.status }"
+
+.field
+  p= "Content: #{ @page.content.split('", "').join(" ") }"
+
+.field
+  p= "Content html: #{ @page.content_html.split('", "').join(" ") }"
+
+.field
+  p= "Screenshot url: #{ @page.screenshot }"
