@@ -39,11 +39,8 @@ RSpec.configure do |config|
   # add `FactoryBot` methods
   config.include FactoryBot::Syntax::Methods
 
-  config.before(:all) do
-    FactoryBot.reload
-  end
-
   config.before(:suite) do
+    FactoryBot.reload
     DatabaseCleaner.clean_with(:truncation)
     DatabaseCleaner.strategy = :transaction
   end
@@ -54,9 +51,6 @@ RSpec.configure do |config|
       example.run
     end
   end
-
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
