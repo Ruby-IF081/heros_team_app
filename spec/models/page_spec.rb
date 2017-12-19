@@ -15,9 +15,10 @@
 #  company_id   :integer
 #
 
-class Page < ApplicationRecord
-  STATUSES = %i[active pending finished].freeze
-  PAGE_TYPES = %i[bing angle.co linkedin crunchbase].freeze
-  enum status: STATUSES
-  enum page_type: PAGE_TYPES
+require 'rails_helper'
+
+RSpec.describe Page, type: :page do
+  context 'validation' do
+    it { FactoryBot.build(:page).should be_valid }
+  end
 end
