@@ -7,6 +7,8 @@ end
 
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise'
+gem 'feathericon-sass'
+gem 'font-awesome-sass', '~> 4.7.0'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
