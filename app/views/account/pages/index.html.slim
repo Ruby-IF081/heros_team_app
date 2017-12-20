@@ -1,0 +1,9 @@
+.container
+  h1 All company pages
+  table.table.table-bordered
+    thead
+      th Title
+      th Type
+      th Status
+    = render partial: 'pages_table', collection: @pages, as: :page
+  = paginate @pages
