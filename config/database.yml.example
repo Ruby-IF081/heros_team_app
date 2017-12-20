@@ -84,4 +84,3 @@ production:
   database: heros_team_app_production
   username: heros_team_app
   password: <%= ENV['HEROS_TEAM_APP_DATABASE_PASSWORD'] %>
-
