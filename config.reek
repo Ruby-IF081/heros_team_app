@@ -15,3 +15,4 @@ IrresponsibleModule:
   enabled: false
 exclude_paths:
   - db/migrate
+  - vendor
