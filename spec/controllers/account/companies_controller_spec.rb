@@ -1,15 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Account::CompaniesController, type: :controller do
-  let!(:user) { create(:user) }
-  before(:each) { sign_in user }
+  let!(:company) { create(:company) }
+  before(:each) { sign_in User.last }
 
   describe "GET #index" do
-    let!(:company) { create(:company) }
-
     it "populates an array of companies" do
       get :index
-      expect(assigns(:companies)).to eq([company])
+      expect(assigns(:companies)).to contain_exactly(company)
     end
 
     it "renders the :index view" do
@@ -20,8 +18,6 @@ RSpec.describe Account::CompaniesController, type: :controller do
   end
 
   describe "GET #show" do
-    let!(:company) { create(:company) }
-
     it "assigns the requested company to @company" do
       get :show, params: { id: company.id }
       expect(assigns(:company)).to eq(company)
@@ -80,26 +76,24 @@ RSpec.describe Account::CompaniesController, type: :controller do
   end
 
   describe 'PUT update' do
-    let!(:val_company) { create(:company) }
-
     context "valid attributes" do
       it "located the requested company" do
-        put :update, params: { id: val_company.id,
-                               company: { name: val_company.name,
-                                          domain: val_company.domain } }
-        expect(assigns(:company)).to eq(val_company)
+        put :update, params: { id: company.id,
+                               company: { name: company.name,
+                                          domain: company.domain } }
+        expect(assigns(:company)).to eq(company)
       end
 
       it "changes company's attributes" do
-        put :update, params: { id: val_company.id,
+        put :update, params: { id: company.id,
                                company: { name: 'edited', domain: 'edited.com' } }
-        val_company.reload
-        expect(val_company.name).to eq('edited')
-        expect(val_company.domain).to eq('edited.com')
+        company.reload
+        expect(company.name).to eq('edited')
+        expect(company.domain).to eq('edited.com')
       end
 
       it "redirects to the updated company" do
-        put :update, params: { id: val_company.id,
+        put :update, params: { id: company.id,
                                company: { name: 'edited', domain: 'edited.com' } }
         expect(response).to have_http_status(302)
         expect(response).to redirect_to account_company_path
@@ -110,23 +104,23 @@ RSpec.describe Account::CompaniesController, type: :controller do
       let!(:inval_company) { build(:company, :invalid_domain) }
 
       it "located the requested company" do
-        put :update, params: { id: val_company.id,
-                               company: { name: val_company.name,
-                                          domain: val_company.domain } }
-        expect(assigns(:company)).to eq(val_company)
+        put :update, params: { id: company.id,
+                               company: { name: company.name,
+                                          domain: company.domain } }
+        expect(assigns(:company)).to eq(company)
       end
 
       it "does not change company's attributes" do
-        put :update, params: { id: val_company.id,
+        put :update, params: { id: company.id,
                                company: { name: inval_company.name,
                                           domain: inval_company.domain } }
-        val_company.reload
-        expect(val_company.name).to_not eq(inval_company.name)
-        expect(val_company.domain).to_not eq(inval_company.domain)
+        company.reload
+        expect(company.name).to_not eq(inval_company.name)
+        expect(company.domain).to_not eq(inval_company.domain)
       end
 
       it "re-renders the edit method" do
-        put :update, params: { id: val_company.id,
+        put :update, params: { id: company.id,
                                company: { name: inval_company.name,
                                           domain: inval_company.domain } }
         expect(response).to have_http_status(200)
@@ -136,8 +130,6 @@ RSpec.describe Account::CompaniesController, type: :controller do
   end
 
   describe 'DELETE destroy' do
-    let!(:company) { create(:company) }
-
     it "deletes the company" do
       expect { delete :destroy, params: { id: company.id } }.to change(Company, :count).by(-1)
     end
