@@ -1,6 +1,6 @@
 class Account::PagesController < ApplicationController
   def index
-    @pages = collection
+    @pages = collection.page(params[:page]).per(10)
   end
 
   def show
@@ -14,6 +14,6 @@ class Account::PagesController < ApplicationController
   end
 
   def collection
-    Page.page(params[:page]).per(10)
+    Page.all
   end
 end
