@@ -41,7 +41,4 @@ Style/StringLiterals:
   Enabled: false
 
 Style/ClassAndModuleChildren:
-  EnforcedStyle: nested
-
-Style/ClassAndModuleChildren:
   Enabled: false

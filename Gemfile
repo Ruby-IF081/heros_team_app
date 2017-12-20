@@ -5,20 +5,29 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bootstrap-sass', '3.3.7'
+gem 'brakeman', '~> 4.1', '>= 4.1.1'
 gem 'devise'
+<<<<<<< HEAD
 gem 'dynamic_form'
 gem 'gravatar_image_tag'
+=======
+gem 'font-awesome-sass', '~> 4.7.0'
+>>>>>>> Added reek and brakeman linters
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
 gem 'kaminari'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
+gem 'reek', '~> 4.7', '>= 4.7.3'
 gem 'rubocop', '~> 0.51.0', require: false
 gem 'sass-rails', '~> 5.0'
 gem 'sidekiq'
 gem 'simple_form'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
+
 # Use SCSS for stylesheets
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'feathericon-sass'
