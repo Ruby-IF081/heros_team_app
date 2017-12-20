@@ -16,3 +16,5 @@ IrresponsibleModule:
 exclude_paths:
   - db/migrate
   - vendor
+UtilityFunction:
+  public_methods_only: true
