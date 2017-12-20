@@ -353,17 +353,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
+  brakeman (~> 4.1, >= 4.1.1)
   annotate
-<<<<<<< HEAD
   any_login
   bootstrap (~> 4.0.0.beta2.1)
-=======
   bootstrap-sass (= 3.3.7)
-=======
   brakeman (~> 4.1, >= 4.1.1)
->>>>>>> Added reek and brakeman linters
->>>>>>> Added reek and brakeman linters
   byebug (~> 9.0, >= 9.0.6)
   capistrano (~> 3.6)
   capistrano-passenger
