@@ -52,7 +52,7 @@ RSpec.describe Account::CompaniesController, type: :controller do
         post :create, params: { company: { name: val_company.name,
                                            domain: val_company.domain } }
         expect(response).to have_http_status(302)
-        expect(response).to redirect_to account_companies_path
+        expect(response).to redirect_to account_company_path(Company.last)
       end
     end
 

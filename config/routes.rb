@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :companies
+    resources :pages
   end
 end

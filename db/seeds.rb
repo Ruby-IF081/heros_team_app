@@ -13,3 +13,5 @@ FactoryBot.create(:company, name:  'SoftServe,Inc.',
 FactoryBot.create(:company, name:  'Alphabet Inc.',
                             domain: 'abc.xyz',
                             user: user)
+
+FactoryBot.create_list(:page, 50)

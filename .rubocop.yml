@@ -3,6 +3,7 @@ Documentation:
 
 AllCops:
   Exclude:
+    - 'log/capistrano.log'
     - 'vendor/**/*'
     - 'tmp/**/*'
     - 'config/initializers/*'
@@ -35,7 +36,6 @@ Metrics/ClassLength:
 
 Metrics/LineLength:
   Max: 100
-
 
 Style/StringLiterals:
   Enabled: false

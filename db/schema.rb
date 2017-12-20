@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20171216095811) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.integer "page_type"
+    t.string "title"
+    t.string "content_html"
+    t.string "content"
+    t.string "source_url"
+    t.integer "status"
+    t.string "screenshot"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
