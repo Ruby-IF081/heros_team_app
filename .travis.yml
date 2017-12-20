@@ -10,6 +10,7 @@ script:
   - bundle exec rubocop
   - bundle exec reek
   - bundle exec brakeman
+  - bundle exec rails_best_practices -e "db/migrate,vendor" .
   
 services:
   - postgresql

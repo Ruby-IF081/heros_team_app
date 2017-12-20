@@ -8,12 +8,9 @@ end
 gem 'bootstrap-sass', '3.3.7'
 gem 'brakeman', '~> 4.1', '>= 4.1.1'
 gem 'devise'
-<<<<<<< HEAD
 gem 'dynamic_form'
 gem 'gravatar_image_tag'
-=======
 gem 'font-awesome-sass', '~> 4.7.0'
->>>>>>> Added reek and brakeman linters
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'kaminari'
@@ -22,6 +19,7 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'reek', '~> 4.7', '>= 4.7.3'
 gem 'rubocop', '~> 0.51.0', require: false
+gem 'rails_best_practices'
 gem 'sass-rails', '~> 5.0'
 gem 'sidekiq'
 gem 'simple_form'
