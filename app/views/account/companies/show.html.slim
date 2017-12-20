@@ -1,0 +1,9 @@
+h1= @company.name
+.btn-group
+  = link_to  "Edit", edit_account_company_path, class: 'btn btn-primary'
+  = link_to "Delete", account_company_path, method: :delete,
+                      data: { confirm: 'Are you certain you want to delete this company?' },
+                      class: 'btn btn-primary'
+
+ul.company
+  li= @company.domain

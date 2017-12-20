@@ -1,7 +1,7 @@
 h1.col-md-6.col-md-offset-3 Add new Company
 .row
   .col-md-3.col-md-offset-3
-    = simple_form_for @company, url: companies_path,
+    = simple_form_for @company, url: account_companies_path,
                                 defaults: { input_html: { class: 'form-control' } } do |f|
       = f.input :name, placeholder: 'Enter Company name'
       = f.input :domain, placeholder: 'company.com',

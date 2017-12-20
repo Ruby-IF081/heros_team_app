@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe CompaniesController, type: :controller do
-  let(:user) { create :user }
+RSpec.describe Account::CompaniesController, type: :controller do
+  let!(:user) { create(:user) }
   before(:each) { sign_in user }
 
   describe "GET #index" do
-    let!(:company) { create :company }
+    let!(:company) { create(:company) }
 
     it "populates an array of companies" do
       get :index
@@ -20,7 +20,7 @@ RSpec.describe CompaniesController, type: :controller do
   end
 
   describe "GET #show" do
-    let!(:company) { create :company }
+    let!(:company) { create(:company) }
 
     it "assigns the requested company to @company" do
       get :show, params: { id: company.id }
@@ -43,7 +43,7 @@ RSpec.describe CompaniesController, type: :controller do
 
   describe "POST create" do
     context "with valid attributes" do
-      let!(:val_company) { build :company }
+      let!(:val_company) { build(:company) }
 
       it "creates a new company" do
         expect do
@@ -56,12 +56,12 @@ RSpec.describe CompaniesController, type: :controller do
         post :create, params: { company: { name: val_company.name,
                                            domain: val_company.domain } }
         expect(response).to have_http_status(302)
-        expect(response).to redirect_to companies_path
+        expect(response).to redirect_to account_companies_path
       end
     end
 
     context "with invalid attributes" do
-      let!(:inval_company) { build :company, :invalid_domain }
+      let!(:inval_company) { build(:company, :invalid_domain) }
 
       it "does not save the new company" do
         expect do
@@ -80,7 +80,7 @@ RSpec.describe CompaniesController, type: :controller do
   end
 
   describe 'PUT update' do
-    let!(:val_company) { create :company }
+    let!(:val_company) { create(:company) }
 
     context "valid attributes" do
       it "located the requested company" do
@@ -102,12 +102,12 @@ RSpec.describe CompaniesController, type: :controller do
         put :update, params: { id: val_company.id,
                                company: { name: 'edited', domain: 'edited.com' } }
         expect(response).to have_http_status(302)
-        expect(response).to redirect_to company_path
+        expect(response).to redirect_to account_company_path
       end
     end
 
     context "invalid attributes" do
-      let!(:inval_company) { build :company, :invalid_domain }
+      let!(:inval_company) { build(:company, :invalid_domain) }
 
       it "located the requested company" do
         put :update, params: { id: val_company.id,
@@ -136,7 +136,7 @@ RSpec.describe CompaniesController, type: :controller do
   end
 
   describe 'DELETE destroy' do
-    let!(:company) { create :company }
+    let!(:company) { create(:company) }
 
     it "deletes the company" do
       expect { delete :destroy, params: { id: company.id } }.to change(Company, :count).by(-1)
@@ -145,7 +145,7 @@ RSpec.describe CompaniesController, type: :controller do
     it "redirects to company#index" do
       delete :destroy, params: { id: company.id }
       expect(response).to have_http_status(302)
-      expect(response).to redirect_to companies_path
+      expect(response).to redirect_to account_companies_path
     end
   end
 end
