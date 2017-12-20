@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class Account::PagesController < ApplicationController
   def index
     @pages = collection
   end

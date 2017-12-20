@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PagesController, type: :controller do
+RSpec.describe Account::PagesController, type: :controller do
   context 'Page' do
     let!(:page) { FactoryBot.create(:page) }
 
