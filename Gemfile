@@ -5,7 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'devise'
 gem 'feathericon-sass'
 gem 'font-awesome-sass', '~> 4.7.0'
