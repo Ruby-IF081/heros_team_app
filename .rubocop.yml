@@ -42,4 +42,4 @@ Style/StringLiterals:
   Enabled: false
 
 Style/ClassAndModuleChildren:
-  EnforcedStyle: nested
+  Enabled: false

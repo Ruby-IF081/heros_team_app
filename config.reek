@@ -1,0 +1,17 @@
+"app/controllers":
+  NestedIterators:
+    max_allowed_nesting: 2
+  UnusedPrivateMethod:
+    enabled: false
+  InstanceVariableAssumption:
+    enabled: false
+"app/helpers":
+  UtilityFunction:
+    enabled: false
+"app/mailers":
+  InstanceVariableAssumption:
+    enabled: false
+IrresponsibleModule:
+  enabled: false
+exclude_paths:
+  - db/migrate

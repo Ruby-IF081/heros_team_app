@@ -14,6 +14,8 @@ gem 'rubocop', '~> 0.51.0', require: false
 gem 'sass-rails', '~> 5.0'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
+gem 'reek', '~> 4.7', '>= 4.7.3'
+gem 'brakeman', '~> 4.1', '>= 4.1.1'
 
 group :development, :test do
   gem 'byebug', '~> 9.0', '>= 9.0.6'

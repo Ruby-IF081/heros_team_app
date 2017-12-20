@@ -8,7 +8,9 @@ script:
   - bundle exec rake db:create db:migrate
   - bundle exec rake spec
   - bundle exec rubocop
-
+  - bundle exec reek
+  - bundle exec brakeman
+  
 services:
   - postgresql
 
