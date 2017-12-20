@@ -1,69 +1,44 @@
-h2
-  | Edit 
-  = resource_name.to_s.humanize
+h1.col-md-6.col-md-offset-3 Edit
+.row
+  .col-md-3.col-md-offset-3
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = devise_error_messages!
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
+      = f.input :first_name, autofocus: true
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        div
+          | Currently waiting confirmation for:
+          = resource.unconfirmed_email
 
-  .field
-    = f.label :first_name
-    br
-    = f.text_field :first_name, autofocus: true
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      div
-        | Currently waiting confirmation for:
-        = resource.unconfirmed_email
+      = f.input :last_name
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        div
+          | Currently waiting confirmation for:
+          = resource.unconfirmed_email
 
-  .field
-    = f.label :last_name
-    br
-    = f.text_field :last_name
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      div
-        | Currently waiting confirmation for:
-        = resource.unconfirmed_email
+      = f.input :email, autofocus: true
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          div
+            | Currently waiting confirmation for:
+            = resource.unconfirmed_email
 
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for: 
-      = resource.unconfirmed_email
+      = f.input :password, label: "(leave blank if you don't want to change it)"
+      - if @minimum_password_length
+        br
+        em
+          = @minimum_password_length
+          |  characters minimum
 
-  .field
-    = f.label :password
-    i
-      | (leave blank if you don't want to change it)
-    br
-    = f.password_field :password, autocomplete: "off"
-    - if @minimum_password_length
-      br
-      em
-        = @minimum_password_length
-        |  characters minimum
+      = f.input :password_confirmation
 
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
+      = f.input :current_password, label: '(we need your current password to confirm your changes)'
 
-  .field
-    = f.label :current_password
-    i
-      | (we need your current password to confirm your changes)
-    br
-    = f.password_field :current_password, autocomplete: "off"
+      = f.button :submit
 
-  .actions
-    = f.submit "Update"
 
-h3
-  | Cancel my account
+h3 Cancel my account
 
-p
-  | Unhappy? 
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
+p Unhappy?
+= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
 
 = link_to "Back", :back
