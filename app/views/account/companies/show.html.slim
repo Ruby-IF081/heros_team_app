@@ -4,6 +4,7 @@ h1= @company.name
   = link_to "Delete", account_company_path, method: :delete,
                       data: { confirm: 'Are you certain you want to delete this company?' },
                       class: 'btn btn-primary'
+  = link_to  "Back to all companies", account_companies_path, class: 'btn btn-primary'
 
 ul.company
   li= @company.domain

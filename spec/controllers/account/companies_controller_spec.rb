@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Account::CompaniesController, type: :controller do
   let!(:company) { create(:company) }
-  before(:each) { sign_in User.last }
+  before(:each) { sign_in company.user }
 
   describe "GET #index" do
     it "populates an array of companies" do
