@@ -1,7 +1,8 @@
-h1 All companies
-= link_to "Add new company", new_account_company_path, class: 'btn btn-primary'
+h1.col-md-12 All companies
+.col-md-12
+  = link_to "Add new company", new_account_company_path, class: 'btn btn-primary'
 
-ul.company
+ul.company.col-md-12
   - @companies.each do |company|
-    li
+    li.col-md-10.col-md-offset-1
       = link_to company.name, account_company_path(company)
