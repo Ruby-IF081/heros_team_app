@@ -17,12 +17,12 @@ h1.col-md-6.col-md-offset-3 Edit
           = resource.unconfirmed_email
 
       = f.input :email, autofocus: true
-        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-          div
-            | Currently waiting confirmation for:
-            = resource.unconfirmed_email
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        div
+          | Currently waiting confirmation for:
+          = resource.unconfirmed_email
 
-      = f.input :password, label: "(leave blank if you don't want to change it)"
+      = f.input :password, label: "Password (leave blank if you don't want to change it)"
       - if @minimum_password_length
         br
         em
@@ -31,7 +31,7 @@ h1.col-md-6.col-md-offset-3 Edit
 
       = f.input :password_confirmation
 
-      = f.input :current_password, label: '(we need your current password to confirm your changes)'
+      = f.input :current_password, label: 'Current password (we need your current password to confirm your changes)'
 
       = f.button :submit
 
