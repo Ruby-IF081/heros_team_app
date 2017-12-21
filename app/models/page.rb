@@ -3,21 +3,26 @@
 # Table name: pages
 #
 #  id           :integer          not null, primary key
-#  page_type    :integer
+#  page_type    :string
 #  title        :string
 #  content_html :string
 #  content      :string
 #  source_url   :string
-#  status       :integer
+#  status       :string
 #  screenshot   :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  company_id   :integer
 #
 
 class Page < ApplicationRecord
-  STATUSES = %i[active pending finished].freeze
-  PAGE_TYPES = %i[bing angle.co linkedin crunchbase].freeze
-  enum status: STATUSES
-  enum page_type: PAGE_TYPES
+  ACTIVE_STATUS = 'active'.freeze
+  PENDING_STATUS = 'pending'.freeze
+  FINISHED_STATUS = 'finished'.freeze
+  STATUSES = [ACTIVE_STATUS, PENDING_STATUS, FINISHED_STATUS].freeze
+
+  BING_TYPE = 'bing'.freeze
+  ANGLECO_TYPE = 'angle.co'.freeze
+  LINKEDIN_TYPE = 'linkedin'.freeze
+  CRUNCHBASE_TYPE = 'crunchbase'.freeze
+  PAGE_TYPES = [BING_TYPE, ANGLECO_TYPE, LINKEDIN_TYPE, CRUNCHBASE_TYPE].freeze
 end

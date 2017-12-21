@@ -3,16 +3,15 @@
 # Table name: pages
 #
 #  id           :integer          not null, primary key
-#  page_type    :integer
+#  page_type    :string
 #  title        :string
 #  content_html :string
 #  content      :string
 #  source_url   :string
-#  status       :integer
+#  status       :string
 #  screenshot   :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  company_id   :integer
 #
 
 require 'rails_helper'
