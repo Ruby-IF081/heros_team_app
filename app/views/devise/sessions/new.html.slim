@@ -1,0 +1,29 @@
+.app-content.content
+  .content-wrapper
+    .content-body.row
+      section.content.col-md-6.col-8
+        = render 'devise/shared/text'
+      section.col-md-4.col-8.ml-auto.p-0
+        .card.border-grey.border-lighten-4.px-2.py-2.row.mb-0
+          .card-header.border-0
+            .card-title.text-center.font-large-2.pt-2
+              span
+                | Log In
+            h4.card-subtitle.line-on-side.text-muted.text-center.font-medium-1.pt-2
+              span
+                | Enter a valid Sales or Admin Account
+          .card-content
+            .card-body
+              = render 'devise/shared/login_form'
+          .card-footer.border-0
+            p.card-subtitle.line-on-side.text-muted.text-center.font-medium-1.mx-2.my-1
+              span
+                | If you want to create a Tenant?
+            = link_to new_registration_path(resource_name), class: "btn btn-primary btn-block btn-lg mt-3" do
+              i.fa.fa-user
+              | Create Tenant
+            br
+            p.card-subtitle.line-on-side.text-muted.text-center.font-medium-1.mx-2.my-1
+              a[href="http://google.com"]
+                span
+                  | Need help ?

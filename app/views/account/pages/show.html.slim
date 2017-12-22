@@ -1,21 +1,20 @@
 .container
-  h1= @page.title
   .row
-    h3 Page type:
-    p= @page.page_type
-
-  .row
-    h3 Status:
-    p= @page.status
-
-  .row
-    h3 Content:
-    p= @page.content
-
-  .row
-    h3 Content html:
-    p= @page.content_html
-
-  .row
-    h3 Screenshot url:
-    p= @page.screenshot
+    .col-md-12
+      = link_to  "Back to all pages", account_pages_path, class: 'btn btn-primary'
+      h1= @page.title
+      div
+        h3 Page type:
+        p= @page.page_type
+      div
+        h3 Status:
+        p= @page.status
+      div
+        h3 Content:
+        p= @page.content
+      div
+        h3 Content html:
+        p= @page.content_html
+      div
+        h3 Screenshot url:
+        p= @page.screenshot

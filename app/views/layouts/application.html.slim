@@ -7,9 +7,10 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    p.notice
-      = notice
+    = render 'layouts/header'
     p.alert
       - flash.each do |message_type, message|
         = content_tag(:div, message, class: "alert alert-#{message_type}")
-    = yield
+    div.container
+      = yield
+      = render 'layouts/footer'

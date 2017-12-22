@@ -1,0 +1,24 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  form.form-horizontal[novalidate]
+    = devise_error_messages!
+    fieldset.form-group.position-relative.has-icon-left
+      - f.label :email
+      = f.email_field :email, id: :user_email ,
+                                        class: "form-control input-lg" ,
+                                        placeholder: "Your email",
+                                        autofocus: true
+      .form-control-position
+        i.fe.fe-mail
+      .help-block.font-small-3
+    fieldset.form-group.position-relative.has-icon-left
+      - f.label :password
+      = f.password_field :password, id: :user_password ,
+                                            class: "form-control input-lg",
+                                            placeholder: "Your password",
+                                            autocomplete: "off"
+      .form-control-position
+        i.fa.fa-lock
+      .help-block.font-small-3
+    = f.button :submit , class: "btn btn-danger btn-block btn-lg" do
+      i.fa.fa-unlock
+      | Log In 

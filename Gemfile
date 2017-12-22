@@ -17,9 +17,11 @@ gem 'simple_form'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
 # Use SCSS for stylesheets
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'feathericon-sass'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'jquery-rails'
+gem 'sprockets-rails', require: 'sprockets/railtie'
 
 group :development, :test do
   gem 'annotate'

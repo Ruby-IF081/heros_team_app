@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :companies
-    resources :pages
+    resources :pages, only: %i[show index]
   end
 end

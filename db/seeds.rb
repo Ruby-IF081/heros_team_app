@@ -14,4 +14,4 @@ FactoryBot.create(:company, name:  'Alphabet Inc.',
                             domain: 'abc.xyz',
                             user: user)
 
-FactoryBot.create_list(:page, 50)
+FactoryBot.create_list(:page, 20)

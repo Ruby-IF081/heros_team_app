@@ -1,4 +1,21 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "feathericon";
+
+//header logo
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.8em;
+  color: #FFD600;
+  text-transform: capitalize;
+  letter-spacing: -1px;
+  padding-top: 5px;
+  font-weight: 900 ;
+  &:hover {
+    color:deepskyblue;
+    text-decoration: none;
+  }
+}
+

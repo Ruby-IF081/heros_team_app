@@ -1,0 +1,19 @@
+.app-content.content
+  .content-wrapper
+    .content-body
+      section.flexbox-container
+        .col-12.d-flex.align-items-center.justify-content-center
+          .col-md-5.col-8.box-shadow-2.p-0
+            .card.border-grey.border-lighten-3.px-2.py-2.m-0
+              .card-header.border-0
+                .card-title.text-center
+                  h3.brand-text
+                    |  Admin registration
+                h4.card-subtitle.line-on-side.text-muted.text-center.font-small-2.pt-2
+                  span
+                    | You will access Tenant through your admin account
+              .card-content
+                .card-body
+                  = render 'devise/shared/registration_form'
+                p.text-center
+                  | Have you already a Tenant ?
