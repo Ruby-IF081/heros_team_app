@@ -1,9 +1,11 @@
 .container
-  h1 All company pages
-  table.table.table-bordered
-    thead
-      th Title
-      th Type
-      th Status
-    = render partial: 'pages_table', collection: @pages, as: :page
-  = paginate @pages
+  .row
+    .col-md-12
+      h1 All company pages
+      table.table.table-bordered
+        thead
+          th.col-md-6 Title
+          th.col-md-3 Type
+          th.col-md-3 Status
+        = render partial: 'pages_table', collection: @pages, as: :page
+      = paginate @pages
