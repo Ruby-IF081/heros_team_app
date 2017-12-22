@@ -1,7 +1,26 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  form.form-horizontal[novalidate]
+  form.form-horizontal
     .row
       = devise_error_messages!
+      / ------for the future implementation------
+      /.col-12.col-sm-6.col-md-6
+      /  fieldset.form-group.position-relative.has-icon-left
+      /    - f.label :tenant_name
+      /    = f.text_field :tenant_name,
+      /            class: "form-control input-lg",
+      /            placeholder: "Tenant name",
+      /            autofocus: true
+      /    .form-control-position
+      /      i.fa.fa-user
+      /.col-12.col-sm-6.col-md-6
+      /  fieldset.form-group.position-relative.has-icon-left
+      /    - f.label :tenant_domain
+      /    = f.text_field :tenant_domain,
+      /              class: "form-control input-lg",
+      /              placeholder: "Tenant domain",
+      /              autofocus: true
+      /    .form-control-position
+      /      i.fa.fa-user
       .col-12.col-sm-6.col-md-6
         fieldset.form-group.position-relative.has-icon-left
           - f.label :first_name
