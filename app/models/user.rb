@@ -21,14 +21,14 @@
 #
 
 class User < ApplicationRecord
-  ROLES = { sale: 0, admin: 1, moderator: 2 }.freeze
-  enum role: ROLES
-
+  SALE_ROLE = 'sale'.freeze
+  ADMIN_ROLE = 'admin'.freeze
+  MODERATOR_ROLE = 'moderator'.freeze
+  ROLES = [SALE_ROLE, ADMIN_ROLE, MODERATOR_ROLE].freeze
   has_many :companies, dependent: :destroy
   belongs_to :tenant, optional: true
-
-  validates :first_name, length: { minimum: 3, maximum: 50 }, presence: true
-  validates :last_name,  length: { minimum: 3, maximum: 50 }, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  validates :first_name, length: { minimum: 3, maximum: 50 }, presence: true
+  validates :last_name,  length: { minimum: 3, maximum: 50 }, presence: true
 end
