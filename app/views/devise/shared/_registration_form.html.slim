@@ -1,73 +1,53 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  form.form-horizontal
-    .row
-      = devise_error_messages!
-      / # TODO: implement with Issue#21
-      /.col-12.col-sm-6.col-md-6
-      /  fieldset.form-group.position-relative.has-icon-left
-      /    - f.label :tenant_name
-      /    = f.text_field :tenant_name,
-      /            class: "form-control input-lg",
-      /            placeholder: "Tenant name",
-      /            autofocus: true
-      /    .form-control-position
-      /      i.fa.fa-user
-      /.col-12.col-sm-6.col-md-6
-      /  fieldset.form-group.position-relative.has-icon-left
-      /    - f.label :tenant_domain
-      /    = f.text_field :tenant_domain,
-      /              class: "form-control input-lg",
-      /              placeholder: "Tenant domain",
-      /              autofocus: true
-      /    .form-control-position
-      /      i.fa.fa-user
-      .col-12.col-sm-6.col-md-6
-        fieldset.form-group.position-relative.has-icon-left
-          - f.label :first_name
-          = f.text_field :first_name,
+  .row
+    = devise_error_messages!
+    .col-12.col-sm-6.col-md-6
+      fieldset.form-group.position-relative.has-icon-left
+        - f.label :first_name
+        = f.text_field :first_name,
                   class: "form-control input-lg",
                   placeholder:"First Name",
                   autofocus: true
-          .form-control-position
-            i.fa.fa-user
-      .col-12.col-sm-6.col-md-6
-        fieldset.form-group.position-relative.has-icon-left
-          - f.label :last_name
-          = f.text_field :last_name,
+        .form-control-position
+          i.fa.fa-user
+    .col-12.col-sm-6.col-md-6
+      fieldset.form-group.position-relative.has-icon-left
+        - f.label :last_name
+        = f.text_field :last_name,
                   class: "form-control input-lg",
                   placeholder:"Last Name",
                   autofocus: true
-          .form-control-position
-            i.fa.fa-user
-    fieldset.form-group.position-relative.has-icon-left
-      - f.label :email
-      = f.email_field :email,
+        .form-control-position
+          i.fa.fa-user
+  fieldset.form-group.position-relative.has-icon-left
+    - f.label :email
+    = f.email_field :email,
               class: "form-control input-lg",
               placeholder:"Please enter email address",
               autofocus: true
-      .form-control-position
-        i.fa.fa-envelope
-      .help-block.font-small-3
-    fieldset.form-group.position-relative.has-icon-left
-      - f.label :password
-      = f.password_field :password,
+    .form-control-position
+      i.fa.fa-envelope
+    .help-block.font-small-3
+  fieldset.form-group.position-relative.has-icon-left
+    - f.label :password
+    = f.password_field :password,
               class: "form-control input-lg",
               placeholder:"Password",
               autofocus: true
-      .form-control-position
-        i.fa.fa-key
-      .help-block.font-small-3
-    fieldset.form-group.position-relative.has-icon-left
-      - f.label :password_confirmation
-      = f.password_field :password_confirmation ,
+    .form-control-position
+      i.fa.fa-key
+    .help-block.font-small-3
+  fieldset.form-group.position-relative.has-icon-left
+    - f.label :password_confirmation
+    = f.password_field :password_confirmation ,
               class: "form-control input-lg",
               placeholder:"Confirm Password",
               autofocus: true
-      .form-control-position
-        i.fa.fa-key
-      .help-block.font-small-3
-    .row
-      .col-6.col-md-12
-        = f.button :submit , class: "btn btn-primary btn-lg btn-block" do
-          i.fa.fa-check
-          | Create Account 
+    .form-control-position
+      i.fa.fa-key
+    .help-block.font-small-3
+  .row
+    .col-6.col-md-12
+      = f.button :submit , class: "btn btn-primary btn-lg btn-block" do
+        i.fa.fa-check
+        | Create Account

@@ -4,8 +4,9 @@
       | ×
   h5.alert-heading.mb-2
     | Warning!
-  p
+  h6
     = error_sentence
+  ul
   - error_messages.each do |msg|
     li
       = msg
