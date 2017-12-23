@@ -10,7 +10,7 @@ html
     = render 'layouts/header'
     p.alert
       - flash.each do |message_type, message|
-        = content_tag(:div, message, class: "alert alert-#{message_type}")
+        = content_tag(:div, message, class: "alert alert-#{message_type} col-md-3")
     div.container
       = yield
       = any_login_here if defined?(AnyLogin)
