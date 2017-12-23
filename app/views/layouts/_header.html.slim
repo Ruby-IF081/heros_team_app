@@ -1,4 +1,4 @@
-nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.navbar-dark.bg-gradient-x-grey-blue.navbar-border.navbar-brand-center
+nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.navbar-dark.navbar-border
   .navbar-wrapper
     .navbar-container.content
       = link_to 'SalesAssistant', new_session_path(resource_name), id: 'logo'
@@ -32,7 +32,7 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.nav
             li.dropdown.dropdown-user.nav-item
               a.dropdown-toggle.nav-link.dropdown-user-link[href="#" data-toggle="dropdown"]
                 span.avatar.avatar-online
-                  = gravatar_for(current_user)
+                  = gravatar_image_tag(current_user.email)
                 span.user-name
                   = current_user.first_name
                 span.user-name

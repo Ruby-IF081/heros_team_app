@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
+gem 'gravatar_image_tag'
 gem 'jbuilder', '~> 2.5'
 gem 'kaminari'
 gem 'pg', '~> 0.18'
@@ -22,6 +23,7 @@ gem 'font-awesome-sass', '~> 4.7.0'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
 gem 'sprockets-rails', require: 'sprockets/railtie'
+
 
 group :development, :test do
   gem 'annotate'

@@ -113,6 +113,7 @@ GEM
       sass (>= 3.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gravatar_image_tag (1.2.0)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -308,6 +309,7 @@ DEPENDENCIES
   faker
   feathericon-sass
   font-awesome-sass (~> 4.7.0)
+  gravatar_image_tag
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
