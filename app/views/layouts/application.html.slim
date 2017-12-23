@@ -10,4 +10,5 @@ html
     = render 'layouts/header'
     div.container
       = yield
+      = any_login_here if defined?(AnyLogin)
       = render 'layouts/footer'
