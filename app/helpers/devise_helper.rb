@@ -15,5 +15,4 @@ module DeviseHelper
            count: resource.errors.count,
            resource: resource.class.model_name.human.downcase)
   end
-
 end

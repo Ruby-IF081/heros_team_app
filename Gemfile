@@ -24,7 +24,6 @@ gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 
-
 group :development, :test do
   gem 'annotate'
   gem 'byebug', '~> 9.0', '>= 9.0.6'
