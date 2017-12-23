@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :pages, only: %i[show index]
+    resources :tenants
   end
 end
