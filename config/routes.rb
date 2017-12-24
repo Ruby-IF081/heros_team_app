@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'home#index'
+  devise_for :users, path: 'account', controllers: {
+    registrations: 'users/registrations'
+  }
 
   namespace :account do
     resources :companies
