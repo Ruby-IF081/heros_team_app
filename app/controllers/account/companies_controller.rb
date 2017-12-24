@@ -2,7 +2,7 @@ class Account::CompaniesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @companies = current_user.companies.all
+    @companies = current_user.companies.all.page(params[:page]).per(4)
   end
 
   def show
