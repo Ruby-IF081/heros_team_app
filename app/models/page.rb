@@ -25,4 +25,6 @@ class Page < ApplicationRecord
   LINKEDIN_TYPE = 'linkedin'.freeze
   CRUNCHBASE_TYPE = 'crunchbase'.freeze
   PAGE_TYPES = [BING_TYPE, ANGLECO_TYPE, LINKEDIN_TYPE, CRUNCHBASE_TYPE].freeze
+
+  belongs_to :company
 end
