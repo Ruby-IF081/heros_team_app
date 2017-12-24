@@ -1,6 +1,6 @@
 header.navbar.navbar-fixed-top.navbar-dark
   div.container
-    = link_to 'SalesAssistant', new_session_path(resource_name), id: 'logo'
+    = link_to 'SalesAssistant', new_session_path(:user), id: 'logo'
     nav
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
@@ -9,6 +9,6 @@ header.navbar.navbar-fixed-top.navbar-dark
         - else
           - if controller_name != 'sessions'
             li.nav_li
-              = link_to  new_session_path(resource_name) do
+              = link_to new_session_path(:user) do
                 i.fa.fa-user
                   | Login

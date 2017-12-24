@@ -1,0 +1,15 @@
+h1= @tenant.name
+.btn-group
+  = link_to  "Edit", edit_account_tenant_path, class: 'btn btn-primary'
+  = link_to "Delete", account_tenant_path, method: :delete,
+                      data: { confirm: 'Are you sure you want to delete this tenant?' },
+                      class: 'btn btn-primary'
+.tenant
+  p
+  	b Website:   	
+  p
+  	= @tenant.website
+  p
+  	b Phone:
+  p
+  	= @tenant.phone

@@ -1,4 +1,4 @@
-FactoryBot.create(:user, email: 'example@gmail.com', password: '1qaz2wsx')
+FactoryBot.create(:user, email: 'admin@admin.com', password: '1qaz2wsx', role: 'admin')
 
 user = User.first
 

@@ -25,6 +25,7 @@ gem 'sprockets-rails', require: 'sprockets/railtie'
 
 group :development, :test do
   gem 'annotate'
+  gem 'any_login'
   gem 'byebug', '~> 9.0', '>= 9.0.6'
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner'
