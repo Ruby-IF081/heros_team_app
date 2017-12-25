@@ -13,31 +13,27 @@
       fieldset.form-group.position-relative.has-icon-left
         = f.text_field :last_name,
                   class: "form-control input-lg",
-                  placeholder:"Last Name",
-                  autofocus: true
+                  placeholder:"Last Name"
         .form-control-position
           i.fa.fa-user
   fieldset.form-group.position-relative.has-icon-left
     = f.email_field :email,
               class: "form-control input-lg",
-              placeholder:"Please enter email address",
-              autofocus: true
+              placeholder:"Please enter email address"
     .form-control-position
       i.fa.fa-envelope
     .help-block.font-small-3
   fieldset.form-group.position-relative.has-icon-left
     = f.password_field :password,
               class: "form-control input-lg",
-              placeholder:"Password",
-              autofocus: true
+              placeholder:"Password"
     .form-control-position
       i.fa.fa-key
     .help-block.font-small-3
   fieldset.form-group.position-relative.has-icon-left
     = f.password_field :password_confirmation ,
               class: "form-control input-lg",
-              placeholder:"Confirm Password",
-              autofocus: true
+              placeholder:"Confirm Password"
     .form-control-position
       i.fa.fa-key
     .help-block.font-small-3
