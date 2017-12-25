@@ -11,7 +11,10 @@ script:
 
 services:
   - postgresql
+  - redis-server
 
 before_script:
   - cp config/database.yml.example config/database.yml
   - cp config/secrets.yml.example config/secrets.yml
+  - bundle exec sidekiq -d -L /tmp/sidekiq.log
+  - sleep 1
