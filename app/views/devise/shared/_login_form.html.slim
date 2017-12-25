@@ -1,7 +1,6 @@
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  = devise_error_messages!
+  = render 'devise/shared/errors_massages'
   fieldset.form-group.position-relative.has-icon-left
-    - f.label :email
     = f.email_field :email, id: :user_email ,
                                         class: "form-control input-lg" ,
                                         placeholder: "Your email",
@@ -10,7 +9,6 @@
       i.fe.fe-mail
     .help-block.font-small-3
   fieldset.form-group.position-relative.has-icon-left
-    - f.label :password
     = f.password_field :password, id: :user_password ,
                                             class: "form-control input-lg",
                                             placeholder: "Your password",

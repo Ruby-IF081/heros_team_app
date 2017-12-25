@@ -1,9 +1,8 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render 'devise/shared/errors_massages'
   .row
-    = devise_error_messages!
     .col-12.col-sm-6.col-md-6
       fieldset.form-group.position-relative.has-icon-left
-        - f.label :first_name
         = f.text_field :first_name,
                   class: "form-control input-lg",
                   placeholder:"First Name",
@@ -12,7 +11,6 @@
           i.fa.fa-user
     .col-12.col-sm-6.col-md-6
       fieldset.form-group.position-relative.has-icon-left
-        - f.label :last_name
         = f.text_field :last_name,
                   class: "form-control input-lg",
                   placeholder:"Last Name",
@@ -20,7 +18,6 @@
         .form-control-position
           i.fa.fa-user
   fieldset.form-group.position-relative.has-icon-left
-    - f.label :email
     = f.email_field :email,
               class: "form-control input-lg",
               placeholder:"Please enter email address",
@@ -29,7 +26,6 @@
       i.fa.fa-envelope
     .help-block.font-small-3
   fieldset.form-group.position-relative.has-icon-left
-    - f.label :password
     = f.password_field :password,
               class: "form-control input-lg",
               placeholder:"Password",
@@ -38,7 +34,6 @@
       i.fa.fa-key
     .help-block.font-small-3
   fieldset.form-group.position-relative.has-icon-left
-    - f.label :password_confirmation
     = f.password_field :password_confirmation ,
               class: "form-control input-lg",
               placeholder:"Confirm Password",

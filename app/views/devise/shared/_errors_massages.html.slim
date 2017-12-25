@@ -1,12 +1,9 @@
-.alert.alert-danger.alert-dismissible.mb-2[role="alert"]
-  button.close[type="button" data-dismiss="alert" aria-label="Close"]
-    span[aria-hidden="true"]
-      | ×
-  h5.alert-heading.mb-2
-    | Warning!
-  h6
-    = error_sentence
-  ul
-  - error_messages.each do |msg|
-    li
-      = msg
+- if resource.errors.any?
+  .alert.alert-danger.alert-dismissible.mb-2[role="alert"]
+    button.close[type="button" data-dismiss="alert" aria-label="Close"]
+      span[aria-hidden="true"]
+        | ×
+    h5.alert-heading.mb-2
+      | Warning!
+    span
+      = error_messages_for(resource_name)

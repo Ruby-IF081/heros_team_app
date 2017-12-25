@@ -30,4 +30,8 @@ class User < ApplicationRecord
   validates :last_name,  length: { minimum: 3, maximum: 50 }, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def full_name
+    ([first_name, last_name] - ['']).compact.join(' ')
+  end
 end

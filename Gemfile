@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
+gem 'dynamic_form'
 gem 'gravatar_image_tag'
 gem 'jbuilder', '~> 2.5'
 gem 'kaminari'
