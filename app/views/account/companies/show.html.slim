@@ -1,0 +1,83 @@
+.content-wrapper
+  .content-header.row
+    .content-header-left.col-md-6.col-12.mb-2
+      h3.content-header-title.mb-0= @company.name
+      .row.breadcrumbs-top
+        .breadcrumb-wrapper.col-12
+          ol.breadcrumb
+            li.breadcrumb-item
+              a href=root_path  User
+            li.breadcrumb-item
+              a href=account_companies_path  All Companies
+            li.breadcrumb-item.active
+              = @company.name
+    .content-header-right.text-md-right.col-md-6.col-12
+      .form-group
+        button.btn-icon.btn.btn-grey-blue.btn-darken-2.btn-round type="button"
+          = link_to edit_account_company_path do
+            i.fa.fa-pencil-square-o
+        button.btn-icon.btn.btn-grey-blue.btn-darken-2.btn-round type="button"
+          = link_to account_company_path, method: :delete,
+                  data: {confirm: 'Are you certain you want to delete this company?'} do
+            i.fa.fa-trash-o
+  .content-body
+    section.row
+      .col-sm-12
+        /! Overview
+        #overview.card
+          .card-header
+            h4.card-title Overview
+          .card-content
+            .card-body
+              .row
+                .card-image.col-sm-2
+                  img src="https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_120,w_120,f_auto,q_auto:eco/v1459804290/mkxozts4fsvkj73azuls.png" style=("opacity: 1;")
+                .card-text.col-sm-10
+                  h4= @company.name
+                  a href="http://#{@company.domain}" target="_blank"=  @company.domain
+                  h6 Description
+                  p
+                    | Brief overview
+                    br
+                    | Mostly info from FullContact in this card
+              .row
+                .card-text.col-sm-2
+                  h6 Categories
+                .card-text.col-sm-10
+                  | List of indastries
+              .row
+                .card-text.col-sm-2
+                  h6 Founded Date
+                .card-text.col-sm-10
+                  | Jan 1, 2003
+              .row
+                .card-text.col-sm-2
+                  h6 Founders
+                .card-text.col-sm-10
+                  | List of Founders
+        /! / Overciew
+        /! Pages
+        .card
+          .card-header
+            h4.card-title= "#{@company.name} pages"
+          .card-content.collapse.show
+            .card-body
+              .card-text
+        /! / Pages
+    section.row
+      .col-md-6.col-sm-12
+        .card
+          .card-header
+            h4.card-title Extra Card 1
+          .card-content.collapse.show
+            .card-body.border-top-blue-grey.border-top-lighten-5
+              h4.card-title Content title
+              p.card-text
+      .col-md-6.col-sm-12
+        .card
+          .card-header
+            h4.card-title Extra Card 2
+          .card-content.collapse.show
+            .card-body
+              h4.card-title Content title
+              p.card-text

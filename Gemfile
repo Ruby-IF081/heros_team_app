@@ -35,6 +35,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry', '~> 0.10.3'
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'

@@ -1,3 +1,19 @@
 FactoryBot.create(:user, email: 'admin@admin.com', password: '1qaz2wsx', role: 'admin')
-FactoryBot.create_list(:tenant, 20)
-FactoryBot.create_list(:page, 20)
+
+user = User.first
+
+FactoryBot.create(:company, name:  'Example Company',
+                            domain: 'example.org',
+                            user: user)
+
+FactoryBot.create(:company, name:  'SoftServe,Inc.',
+                            domain: 'softserve.ua',
+                            user: user)
+
+FactoryBot.create(:company, name:  'Alphabet Inc.',
+                            domain: 'abc.xyz',
+                            user: user)
+
+company = Company.first
+
+FactoryBot.create_list(:page, 20, company: company)

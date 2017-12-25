@@ -16,6 +16,7 @@
 
 FactoryBot.define do
   factory :page do
+    company
     page_type { Page::PAGE_TYPES.sample }
     title { Faker::Beer.name }
     content_html { Faker::Lorem.paragraphs(10).join }
