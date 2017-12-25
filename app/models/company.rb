@@ -8,12 +8,4 @@ class Company < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3, maximum: 64 }
   validates :domain, presence: true, length: { minimum: 3, maximum: 64 },
                      format: { with: VALID_DOMAIN_REGEX }
-
-  after_create :start_worker
-
-  private
-
-  def start_worker
-    TestWorker.perform_async
-  end
 end

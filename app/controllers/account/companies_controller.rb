@@ -17,6 +17,7 @@ class Account::CompaniesController < ApplicationController
     @company = current_user.companies.build(company_params)
     if @company.save
       flash[:success] = "Company successfully created"
+      NewCompanyWorker.perform_async(@company.id)
       redirect_to account_company_path(@company)
     else
       render :new
