@@ -1,6 +1,5 @@
 class Account::CompaniesController < ApplicationController
   before_action :authenticate_user!
-  after_action :start_worker, only: :create
 
   def index
     @companies = current_user.companies.all.page(params[:page]).per(4)
@@ -53,9 +52,5 @@ class Account::CompaniesController < ApplicationController
 
   def current_company
     current_user.companies.find(params[:id])
-  end
-
-  def start_worker
-    TestWorker.perform_async
   end
 end
