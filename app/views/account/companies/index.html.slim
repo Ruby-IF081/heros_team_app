@@ -1,0 +1,39 @@
+.content-wrapper
+  .content-header.row
+    .content-header-left.col-md-6.col-12.mb-2
+      h3.content-header-title.mb-0 All companies
+      .row.breadcrumbs-top
+        .breadcrumb-wrapper.col-12
+          ol.breadcrumb
+            li.breadcrumb-item
+              a href=root_path  User
+            li.breadcrumb-item.active
+              | All companies
+    .content-header-right.text-md-right.col-md-6.col-12
+      .form-group
+        button.btn-icon.btn.btn-grey-blue.btn-darken-2.btn-round type="button"
+          = link_to new_account_company_path do
+            i.fa.fa-plus
+  .content-body
+    section.row
+      .col-sm-12
+        /! Overview
+        - @companies.each do |company|
+          #overview.card
+            .card-header
+              h4.card-title= link_to company.name, account_company_path(company)
+            .card-content
+              .card-body
+                .row
+                  .card-image.col-sm-2
+                    img src="https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_120,w_120,f_auto,q_auto:eco/v1459804290/mkxozts4fsvkj73azuls.png" style=("opacity: 1;")
+                  .card-text.col-sm-10
+                    h4= company.name
+                    a href="http://#{company.domain}" target="_blank"=  company.domain
+                    h6 Description
+                    p
+                      | Brief overview
+                      br
+                      | Mostly info from FullContact in this card
+    = paginate @companies
+        /! / Overview

@@ -1,0 +1,8 @@
+h1.col-md-6.col-md-offset-3 Edit Company
+.row
+  .col-md-3.col-md-offset-3
+    = simple_form_for @company, url: account_company_path,
+                                defaults: { input_html: { class: 'form-control' } } do |f|
+      = f.input :name
+      = f.input :domain, hint: "Only '-' of special characters is allowed."
+      = f.button :submit, 'Edit Company', class: "btn btn-primary"
