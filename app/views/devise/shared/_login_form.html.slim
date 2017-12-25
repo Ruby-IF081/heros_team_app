@@ -1,5 +1,4 @@
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  = render 'devise/shared/errors_massages'
   fieldset.form-group.position-relative.has-icon-left
     = f.email_field :email, id: :user_email ,
                                         class: "form-control input-lg" ,
