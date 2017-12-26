@@ -386,15 +386,9 @@ DEPENDENCIES
   pry (~> 0.10.3)
   puma (~> 3.7)
   rails (~> 5.1.4)
-<<<<<<< HEAD
-<<<<<<< HEAD
-  rails-controller-testing
-=======
-=======
   rails_best_practices
->>>>>>> Added rails_best_practices gem
+  rails-controller-testing
   reek (~> 4.7, >= 4.7.3)
->>>>>>> Added reek and brakeman linters
   rspec-rails (~> 3.6)
   rubocop (~> 0.51.0)
   sass-rails (~> 5.0)
