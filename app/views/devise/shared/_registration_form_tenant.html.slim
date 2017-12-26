@@ -1,0 +1,8 @@
+= f.fields_for :tenant do |t|
+  fieldset.form-group.position-relative.has-icon-left
+    = t.text_field :name,
+            class: "form-control input-lg",
+            placeholder: "Tenant Name"
+    .form-control-position
+      i.fa.fa-building
+    .help-block.font-small-3
