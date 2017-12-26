@@ -36,7 +36,7 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.nav
                 span.user-name = current_user.full_name
               .dropdown-menu.dropdown-menu-right
                 .dropdown-item[href="#"]
-                  = link_to '#', class: "btn btn-sm" do
+                  = link_to edit_user_registration_path, class: "btn btn-sm" do
                     i.fa.fa-user
                     | Edit Profile
                 .dropdown-divider
