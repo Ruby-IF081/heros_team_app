@@ -18,3 +18,5 @@ exclude_paths:
   - vendor
 UtilityFunction:
   public_methods_only: true
+TooManyConstants:
+  max_constants: 10
