@@ -1,1 +1,0 @@
-TEAM_API_CONFIG = YAML.load(File.read("#{Rails.root}/config/bing_api_v7.yml"))
