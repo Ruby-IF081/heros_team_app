@@ -8,6 +8,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     respond_with resource
   end
 
+  def create
+    super
+    resource.update_attributes(role: User::ADMIN_ROLE)
+  end
+
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
