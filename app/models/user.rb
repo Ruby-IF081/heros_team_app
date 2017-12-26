@@ -29,6 +29,10 @@ class User < ApplicationRecord
   belongs_to :tenant, optional: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   validates :first_name, length: { minimum: 3, maximum: 50 }, presence: true
   validates :last_name,  length: { minimum: 3, maximum: 50 }, presence: true
+  def full_name
+    [first_name, last_name].reject(&:blank?).join('')
+  end
 end

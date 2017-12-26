@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
+gem 'dynamic_form'
+gem 'gravatar_image_tag'
 gem 'jbuilder', '~> 2.5'
 gem 'kaminari'
 gem 'pg', '~> 0.18'
@@ -13,6 +15,7 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'rubocop', '~> 0.51.0', require: false
 gem 'sass-rails', '~> 5.0'
+gem 'sidekiq'
 gem 'simple_form'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
@@ -21,6 +24,7 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'feathericon-sass'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'jquery-rails'
+gem 'popper_js', '~> 1.12.9'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 
 group :development, :test do
@@ -45,6 +49,7 @@ group :development do
   gem 'capistrano-rails-collection'
   gem 'capistrano-rails-db'
   gem 'capistrano-rvm'
+  gem 'capistrano-sidekiq'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
