@@ -54,3 +54,4 @@ public/uploads
 
 # Ignore simplecov
 coverage/
+.idea/
