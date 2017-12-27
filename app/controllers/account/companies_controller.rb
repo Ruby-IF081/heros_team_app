@@ -1,8 +1,6 @@
 require 'bing_api'
-
 class Account::CompaniesController < ApplicationController
   before_action :authenticate_user!
-  #after_action Bing_api_v7::bing_pages_to_model(current_company.id), only: :create, if: -> { true }
 
   def index
     @companies = current_user.companies.all.page(params[:page]).per(4)
