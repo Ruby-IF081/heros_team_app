@@ -1,0 +1,95 @@
+<nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-static-top navbar-dark bg-gradient-x-grey-blue navbar-border navbar-brand-center" data-nav="brand-center">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row">
+          <li class="nav-item mobile-menu d-md-none mr-auto"><a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu font-large-1"></i></a></li>
+          <li class="nav-item">
+            <a href="index.html" class="navbar-brand">
+              <%= image_tag('stack-logo-light.png', alt: 'logo', class: 'brand-logo') %>
+              <h2 class="brand-text">Sales Assistant</h2>
+            </a>
+          </li>
+          <li class="nav-item d-md-none">
+            <a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="fa fa-ellipsis-v"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-container content">
+        <div id="navbar-mobile" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav float-right">
+            <li class="dropdown dropdown-notification nav-item">
+              <a href="#" data-toggle="dropdown" class="nav-link nav-link-label"><%= fa_icon "bell", class: 'ficon ft-bell' %>
+                <span class="badge badge-pill badge-default badge-danger badge-default badge-up">5</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                <li class="dropdown-menu-header">
+                  <h6 class="dropdown-header m-0">
+                    <span class="grey darken-2">Notifications</span>
+                    <span class="notification-tag badge badge-default badge-danger float-right m-0">5 New</span>
+                  </h6>
+                </li>
+                <li class="scrollable-container media-list ps-container ps-theme-dark ps-active-y" data-ps-id="94948357-23e2-e9a9-2ee8-92441468c331">
+                  <a href="javascript:void(0)">
+                    <div class="media">
+                      <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading">You have new order!</h6>
+                        <p class="notification-text font-small-3 text-muted">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                        <small>
+                          <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">30 minutes ago</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+
+                <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 255px; right: 3px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 151px;"></div></div></li>
+                <li class="dropdown-menu-footer"><a href="javascript:void(0)" class="dropdown-item text-muted text-center">Read all notifications</a></li>
+              </ul>
+            </li>
+            <li class="dropdown dropdown-notification nav-item">
+              <a href="#" data-toggle="dropdown" class="nav-link nav-link-label"><%= fa_icon "envelope", class: "ficon ft-mail" %>
+                <span class="badge badge-pill badge-default badge-warning badge-default badge-up">3</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                <li class="dropdown-menu-header">
+                  <h6 class="dropdown-header m-0">
+                    <span class="grey darken-2">Messages</span>
+                    <span class="notification-tag badge badge-default badge-warning float-right m-0">4 New</span>
+                  </h6>
+                </li>
+                <li class="scrollable-container media-list ps-container ps-theme-dark ps-active-y" data-ps-id="871b8e2f-5dfd-995d-ff78-e535d6b6f784">
+                  <a href="javascript:void(0)">
+                    <div class="media">
+                      <div class="media-left">
+                        <span class="avatar avatar-online">
+                           <%= image_tag('avatar-s-1.png', alt: 'avatar') %>
+                        <i></i></span>
+                      </div>
+                      <div class="media-body">
+                        <h6 class="media-heading">Margaret Govan</h6>
+                        <p class="notification-text font-small-3 text-muted">I like your portfolio, let's start.</p>
+                        <small>
+                          <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">Today</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 255px; right: 3px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 181px;"></div></div></li>
+                <li class="dropdown-menu-footer"><a href="javascript:void(0)" class="dropdown-item text-muted text-center">Read all messages</a></li>
+              </ul>
+            </li>
+            <li class="dropdown dropdown-user nav-item">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
+                <span class="avatar avatar-online">
+                  <%= image_tag('avatar-s-1.png', alt: 'avatar') %><i></i></span>
+                <span class="user-name"><%= "#{current_user.first_name} #{current_user.last_name}" %></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right"><a href="#" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>
+              <div class="dropdown-divider"></div><a href="#" class="dropdown-item"><i class="ft-power"></i> Logout</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>

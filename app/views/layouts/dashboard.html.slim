@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title
+      | HeroesTeamApp
+    = csrf_meta_tags
+    = stylesheet_link_tag    'account/application', media: 'all'
+    = stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Montserrat'
+    = javascript_include_tag 'account/application'
+
+  body class="horizontal-layout horizontal-menu 2-columns  menu-expanded pace-done" data-open="hover" data-menu="horizontal-menu" data-col="2-columns"
+  
+    = render 'account/dashboard/header'
+    = yield
+    = render 'account/dashboard/nav'
+    = render 'account/dashboard/main'
+    = render 'account/dashboard/footer'
+    = any_login_here if defined?(AnyLogin)
+   

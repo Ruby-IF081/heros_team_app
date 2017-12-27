@@ -1,0 +1,369 @@
+@font-face {
+  font-family: 'icomoon';
+  src: font-url('icomoon.eot');
+  src: font-url('icomoon.eot') format('embedded-opentype'),
+  font-url('icomoon.ttf') format('truetype'),
+  font-url('icomoon.woff') format('woff'),
+  font-url('icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-additional-menu:before {
+  content: "\e901";
+}
+
+.icon-adhoc-xl:before {
+  content: "\e902";
+}
+
+.icon-agenda:before {
+  content: "\e903";
+}
+
+.icon-arrow-right:before {
+  content: "\e904";
+}
+
+.icon-back:before {
+  content: "\e905";
+}
+
+.icon-bfsi-xl:before {
+  content: "\e906";
+}
+
+.icon-bfsi-m:before {
+  content: "\e907";
+}
+
+.icon-bottom-m:before {
+  content: "\e908";
+}
+
+.icon-radio-off:before {
+  content: "\e909";
+}
+
+.icon-close-in-circle:before {
+  content: "\e90a";
+}
+
+.icon-close-l:before {
+  content: "\e90b";
+}
+
+.icon-create-by-industry-xl:before {
+  content: "\e90c";
+}
+
+.icon-create-by-solution-xl:before {
+  content: "\e90d";
+}
+
+.icon-create-presentations-xl:before {
+  content: "\e90e";
+}
+
+.icon-curriculum-xl:before {
+  content: "\e90f";
+}
+
+.icon-digital-health-xl:before {
+  content: "\e910";
+}
+
+.icon-done:before {
+  content: "\e913";
+}
+
+.icon-digital-media-m:before {
+  content: "\e911";
+}
+
+.icon-digital-media-xl:before {
+  content: "\e912";
+}
+
+.icon-download:before {
+  content: "\e915";
+}
+
+.icon-edit:before {
+  content: "\e916";
+}
+
+.icon-figura-1:before {
+  content: "\e917";
+}
+
+.icon-figura-2:before {
+  content: "\e918";
+}
+
+.icon-figura-3:before {
+  content: "\e919";
+}
+
+.icon-figura-4:before {
+  content: "\e91a";
+}
+
+.icon-figura-5:before {
+  content: "\e91b";
+}
+
+.icon-figura-6:before {
+  content: "\e91c";
+}
+
+.icon-figura-7:before {
+  content: "\e91d";
+}
+
+.icon-figura-8:before {
+  content: "\e91e";
+}
+
+.icon-figura-9:before {
+  content: "\e91f";
+}
+
+.icon-figura-10:before {
+  content: "\e920";
+}
+
+.icon-close-m:before {
+  content: "\e921";
+}
+
+.icon-isv-m:before {
+  content: "\e922";
+}
+
+.icon-isv-xl:before {
+  content: "\e923";
+}
+
+.icon-left-m:before {
+  content: "\e924";
+}
+
+.icon-left-xl:before {
+  content: "\e925";
+}
+
+.icon-like:before {
+  content: "\e926";
+}
+
+.icon-logout:before {
+  content: "\e927";
+}
+
+.icon-love:before {
+  content: "\e928";
+}
+
+.icon-mark-resolved:before {
+  content: "\e929";
+}
+
+.icon-mega-quiz:before {
+  content: "\e92a";
+}
+
+.icon-my-presentations-xl:before {
+  content: "\e92b";
+}
+
+.icon-notification-settings:before {
+  content: "\e92c";
+}
+
+.icon-person-1-m:before {
+  content: "\e92d";
+}
+
+.icon-person-1-xl:before {
+  content: "\e92e";
+}
+
+.icon-person-2-m:before {
+  content: "\e92f";
+}
+
+.icon-person-2-xl:before {
+  content: "\e930";
+}
+
+.icon-person-all-m:before {
+  content: "\e931";
+}
+
+.icon-person-all-xl:before {
+  content: "\e932";
+}
+
+.icon-retail-m:before {
+  content: "\e933";
+}
+
+.icon-retail-xl:before {
+  content: "\e934";
+}
+
+.icon-right-m:before {
+  content: "\e935";
+}
+
+.icon-right-xl:before {
+  content: "\e936";
+}
+
+.icon-saved-presentations-xl:before {
+  content: "\e937";
+}
+
+.icon-scroll-down:before {
+  content: "\e914";
+}
+
+.icon-search:before {
+  content: "\e93a";
+}
+
+.icon-settings:before {
+  content: "\e93b";
+}
+
+.icon-shared-presentations-xl:before {
+  content: "\e93c";
+}
+
+.icon-share-l:before {
+  content: "\e93d";
+}
+
+.icon-share-m:before {
+  content: "\e93e";
+}
+
+.icon-softserve-logo:before {
+  content: "\e93f";
+}
+
+.icon-status-planned:before {
+  content: "\e940";
+}
+
+.icon-status-done:before {
+  content: "\e941";
+}
+
+.icon-top-ad-hoc:before {
+  content: "\e943";
+}
+
+.icon-top-bneed:before {
+  content: "\e944";
+}
+
+.icon-top-curriculum:before {
+  content: "\e945";
+}
+
+.icon-top-industries:before {
+  content: "\e946";
+}
+
+.icon-top-learn:before {
+  content: "\e947";
+}
+
+.icon-top-myprofile:before {
+  content: "\e948";
+}
+
+.icon-top-news:before {
+  content: "\e949";
+}
+
+.icon-top-persona:before {
+  content: "\e94a";
+}
+
+.icon-top-present:before {
+  content: "\e94b";
+}
+
+.icon-top-presentations:before {
+  content: "\e94c";
+}
+
+.icon-top-studio:before {
+  content: "\e94d";
+}
+
+.icon-video-l:before {
+  content: "\e94e";
+}
+
+.icon-video-m:before {
+  content: "\e94f";
+}
+
+.icon-views:before {
+  content: "\e950";
+}
+
+.icon-notifications-white-bell:before {
+  content: "\e900";
+}
+
+.icon-hamburger-menu:before {
+  content: "\e938";
+}
+
+.icon-digital-health-m:before {
+  content: "\e953";
+}
+
+.icon-radio-on:before {
+  content: "\e939";
+}
+
+.icon-status-progress:before {
+  content: "\e951";
+}
+
+.icon-top-icons:before {
+  content: "\e95a";
+}
+
+.icon-checkbox-on-small:before {
+  content: "\e954";
+}
+
+.icon-checkbox-off-big:before {
+  content: "\e952";
+}
+
+.icon-checkbox-on-big:before {
+  content: "\e942";
+}
