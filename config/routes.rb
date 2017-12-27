@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'contacts', to: 'home#contacts'
 
   devise_for :users, path: 'account', controllers: {
-    registrations: 'users/registrations'
+      registrations: 'users/registrations'
   }
 
   namespace :account do
