@@ -1,4 +1,3 @@
-require 'bing_api'
 class Account::CompaniesController < ApplicationController
   before_action :authenticate_user!
 
