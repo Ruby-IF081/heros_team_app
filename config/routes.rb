@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   root 'home#index'
   devise_for :users, path: 'account', controllers: {
-    registrations: 'users/registrations'
+      registrations: 'users/registrations'
   }
 
   namespace :account do
-    resources :companies
-    resources :pages, only: %i[show index]
+    resources :companies do
+      resources :pages, only: %i[show index]
+    end
     resources :tenants
   end
 end
