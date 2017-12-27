@@ -1,8 +1,6 @@
 require 'bing_api'
-
 class Account::CompaniesController < ApplicationController
   before_action :authenticate_user!
-  #after_action Bing_api_v7::bing_pages_to_model(current_company.id), only: :create, if: -> { true }
 
   def index
     @companies = current_user.companies.all.page(params[:page]).per(4)
@@ -20,7 +18,7 @@ class Account::CompaniesController < ApplicationController
     @company = current_user.companies.build(company_params)
     FullContactCompanyProcessor.new(company: @company).process
     if @company.save
-      BingApiV7.new.bing_pages_to_model(@company.id)
+      BingApiV7.new.bing_pages_to_model(@company)
       flash[:success] = "Company successfully created"
       NewCompanyWorker.perform_async(@company.id)
       redirect_to account_company_path(@company)

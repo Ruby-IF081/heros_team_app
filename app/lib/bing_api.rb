@@ -4,51 +4,36 @@ require 'json'
 require 'pry'
 
 class BingApiV7
+  URI::PATH = "https://api.cognitive.microsoft.com/bing/v7.0/search".freeze
+
   def initialize
-    @accessKey = Rails.application.secrets.bing_api_v7
+    @api_key = Rails.application.secrets.bing_api_v7
   end
 
-  def search(company)
-
-    uri  = "https://api.cognitive.microsoft.com"
-    path = "/bing/v7.0/search"
-
-    if @accessKey.length != 32 then
-      puts "Invalid Bing Search API subscription key!"
-      puts "Please paste yours into the source code."
-      abort
-    end
-
-    uri = URI(uri + path + "?q=" + URI.escape(company))
-
-    puts "Searching the Web for: " + company
-
+  def search(company_domain)
+    uri = URI(URI::PATH + "?q=" + CGI.escape(company_domain))
     request = Net::HTTP::Get.new(uri)
-    request['Ocp-Apim-Subscription-Key'] = @accessKey
+    request['Ocp-Apim-Subscription-Key'] = @api_key
 
-    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+    response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
       http.request(request)
     end
 
-    puts "\nRelevant Headers:\n\n"
     response.each_header do |key, value|
-      # header names are coerced to lowercase
-      if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
-        puts key + ": " + value
-      end
+      puts key + ": " + value if key.start_with?("bingapis-", "x-msedge-")
     end
 
-    puts "\nJSON Response:\n\n"
     JSON(response.body)
   end
 
-  def bing_pages_to_model(company_id)
-    company = Company.find_by(id: company_id)
+  def bing_pages_to_model(company)
     pages = search(company.domain)["webPages"]["value"]
-
+    
     pages.each do |page|
-      company.pages.create(page_type: Page::BING_TYPE, title: page["name"], source_url: page["displayUrl"], status: Page::PENDING_STATUS)
-    end 
+      company.pages.create(page_type: Page::BING_TYPE, title: page["name"],
+                           source_url: page["displayUrl"], status: Page::PENDING_STATUS)
+    end
+    rescue NoMethodError => e  
+      puts e.message
   end
-
 end
