@@ -94,6 +94,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (1.2.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     code_analyzer (0.4.8)
@@ -169,6 +173,10 @@ GEM
     mail (2.7.0)
       mini_mime (>= 0.1.1)
     method_source (0.8.2)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
+    mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
@@ -364,6 +372,7 @@ DEPENDENCIES
   capistrano-rvm
   capistrano-sidekiq
   capybara (~> 2.13)
+  carrierwave
   database_cleaner
   devise
   dynamic_form
@@ -376,6 +385,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen (>= 3.0.5, < 3.2)
+  mini_magick
   pg (~> 0.18)
   popper_js (~> 1.12.9)
   pry (~> 0.10.3)

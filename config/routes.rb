@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   devise_for :users, path: 'account', controllers: {
-      registrations: 'users/registrations'
+    registrations: 'users/registrations'
   }
 
   namespace :account do

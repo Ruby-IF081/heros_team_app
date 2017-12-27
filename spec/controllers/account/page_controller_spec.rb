@@ -3,14 +3,15 @@ require 'rails_helper'
 RSpec.describe Account::PagesController, type: :controller do
   context 'Page' do
     let!(:page) { FactoryBot.create(:page) }
+    before(:each) { sign_in page.company.user }
 
-    it 'Get#index' do
-      get :index
+    it 'GET #index' do
+      get :index, params: { company_id: page.company }
       expect(response).to have_http_status(:success)
     end
 
-    it 'Get#show' do
-      get :index, params: { id: page.id }
+    it 'GET #show' do
+      get :index, params: { company_id: page.company, id: page.id }
       expect(response).to have_http_status(:success)
     end
   end
