@@ -1,0 +1,32 @@
+#sticky-wrapper.sticky-wrapper[style="height: 56px;"]
+  .header-navbar.navbar-expand-sm.navbar.navbar-horizontal.navbar-fixed.navbar-light.navbar-without-dd-arrow.navbar-shadow.menu-border.navbar-brand-center[role="navigation" data-menu="menu-wrapper" data-nav="brand-center" style=""]
+    .navbar-container.main-menu-content[data-menu="menu-container"]
+      ul#main-menu-navigation.nav.navbar-nav[data-menu="menu-navigation"]
+        li.dropdown.nav-item.active[data-menu="dropdown"]
+          a.dropdown-toggle.nav-link[href="index.html" data-toggle="dropdown"]
+            i.ft-home
+            span
+              | Dashboard
+        - if user_admin?
+          li.dropdown.nav-item[data-menu="dropdown"]
+            a.dropdown-toggle.nav-link[href="#" data-toggle="dropdown"]
+              i.ft-monitor
+              span
+                | Users
+            ul.dropdown-menu
+              li.dropdown[data-menu="dropdown-submenu"]
+                a.dropdown-item[href="#" data-toggle="dropdown"]
+                  | Users list
+              li.dropdown[data-menu="dropdown-submenu"]
+                a.dropdown-item[href="#" data-toggle="dropdown"]
+                  | Add new user
+        li.dropdown.nav-item[data-menu="dropdown"]
+          a.dropdown-toggle.nav-link[href="#" data-toggle="dropdown"]
+            span
+              | Companies
+        - if user_admin?
+          li.dropdown.nav-item[data-menu="dropdown"]
+            a.dropdown-toggle.nav-link[href="#" data-toggle="dropdown"]
+              i.ft-zap
+              span
+                | My Tenant

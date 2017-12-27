@@ -1,0 +1,104 @@
+nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.navbar-dark.bg-gradient-x-grey-blue.navbar-border.navbar-brand-center[data-nav="brand-center"]
+  .navbar-wrapper
+    .navbar-header
+      ul.nav.navbar-nav.flex-row
+        li.nav-item.mobile-menu.d-md-none.mr-auto
+          a.nav-link.nav-menu-main.menu-toggle.hidden-xs[href="#"]
+            i.ft-menu.font-large-1
+        li.nav-item
+          a.navbar-brand[href="index.html"]
+            = image_tag('stack-logo-light.png', alt: 'logo', class: 'brand-logo')
+            h2.brand-text
+              - if user_admin?
+                | ADMIN PANEL 
+              - else 
+                | Sales Assistant 
+        li.nav-item.d-md-none
+          a.nav-link.open-navbar-container[data-toggle="collapse" data-target="#navbar-mobile"]
+            i.fa.fa-ellipsis-v
+    .navbar-container.content
+      #navbar-mobile.collapse.navbar-collapse
+        ul.nav.navbar-nav.float-right
+          li.dropdown.dropdown-notification.nav-item
+            a.nav-link.nav-link-label[href="#" data-toggle="dropdown"]
+              = fa_icon "bell", class: 'ficon ft-bell'
+              span.badge.badge-pill.badge-default.badge-danger.badge-default.badge-up
+                | 5
+            ul.dropdown-menu.dropdown-menu-media.dropdown-menu-right
+              li.dropdown-menu-header
+                h6.dropdown-header.m-0
+                  span.grey.darken-2
+                    | Notifications
+                  span.notification-tag.badge.badge-default.badge-danger.float-right.m-0
+                    | 5 New
+              li.scrollable-container.media-list.ps-container.ps-theme-dark.ps-active-y[data-ps-id="94948357-23e2-e9a9-2ee8-92441468c331"]
+                a[href="javascript:void(0)"]
+
+                .media
+                  .media-left.align-self-center
+                    i.ft-plus-square.icon-bg-circle.bg-cyan
+                  .media-body
+                    h6.media-heading
+                      | You have new order!
+                    p.notification-text.font-small-3.text-muted
+                      | Lorem ipsum dolor sit amet, consectetuer elit.
+                    small
+                      time.media-meta.text-muted[datetime="2015-06-11T18:29:20+08:00"]
+                        | 30 minutes ago
+                .ps-scrollbar-x-rail[style="left: 0px; bottom: 3px;"]
+                  .ps-scrollbar-x[tabindex="0" style="left: 0px; width: 0px;"]
+                .ps-scrollbar-y-rail[style="top: 0px; height: 255px; right: 3px;"]
+                  .ps-scrollbar-y[tabindex="0" style="top: 0px; height: 151px;"]
+              li.dropdown-menu-footer
+                a.dropdown-item.text-muted.text-center[href="javascript:void(0)"]
+                  | Read all notifications
+          li.dropdown.dropdown-notification.nav-item
+            a.nav-link.nav-link-label[href="#" data-toggle="dropdown"]
+              = fa_icon "envelope", class: "ficon ft-mail"
+              span.badge.badge-pill.badge-default.badge-warning.badge-default.badge-up
+                | 3
+            ul.dropdown-menu.dropdown-menu-media.dropdown-menu-right
+              li.dropdown-menu-header
+                h6.dropdown-header.m-0
+                  span.grey.darken-2
+                    | Messages
+                  span.notification-tag.badge.badge-default.badge-warning.float-right.m-0
+                    | 4 New
+              li.scrollable-container.media-list.ps-container.ps-theme-dark.ps-active-y[data-ps-id="871b8e2f-5dfd-995d-ff78-e535d6b6f784"]
+                a[href="javascript:void(0)"]
+
+                .media
+                  .media-left
+                    span.avatar.avatar-online
+                      = image_tag('avatar-s-1.png', alt: 'avatar')
+                      i
+                  .media-body
+                    h6.media-heading
+                      | Margaret Govan
+                    p.notification-text.font-small-3.text-muted
+                      | I like your portfolio, let's start.
+                    small
+                      time.media-meta.text-muted[datetime="2015-06-11T18:29:20+08:00"]
+                        | Today
+                .ps-scrollbar-x-rail[style="left: 0px; bottom: 3px;"]
+                  .ps-scrollbar-x[tabindex="0" style="left: 0px; width: 0px;"]
+                .ps-scrollbar-y-rail[style="top: 0px; height: 255px; right: 3px;"]
+                  .ps-scrollbar-y[tabindex="0" style="top: 0px; height: 181px;"]
+              li.dropdown-menu-footer
+                a.dropdown-item.text-muted.text-center[href="javascript:void(0)"]
+                  | Read all messages
+          li.dropdown.dropdown-user.nav-item
+            a.dropdown-toggle.nav-link.dropdown-user-link[href="#" data-toggle="dropdown"]
+              span.avatar.avatar-online
+                = image_tag('avatar-s-1.png', alt: 'avatar')
+                i
+              span.user-name
+                = "#{current_user.first_name} #{current_user.last_name}"
+            .dropdown-menu.dropdown-menu-right
+              = link_to edit_user_registration_path, class: "dropdown-item" do
+                i.ft-power
+                | Edit Profile 
+              .dropdown-divider
+              = link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do
+                i.ft-power
+                | Logout 
