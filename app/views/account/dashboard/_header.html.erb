@@ -84,9 +84,13 @@
                   <%= image_tag('avatar-s-1.png', alt: 'avatar') %><i></i></span>
                 <span class="user-name"><%= "#{current_user.first_name} #{current_user.last_name}" %></span>
               </a>
-              <div class="dropdown-menu dropdown-menu-right"><a href="#" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>
+              <div class="dropdown-menu dropdown-menu-right">
+              
+              <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+                <i class="ft-power"></i>Edit Profile
+              <% end  %>
               <div class="dropdown-divider"></div>
-              <%= link_to(destroy_user_session_path, method: :delete, class: "dropdown-item") do %>
+              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
                 <i class="ft-power"></i>Logout
               <% end %>
               </div>
