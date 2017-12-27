@@ -6,7 +6,13 @@
           <li class="nav-item">
             <a href="index.html" class="navbar-brand">
               <%= image_tag('stack-logo-light.png', alt: 'logo', class: 'brand-logo') %>
-              <h2 class="brand-text">Sales Assistant</h2>
+              <h2 class="brand-text">
+                <% if user_admin? %>
+                  ADMIN PANEL
+                <% else %>
+                  Sales Assistant
+                <% end  %>
+              </h2>
             </a>
           </li>
           <li class="nav-item d-md-none">

@@ -7,7 +7,8 @@
             <span>Dashboard</span>
           </a>
         </li>
-        <li data-menu="dropdown" class="dropdown nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="ft-monitor"></i><span>Users</span></a>
+        <% if user_admin? %>
+          <li data-menu="dropdown" class="dropdown nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="ft-monitor"></i><span>Users</span></a>
           <ul class="dropdown-menu">
             <li data-menu="dropdown-submenu" class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-item">Users list</a>
             </li>
@@ -15,8 +16,12 @@
             </li>
           </ul>
         </li>
+        <% end %>
         <li data-menu="dropdown" class="dropdown nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link"><span>Companies</span></a></li>
-        <li data-menu="dropdown" class="dropdown nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="ft-zap"></i><span>My Tenant</span></a></li></ul>
+        <% if user_admin? %>
+          <li data-menu="dropdown" class="dropdown nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="ft-zap"></i><span>My Tenant</span></a></li></ul>
+        <% end %>
+        
     </div>
   </div>
 </div>
