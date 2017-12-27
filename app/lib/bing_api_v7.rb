@@ -1,7 +1,6 @@
 require 'net/https'
 require 'uri'
 require 'json'
-require 'pry'
 
 class BingApiV7
   URI::PATH = "https://api.cognitive.microsoft.com/bing/v7.0/search".freeze
