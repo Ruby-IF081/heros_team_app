@@ -93,7 +93,7 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.nav
                 = image_tag('avatar-s-1.png', alt: 'avatar')
                 i
               span.user-name
-                = "#{current_user.first_name} #{current_user.last_name}"
+                = current_user.full_name
             .dropdown-menu.dropdown-menu-right
               = link_to edit_user_registration_path, class: "dropdown-item" do
                 i.ft-power
