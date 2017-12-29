@@ -6,7 +6,7 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.nav
           a.nav-link.nav-menu-main.menu-toggle.hidden-xs[href="#"]
             i.ft-menu.font-large-1
         li.nav-item
-          a.navbar-brand[href="index.html"]
+          = link_to(root_path, class: "navbar-brand") do
             = image_tag('stack-logo-light.png', alt: 'logo', class: 'brand-logo')
             h2.brand-text
               - if user_admin?
