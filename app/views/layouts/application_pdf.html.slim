@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    title Generated PDF
+    css:
+      #{Rails.application.assets.find_asset('application.scss').to_s}
+  body
+    .app-content.container.center-layout.mt-2.mb-5
+      = yield

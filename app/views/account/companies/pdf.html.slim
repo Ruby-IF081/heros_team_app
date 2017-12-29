@@ -1,0 +1,56 @@
+.content-wrapper
+  .content-body.container
+    .row
+      .card.container
+        .card-header.row
+          h4.card-title Overview
+        .card-content.collapse.show
+          .card-body.container
+            .row
+              .col-3
+                img.img-fluid src="https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_120,w_120,f_auto,q_auto:eco/v1459804290/mkxozts4fsvkj73azuls.png"
+              .col-9
+                h4= company.name
+                a href="http://#{company.domain}"= company.domain
+                h6 Description
+                p
+                  | Brief overview
+                  br
+                  | Mostly info from FullContact in this card
+            .row
+              h6.card-text.col-3 Categories
+              p.card-text.col-9 List of industries
+            .row
+              h6.card-text.col-3 Founded Date
+              p.card-text.col-9 Jan 1, 2003
+            .row
+              h6.card-text.col-3 Founders
+              p.card-text.col-9 List of Founders
+    .row
+      .card.container
+        .card-header.row
+          h5.card-title= "#{company.name} pages"
+        .card-content.collapse.show
+          .card-body.container
+            .row
+              p.card-text.col-12 Some text
+    .row
+      .card.container
+        .card-header.row
+          h5.card-title Extra Card 1
+        .card-content.collapse.show
+          .card-body.container
+            .row
+              h5.card-title.col-12 Content title
+            .row
+              p.card-text.col-12 Some text
+    .row
+      .card.container
+        .card-header.row
+          h5.card-title Extra Card 2
+        .card-content.collapse.show
+          .card-body.container
+            .row
+              h5.card-title.col-12 Content title
+            .row
+              p.card-text.col-12 Some text

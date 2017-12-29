@@ -14,6 +14,11 @@
     .content-header-right.text-md-right.col-md-6.col-12
       .form-group
         button.btn-icon.btn.btn-grey-blue.btn-darken-2.btn-round type="button"
+          = link_to account_company_download_path(@company, format: 'pdf'),
+                  target: '_blank',
+                  class: 'download'
+            i.fa.fa-file-pdf-o
+        button.btn-icon.btn.btn-grey-blue.btn-darken-2.btn-round type="button"
           = link_to edit_account_company_path do
             i.fa.fa-pencil-square-o
         button.btn-icon.btn.btn-grey-blue.btn-darken-2.btn-round type="button"
