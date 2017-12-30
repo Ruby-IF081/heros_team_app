@@ -7,7 +7,7 @@
             i.ft-home
             span
               | Dashboard
-        - if user_admin?
+        - if current_user.admin?
           li.dropdown.nav-item[data-menu="dropdown"]
             a.dropdown-toggle.nav-link[href="#" data-toggle="dropdown"]
               i.ft-monitor
@@ -24,7 +24,7 @@
           a.dropdown-toggle.nav-link[href="#" data-toggle="dropdown"]
             span
               | Companies
-        - if user_admin?
+        - if current_user.admin?
           li.dropdown.nav-item[data-menu="dropdown"]
             a.dropdown-toggle.nav-link[href="#" data-toggle="dropdown"]
               i.ft-zap

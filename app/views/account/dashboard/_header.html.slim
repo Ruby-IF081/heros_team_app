@@ -9,10 +9,10 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.nav
           = link_to(root_path, class: "navbar-brand") do
             = image_tag('stack-logo-light.png', alt: 'logo', class: 'brand-logo')
             h2.brand-text
-              - if user_admin?
-                | ADMIN PANEL 
-              - else 
-                | Sales Assistant 
+              - if current_user.admin?
+                | ADMIN PANEL
+              - else
+                | Sales Assistant
         li.nav-item.d-md-none
           a.nav-link.open-navbar-container[data-toggle="collapse" data-target="#navbar-mobile"]
             i.fa.fa-ellipsis-v
