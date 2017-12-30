@@ -8,10 +8,10 @@
           .card-body.container
             .row
               .col-3
-                img.img-fluid src="https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_120,w_120,f_auto,q_auto:eco/v1459804290/mkxozts4fsvkj73azuls.png"
+                img.img-fluid [src="https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_120,w_120,f_auto,q_auto:eco/v1459804290/mkxozts4fsvkj73azuls.png" alt="Company Logo"]
               .col-9
                 h4= company.name
-                a href="http://#{company.domain}"= company.domain
+                a [href="http://#{company.domain}"]= company.domain
                 h6 Description
                 p
                   | Brief overview

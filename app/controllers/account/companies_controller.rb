@@ -45,6 +45,17 @@ class Account::CompaniesController < ApplicationController
     redirect_to account_companies_path
   end
 
+  def download
+    respond_to do |format|
+      format.pdf do
+        render pdf: "Company #{current_company.name}.pdf",
+               template: 'account/companies/show',
+               layout: 'application',
+               locals: { company: current_company }
+      end
+    end
+  end
+
   private
 
   def company_params

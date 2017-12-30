@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :account do
     resources :companies do
       resources :pages, only: %i[show index]
-      resource :download, only: [:show]
+      get :download, on: :member
     end
     resources :tenants
     resources :users do
