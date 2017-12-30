@@ -23,6 +23,6 @@ FactoryBot.define do
     content { Faker::Lorem.paragraphs(10).join }
     source_url { Faker::Internet.url }
     status { Page::STATUSES.sample }
-    screenshot { Faker::Avatar.image }
+    screenshot Rack::Test::UploadedFile.new(File.join(Rails.root, '/spec/factories/lewis2.jpg'))
   end
 end
