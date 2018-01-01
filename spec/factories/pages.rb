@@ -22,7 +22,5 @@ FactoryBot.define do
     content_html { Faker::Lorem.paragraphs(10).join }
     content { Faker::Lorem.paragraphs(10).join }
     source_url { Faker::Internet.url }
-    status { Page::STATUSES.sample }
-    screenshot Rack::Test::UploadedFile.new(File.join(Rails.root, '/spec/factories/lewis2.jpg'))
   end
 end

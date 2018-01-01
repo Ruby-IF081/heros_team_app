@@ -34,6 +34,8 @@ class Page < ApplicationRecord
 
   mount_uploader :screenshot, ScreenshotUploader
 
+  after_create :start_worker
+
   validates :title, presence: { message: 'Title cannot be empty' }, allow_blank: false
   validates :source_url, presence: { message: 'Source URL cannot be empty' }, allow_blank: false
   validates :company_id, presence: { message: 'Company must be selected' }
@@ -52,5 +54,11 @@ class Page < ApplicationRecord
 
   def update_rating(new_rating)
     update(rating: new_rating.to_i + rating) if LEGAL_RATING.include?(new_rating)
+  end
+
+  private
+
+  def start_worker
+    NewPageWorker.perform_async(id)
   end
 end
