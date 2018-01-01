@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     end
     resources :tenants
     resources :users
+    resource :profile, only: %i[edit update], controller: 'profile'
   end
 end
