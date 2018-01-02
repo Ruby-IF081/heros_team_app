@@ -1,8 +1,9 @@
 h1= @tenant.name
 .btn-group
+  = link_to  "Edit", edit_account_my_tenant_path, class: 'btn btn-primary'
 .tenant
   p
-    b Website:   	
+    b Website:
   p
     = @tenant.website
   p
