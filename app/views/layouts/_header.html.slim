@@ -1,34 +1,11 @@
-nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.navbar-dark.navbar-border
+nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.navbar-light.navbar-border
   .navbar-wrapper
     .navbar-container.content
-      = link_to 'SalesAssistant', new_session_path(resource_name), id: 'logo'
+      = link_to root_path do
+        = image_tag("logo1.png", alt: 'Sales Assistant', id: 'logo')
       - if user_signed_in?
         .collapse.navbar-collapse.float-right
           ul.nav.navbar-nav.float-right
-            li.dropdown.dropdown-notification.nav-item
-              a.nav-link.nav-link-label[href="#" data-toggle="dropdown"]
-                i.ficon.fa.fa-bell
-                span.badge.badge-pill.badge-default.badge-danger.badge-default.badge-up
-                  | 0
-              ul.dropdown-menu.dropdown-menu-media.dropdown-menu-right
-                li.dropdown-menu-header
-                  h6.dropdown-header.m-0
-                    span.grey.darken-2
-                      | Messages
-                    span.notification-tag.badge.badge-default.badge-warning.float-right.m-0
-                      | Empty
-            li.dropdown.dropdown-notification.nav-item
-              a.nav-link.nav-link-label[href="#" data-toggle="dropdown"]
-                i.ficon.fa.fa-envelope
-                span.badge.badge-pill.badge-default.badge-warning.badge-default.badge-up
-                  | 0
-              ul.dropdown-menu.dropdown-menu-media.dropdown-menu-right
-                li.dropdown-menu-header
-                  h6.dropdown-header.m-0
-                    span.grey.darken-2
-                      | Messages
-                    span.notification-tag.badge.badge-default.badge-warning.float-right.m-0
-                      | Empty
             li.dropdown.dropdown-user.nav-item
               a.dropdown-toggle.nav-link.dropdown-user-link[href="#" data-toggle="dropdown"]
                 span.avatar.avatar-online

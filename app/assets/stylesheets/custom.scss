@@ -2,26 +2,3 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "feathericon";
-
-//header logo
-#logo {
-  float: left;
-  margin-left: 25px;
-  font-size: 1.8em;
-  font-family: Arial;
-  color: #FFD600;
-  text-transform: capitalize;
-  letter-spacing: 0px;
-  padding-top: 8px;
-  font-weight: 900 ;
-  &:hover {
-    color:deepskyblue;
-    text-decoration: none;
-  }
-}
-
-.company-logo {
-  max-height: 100%;
-  max-width: 100%;
-  opacity: 1;
-}
