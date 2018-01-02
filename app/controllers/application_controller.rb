@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
 
   def authorize_admin!
     redirect_to(root_path) unless true_user&.admin?
-  end
 
   def authorize_super_admin!
     redirect_to(root_path) unless true_user&.super_admin?
