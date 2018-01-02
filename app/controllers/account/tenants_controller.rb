@@ -1,5 +1,6 @@
 class Account::TenantsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_if_moderator
 
   def index
     @tenants = Tenant.all.page(params[:page]).per(10)
@@ -13,5 +14,9 @@ class Account::TenantsController < ApplicationController
 
   def current_tenant
     Tenant.find(params[:id])
+  end
+
+  def check_if_moderator
+    render html: 'Access denied' unless current_user.role == User::MODERATOR_ROLE
   end
 end

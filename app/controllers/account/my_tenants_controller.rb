@@ -1,16 +1,13 @@
 class Account::MyTenantsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_if_admin, only: %i[edit update]
+  before_action :current_tenant
 
-  def show
-    @tenant = current_user.tenant
-  end
+  def show; end
 
-  def edit
-    @tenant = current_user.tenant
-  end
+  def edit; end
 
   def update
-    @tenant = current_user.tenant
     if @tenant.update(tenant_params)
       flash[:success] = "Information is updated"
       redirect_to account_my_tenant_path
@@ -21,7 +18,15 @@ class Account::MyTenantsController < ApplicationController
 
   private
 
+  def current_tenant
+    @tenant = current_user.tenant
+  end
+
   def tenant_params
     params.require(:tenant).permit(:name, :website, :phone)
+  end
+
+  def check_if_admin
+    render html: "Access denied", status: 403 unless current_user&.role == User::ADMIN_ROLE
   end
 end
