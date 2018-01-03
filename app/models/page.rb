@@ -13,28 +13,29 @@
 #  rating       :integer          default 0
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  company_id   :integer
 #
 
 class Page < ApplicationRecord
-  ACTIVE_STATUS = 'active'.freeze
-  PENDING_STATUS = 'pending'.freeze
-  FINISHED_STATUS = 'finished'.freeze
-  STATUSES = [ACTIVE_STATUS, PENDING_STATUS, FINISHED_STATUS].freeze
+  ACTIVE_STATUS     = 'active'.freeze
+  PENDING_STATUS    = 'pending'.freeze
+  FINISHED_STATUS   = 'finished'.freeze
+  STATUSES          = [ACTIVE_STATUS, PENDING_STATUS, FINISHED_STATUS].freeze
 
-  BING_TYPE = 'bing'.freeze
-  ANGLECO_TYPE = 'angle.co'.freeze
-  LINKEDIN_TYPE = 'linkedin'.freeze
-  CRUNCHBASE_TYPE = 'crunchbase'.freeze
-  CHROME_EXTENSION = 'chrome_extension'.freeze
-  PAGE_TYPES = [BING_TYPE, ANGLECO_TYPE, LINKEDIN_TYPE, CRUNCHBASE_TYPE, CHROME_EXTENSION].freeze
+  BING_TYPE         = 'bing'.freeze
+  ANGLECO_TYPE      = 'angle.co'.freeze
+  LINKEDIN_TYPE     = 'linkedin'.freeze
+  CRUNCHBASE_TYPE   = 'crunchbase'.freeze
+  CHROME_EXTENSION  = 'chrome_extension'.freeze
+  PAGE_TYPES        = [BING_TYPE, ANGLECO_TYPE, LINKEDIN_TYPE, CRUNCHBASE_TYPE, CHROME_EXTENSION].freeze
 
-  LEGAL_RATING = %w[1000 100 50 10 -10 -50 -100 -1000].freeze
+  LEGAL_RATING      = %w[1000 100 50 10 -10 -50 -100 -1000].freeze
 
   belongs_to :company
 
   mount_uploader :screenshot, ScreenshotUploader
 
-  after_create :start_worker
+  after_commit :start_worker, on: :create
 
   validates :title, presence: { message: 'Title cannot be empty' }, allow_blank: false
   validates :source_url, presence: { message: 'Source URL cannot be empty' }, allow_blank: false
