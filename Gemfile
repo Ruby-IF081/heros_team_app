@@ -51,6 +51,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'vcr'
+  gem 'webmock'    
 end
 
 group :development do
