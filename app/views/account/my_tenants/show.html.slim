@@ -1,18 +1,47 @@
-.container
-  .row
-    .col-md-12
-      h1= @tenant.name
-      div
-        img.tenant-logo src="https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_120,w_120,f_auto,q_auto:eco/v1459804290/mkxozts4fsvkj73azuls.png"
-        h3 Website:
-        p= link_to span = @tenant.website, "http://#{@tenant.website}", target: "_blank"
-      div
-        h3 Phone:
-        p= @tenant.phone
-      div
-        h3 Added:
-        p= @tenant.created_at
-      div
-        h5 Number of users:
-        p= User.where(tenant_id: @tenant.id).count
-      = link_to  "Edit information", edit_account_my_tenant_path, class: 'btn btn-primary'
+.content-wrapper
+  .content-header.row
+    .content-header-left.col-md-6.col-12.mb-2
+      h3.content-header-title.mb-0= @tenant.name
+      .row.breadcrumbs-top
+        .breadcrumb-wrapper.col-12
+          ol.breadcrumb
+            li.breadcrumb-item
+              a href=root_path  Home
+            li.breadcrumb-item.active
+              = @tenant.name
+    .content-header-right.text-md-right.col-md-6.col-12
+      .form-group
+        button.btn-icon.btn.btn-grey-blue.btn-darken-2.btn-round type="button"
+          = link_to edit_account_my_tenant_path do
+            i.fa.fa-pencil-square-o
+  .content-body
+    section.row
+      .col-sm-12
+        /! Overview
+        #overview.card
+          .card-header
+            h4.card-title Overview
+          .card-content
+            .card-body
+              .row
+                .card-image.col-sm-2
+                  img.company-logo src="https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_120,w_120,f_auto,q_auto:eco/v1459804290/mkxozts4fsvkj73azuls.png"
+                .card-text.col-sm-10
+                  h4= @tenant.name
+                  a href="http://#{@tenant.website}" target="_blank"=  @tenant.website
+              .row
+                .card-text.col-sm-2
+                  h6 Phone
+                .card-text.col-sm-10
+                  = @tenant.phone
+              .row
+                .card-text.col-sm-2
+                  h6 Added
+                .card-text.col-sm-10
+                  = l @tenant.created_at, format: :long
+              .row
+                .card-text.col-sm-2
+                  h6 Number of Users:
+                .card-text.col-sm-10
+                  = @tenant.users.count
+        /! / Overciew

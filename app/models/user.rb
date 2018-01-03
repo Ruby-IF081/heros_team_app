@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   SALE_ROLE = 'sale'.freeze
   ADMIN_ROLE = 'admin'.freeze
-  MODERATOR_ROLE = 'moderator'.freeze
-  ROLES = [SALE_ROLE, ADMIN_ROLE, MODERATOR_ROLE].freeze
+  SUPER_ADMIN_ROLE = 'super_admin'.freeze
+  ROLES = [SALE_ROLE, ADMIN_ROLE, SUPER_ADMIN_ROLE].freeze
   DEFAULT_PASSWORD = 'password'.freeze
 
   has_many :companies, dependent: :destroy

@@ -1,4 +1,4 @@
-FactoryBot.create(:user, email: 'superadmin@superadmin.com', password: '1qaz2wsx', role: 'superadmin')
+FactoryBot.create(:user, email: 'super_admin@super_admin.com', password: '1qaz2wsx', role: 'super_admin')
 FactoryBot.create(:user, email: 'admin@admin.com', password: '1qaz2wsx', role: 'admin')
 FactoryBot.create(:user, email: 'sale@sale.com', password: '1qaz2wsx', role: 'sale')
 

@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def authorize_admin!
     redirect_to(root_path) unless true_user&.role == User::ADMIN_ROLE
   end
+
+  def authorize_super_admin!
+    redirect_to(root_path) unless true_user&.role == User::SUPER_ADMIN_ROLE
+  end
 end
