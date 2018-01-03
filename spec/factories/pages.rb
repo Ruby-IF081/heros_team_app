@@ -23,5 +23,7 @@ FactoryBot.define do
     content_html { Faker::Lorem.paragraphs(10).join }
     content { Faker::Lorem.paragraphs(10).join }
     source_url { Faker::Internet.url }
+    status { Page::STATUSES.sample }
+    screenshot { Faker::Avatar.image }
   end
 end
