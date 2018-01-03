@@ -17,6 +17,6 @@ class Account::TenantsController < ApplicationController
   end
 
   def check_if_moderator
-    render html: 'Access denied' unless current_user.role == User::MODERATOR_ROLE
+    render html: 'Access denied', status: 403 unless current_user.role == User::MODERATOR_ROLE
   end
 end

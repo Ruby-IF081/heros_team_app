@@ -1,7 +1,14 @@
-h1 All tenants
-
-ul
-  - @tenants.each do |tenant|
-    li
-      = link_to tenant.name, account_tenant_path(tenant)
-= paginate @tenants
+.container
+  .row
+    .col-md-12
+      h1 All tenants
+      table.table.table-bordered
+        thead
+          th.col-md-1 ID
+          th.col-md-3 Name
+          th.col-md-2 Website
+          th.col-md-1 Number of users
+          th.col-md-3 Added
+          th.col-md-2 Owner
+        = render partial: 'tenants_table', collection: @tenants, as: :tenant
+      = paginate @tenants

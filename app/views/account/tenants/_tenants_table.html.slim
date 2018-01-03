@@ -1,0 +1,8 @@
+tbody
+  tr
+    td= tenant.id
+    td= link_to span = tenant.name, account_tenant_path(tenant)
+    td= tenant.website
+    td= User.where(tenant_id: tenant.id).count
+    td= tenant.created_at
+    td= User.find_by(id: tenant.id) ? User.find_by(id: tenant.id).first_name : '-'

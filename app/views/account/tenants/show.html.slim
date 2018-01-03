@@ -1,11 +1,19 @@
-h1= @tenant.name
-.btn-group
-.tenant
-  p
-    b Website:   	
-  p
-    = @tenant.website
-  p
-    b Phone:
-  p
-    = @tenant.phone
+.container
+  .row
+    .col-md-12
+      = link_to  "Back to all tenants", account_tenants_path, class: 'btn btn-primary'
+      h1= @tenant.name
+      div
+        img.tenant-logo src="https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_120,w_120,f_auto,q_auto:eco/v1459804290/mkxozts4fsvkj73azuls.png"
+        h3 Website:
+        p= link_to span = @tenant.website, "http://#{@tenant.website}", :target => "_blank"
+      div
+        h3 Phone:
+        p= @tenant.phone
+      div
+        h3 Added:
+        p= @tenant.created_at
+      div
+        h5 Number of users:
+        p= User.where(tenant_id: @tenant.id).count
+ 

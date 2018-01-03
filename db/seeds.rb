@@ -1,3 +1,4 @@
+FactoryBot.create(:user, email: 'superadmin@superadmin.com', password: '1qaz2wsx', role: 'superadmin')
 FactoryBot.create(:user, email: 'admin@admin.com', password: '1qaz2wsx', role: 'admin')
 FactoryBot.create(:user, email: 'sale@sale.com', password: '1qaz2wsx', role: 'sale')
 
@@ -18,5 +19,3 @@ FactoryBot.create(:company, name:  'Alphabet Inc.',
 company = Company.first
 
 FactoryBot.create_list(:page, 20, company: company)
-
-
