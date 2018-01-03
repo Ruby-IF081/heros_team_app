@@ -9,7 +9,7 @@
       $('body[data-open="hover"] .dropdown').on('mouseenter', function(){
           $(this).toggleClass('open');
         }).on('mouseleave', function(){
-          $(this).toggleClass('open');
+          $(this).removeClass('open');
         });
     },
   };
