@@ -28,7 +28,7 @@ class BingApiV7
 
   def bing_pages_to_model(company)
     pages ||= search(company.domain)["webPages"]["value"]
-    
+    binding.pry
     pages.each do |page|
       company.pages.create(page_type: Page::BING_TYPE, title: page["name"],
                            source_url: page["displayUrl"], status: Page::PENDING_STATUS)
