@@ -6,13 +6,8 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.nav
           a.nav-link.nav-menu-main.menu-toggle.hidden-xs[href="#"]
             i.ft-menu.font-large-1
         li.nav-item
-          = link_to(root_path, class: "navbar-brand") do
-            = image_tag('stack-logo-light.png', alt: 'logo', class: 'brand-logo')
-            h2.brand-text
-              - if current_user.admin?
-                | ADMIN PANEL
-              - else
-                | Sales Assistant
+          = link_to(account_root_path) do
+            = image_tag("logo1.png", alt: 'Sales Assistant', id: 'logo')
         li.nav-item.d-md-none
           a.nav-link.open-navbar-container[data-toggle="collapse" data-target="#navbar-mobile"]
             i.fa.fa-ellipsis-v
