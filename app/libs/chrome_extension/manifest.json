@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "Sales Assistant Plugin",
+  "description": "This extension will add page for your companies in Sales Assistant Application",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "img/icon.png",
+    "default_popup": "index.html",
+    "default_title": "Sales Assistant Plugin"
+  },
+  "permissions": ["tabs"]
+}

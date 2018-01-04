@@ -24,7 +24,8 @@ class Page < ApplicationRecord
   ANGLECO_TYPE = 'angle.co'.freeze
   LINKEDIN_TYPE = 'linkedin'.freeze
   CRUNCHBASE_TYPE = 'crunchbase'.freeze
-  PAGE_TYPES = [BING_TYPE, ANGLECO_TYPE, LINKEDIN_TYPE, CRUNCHBASE_TYPE].freeze
+  CHROME_EXTENSION = 'chrome_extension'.freeze
+  PAGE_TYPES = [BING_TYPE, ANGLECO_TYPE, LINKEDIN_TYPE, CRUNCHBASE_TYPE, CHROME_EXTENSION].freeze
 
   belongs_to :company
 end
