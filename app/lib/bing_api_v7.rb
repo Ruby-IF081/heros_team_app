@@ -10,8 +10,8 @@ class BingApiV7
     @api_key = Rails.application.secrets.bing_api_v7
   end
 
-  def search(company_domain)
-    uri = URI(BING_URI + BING_PATH + "?q=" + CGI.escape(company_domain))
+  def search(company)
+    uri = URI(BING_URI + BING_PATH + "?q=" + CGI.escape(company))
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = @api_key
 
@@ -28,7 +28,8 @@ class BingApiV7
 
   def bing_pages_to_model(company)
     pages ||= search(company.domain)["webPages"]["value"]
-    binding.pry
+
+    return unless pages
     pages.each do |page|
       company.pages.create(page_type: Page::BING_TYPE, title: page["name"],
                            source_url: page["displayUrl"], status: Page::PENDING_STATUS)
