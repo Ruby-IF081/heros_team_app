@@ -1,5 +1,5 @@
-.app-content.content
-  .content-wrapper
+.app-content.content.mt-5
+  .content-wrapper.pb-0
     .content-body
       section.flexbox-container
         .col-12.d-flex.align-items-center.justify-content-center
@@ -16,4 +16,6 @@
                 .card-body
                   = render 'devise/shared/registration_form'
                 p.text-center
-                  | If you already have an Admin Account then log in.
+                  | If you already have an Admin Account then&nbsp;
+                  = link_to  "log in", new_user_session_path
+                  | .
