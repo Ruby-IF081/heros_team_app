@@ -28,4 +28,8 @@ class Page < ApplicationRecord
   PAGE_TYPES = [BING_TYPE, ANGLECO_TYPE, LINKEDIN_TYPE, CRUNCHBASE_TYPE, CHROME_EXTENSION].freeze
 
   belongs_to :company
+
+  validates :title, presence: true, allow_blank: false
+  validates :source_url, presence: true, allow_blank: false
+  validates :company_id, presence: true, allow_blank: false, allow_nil: false
 end

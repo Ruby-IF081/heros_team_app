@@ -2,8 +2,8 @@ class Account::ChromeExtensionController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @companies = current_user.companies.all
-    @page = Page.new(source_url: params[:source_url])
+    @page = Page.new(source_url: params[:source_url],
+                     title: params[:title])
   end
 
   def create
