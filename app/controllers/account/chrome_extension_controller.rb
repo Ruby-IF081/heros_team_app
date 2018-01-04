@@ -10,6 +10,7 @@ class Account::ChromeExtensionController < ApplicationController
     @company = current_user.companies.find(params[:page][:company_id])
     @page = @company.pages.build(page_params)
     @page.page_type = Page::CHROME_EXTENSION
+    @page.status = Page::PENDING_STATUS
     if @page.save
       flash[:success] = 'Page successfully added'
       redirect_to account_company_pages_path(@company)
