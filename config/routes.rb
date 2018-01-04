@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home', to: 'home#index'
   get 'pricing', to: 'home#pricing'
   get 'about-us', to: 'home#about_us'
   get 'contacts', to: 'home#contacts'
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
-    root 'account/companies#index', as: :authenticated_root
+    root 'account/dashboard#index', as: :authenticated_root
   end
 
   root 'home#index'
