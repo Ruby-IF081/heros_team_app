@@ -135,6 +135,8 @@ GEM
     feathericon-sass (0.9.0)
       sass (>= 3.2)
     ffi (1.9.18)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
     globalid (0.4.1)
@@ -383,6 +385,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   feathericon-sass
+  font-awesome-rails
   font-awesome-sass (~> 4.7.0)
   gravatar_image_tag
   jbuilder (~> 2.5)

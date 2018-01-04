@@ -42,3 +42,7 @@ Style/StringLiterals:
 
 Style/ClassAndModuleChildren:
   Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+  

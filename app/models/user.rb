@@ -25,4 +25,8 @@ class User < ApplicationRecord
   def full_name
     [first_name, last_name].reject(&:blank?).join(' ')
   end
+
+  def admin?
+    role == User::ADMIN_ROLE
+  end
 end

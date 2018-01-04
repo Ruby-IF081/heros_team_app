@@ -17,3 +17,4 @@
 * Start `redis-server`
 * In project folder run `bundle exec sidekiq`
 * Run `rails s`
+* Simply run `gem install mailcatcher` then `mailcatcher` to get started

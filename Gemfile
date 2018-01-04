@@ -31,6 +31,7 @@ gem 'wkhtmltopdf-binary'
 # Use SCSS for stylesheets
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'feathericon-sass'
+gem "font-awesome-rails"
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
