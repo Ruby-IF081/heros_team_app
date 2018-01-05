@@ -8,6 +8,8 @@ script:
   - bundle exec rake db:create db:migrate
   - bundle exec rake spec
   - bundle exec rubocop
+  - bundle exec reek
+  - bundle exec rails_best_practices -e "db/migrate,vendor" .
   
 services:
   - postgresql

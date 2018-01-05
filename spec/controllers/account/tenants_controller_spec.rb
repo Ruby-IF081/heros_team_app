@@ -6,10 +6,13 @@ RSpec.describe Account::TenantsController, type: :controller do
     sign_in @user
   end
   let!(:tenant) { FactoryBot.create(:tenant) }
+  render_views
 
   it 'GET #index' do
     get :index
     expect(response).to have_http_status(200)
+    expect(response).to render_template(:index)
+    expect(response.body).to match(tenant.name)
   end
 
   it 'GET #show' do

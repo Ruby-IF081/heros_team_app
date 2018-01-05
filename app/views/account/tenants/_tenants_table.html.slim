@@ -9,7 +9,7 @@ table.table.table-bordered
     - tenants.each do |tenant|
       tr
         td= tenant.id
-        td= link_to span = tenant.name, account_tenant_path(tenant)
+        td= link_to tenant.name, account_tenant_path(tenant)
         td= tenant.website
         td= tenant.users.count
         td= l tenant.created_at, format: :long
