@@ -32,9 +32,7 @@
                     li
                       |Page source:
                       a href=@page.source_url target="_blank"= ' ' + @page.source_url
-                    li
-                      |Page status:
-                      span= ' ' +  @page.status
+                    li= "Page status: #{@page.status}"
                     li= "Page type: #{@page.page_type}"
         /! Overview
         /! Page info
