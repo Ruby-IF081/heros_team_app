@@ -18,3 +18,7 @@
 * In project folder run `bundle exec sidekiq`
 * Run `rails s`
 * Simply run `gem install mailcatcher` then `mailcatcher` to get started
+
+## Install Chrome plugin
+
+To load plugin in Chrome, open up chrome://extensions/ in your browser and click “Developer mode” in the top right. Now click “Load unpacked extension…” and select the extension’s directory (heroes_team_app/chrome_extension). You should now see your extension in the list.
