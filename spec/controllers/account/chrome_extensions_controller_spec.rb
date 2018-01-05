@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Account::ChromeExtensionController, type: :controller do
+RSpec.describe Account::ChromeExtensionsController, type: :controller do
   let!(:company) { create(:company) }
   before(:each) { sign_in company.user }
 

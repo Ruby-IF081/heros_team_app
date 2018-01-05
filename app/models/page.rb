@@ -31,6 +31,5 @@ class Page < ApplicationRecord
 
   validates :title, presence: { message: 'Title cannot be empty' }, allow_blank: false
   validates :source_url, presence: { message: 'Source URL cannot be empty' }, allow_blank: false
-  validates :company, associated: true
   validates :company_id, presence: { message: 'Company must be selected' }
 end

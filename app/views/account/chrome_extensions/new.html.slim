@@ -4,7 +4,7 @@
   .row
     .col-md-6.col-md-offset-3
       = simple_form_for @page,
-              url: chrome_extension_account_companies_path,
+              url: account_chrome_extensions_path,
               defaults: { input_html: { class: 'form-control' } } do |f|
         = f.input :title
         = f.input :source_url
