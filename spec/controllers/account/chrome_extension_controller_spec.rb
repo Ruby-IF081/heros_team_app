@@ -28,13 +28,13 @@ RSpec.describe Account::ChromeExtensionController, type: :controller do
 
     context 'with invalid attributes' do
       let!(:valid_page) { build(:page) }
-      it('add page') {
+      it('add page') do
         expect do
           post :create, params: { page: { title: '',
                                           source_url: '',
                                           company_id: company.id } }
         end.not_to(change { Page.count })
-      }
+      end
     end
   end
 end

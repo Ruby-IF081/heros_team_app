@@ -29,7 +29,8 @@ class Page < ApplicationRecord
 
   belongs_to :company
 
-  validates :title, presence: true, allow_blank: false
-  validates :source_url, presence: true, allow_blank: false
-  validates :company_id, presence: true, allow_blank: false, allow_nil: false
+  validates :title, presence: { message: 'Title cannot be empty' }, allow_blank: false
+  validates :source_url, presence: { message: 'Source URL cannot be empty' }, allow_blank: false
+  validates :company, associated: true
+  validates :company_id, presence: { message: 'Company must be selected' }
 end

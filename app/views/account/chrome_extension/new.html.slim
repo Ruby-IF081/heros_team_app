@@ -6,13 +6,7 @@
       = simple_form_for @page,
               url: chrome_extension_account_companies_path,
               defaults: { input_html: { class: 'form-control' } } do |f|
-        = render 'account/chrome_extension/error'
         = f.input :title
         = f.input :source_url
-        = f.input :company_id,
-                collection: current_user.companies.ordered,
-                include_blank: false,
-                disabled: current_user.companies.empty?
-        = f.button :submit, 'Add page',
-                class: 'btn btn-primary',
-                disabled: current_user.companies.empty?
+        = f.association :company, collection: current_user.companies.ordered, include_blank: false
+        = f.button :submit, 'Add page', class: 'btn btn-primary'
