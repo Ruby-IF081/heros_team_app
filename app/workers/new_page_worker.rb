@@ -22,7 +22,7 @@ class NewPageWorker
     title = doc_html.css('title').first.content
     doc = ''
     doc_html.css('body').each do |tag|
-      doc += '' + tag.content
+      doc += tag.content.to_s
     end
     page.update_attributes(content_html: doc_html, content: doc, title: title)
   end

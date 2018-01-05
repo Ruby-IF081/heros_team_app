@@ -17,21 +17,36 @@
   .content-body
     section.row
       .col-sm-12
-        div
-          h3 Page type:
-          p= @page.page_type
-        div
-          h3 Status:
-          p= @page.status
-        div
-          h3 Source:
-          p = @page.source_url
-        div
-          h3 Content:
-          p= @page.content
-        div
-          h3 Content html:
-          p= @page.content_html
-        div
-          h3 Screenshot url:
-          p= @page.screenshot
+        /! Overview
+        #overview.card
+          .card-header
+            h4.card-title Overview
+          .card-content
+            .card-body
+              .row
+                .card-image.col-sm-2.page-logo-container data-target="#imageModal" data-toggle="modal"
+                  img.page-logo.show-pointer src=@page.screenshot
+                .card-text.col-sm-10
+                  h4= @page.title
+                  ul
+                    li
+                      |Page source:
+                      a href=@page.source_url target="_blank"= ' ' + @page.source_url
+                    li
+                      |Page status:
+                      span= ' ' +  @page.status
+                    li= "Page type: #{@page.page_type}"
+        /! Overview
+        /! Page info
+        .card
+          .card-header
+            h4.card-title= "#{@page.title} info"
+          .card-content.collapse.show
+            .card-body
+              .card-text
+        /! / Page info
+#imageModal.modal.fade aria-hidden="true" aria-labelledby="exampleModalLongTitle" role="dialog" tabindex="-1"
+  .modal-dialog.image-modal-content role="document"
+    .modal-content
+      .modal-body
+        img.modal-image.show-pointer data-dismiss="modal" src=@page.screenshot
