@@ -7,9 +7,7 @@ class Account::ChromeExtensionsController < ApplicationController
 
   def create
     @company = current_user.companies.find_by(id: params[:page][:company_id])
-    @page = Page.new(params_without_company_id)
-    @page.company = @company
-    add_metadata_to @page
+    @page = Page.new_by_company(params_without_company_id, @company)
     if @page.save
       flash[:success] = 'Page successfully added'
       redirect_to [:account, @company, :pages]
@@ -22,10 +20,5 @@ class Account::ChromeExtensionsController < ApplicationController
 
   def params_without_company_id
     params.require(:page).permit(:title, :source_url)
-  end
-
-  def add_metadata_to(page)
-    page.page_type = Page::CHROME_EXTENSION
-    page.status = Page::PENDING_STATUS
   end
 end

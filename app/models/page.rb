@@ -32,4 +32,12 @@ class Page < ApplicationRecord
   validates :title, presence: { message: 'Title cannot be empty' }, allow_blank: false
   validates :source_url, presence: { message: 'Source URL cannot be empty' }, allow_blank: false
   validates :company_id, presence: { message: 'Company must be selected' }
+
+  def self.new_by_company(params, company)
+    page = new(params)
+    page.company = company
+    page.page_type = Page::CHROME_EXTENSION
+    page.status = Page::PENDING_STATUS
+    page
+  end
 end
