@@ -7,6 +7,19 @@ class Account::PagesController < ApplicationController
     @page = resource
   end
 
+  def rate
+    @page = resource
+    points = params[:commit]
+    last_rating = @page.rating
+    if Page::LEGAL_RATING.include?(points)
+      @page.update_attribute(:rating, last_rating + points.to_i)
+      redirect_to  account_company_pages_path
+    else
+      flash.now[:danger] = 'Invalid values for rating!'
+      render :show
+    end
+  end
+
   private
 
   def resource
@@ -14,6 +27,6 @@ class Account::PagesController < ApplicationController
   end
 
   def collection
-    current_user.companies.find(params[:company_id]).pages
+    current_user.companies.find(params[:company_id]).pages.by_rating
   end
 end

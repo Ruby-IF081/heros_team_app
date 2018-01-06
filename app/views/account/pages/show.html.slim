@@ -1,20 +1,33 @@
 .container
-  .row
-    .col-md-12
-      = link_to  "Back to all pages", account_company_pages_path, class: 'btn btn-primary'
-      h1= @page.title
-      div
-        h3 Page type:
-        p= @page.page_type
-      div
-        h3 Status:
-        p= @page.status
-      div
-        h3 Content:
-        p= @page.content
-      div
-        h3 Content html:
-        p= @page.content_html
-      div
-        h3 Screenshot url:
-        p= @page.screenshot
+  .content-wrapper
+    .content-header.row
+      .content-header-left.col-md-6.col-12.mb-2
+        = link_to  'Back to all pages', account_company_pages_path, class: 'btn btn-primary'
+        h1.content-header-title.mb-0= @page.title
+      .content-header-right.text-md-right.col-md-6.col-12
+        p Rate this page:
+        = simple_form_for @page, url: rate_account_company_page_path do |f|
+          .btn-group
+          = f.submit '+1000', class: 'btn btn-success btn-sm'
+          = f.submit '+100', class: 'btn btn-success btn-sm'
+          = f.submit '+50', class: 'btn btn-success btn-sm'
+          = f.submit '+10', class: 'btn btn-success btn-sm'
+          = f.submit '-10', class: 'btn btn-danger btn-sm'
+          = f.submit '-50', class: 'btn btn-danger btn-sm'
+          = f.submit '-100', class: 'btn btn-danger btn-sm'
+          = f.submit '-1000', class: 'btn btn-danger btn-sm'
+  div
+    h3 Page type:
+    p= @page.page_type
+  div
+    h3 Status:
+    p= @page.status
+  div
+    h3 Content:
+    p= @page.content
+  div
+    h3 Content html:
+    p= @page.content_html
+  div
+    h3 Screenshot url:
+    p= @page.screenshot

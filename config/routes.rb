@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   namespace :account do
     root 'dashboard#index'
     resources :companies do
-      resources :pages, only: %i[show index]
+      resources :pages, only: %i[show index] do
+        patch :rate, on: :member
+      end
       get :download, on: :member
       collection do
         resource :chrome_extensions, only: %i[new create]
