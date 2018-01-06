@@ -5,7 +5,8 @@ class Account::PagesController < ApplicationController
   end
 
   def show
-    @page = resource
+    @page    = resource
+    @company = current_company
   end
 
   def rate
