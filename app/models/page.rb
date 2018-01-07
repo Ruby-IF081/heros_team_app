@@ -45,4 +45,8 @@ class Page < ApplicationRecord
     page.status = Page::PENDING_STATUS
     page
   end
+
+  def update_rating(commit, last_rating)
+    update(rating: commit.to_i + last_rating) if LEGAL_RATING.include?(commit)
+  end
 end

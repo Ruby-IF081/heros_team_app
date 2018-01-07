@@ -9,11 +9,9 @@ class Account::PagesController < ApplicationController
 
   def rate
     @page = resource
-    points = params[:commit]
     last_rating = @page.rating
-    if Page::LEGAL_RATING.include?(points)
-      @page.update_attribute(:rating, last_rating + points.to_i)
-      redirect_to  account_company_pages_path
+    if @page.update_rating(params[:commit], last_rating)
+      redirect_to account_company_pages_path
     else
       flash.now[:danger] = 'Invalid values for rating!'
       render :show
