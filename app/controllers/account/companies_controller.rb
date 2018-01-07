@@ -15,6 +15,7 @@ class Account::CompaniesController < ApplicationController
 
   def create
     @company = current_user.companies.build(company_params)
+    FullContactCompanyProcessor.new(company: @company).process
     if @company.save
       flash[:success] = "Company successfully created"
       NewCompanyWorker.perform_async(@company.id)

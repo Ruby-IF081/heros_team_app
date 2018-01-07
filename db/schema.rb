@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171225200830) do
+ActiveRecord::Schema.define(version: 20180105214220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,36 @@ ActiveRecord::Schema.define(version: 20171225200830) do
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "domain"
+    t.string "youtube"
+    t.string "twitter"
+    t.string "linkedincompany"
+    t.string "facebook"
+    t.string "angellist"
+    t.string "owler"
+    t.string "crunchbasecompany"
+    t.string "pinterest"
+    t.string "google"
+    t.string "klout"
+    t.string "overview"
+    t.integer "founded"
+    t.integer "approx_employees"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "logo"
     t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "companies_industries", id: false, force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "industry_id", null: false
+    t.index ["company_id", "industry_id"], name: "index_companies_industries_on_company_id_and_industry_id"
+  end
+
+  create_table "industries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pages", force: :cascade do |t|
