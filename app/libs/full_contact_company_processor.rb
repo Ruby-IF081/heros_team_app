@@ -4,47 +4,38 @@ class FullContactCompanyProcessor
   end
 
   def process
-    return if response.blank? || response['status'] != 200
-    fill_data
+    response = call_fullcontact_api
+    return if not_valid_response?(response)
+    process_links(response['social_profiles'])
+    process_organization(response['organization'])
+    process_industries(response['industries'])
+    process_logo(response['logo'])
     @company.save
     @company
   end
 
   private
 
-  def links
-    @links = response['social_profiles']
+  def not_valid_response?(response)
+    response.blank? || response['status'] != 200
   end
 
-  def response
-    @response = call_fullcontact_api
+  def process_links(links_response)
+    return unless links_response
+    social_list = %w[twitter facebook linkedincompany youtube
+                     angellist owler crunchbasecompany pinterest google klout]
+    @company.attributes = find_url(social_list, links_response)
   end
 
-  def fill_data
-    process_links
-    process_organization
-    set_industries
+  def process_organization(organization_response)
+    return unless organization_response
+    list = %w[name approx_employees founded overview]
+    @company.attributes = organization_response.select { |key| list.include?(key) }
   end
 
-  def process_links
-    @company.twitter = find_url('twitter')
-    @company.facebook = find_url('facebook')
-    @company.linkedin = find_url('linkedincompany')
-    @company.youtube = find_url('youtube')
-    @company.angellist = find_url('angellist')
-    @company.owler = find_url('owler')
-    @company.crunchbasecompany = find_url('crunchbasecompany')
-    @company.pinterest = find_url('pinterest')
-    @company.google = find_url('google')
-    @company.klout = find_url('klout')
-  end
-
-  def process_organization
-    organization = response['organization']
-    @company.name = organization['name']
-    @company.approx_employees = organization['approx_employees']
-    @company.founded = organization['founded']
-    @company.overview = organization['overview']
+  def process_logo(logo_response)
+    return unless logo_response
+    @company.remote_logo_url = logo_response
   end
 
   def call_fullcontact_api
@@ -53,16 +44,17 @@ class FullContactCompanyProcessor
     nil
   end
 
-  def find_url(type_id)
-    return unless !links.blank? && links.any? { |link| link['type_id'] == type_id }
-    links.find { |item| item['type_id'] == type_id }['url']
+  def process_industries(industries_response)
+    return unless industries_response
+    industries_response.each do |item|
+      @company.industries << Industry.find_or_create_by(name: item['name'])
+    end
   end
 
-  def set_industries
-    all_industry = response['industries']
-    return unless all_industry
-    all_industry.each do |item|
-      @company.industries << Industry.find_or_create_by(name: item['name'])
+  def find_url(social, response)
+    social.inject({}) do |acc, type_id|
+      link = response.detect { |item| item['type_id'] == type_id }
+      acc.tap { acc[type_id] = link['url'] if link }
     end
   end
 end

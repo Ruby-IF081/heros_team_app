@@ -8,49 +8,81 @@
           .card-body.container
             .row
               .col-3
-                img.img-fluid [src="https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_120,w_120,f_auto,q_auto:eco/v1459804290/mkxozts4fsvkj73azuls.png" alt="Company Logo"]
+                img.img-fluid [src="#{company.logo.path}" alt="Company Logo"]
               .col-9
                 h4= company.name
                 a [href="http://#{company.domain}"]= company.domain
                 h6 Description
-                p
-                  | Brief overview
-                  br
-                  | Mostly info from FullContact in this card
+                = simple_format(company.overview)
             .row
-              h6.card-text.col-3 Categories
-              p.card-text.col-9 List of industries
+              .card-text.col-3
+                h6 Founded Year
+              .card-text.col-8
+                p= company.founded
             .row
-              h6.card-text.col-3 Founded Date
-              p.card-text.col-9 Jan 1, 2003
+              .card-text.col-3
+                h6 Count of Employees
+              .card-text.col-8
+                p= company.approx_employees
             .row
-              h6.card-text.col-3 Founders
-              p.card-text.col-9 List of Founders
-    .row
-      .card.container
-        .card-header.row
-          h5.card-title= "#{company.name} pages"
-        .card-content.collapse.show
-          .card-body.container
-            .row
-              p.card-text.col-12 Some text
-    .row
-      .card.container
-        .card-header.row
-          h5.card-title Extra Card 1
-        .card-content.collapse.show
-          .card-body.container
-            .row
-              h5.card-title.col-12 Content title
-            .row
-              p.card-text.col-12 Some text
-    .row
-      .card.container
-        .card-header.row
-          h5.card-title Extra Card 2
-        .card-content.collapse.show
-          .card-body.container
-            .row
-              h5.card-title.col-12 Content title
-            .row
-              p.card-text.col-12 Some text
+              .card-text.col-3
+                h6 Industries
+              .card-text.col-9
+                ul
+                  - company.industries.each do |item|
+                    li= item.name
+        .card
+          .card-header
+            h4.card-title= "#{company.name} links"
+          .card-content
+            .card-body
+              .row
+                .card-text.col-3
+                  h6 Twitter
+                .card-text.col-8
+                  a href=company.twitter target="_blank"=  company.twitter
+              .row
+                .card-text.col-3
+                  h6 Facebook
+                .card-text.col-8
+                  a href=company.facebook target="_blank"=  company.facebook
+              .row
+                .card-text.col-3
+                  h6 Linkedin
+                .card-text.col-8
+                  a href=company.linkedincompany target="_blank"=  company.linkedincompany
+              .row
+                .card-text.col-3
+                  h6 Youtube
+                .card-text.col-8
+                  a href=company.youtube target="_blank"=  company.youtube
+              .row
+                .card-text.col-3
+                  h6 Angellist
+                .card-text.col-8
+                  a href=company.angellist target="_blank"=  company.angellist
+              .row
+                .card-text.col-3
+                  h6 Owler
+                .card-text.col-8
+                  a href=company.owler target="_blank"=  company.owler
+              .row
+                .card-text.col-3
+                  h6 Crunchbase
+                .card-text.col-8
+                  a href=company.crunchbasecompany target="_blank"=  company.crunchbasecompany
+              .row
+                .card-text.col-3
+                  h6 Pinterest
+                .card-text.col-8
+                  a href=company.pinterest target="_blank"=  company.pinterest
+              .row
+                .card-text.col-3
+                  h6 Google
+                .card-text.col-8
+                  a href=company.google target="_blank"=  company.google
+              .row
+                .card-text.col-3
+                  h6 Klout
+                .card-text.col-8
+                  a href=company.klout target="_blank"=  company.klout

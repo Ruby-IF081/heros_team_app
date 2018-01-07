@@ -1133,7 +1133,9 @@ Bootstrap Enhance */
       .card-header .heading-elements a.btn,
       .card-header .heading-elements-toggle a.btn {
         padding-top: 6px;
-        padding-bottom: 6px; }
+        padding-bottom: 6px; }       
+.card-image {
+  padding-bottom: 6px; }
 
 .card-footer {
   border-top: 1px solid #EEEEEE; }

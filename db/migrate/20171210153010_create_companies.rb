@@ -5,7 +5,7 @@ class CreateCompanies < ActiveRecord::Migration[5.1]
       t.string  :domain
       t.string  :youtube
       t.string  :twitter
-      t.string  :linkedin
+      t.string  :linkedincompany
       t.string  :facebook
       t.string  :angellist
       t.string  :owler

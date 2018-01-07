@@ -22,7 +22,7 @@ RSpec.describe FullContactCompanyProcessor do
     processor.process
     company.reload
     expect(company.name).to eq('Google')
-    expect(company.linkedin).to eq('https://www.linkedin.com/company/google')
+    expect(company.linkedincompany).to eq('https://www.linkedin.com/company/google')
     expect(company.industries.size).to eq(3)
   end
 
@@ -33,7 +33,7 @@ RSpec.describe FullContactCompanyProcessor do
     processor = FullContactCompanyProcessor.new(company: company)
     processor.process
     company.reload
-    expect(company.linkedin).to eq(nil)
+    expect(company.linkedincompany).to eq(nil)
     expect(company.industries.size).to eq(0)
   end
 end

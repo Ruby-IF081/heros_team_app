@@ -14,6 +14,8 @@
 "app/libs":
   TooManyStatements:
     max_statements: 10
+  NestedIterators:
+    max_allowed_nesting: 2
 "app/helpers":
   UtilityFunction:
     enabled: false

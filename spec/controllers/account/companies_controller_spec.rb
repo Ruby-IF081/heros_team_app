@@ -7,6 +7,7 @@ RSpec.describe Account::CompaniesController, type: :controller do
     allow_any_instance_of(FullContactCompanyProcessor).to receive(:call_fullcontact_api)
       .and_return({})
   end
+
   describe "GET #index" do
     it "populates an array of companies" do
       get :index
