@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def layout_by_resource
-    if devise_controller? && resource_name == :user && action_name == 'new'
+    if (controller_name == 'registrations' || controller_name == 'sessions') && action_name == 'new'
       "landing"
     else
       "application"

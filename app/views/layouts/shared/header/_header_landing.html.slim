@@ -6,19 +6,44 @@
   .horizontal-menu.navbar-container.ml-0
     ul.nav.navbar-nav data-menu="menu-navigation"
       li.nav-item
-        = link_to "HOME", root_path, class:"nav-link font-medium-2"
+        = link_to "HOME", home_path, class:"nav-link font-medium-2"
       li.nav-item
         = link_to "ABOUT US", about_us_path, class:"nav-link font-medium-2"
       li.nav-item
         = link_to "PRICING", pricing_path, class:"nav-link font-medium-2"
       li.nav-item
         = link_to "CONTACTS", contacts_path, class:"nav-link font-medium-2"
-  .horizontal-menu.navbar-container.ml-0.pt-2
-    .nav.navbar-nav data-menu="menu-navigation"
-
-      = link_to "SIGN IN", new_session_path(resource_name), class: "nav-link font-medium-2"
-      p.nav-item.pt-2.font-medium-2
-        | or
-      .nav-item
-        = link_to "SIGN UP", new_user_registration_path, class: "nav-link font-medium-2"
+  - if user_signed_in?
+    .horizontal-menu.navbar-container
+      .collapse.navbar-collapse.float-right
+        ul.nav.navbar-nav.float-right
+          li.dropdown.dropdown-user.nav-item
+            a.dropdown-toggle.nav-link.dropdown-user-link[href="#" data-toggle="dropdown"]
+              span.avatar.avatar-online
+                = gravatar_image_tag(current_user.email)
+              span.user-name = current_user.full_name
+            .dropdown-menu.dropdown-menu-right
+              .dropdown-item[href="#"]
+                = link_to edit_user_registration_path, class: "btn btn-md" do
+                  i.fa.fa-user
+                  | Edit Profile
+              - if current_user != true_user
+                .dropdown-divider
+                .dropdown-item[href="#"]
+                  = link_to stop_impersonating_account_users_path, method: :post, class: "btn btn-md" do
+                    i.fa.fa-arrow-left
+                    | Back to admin
+              .dropdown-divider
+              .dropdown-item[href="#"]
+                = link_to destroy_user_session_path, method: :delete, class: "btn btn-md" do
+                  i.fa.fa-sign-out
+                  | Log out
+  - else
+    .horizontal-menu.navbar-container.ml-0.pt-2
+      .nav.navbar-nav data-menu="menu-navigation"
+        = link_to "SIGN IN", new_session_path(resource_name), class: "nav-link font-medium-2"
+        p.nav-item.pt-2.font-medium-2
+          | or
+        .nav-item
+          = link_to "SIGN UP", new_user_registration_path, class: "nav-link font-medium-2"
   /! /horizontal menu content

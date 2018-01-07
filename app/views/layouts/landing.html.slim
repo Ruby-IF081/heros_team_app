@@ -8,17 +8,10 @@ html
     = javascript_include_tag 'application'
     link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"
   body.land-font
-    - if user_signed_in?
-      .fixed-top
-        = render 'layouts/header'
-        = render 'account/shared/nav'
-    - else
-      = render 'layouts/shared/header/header_landing'
+
+    = render 'layouts/shared/header/header_landing'
 
     = yield
     = any_login_here if defined?(AnyLogin)
 
-    - if user_signed_in?
-      = render 'layouts/footer'
-    - else
-      = render 'layouts/shared/footer/footer_landing'
+    = render 'layouts/shared/footer/footer_landing'
