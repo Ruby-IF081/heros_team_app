@@ -14,8 +14,10 @@ html
         = render 'account/shared/nav'
     - else
       = render 'layouts/shared/header/header_landing'
+
     = yield
     = any_login_here if defined?(AnyLogin)
+
     - if user_signed_in?
       = render 'layouts/footer'
     - else
