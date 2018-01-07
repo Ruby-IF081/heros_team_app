@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title
+      | Dashboard by&nbsp;
+      = current_user.full_name
+    = csrf_meta_tags
+    = stylesheet_link_tag    'account/application', media: 'all'
+    = stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Montserrat'
+    = javascript_include_tag 'account/application'
+
+  body data-open="hover" data-menu="horizontal-menu" data-col="2-columns" class="horizontal-layout horizontal-menu 2-columns   menu-expanded"
+    = render 'account/shared/header'
+    = render 'account/shared/nav'
+    = yield
+    = render 'account/shared/footer'
+    = any_login_here if defined?(AnyLogin)
+   

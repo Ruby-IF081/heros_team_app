@@ -1,4 +1,6 @@
 "app/controllers":
+  TooManyStatements:
+    max_statements: 20
   NestedIterators:
     max_allowed_nesting: 2
   UnusedPrivateMethod:

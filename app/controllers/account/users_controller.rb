@@ -29,6 +29,7 @@ class Account::UsersController < ApplicationController
     @user = User.new(resource_params)
     @user.assign_attributes(tenant: current_tenant, password: User::DEFAULT_PASSWORD)
     if @user.save
+      UsersMailer.credentials(@user).deliver
       redirect_to account_users_path, flash: { success: 'New user is successfuly created!' }
     else
       flash[:danger] = 'Your new user has invalid data!'
