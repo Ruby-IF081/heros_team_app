@@ -1,8 +1,6 @@
-h1 All tenants
-= link_to "Add new tenant", new_account_tenant_path, class: 'btn btn-primary'
-
-ul
-  - @tenants.each do |tenant|
-    li
-      = link_to tenant.name, account_tenant_path(tenant)
-= paginate @tenants
+.container
+  .row
+    .col-md-12
+      h1 All tenants
+      = render 'tenants_table', tenants: @tenants
+    = paginate @tenants

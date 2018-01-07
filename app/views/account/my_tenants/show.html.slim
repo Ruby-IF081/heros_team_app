@@ -7,10 +7,13 @@
           ol.breadcrumb
             li.breadcrumb-item
               a href=root_path  Home
-            li.breadcrumb-item
-              a href=account_tenants_path  All Tenants
             li.breadcrumb-item.active
               = @tenant.name
+    .content-header-right.text-md-right.col-md-6.col-12
+      .form-group
+        button.btn-icon.btn.btn-grey-blue.btn-darken-2.btn-round type="button"
+          = link_to edit_account_my_tenant_path do
+            i.fa.fa-pencil-square-o
   .content-body
     section.row
       .col-sm-12
