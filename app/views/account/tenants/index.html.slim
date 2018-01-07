@@ -13,6 +13,6 @@
               = @tenants.current_page
   .content-body
     section.row
-      .col-sm-12
+      .col-md-12
         = render 'tenants_table', tenants: @tenants
-      = paginate @tenants
+        = paginate @tenants

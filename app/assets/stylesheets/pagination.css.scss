@@ -1,0 +1,13 @@
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-left-width: 0;
+}
+
+.pagination {
+  border-left: 1px solid #ddd;
+}
