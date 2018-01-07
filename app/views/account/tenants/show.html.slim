@@ -6,9 +6,9 @@
         .breadcrumb-wrapper.col-12
           ol.breadcrumb
             li.breadcrumb-item
-              a href=root_path  Home
+              = link_to 'My Account', account_root_path
             li.breadcrumb-item
-              a href=account_tenants_path  All Tenants
+              = link_to 'All tenants', account_tenants_path
             li.breadcrumb-item.active
               = @tenant.name
   .content-body
