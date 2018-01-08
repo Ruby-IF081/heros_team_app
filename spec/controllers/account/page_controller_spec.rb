@@ -16,7 +16,7 @@ RSpec.describe Account::PagesController, type: :controller do
     end
 
     it 'PATCH #rate with valid values' do
-      new_rating = +100
+      new_rating = 100
       patch :rate, params: { company_id: page.company.to_param,
                              id: page.id, page: { rating: new_rating } }
       page.reload

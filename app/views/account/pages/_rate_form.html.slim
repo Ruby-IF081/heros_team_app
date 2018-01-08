@@ -1,0 +1,4 @@
+= form_for @page, url: rate_account_company_page_path, id: 'rateForm' do |f|
+  = f.hidden_field :rating, id:'pageRating'
+  - Page::LEGAL_RATING.each do |i|
+    button onclick="changeRating(#{i});" class='btn btn-success btn-sm' #{i}

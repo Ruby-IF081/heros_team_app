@@ -8,9 +8,7 @@
         .row-arrow-right
           p Rate this page:
         .row-arrow-right
-          = form_for @page, url: rate_account_company_page_path, id: 'rateForm' do |f|
-            = f.hidden_field :rating, id:'pageRating'
-            = render 'rate_buttons'
+          = render 'rate_form'
   div
     h3 Page type:
     p= @page.page_type
