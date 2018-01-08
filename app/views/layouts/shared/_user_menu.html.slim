@@ -1,0 +1,23 @@
+.collapse.navbar-collapse.float-right
+  ul.nav.navbar-nav.float-right
+    li.dropdown.dropdown-user.nav-item
+      a.dropdown-toggle.nav-link.dropdown-user-link[href="#" data-toggle="dropdown"]
+        span.avatar.avatar-online
+          = gravatar_image_tag(current_user.email)
+        span.user-name = current_user.full_name
+      .dropdown-menu.dropdown-menu-right
+        .dropdown-item[href="#"]
+          = link_to edit_user_registration_path, class: "btn btn-md" do
+            i.fa.fa-user
+            | Edit Profile
+        - if current_user != true_user
+          .dropdown-divider
+          .dropdown-item[href="#"]
+            = link_to stop_impersonating_account_users_path, method: :post, class: "btn btn-md" do
+              i.fa.fa-arrow-left
+              | Back to admin
+        .dropdown-divider
+        .dropdown-item[href="#"]
+          = link_to destroy_user_session_path, method: :delete, class: "btn btn-md" do
+            i.fa.fa-sign-out
+            | Log out

@@ -490,8 +490,8 @@ Bootstrap Enhance */
 .dropdown-toggle:focus {
   outline: 0; }
 
-.navbar-horizontal .dropdown-toggle::after {
-  top: -9px !important; }
+/*.navbar-horizontal .dropdown-toggle::after {*/
+  /*top: -9px !important; }*/
 
 .dropdown-menu-right {
   left: auto !important;
