@@ -9,8 +9,7 @@ class Account::PagesController < ApplicationController
 
   def rate
     @page = resource
-    last_rating = @page.rating
-    if @page.update_rating(params[:commit], last_rating)
+    if @page.update_rating(params[:page][:rating])
       redirect_to account_company_pages_path
     else
       flash.now[:danger] = 'Invalid values for rating!'

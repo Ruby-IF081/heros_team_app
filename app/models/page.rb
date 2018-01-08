@@ -28,7 +28,7 @@ class Page < ApplicationRecord
   CHROME_EXTENSION = 'chrome_extension'.freeze
   PAGE_TYPES = [BING_TYPE, ANGLECO_TYPE, LINKEDIN_TYPE, CRUNCHBASE_TYPE, CHROME_EXTENSION].freeze
 
-  LEGAL_RATING = %w[+1000 +100 +50 +10 -10 -50 -100 -1000].freeze
+  LEGAL_RATING = %w[1000 100 50 10 -10 -50 -100 -1000].freeze
 
   belongs_to :company
 
@@ -46,7 +46,7 @@ class Page < ApplicationRecord
     page
   end
 
-  def update_rating(commit, last_rating)
-    update(rating: commit.to_i + last_rating) if LEGAL_RATING.include?(commit)
+  def update_rating(new_rating)
+    update(rating: new_rating.to_i + rating) if LEGAL_RATING.include?(new_rating)
   end
 end

@@ -16,19 +16,20 @@ RSpec.describe Account::PagesController, type: :controller do
     end
 
     it 'PATCH #rate with valid values' do
-      new_rating = '+100'
+      new_rating = +100
       patch :rate, params: { company_id: page.company.to_param,
-                             id: page.id, commit: new_rating }
+                             id: page.id, page: { rating: new_rating } }
       page.reload
-      expect(page.rating).to eq(new_rating.to_i)
+      expect(page.rating).to eq(new_rating)
     end
 
     it 'PATCH #rate with invalid values' do
-      new_rating = '+100000'
+      old_rating = page.rating
+      invalid_rating = 1_000_000
       patch :rate, params: { company_id: page.company.to_param,
-                             id: page.id, commit: new_rating }
+                             id: page.id, page: { rating: invalid_rating } }
       page.reload
-      expect(page.rating).not_to eq(new_rating.to_i)
+      expect(page.rating).to eq(old_rating)
     end
   end
 end
