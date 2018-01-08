@@ -7,10 +7,17 @@
     enabled: false
   InstanceVariableAssumption:
     enabled: false
+  TooManyStatements:
+    max_statements: 6
   NilCheck:
     enabled: false
   PrimaDonnaMethod:
     enabled: false
+"app/libs":
+  TooManyStatements:
+    max_statements: 10
+  NestedIterators:
+    max_allowed_nesting: 2
 "app/helpers":
   UtilityFunction:
     enabled: false

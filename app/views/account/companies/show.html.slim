@@ -28,61 +28,91 @@
   .content-body
     section.row
       .col-sm-12
-        /! Overview
         #overview.card
           .card-header
             h4.card-title Overview
           .card-content
             .card-body
               .row
-                .card-image.col-sm-2
-                  img.company-logo src="https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_120,w_120,f_auto,q_auto:eco/v1459804290/mkxozts4fsvkj73azuls.png"
+                .card-image.col-sm-2 
+                  img.company-logo.height-150.width-150 src="#{@company.logo_url}" 
                 .card-text.col-sm-10
                   h4= @company.name
                   a href="http://#{@company.domain}" target="_blank"=  @company.domain
+              .row
+                .card-text.col-sm-2
                   h6 Description
-                  p
-                    | Brief overview
-                    br
-                    | Mostly info from FullContact in this card
+                .card-text.col-sm-10
+                  = simple_format(@company.overview)
               .row
                 .card-text.col-sm-2
-                  h6 Categories
+                  h6 Founded Year
                 .card-text.col-sm-10
-                  | List of indastries
+                  p= @company.founded
               .row
                 .card-text.col-sm-2
-                  h6 Founded Date
+                  h6 Count of Employees
                 .card-text.col-sm-10
-                  | Jan 1, 2003
+                  p= @company.approx_employees
               .row
                 .card-text.col-sm-2
-                  h6 Founders
+                  h6 Industries
                 .card-text.col-sm-10
-                  | List of Founders
-        /! / Overciew
-        /! Pages
+                  ul
+                    - @company.industries.order('name ASC').each do |item|
+                      li= item.name
         .card
           .card-header
-            h4.card-title= "#{@company.name} pages"
-          .card-content.collapse.show
+            h4.card-title= "#{@company.name} links"
+          .card-content
             .card-body
-              .card-text
-        /! / Pages
-    section.row
-      .col-md-6.col-sm-12
-        .card
-          .card-header
-            h4.card-title Extra Card 1
-          .card-content.collapse.show
-            .card-body.border-top-blue-grey.border-top-lighten-5
-              h4.card-title Content title
-              p.card-text
-      .col-md-6.col-sm-12
-        .card
-          .card-header
-            h4.card-title Extra Card 2
-          .card-content.collapse.show
-            .card-body
-              h4.card-title Content title
-              p.card-text
+              .row
+                .card-text.col-sm-2
+                  img.icon-right src="/assets/icon/twitter.png" Twitter
+                .card-text.col-sm-8
+                  a href=@company.twitter target="_blank"=  @company.twitter
+              .row
+                .card-text.col-sm-2
+                  img.icon-right src="/assets/icon/facebook.png" Facebook
+                .card-text.col-sm-8
+                  a href=@company.facebook target="_blank"=  @company.facebook
+              .row
+                .card-text.col-sm-2
+                  img.icon-right src="/assets/icon/linkedin.png" Linkedin
+                .card-text.col-sm-8
+                  a href=@company.linkedincompany target="_blank"=  @company.linkedincompany
+              .row
+                .card-text.col-sm-2
+                  img.icon-right src="/assets/icon/youtube.png" Youtube 
+                .card-text.col-sm-8
+                  a href=@company.youtube target="_blank"=  @company.youtube
+              .row
+                .card-text.col-sm-2
+                  img.icon-right src="/assets/icon/angellist.png" Angellist
+                .card-text.col-sm-8
+                  a href=@company.angellist target="_blank"=  @company.angellist
+              .row
+                .card-text.col-sm-2
+                  img.icon-right src="/assets/icon/owler.png" Owler
+                .card-text.col-sm-8
+                  a href=@company.owler target="_blank"=  @company.owler
+              .row
+                .card-text.col-sm-2
+                  img.icon-right src="/assets/icon/crunchbasecompany.png" Crunchbase
+                .card-text.col-sm-8
+                  a href=@company.crunchbasecompany target="_blank"=  @company.crunchbasecompany
+              .row
+                .card-text.col-sm-2
+                  img.icon-right src="/assets/icon/pinterest.png" Pinterest
+                .card-text.col-sm-8
+                  a href=@company.pinterest target="_blank"=  @company.pinterest
+              .row
+                .card-text.col-sm-2
+                  img.icon-right src="/assets/icon/google.png" Google
+                .card-text.col-sm-8
+                  a href=@company.google target="_blank"=  @company.google
+              .row
+                .card-text.col-sm-2
+                  img.icon-right src="/assets/icon/klout.png" Klout
+                .card-text.col-sm-8
+                  a href=@company.klout target="_blank"=  @company.klout

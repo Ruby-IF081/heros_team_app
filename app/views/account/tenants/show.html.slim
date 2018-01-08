@@ -1,15 +1,44 @@
-h1= @tenant.name
-.btn-group
-  = link_to  "Edit", edit_account_tenant_path, class: 'btn btn-primary'
-  = link_to "Delete", account_tenant_path, method: :delete,
-                      data: { confirm: 'Are you sure you want to delete this tenant?' },
-                      class: 'btn btn-primary'
-.tenant
-  p
-  	b Website:   	
-  p
-  	= @tenant.website
-  p
-  	b Phone:
-  p
-  	= @tenant.phone
+.content-wrapper
+  .content-header.row
+    .content-header-left.col-md-6.col-12.mb-2
+      h3.content-header-title.mb-0= @tenant.name
+      .row.breadcrumbs-top
+        .breadcrumb-wrapper.col-12
+          ol.breadcrumb
+            li.breadcrumb-item
+              a href=root_path  Home
+            li.breadcrumb-item
+              a href=account_tenants_path  All Tenants
+            li.breadcrumb-item.active
+              = @tenant.name
+  .content-body
+    section.row
+      .col-sm-12
+        /! Overview
+        #overview.card
+          .card-header
+            h4.card-title Overview
+          .card-content
+            .card-body
+              .row
+                .card-image.col-sm-2
+                  img.company-logo src="https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_120,w_120,f_auto,q_auto:eco/v1459804290/mkxozts4fsvkj73azuls.png"
+                .card-text.col-sm-10
+                  h4= @tenant.name
+                  = link_to @tenant.website, "http://#{@tenant.website}", target: "_blank"
+              .row
+                .card-text.col-sm-2
+                  h6 Phone
+                .card-text.col-sm-10
+                  = @tenant.phone
+              .row
+                .card-text.col-sm-2
+                  h6 Added
+                .card-text.col-sm-10
+                  = l @tenant.created_at, format: :long
+              .row
+                .card-text.col-sm-2
+                  h6 Number of Users:
+                .card-text.col-sm-10
+                  = @tenant.users.count
+        /! / Overciew

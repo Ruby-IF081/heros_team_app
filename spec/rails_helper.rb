@@ -80,3 +80,8 @@ RSpec.configure do |config|
   # For using the `Devise::Test::ControllerHelpers`
   config.include Devise::Test::ControllerHelpers, type: :controller
 end
+
+# For using the `Devise::Test::ControllerHelpers`
+RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers, type: :controller
+end
