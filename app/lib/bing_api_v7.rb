@@ -21,11 +21,7 @@ class BingApiV7
     response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
       http.request(request)
     end
-
-    response.each_header do |key, value|
-      puts key + ": " + value if key.start_with?("bingapis-", "x-msedge-")
-    end
-
+    
     JSON(response.body)
   end
 

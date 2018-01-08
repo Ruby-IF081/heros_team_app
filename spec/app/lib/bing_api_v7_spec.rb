@@ -1,6 +1,4 @@
 require 'rails_helper'
-require 'json'
-require 'support/vcr_setup'
 
 RSpec.describe BingApiV7 do
   describe '#search', vcr: true do
