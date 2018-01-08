@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'support/render_views'
 
 RSpec.describe Account::TenantsController, type: :controller do
   before :each do
@@ -8,31 +9,20 @@ RSpec.describe Account::TenantsController, type: :controller do
   let!(:tenant) { @user.tenant }
 
   describe 'GET #index' do
-    context 'without render_views' do
-      it 'populates an array of tenants' do
-        get :index
-        expect(assigns(:tenants)).to eq([tenant])
-      end
-
-      it "renders the RSpec generated template" do
-        get :index
-        expect(response.body).to eq("")
-      end
-
-      it 'renders the :index view' do
-        get :index
-        expect(response).to have_http_status(200)
-        expect(response).to render_template(:index)
-      end
+    it 'populates an array of tenants' do
+      get :index
+      expect(assigns(:tenants)).to eq([tenant])
     end
 
-    context 'with render_views' do
-      render_views
+    it 'renders the :index view' do
+      get :index
+      expect(response).to have_http_status(200)
+      expect(response).to render_template(:index)
+    end
 
-      it 'has tenant.name in body' do
-        get :index
-        expect(response.body).to match(tenant.name)
-      end
+    it 'has tenant.name in body' do
+      get :index
+      expect(response.body).to match(tenant.name)
     end
   end
 

@@ -1,1 +1,3 @@
-RSpec.configure(&:render_views)
+RSpec.configure do |config|
+  config.render_views
+end
