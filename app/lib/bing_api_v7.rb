@@ -21,7 +21,7 @@ class BingApiV7
     response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
       http.request(request)
     end
-    
+
     JSON(response.body)
   end
 
