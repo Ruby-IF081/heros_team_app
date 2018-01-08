@@ -1,16 +1,13 @@
 require 'rails_helper'
 require 'json'
-require 'webmock/rspec'
 require 'support/vcr_setup'
 
 RSpec.describe BingApiV7 do
-  bing = BingApiV7.new
-  example = 'softserve'
-
   describe '#search', vcr: true do
     context 'with valid response data' do
-      let(:search_query) { example }
-      subject { bing.search(search_query) }
+      let!(:company) { Company.create(domain: 'softserve') }
+      let!(:bing) { BingApiV7.new(company) }
+      subject { bing.search }
 
       it 'returns json parsed data' do
         expect(subject).to be_a(Hash)
@@ -22,12 +19,23 @@ RSpec.describe BingApiV7 do
     end
   end
 
-  describe '#bing_pages_to_model', vcr: true do
+  describe '#pages_process', vcr: true do
     context 'pages exist' do
-      let(:pages) { bing.search(example)["webPages"]["value"] }
+      let!(:company) { Company.create(domain: 'softserve') }
+      let!(:bing) { BingApiV7.new(company) }
+      let!(:pages) { bing.search["webPages"]["value"] }
       it 'must have something' do
         expect(pages).to all(have_key("name"))
         expect(pages).to all(have_key("displayUrl"))
+      end
+    end
+
+    context 'response not valid', vcr: false do
+      let(:bing) { BingApiV7.new(Company.create(domain: 'softserve')) }
+
+      it 'must have something exact we need' do
+        allow_any_instance_of(BingApiV7).to receive(:search).and_return({})
+        expect { bing.pages_process }.not_to raise_error
       end
     end
   end
