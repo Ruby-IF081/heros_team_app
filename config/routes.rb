@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'contacts', to: 'home#contacts'
 
   devise_for :users, path: 'account', controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations', sessions: 'users/track_sessions'
   }
 
   namespace :account do
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     end
     resources :tenants, only: %i[show index]
     resource :my_tenant, only: %i[show edit update]
+    resources :analytics, only: %i[index]
     resources :users do
       post :impersonate, on: :member
       post :stop_impersonating, on: :collection

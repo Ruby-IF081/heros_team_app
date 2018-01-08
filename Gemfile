@@ -30,6 +30,8 @@ gem 'slim'
 gem 'uglifier', '>= 1.3.0'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem "chartkick"
+gem 'groupdate'
 
 # Use SCSS for stylesheets
 gem 'bootstrap', '~> 4.0.0.beta2.1'

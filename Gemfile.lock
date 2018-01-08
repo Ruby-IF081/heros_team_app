@@ -109,6 +109,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chartkick (2.2.5)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     code_analyzer (0.4.8)
@@ -414,6 +415,7 @@ DEPENDENCIES
   capistrano-sidekiq
   capybara (~> 2.13)
   carrierwave
+  chartkick
   database_cleaner
   devise
   dynamic_form
@@ -425,6 +427,7 @@ DEPENDENCIES
   fullcontact (= 0.13.0)
   gastly
   gravatar_image_tag
+  groupdate
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
