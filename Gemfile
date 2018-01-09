@@ -19,6 +19,7 @@ gem 'pretender'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'rails_best_practices'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'reek', '~> 4.7', '>= 4.7.3'
 gem 'rubocop', '~> 0.51.0', require: false
 gem 'sass-rails', '~> 5.0'
@@ -32,7 +33,7 @@ gem 'wkhtmltopdf-binary'
 # Use SCSS for stylesheets
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'feathericon-sass'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
