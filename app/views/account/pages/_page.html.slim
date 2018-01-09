@@ -1,9 +1,10 @@
 tbody
   tr
-    td = link_to span = page.title, account_company_page_path(page.company, page)
+    td
+      = link_to account_company_page_path(page.company, page) do
+        .page-logo-container-index
+          =image_tag(page.screenshot, class: 'page-logo')
+        span = page.title
     td = page.page_type
     td = page.status
     td = page.rating
-    td
-      .page-logo-container
-        img.page-logo src=page.screenshot

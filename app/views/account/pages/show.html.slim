@@ -25,7 +25,7 @@
             .card-body
               .row
                 .card-image.col-sm-2.page-logo-container data-target="#imageModal" data-toggle="modal"
-                  img.page-logo.show-pointer src=@page.screenshot
+                  = image_tag(@page.screenshot, class: 'page-logo show-pointer')
                 .card-text.col-sm-10
                   h4= @page.title
                   ul
@@ -47,4 +47,4 @@
   .modal-dialog.image-modal-content role="document"
     .modal-content
       .modal-body
-        img.modal-image.show-pointer data-dismiss="modal" src=@page.screenshot
+        = image_tag(@page.screenshot, class: 'modal-image show-pointer', 'data-dismiss': 'modal')
