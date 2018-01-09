@@ -1,12 +1,11 @@
 require 'rails_helper'
-require 'support/render_views'
 
 RSpec.describe Account::TenantsController, type: :controller do
-  before :each do
-    @user = create(:user, :super_admin)
+  let!(:tenant) { FactoryBot.create(:tenant) }
+  before(:each) do
+    @user = create(:user, :super_admin, tenant: tenant)
     sign_in @user
   end
-  let!(:tenant) { @user.tenant }
 
   describe 'GET #index' do
     it 'populates an array of tenants' do

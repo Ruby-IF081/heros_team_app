@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Account::MyTenantsController, type: :controller do
-  before :each do
-    @user = create(:user, :admin)
+  let!(:tenant) { FactoryBot.create(:tenant) }
+  before(:each) do
+    @user = create(:user, :admin, tenant: tenant)
     sign_in @user
   end
-  let!(:tenant) { @user.tenant }
 
   describe 'GET #show' do
     it 'assigns the requested tenant to @tenant' do
