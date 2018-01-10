@@ -12,12 +12,12 @@ feature 'Landing page' do
     visit home_path
 
     within('.header-navbar') do
-      expect(page).to have_text('HOME')
+      expect(page).to have_text('home')
       expect(page).to have_text('Log out')
     end
 
     within('footer') do
-      expect(page).not_to have_text('HOME')
+      expect(page).not_to have_text('home')
     end
   end
 
@@ -25,11 +25,11 @@ feature 'Landing page' do
     visit root_path
 
     within('.header-navbar') do
-      expect(page).to have_text('HOME')
+      expect(page).to have_text('home')
     end
 
     within('footer') do
-      expect(page).not_to have_text('HOME')
+      expect(page).not_to have_text('home')
     end
   end
 end

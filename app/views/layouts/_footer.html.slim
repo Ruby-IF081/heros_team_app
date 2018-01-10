@@ -6,14 +6,14 @@ footer.footer.footer-light.navbar-shadow.position-static
       a.text-bold-800.grey.darken-2[href="https://softserveinc.com/en-us/" target="_blank"]
         |  SoftServe
       | , All rights reserved.
-    span.float-md-none.d-block.d-md-inline-block
-      = link_to "HOME", home_path, class: "nav-link"
-    span.float-md-none.d-block.d-md-inline-block
-      = link_to "ABOUT US", about_us_path, class: "nav-link"
-    span.float-md-none.d-block.d-md-inline-block
-      = link_to "PRICING", pricing_path, class: "nav-link"
-    span.float-md-none.d-block.d-md-inline-block
-      = link_to "CONTACTS", contacts_path, class: "nav-link"
+    span.float-md-none.d-block.d-md-inline-block.text-uppercase
+      = link_to "home", home_path, class: "nav-link"
+    span.float-md-none.d-block.d-md-inline-block.text-uppercase
+      = link_to "about us", about_us_path, class: "nav-link"
+    span.float-md-none.d-block.d-md-inline-block.text-uppercase
+      = link_to "pricing", pricing_path, class: "nav-link"
+    span.float-md-none.d-block.d-md-inline-block.text-uppercase
+      = link_to "contacts", contacts_path, class: "nav-link"
     span.float-md-right.d-block.d-md-inline-blockd-none.d-lg-block.mt-2
       | Hand-crafted & Made with
       i.fe.fe-heart.pink

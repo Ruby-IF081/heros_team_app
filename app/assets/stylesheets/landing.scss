@@ -1,4 +1,4 @@
-.land-font{
+.land-font {
   font-family: 'Raleway', sans-serif !important;
 }
 .home-back {
@@ -6,7 +6,7 @@
   height:30vh;
 }
 
-.image1{
+.image1 {
   background: linear-gradient(rgba(0, 0, 0, 0.16), rgba(0,0,0,.16)),url('landing_back1.jpeg') no-repeat fixed center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -15,7 +15,7 @@
   height:100vh;
 }
 
-.image2{
+.image2 {
   background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url('landing_back2.jpeg') no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -23,19 +23,19 @@
   background-size: cover;
 }
 
-.landing-cont-back1{
+.landing-cont-back1 {
   margin: 0;
   background: rgba(42, 25, 211, 0.16);
   text-align: center;
 }
 
-.landing-cont-back2{
+.landing-cont-back2 {
   margin: 0;
   background: rgba(93, 255, 245, 0.13);
   text-align: center;
 }
 
-.landing-cont-back3{
+.landing-cont-back3 {
   background: rgba(255, 255, 255, 0.45);
   text-align: center;
   font-size: 30px;
@@ -46,11 +46,11 @@
   justify-content: space-between !important;
 }
 
-.landing-part1{
+.landing-part1 {
   padding-top: 30% !important;
   padding-bottom: 70% !important;
 }
 
-.landing-part2{
+.landing-part2 {
   margin-top: 20% !important;
 }

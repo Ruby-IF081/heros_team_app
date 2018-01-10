@@ -4,24 +4,24 @@
     = link_to root_path do
       = image_tag("logo1.png", alt: 'Sales Assistant', id: 'logo')
   .horizontal-menu.navbar-container.ml-0
-    ul.nav.navbar-nav data-menu="menu-navigation"
+    ul.nav.navbar-nav.text-uppercase data-menu="menu-navigation"
       li.nav-item
-        = link_to "HOME", home_path, class:"nav-link font-medium-2"
+        = link_to "home", home_path, class:"nav-link font-medium-2"
       li.nav-item
-        = link_to "ABOUT US", about_us_path, class:"nav-link font-medium-2"
+        = link_to "about us", about_us_path, class:"nav-link font-medium-2"
       li.nav-item
-        = link_to "PRICING", pricing_path, class:"nav-link font-medium-2"
+        = link_to "pricing", pricing_path, class:"nav-link font-medium-2"
       li.nav-item
-        = link_to "CONTACTS", contacts_path, class:"nav-link font-medium-2"
+        = link_to "contacts", contacts_path, class:"nav-link font-medium-2"
   - if user_signed_in?
     .horizontal-menu.navbar-container
       = render 'layouts/shared/user_menu'
   - else
     .horizontal-menu.navbar-container.ml-0.pt-2
       .nav.navbar-nav data-menu="menu-navigation"
-        = link_to "SIGN IN", new_session_path(resource_name), class: "nav-link font-medium-2"
+        = link_to "sign in", new_session_path(resource_name), class: "nav-link font-medium-2 text-uppercase"
         p.nav-item.pt-2.font-medium-2
           | or
-        .nav-item
-          = link_to "SIGN UP", new_user_registration_path, class: "nav-link font-medium-2"
+        .nav-item.text-uppercase
+          = link_to "sign up", new_user_registration_path, class: "nav-link font-medium-2"
   /! /horizontal menu content
