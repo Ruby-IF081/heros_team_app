@@ -1,13 +1,14 @@
 .content-wrapper
   .content-header.row
     .content-header-left.col-md-6.col-12.mb-2
-      h3.content-header-title.mb-0= @company.name
+      .content-header-title.mb-0
+        h3 = @company.name
       .row.breadcrumbs-top
         .breadcrumb-wrapper.col-12
-          = render_breadcrumbs({ 'User' => root_path,
-                  'All companies' => account_companies_path,
-                  @company.name => nil,
-                  'Company pages' => account_company_pages_path(@company) })
+          = render_breadcrumbs({ 'Dashboard' => account_root_path,
+                                 'Companies' => account_companies_path,
+                                 'Company pages' => account_company_pages_path(@company),
+                                 @company.name => nil})
     .content-header-right.text-md-right.col-md-6.col-12
       .form-group
         button.btn-icon.btn.btn-grey-blue.btn-darken-2.btn-round type="button"

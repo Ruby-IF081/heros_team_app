@@ -4,9 +4,9 @@
       h3.content-header-title.mb-0= @tenant.name
       .row.breadcrumbs-top
         .breadcrumb-wrapper.col-12
-          = render_breadcrumbs({'My Account'=> account_root_path,
-                  'All tenants' => account_tenants_path,
-                  @tenant.name => nil})
+          = render_breadcrumbs({'Dashboard' => account_root_path,
+                                'Tenants' => account_tenants_path,
+                                @tenant.name => nil})
   .content-body
     section.row
       .col-sm-12
