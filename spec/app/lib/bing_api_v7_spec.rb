@@ -17,23 +17,35 @@ RSpec.describe BingApiV7 do
     end
   end
 
-  describe '#pages_process', vcr: true do
-    context 'pages exist' do
-      let!(:company) { Company.create(domain: 'softserve') }
-      let!(:bing) { BingApiV7.new(company) }
-      let!(:pages) { bing.search["webPages"]["value"] }
-      it 'must have something' do
-        expect(pages).to all(have_key("name"))
-        expect(pages).to all(have_key("displayUrl"))
+  describe '#pages_process' do
+    context 'cr pages for company' do
+      let!(:user) { FactoryBot.create(:user, email: 'sale@sale.com',
+                                             password: '1234qwer',
+                                             role: 'sale') } 
+      let!(:company) { FactoryBot.create(:company, name:  'Example Company',
+                                                   domain: 'example.org',
+                                                   user: user) }
+      it 'company.pages creates' do
+        expect(company.pages.create(page_type: Page::BING_TYPE,
+                                    title: 'softserve',
+                                    source_url: 'softserve.com',
+                                    status: Page::PENDING_STATUS)).to be_valid
       end
     end
 
-    context 'response not valid', vcr: false do
-      let(:bing) { BingApiV7.new(Company.create(domain: 'softserve')) }
+    context '#pages_process', vcr: true do
+      let!(:company) { Company.create(domain: 'softserve') }
+      let!(:bing) { BingApiV7.new(company) }
+      let!(:pages) { bing.search["webPages"]["value"] }
 
-      it 'must have something exact we need' do
-        allow_any_instance_of(BingApiV7).to receive(:search).and_return({})
+      it 'should not to get error if search method return empty response' do
+        allow(bing).to receive(:search).and_return({})
         expect { bing.pages_process }.not_to raise_error
+      end
+
+      it 'should have min 2 main values for our pages' do
+        expect(pages).to all(have_key("name"))
+        expect(pages).to all(have_key("displayUrl"))
       end
     end
   end

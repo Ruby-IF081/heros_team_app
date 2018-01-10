@@ -1,7 +1,3 @@
-require 'net/https'
-require 'uri'
-require 'json'
-
 class BingApiV7
   BING_URI = 'https://api.cognitive.microsoft.com'.freeze
   BING_PATH = '/bing/v7.0/search'.freeze
