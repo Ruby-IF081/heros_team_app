@@ -1,7 +1,7 @@
 class Users::TrackSessionsController < Devise::SessionsController
-  after_action :after_login, :only => :create
+  after_action :user_logins, only: [:create]
 
-  def after_login
-    Visit.create!(user_id: current_user.id)
+  def user_logins
+    current_user.visits.create
   end
 end

@@ -7,11 +7,13 @@ end
 
 gem 'brakeman', '~> 4.1', '>= 4.1.1'
 gem 'carrierwave'
+gem 'chartkick'
 gem 'devise'
 gem 'dynamic_form'
 gem 'fullcontact', '0.13.0'
 gem 'gastly'
 gem 'gravatar_image_tag'
+gem 'groupdate'
 gem 'jbuilder', '~> 2.5'
 gem 'kaminari'
 gem 'mini_magick'
@@ -30,8 +32,6 @@ gem 'slim'
 gem 'uglifier', '>= 1.3.0'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem "chartkick"
-gem 'groupdate'
 
 # Use SCSS for stylesheets
 gem 'bootstrap', '~> 4.0.0.beta2.1'

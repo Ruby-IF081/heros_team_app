@@ -10,4 +10,8 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def three_month(user)
+    user.where(created_at: 3.month.ago..Time.current)
+  end
 end
