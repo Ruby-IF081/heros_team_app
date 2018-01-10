@@ -38,6 +38,8 @@ class Page < ApplicationRecord
 
   scope :by_rating, -> { order(rating: :desc) }
 
+  delegate :name, :id, to: :company, prefix: true, allow_nil: true
+
   def self.new_by_company(params, company)
     page = new(params)
     page.company = company

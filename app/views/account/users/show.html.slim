@@ -5,7 +5,10 @@
         = @user.full_name
       .row.breadcrumbs-top
         .breadcrumb-wrapper.col-12
-          = render_breadcrumbs(@breadcrumbs_hash)
+          = render_breadcrumbs({ 'Home' => root_url,
+                  'My account' => account_root_path ,
+                  'All Users' => account_users_path,
+                  @user.full_name => nil })
     .content-header-right.text-md-right.col-md-6.col-12
       .form-group
         = link_to edit_account_user_path,

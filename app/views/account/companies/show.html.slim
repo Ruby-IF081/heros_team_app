@@ -4,13 +4,10 @@
       h3.content-header-title.mb-0= @company.name
       .row.breadcrumbs-top
         .breadcrumb-wrapper.col-12
-          ol.breadcrumb
-            li.breadcrumb-item
-              a href=root_path  User
-            li.breadcrumb-item
-              a href=account_companies_path  All Companies
-            li.breadcrumb-item.active
-              = @company.name
+          = render_breadcrumbs({ 'User' => root_path,
+                  'All companies' => account_companies_path,
+                  @company.name => nil,
+                  'Company pages' => account_company_pages_path(@company) })
     .content-header-right.text-md-right.col-md-6.col-12
       .form-group
         button.btn-icon.btn.btn-grey-blue.btn-darken-2.btn-round type="button"

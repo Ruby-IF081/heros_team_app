@@ -2,6 +2,11 @@
   .row
     .col-md-12
       h1 All company pages
+  .row.breadcrumbs-top
+    .breadcrumb-wrapper.col-12
+      = render_breadcrumbs({ 'Home' => root_url,
+                @pages.first.company_name =>  account_company_path(@pages.first.company_id),
+                'All pages' => nil })
       table.table.table-bordered
         thead
           th.col-md-6 Title

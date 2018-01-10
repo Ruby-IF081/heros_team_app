@@ -4,11 +4,8 @@
       h3.content-header-title.mb-0 All companies
       .row.breadcrumbs-top
         .breadcrumb-wrapper.col-12
-          ol.breadcrumb
-            li.breadcrumb-item
-              a href=root_path  User
-            li.breadcrumb-item.active
-              | All companies
+          = render_breadcrumbs({'User' => root_path,
+                  'All companies' => nil})
     .content-header-right.text-md-right.col-md-6.col-12
       .form-group
         button.btn-icon.btn.btn-grey-blue.btn-darken-2.btn-round type="button"
