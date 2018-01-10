@@ -19,6 +19,7 @@ class Account::UsersController < ApplicationController
 
   def show
     @user = resource
+    @breadcrumbs_hash = resource_breadcrumbs
   end
 
   def new
@@ -69,5 +70,10 @@ class Account::UsersController < ApplicationController
 
   def resource
     collection.find(params[:id])
+  end
+
+  def resource_breadcrumbs
+    { 'All Users' => account_users_path,
+      @user.full_name => account_users_path(@user) }.freeze
   end
 end
