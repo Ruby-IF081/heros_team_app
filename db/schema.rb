@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20180106144904) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_visits_on_user_id"
   end
 
   add_foreign_key "companies", "users"

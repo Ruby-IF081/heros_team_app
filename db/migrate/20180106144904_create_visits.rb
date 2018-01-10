@@ -5,5 +5,6 @@ class CreateVisits < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+    add_index :visits, :user_id
   end
 end
