@@ -55,6 +55,10 @@ group :development, :test do
   gem 'webmock', require: 'webmock/rspec'
 end
 
+group :test do
+  gem 'simplecov', require: false, group: :test
+end
+
 group :development do
   gem 'capistrano', '~> 3.6'
   gem 'capistrano-passenger'
