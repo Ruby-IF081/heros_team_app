@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'sidekiq/testing'
 
 RSpec.describe Account::CompaniesController, type: :controller do
   let!(:company) { create(:company) }

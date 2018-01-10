@@ -26,4 +26,12 @@ FactoryBot.define do
     status { Page::STATUSES.sample }
     screenshot { Faker::Avatar.image }
   end
+
+  factory :page_without_content, class: Page do
+    company
+    page_type { Page::PAGE_TYPES.sample }
+    title { Faker::Beer.name }
+    source_url { Faker::Internet.url('en.wikipedia.org/wiki') }
+    status { Page::PENDING_STATUS }
+  end
 end

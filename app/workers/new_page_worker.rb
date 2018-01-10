@@ -4,32 +4,32 @@ class NewPageWorker
 
   def perform(page_id)
     @page = Page.find(page_id)
-    @doc_html = downloading_content
-  rescue SocketError, Gastly::FetchError, OpenURI::HTTPError, Net::OpenTimeout => error
+    @doc_html = download_content
+    process
+  rescue SocketError, Gastly::FetchError, OpenURI::HTTPError, Net::OpenTimeout
     page.update_attributes(status: Page::ERROR_STATUS)
-    logger.warn error
   end
 
   private
 
-  def processing
+  def process
     page.update_attributes(status: Page::IN_PROGRESS_STATUS)
     parse_html_content
     make_screenshot
     page.update_attributes(status: Page::PROCESSED_STATUS)
   end
 
-  def downloading_screenshot(file)
-    Gastly.capture(page.source_url, file.path)
+  def download_screenshot(file)
+    File.new(Gastly.capture(page.source_url, file.path))
   end
 
   def make_screenshot
     file = Tempfile.new
-    page.update_attributes(screenshot: File.new(downloading_screenshot(file)))
+    page.update_attributes(screenshot: download_screenshot(file))
     file.unlink
   end
 
-  def downloading_content
+  def download_content
     file = open(page.source_url)
     Nokogiri::HTML(file)
   end

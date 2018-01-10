@@ -16,9 +16,9 @@
 #
 
 class Page < ApplicationRecord
-  IN_PROGRESS_STATUS = 'active'.freeze
+  IN_PROGRESS_STATUS = 'in progress'.freeze
   PENDING_STATUS     = 'pending'.freeze
-  PROCESSED_STATUS   = 'finished'.freeze
+  PROCESSED_STATUS   = 'processed'.freeze
   ERROR_STATUS       = 'error'.freeze
   STATUSES           = [IN_PROGRESS_STATUS, PENDING_STATUS, PROCESSED_STATUS, ERROR_STATUS].freeze
 

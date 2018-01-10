@@ -11,6 +11,7 @@ class Account::PagesController < ApplicationController
 
   def rate
     @page = resource
+    @company = @page.company
     if @page.update_rating(params[:page][:rating])
       redirect_to account_company_pages_path
     else
