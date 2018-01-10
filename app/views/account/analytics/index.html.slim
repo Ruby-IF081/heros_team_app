@@ -1,19 +1,19 @@
 .container
   .row
     .col-md-6
-      = line_chart charts_new_users_by_week_path, legend: true, label: "Users registration for last 3 month, group by week",
+      = line_chart account_charts_new_users_by_week_path, legend: true, label: "Users registration for last 3 month, group by week",
       download: true, xtitle: "Time", ytitle: "User count"
     .col-md-6
-      = column_chart charts_new_companies_by_week_path, legend: true, label: "Companies analytics for last 3 month, group by week", colors: ["#b00"],
+      = column_chart account_charts_new_companies_by_week_path, legend: true, label: "Companies analytics for last 3 month, group by week", colors: ["#b00"],
       download: true, xtitle: "Time", ytitle: "Companies count"
   .row
     .col-md-6
-      = column_chart charts_new_users_path, legend: true, label: "Users registraion per monthes",
-      download: true, xtitle: "Monthes", ytitle: "User count"
+      = column_chart account_charts_new_users_path, legend: true, label: "Users registraion per months",
+      download: true, xtitle: "Months", ytitle: "User count"
     .col-md-6
-      = area_chart charts_new_companies_path, legend: true, label: "Company analytics", colors: ["#b00"],
+      = area_chart account_charts_new_companies_path, legend: true, label: "Company analytics", colors: ["#b00"],
       download: true, xtitle: "Companies count group by day of a week", ytitle: "Company count"
   .row
     .col-md-6
-      = column_chart charts_users_login_path, legend: true, label: "Users login per weeks",
+      = column_chart account_charts_users_login_path, legend: true, label: "Users login per weeks",
       download: true, xtitle: "Time", ytitle: "Users logins"

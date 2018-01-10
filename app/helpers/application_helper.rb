@@ -11,7 +11,7 @@ module ApplicationHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
 
-  def three_month(user)
-    user.where(created_at: 3.month.ago..Time.current)
+  def select_range_for(entity, range)
+    entity.where(created_at: range.month.ago..Time.current)
   end
 end
