@@ -29,19 +29,19 @@ class CompanyDomainProcessor
     sub_links = filtered_sub_pages_links
     sub_links.each do |link|
       link = page_url(link)
-      page_create_pending(page_title(link), page_url(link)) if page_link_live(link)
+      page_create_pending(page_title(link), link) if page_link_live(link)
     end
   end
 
   def page_html_links(link)
     domain_index = Nokogiri::HTML(open(link))
     main_html = domain_index.css('body')
-    main_html.css('a').map { |link| link['href'] }
+    main_html.css('a').map { |href_link| href_link['href'] }
   end
 
   def filtered_sub_pages_links
     links = page_html_links(@domain)
-    links = links.uniq.reject { |e| e.to_s.empty? }
+    links = links.uniq.reject { |page_link| page_link.to_s.empty? }
     sub_links = []
     links.each do |link|
       sub_links.push(link) unless link == '#' || (link.include?('://') && link.exclude?(@domain))
@@ -50,8 +50,8 @@ class CompanyDomainProcessor
   end
 
   def page_title(link)
-    link = link.sub(@domain, '')
-    'Official page' + link.tr('/', '.')
+    link = link.sub(@domain, '').tr('/', '.')
+    'Official page' + link
   end
 
   def page_url(link)
@@ -60,12 +60,10 @@ class CompanyDomainProcessor
   end
 
   def page_create_pending(title, source_url)
-    page = Page.new
-    page.title = title
-    page.company = @company
-    page.source_url = source_url
-    page.page_type = Page::OFFICIAL_PAGE
-    page.status = Page::PENDING_STATUS
-    page.save
+    Page.create(title: title,
+                page_type: Page::OFFICIAL_PAGE,
+                source_url: source_url,
+                status: Page::PENDING_STATUS,
+                company: @company)
   end
 end

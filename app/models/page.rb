@@ -27,7 +27,12 @@ class Page < ApplicationRecord
   CRUNCHBASE_TYPE = 'crunchbase'.freeze
   CHROME_EXTENSION = 'chrome_extension'.freeze
   OFFICIAL_PAGE = 'official_page'.freeze
-  PAGE_TYPES = [BING_TYPE, ANGLECO_TYPE, LINKEDIN_TYPE, CRUNCHBASE_TYPE, CHROME_EXTENSION, OFFICIAL_PAGE].freeze
+  PAGE_TYPES = [BING_TYPE,
+                ANGLECO_TYPE,
+                LINKEDIN_TYPE,
+                CRUNCHBASE_TYPE,
+                CHROME_EXTENSION,
+                OFFICIAL_PAGE].freeze
 
   LEGAL_RATING = %w[1000 100 50 10 -10 -50 -100 -1000].freeze
 
