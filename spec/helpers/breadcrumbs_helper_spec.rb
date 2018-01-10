@@ -1,11 +1,13 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe BreadcrumbsHelper do
+describe BreadcrumbsHelper, type: :helper do
   describe '#page_breadcrumbs' do
+    let!(:expected_html) do
+      "<ul class=\"breadcrumb\"><li class=\"breadcrumb-item\">"\
+                    "<a href=\"#{account_root_path}\">Dashboard</a></li></ul>"
+    end
     it 'returns the right breadcrumb' do
-      expected_html = "<ul class=\"breadcrumb\"><li class=\"breadcrumb-item\">"\
-                    "<a href=\"http://test.host/account\">Dashboard</a></li></ul>"
-      expect(helper.render_breadcrumbs('Dashboard' => account_root_url)).to eq(expected_html)
+      expect(helper.render_breadcrumbs('Dashboard' => account_root_path)).to eq(expected_html)
     end
   end
 end

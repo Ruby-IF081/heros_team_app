@@ -6,7 +6,7 @@
       .row.breadcrumbs-top
         .breadcrumb-wrapper.col-12
           = render_breadcrumbs({'Dashboard' => account_root_path,
-                                @page.company_name => account_company_path(@page.company_id),
+                                @page.company_name => account_company_path(@page.company),
                                 'Pages' => account_company_pages_path,
                                 @page.title => nil})
     .content-header-right.text-md-right.col-md-6.col-12
