@@ -1,6 +1,18 @@
-.container
-  .row
-    .col-md-12
-      h1 All tenants
-      = render 'tenants_table', tenants: @tenants
-    = paginate @tenants
+.content-wrapper
+  .content-header.row
+    .content-header-left.col-md-6.col-12.mb-2
+      h3.content-header-title.mb-0 All tenants
+      .row.breadcrumbs-top
+        .breadcrumb-wrapper.col-12
+          ol.breadcrumb
+            li.breadcrumb-item
+              = link_to 'My Account', account_root_path
+            li.breadcrumb-item
+              = link_to 'All tenants', account_tenants_path
+            li.breadcrumb-item.active
+              = @tenants.current_page
+  .content-body
+    section.row
+      .col-md-12
+        = render 'tenants_table', tenants: @tenants
+        = paginate @tenants

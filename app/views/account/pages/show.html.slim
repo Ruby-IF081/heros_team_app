@@ -1,20 +1,26 @@
 .container
-  .row
-    .col-md-12
-      = link_to  "Back to all pages", account_company_pages_path, class: 'btn btn-primary'
-      h1= @page.title
-      div
-        h3 Page type:
-        p= @page.page_type
-      div
-        h3 Status:
-        p= @page.status
-      div
-        h3 Content:
-        p= @page.content
-      div
-        h3 Content html:
-        p= @page.content_html
-      div
-        h3 Screenshot url:
-        p= @page.screenshot
+  .content-wrapper
+    .content-header.row
+      .content-header-left.col-md-6.col-12.mb-2
+        = link_to  'Back to all pages', account_company_pages_path, class: 'btn btn-primary'
+        h1.content-header-title.mb-0= @page.title
+      .content-header-right.text-md-right.col-md-6.col-12
+        .row-arrow-right
+          p Rate this page:
+        .row-arrow-right
+          = render 'rate_form', page: @page
+  div
+    h3 Page type:
+    p= @page.page_type
+  div
+    h3 Status:
+    p= @page.status
+  div
+    h3 Content:
+    p= @page.content
+  div
+    h3 Content html:
+    p= @page.content_html
+  div
+    h3 Screenshot url:
+    p= @page.screenshot

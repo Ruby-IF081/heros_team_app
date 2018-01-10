@@ -10,6 +10,7 @@
 #  source_url   :string
 #  status       :string
 #  screenshot   :string
+#  rating       :integer          default 0
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
@@ -27,11 +28,15 @@ class Page < ApplicationRecord
   CHROME_EXTENSION = 'chrome_extension'.freeze
   PAGE_TYPES = [BING_TYPE, ANGLECO_TYPE, LINKEDIN_TYPE, CRUNCHBASE_TYPE, CHROME_EXTENSION].freeze
 
+  LEGAL_RATING = %w[1000 100 50 10 -10 -50 -100 -1000].freeze
+
   belongs_to :company
 
   validates :title, presence: { message: 'Title cannot be empty' }, allow_blank: false
   validates :source_url, presence: { message: 'Source URL cannot be empty' }, allow_blank: false
   validates :company_id, presence: { message: 'Company must be selected' }
+
+  scope :by_rating, -> { order(rating: :desc) }
 
   def self.new_by_company(params, company)
     page = new(params)
@@ -39,5 +44,9 @@ class Page < ApplicationRecord
     page.page_type = Page::CHROME_EXTENSION
     page.status = Page::PENDING_STATUS
     page
+  end
+
+  def update_rating(new_rating)
+    update(rating: new_rating.to_i + rating) if LEGAL_RATING.include?(new_rating)
   end
 end
