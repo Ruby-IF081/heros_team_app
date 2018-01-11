@@ -1,14 +1,12 @@
 .content-wrapper
   .content-header.row
     .content-header-left.col-md-6.col-12.mb-2
-      h3.content-header-title.mb-0 All companies
+      .content-header-title.mb-0
+        h3 Companies
       .row.breadcrumbs-top
         .breadcrumb-wrapper.col-12
-          ol.breadcrumb
-            li.breadcrumb-item
-              a href=root_path  User
-            li.breadcrumb-item.active
-              | All companies
+          = render_breadcrumbs({'Dashboard' => account_root_path,
+                                'Companies' => nil})
     .content-header-right.text-md-right.col-md-6.col-12
       .form-group
         button.btn-icon.btn.btn-grey-blue.btn-darken-2.btn-round type="button"

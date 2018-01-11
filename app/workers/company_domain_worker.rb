@@ -1,12 +1,12 @@
 class CompanyDomainWorker
   include Sidekiq::Worker
-  sidekiq_options :retry => false
+  sidekiq_options retry: false
 
   def perform(company_id)
     @company = Company.find(company_id)
     @domain = @company.domain
 
-    page_create_pending('Official page', @domain)
+    page_create_pending(@domain)
     sub_pages_process
   end
 

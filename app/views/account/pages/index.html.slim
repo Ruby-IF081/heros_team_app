@@ -1,12 +1,15 @@
-.container
-  .row
-    .col-md-12
-      h1 All company pages
-      table.table.table-bordered
-        thead
-          th.col-md-6 Title
-          th.col-md-3 Type
-          th.col-md-3 Status
-          th.col-md-3 Rating
-        = render partial: 'pages_table', collection: @pages, as: :page
-      = paginate @pages
+.content-wrapper
+  .content-header.row
+    .content-header-left.col-md-6.col-12.mb-2
+      .content-header-title.mb-0
+        h3 Pages
+      .row.breadcrumbs-top
+        .breadcrumb-wrapper.col-12
+          = render_breadcrumbs({ 'Dashboard' => account_root_path,
+                                 @company.name => account_company_path(@company),
+                                 'Pages' => nil })
+  .content-body
+    section.row
+      .col-md-12
+        = render 'pages_table', pages: @pages
+        = paginate @pages

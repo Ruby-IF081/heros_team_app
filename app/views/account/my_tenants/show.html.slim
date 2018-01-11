@@ -4,11 +4,8 @@
       h3.content-header-title.mb-0= @tenant.name
       .row.breadcrumbs-top
         .breadcrumb-wrapper.col-12
-          ol.breadcrumb
-            li.breadcrumb-item
-              = link_to 'My Account', account_root_path
-            li.breadcrumb-item.active
-              = @tenant.name
+          = render_breadcrumbs({'Dashboard' => account_root_path,
+                                @tenant.name => nil})
     - if true_user.admin?
       .content-header-right.text-md-right.col-md-6.col-12
         .form-group
