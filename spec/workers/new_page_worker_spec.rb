@@ -7,11 +7,11 @@ RSpec.describe NewPageWorker, sidekiq: true do
     Nokogiri::HTML('<html><head><title>Hello World</title></head>
     <body><h1>Hello from body</h1></body></html>')
   end
+  let!(:screenshot_response) { Tempfile.new }
 
   before(:each) do
     allow(worker).to receive(:download_content).and_return(content_response)
-    allow(worker).to receive(:download_screenshot)
-      .and_return(Tempfile.new)
+    allow(worker).to receive(:download_screenshot).and_return(screenshot_response)
   end
 
   it 'testing worker queueing' do
@@ -37,5 +37,13 @@ RSpec.describe NewPageWorker, sidekiq: true do
     page.reload
 
     expect(page.status).to eq('processed')
+  end
+
+  it 'page status should be error' do
+    allow(worker).to receive(:download_content).and_raise(SocketError)
+    worker.perform(page.id)
+    page.reload
+
+    expect(page.status).to eq('error')
   end
 end
