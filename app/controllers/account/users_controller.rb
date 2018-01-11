@@ -3,7 +3,7 @@ class Account::UsersController < ApplicationController
   before_action :authorize_admin!
 
   def index
-    @search = User.ransack(params[:q])
+    @search = current_tenant.users.ransack(params[:q])
     @users = @search.result.page(params[:page]).per(10)
   end
 

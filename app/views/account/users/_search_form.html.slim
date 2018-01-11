@@ -10,7 +10,7 @@
     .form-group.row
       = f.label :role_eq, 'Role', class: 'col-md-4 col-form-label'
       = f.select :role_eq,
-              [['Sale', 'sale'], ['Admin', 'admin'], ['Super admin', 'super_admin']],
+              options_for_select(User::ROLES),
               include_blank: true,
               class: 'col-md-7 form-control'
 
