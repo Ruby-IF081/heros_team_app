@@ -25,7 +25,7 @@ class Account::PagesController < ApplicationController
   end
 
   def collection
-    current_user.companies.find(params[:company_id]).pages.by_rating
+    current_company.pages.by_rating
   end
 
   def current_company
