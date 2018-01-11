@@ -19,7 +19,7 @@ class Account::CompaniesController < ApplicationController
     if @company.save
       flash[:success] = "Company successfully created"
       NewCompanyWorker.perform_async(@company.id)
-      CompanyDomainProcessor.new(@company).process
+      CompanyDomainWorker.perform_async(@company.id)
       redirect_to account_company_path(@company)
     else
       render :new

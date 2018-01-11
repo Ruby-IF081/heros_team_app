@@ -36,6 +36,8 @@ class Page < ApplicationRecord
 
   LEGAL_RATING = %w[1000 100 50 10 -10 -50 -100 -1000].freeze
 
+  PENDING_TITLE = 'pending'.freeze
+
   belongs_to :company
 
   validates :title, presence: { message: 'Title cannot be empty' }, allow_blank: false
