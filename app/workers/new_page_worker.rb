@@ -26,7 +26,7 @@ class NewPageWorker
   def make_screenshot
     file = Tempfile.new
     page.update_attributes(screenshot: download_screenshot(file))
-    file.unlink
+    file.close!
   end
 
   def download_content
@@ -35,7 +35,7 @@ class NewPageWorker
   end
 
   def parse_html_content
-    unless doc_html.content == ''
+    if doc_html.content.present?
       title = doc_html.css('title').first.content
       doc = doc_html.css('body').first.content
       page.update_attributes(content_html: doc_html, content: doc, title: title)

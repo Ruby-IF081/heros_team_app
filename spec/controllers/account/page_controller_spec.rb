@@ -1,7 +1,6 @@
 require 'rails_helper'
-require 'sidekiq/testing'
 
-RSpec.describe Account::PagesController, type: :controller do
+RSpec.describe Account::PagesController, sidekiq: true, type: :controller do
   context 'Page' do
     let!(:page) { create(:page) }
     before(:each) { sign_in page.company.user }

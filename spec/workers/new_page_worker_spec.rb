@@ -1,16 +1,15 @@
 require 'rails_helper'
-require 'sidekiq/testing'
 
-RSpec.describe NewPageWorker do
-  let!(:page) { create(:page_without_content) }
+RSpec.describe NewPageWorker, sidekiq: true do
+  let!(:page) { create(:page) }
   let!(:worker) { NewPageWorker.new }
 
   content_response = Nokogiri::HTML('<html><head><title>Hello World</title></head>
     <body><h1>Hello from body</h1></body></html>')
 
   before(:each) do
-    allow_any_instance_of(NewPageWorker).to receive(:download_content).and_return(content_response)
-    allow_any_instance_of(NewPageWorker).to receive(:download_screenshot)
+    allow(worker).to receive(:download_content).and_return(content_response)
+    allow(worker).to receive(:download_screenshot)
       .and_return(Tempfile.new)
   end
 
