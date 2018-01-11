@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe NewPageWorker, sidekiq: true do
   let!(:page) { create(:page) }
   let!(:worker) { NewPageWorker.new }
-
-  content_response = Nokogiri::HTML('<html><head><title>Hello World</title></head>
+  let!(:content_response) do
+    Nokogiri::HTML('<html><head><title>Hello World</title></head>
     <body><h1>Hello from body</h1></body></html>')
+  end
 
   before(:each) do
     allow(worker).to receive(:download_content).and_return(content_response)
