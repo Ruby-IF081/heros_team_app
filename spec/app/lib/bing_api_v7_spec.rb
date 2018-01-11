@@ -1,13 +1,51 @@
 require 'rails_helper'
 
-RSpec.describe BingApiV7 do
-  describe '#search', vcr: true do
-    context 'with valid response data' do
-      let!(:company) { Company.create(domain: 'softserve') }
-      let!(:bing) { BingApiV7.new(company) }
-      subject { bing.search }
+RSpec.describe BingApiV7, type: :lib do
+  context 'contants' do
+    let(:bing_uri) {  'https://api.cognitive.microsoft.com' }
+    let(:bing_path) { '/bing/v7.0/search' }
 
-      it 'returns json parsed data' do
+    subject { BingApiV7 }
+
+    it 'has BING_URI constant with correct value' do
+      expect(subject::BING_URI).to eq(bing_uri)
+    end
+
+    it 'has BING_PATH constant with correct value' do
+      expect(subject::BING_PATH).to eq(bing_path)
+    end
+  end
+
+
+  describe 'initialize' do
+    let!(:company) { build(:company) }
+
+    subject { BingApiV7.new(company) }
+
+    it 'sets @company from given args' do
+      expect(subject.instance_variable_get(:@company)).to eq(company)
+    end
+  end
+
+  describe '#uri' do
+    let!(:company) { build(:company) }
+
+    subject { BingApiV7.new(company) }
+
+    it 'builds correct url' do
+      expect(subject.uri.to_s).to eq("#{BingApiV7::BING_URI}#{BingApiV7::BING_PATH}?q=#{CGI.escape(company.domain)}")
+    end
+  end
+
+  describe '#search' do
+    let!(:company) { create(:company, domain: 'softserve.com') }
+    let!(:bing) { BingApiV7.new(company) }
+
+    subject { bing.search }
+
+    context 'with valid API response', vcr: true do
+      it 'returns parsed response' do
+        expect { subject }.not_to raise_error
         expect(subject).to be_a(Hash)
         expect(subject).not_to be_empty
         expect(subject).to have_key('webPages')
@@ -18,34 +56,34 @@ RSpec.describe BingApiV7 do
   end
 
   describe '#pages_process' do
-    context 'cr pages for company' do
-      let!(:user) { FactoryBot.create(:user, email: 'sale@sale.com',
-                                             password: '1234qwer',
-                                             role: 'sale') } 
-      let!(:company) { FactoryBot.create(:company, name:  'Example Company',
-                                                   domain: 'example.org',
-                                                   user: user) }
-      it 'company.pages creates' do
-        expect(company.pages.create(page_type: Page::BING_TYPE,
-                                    title: 'softserve',
-                                    source_url: 'softserve.com',
-                                    status: Page::PENDING_STATUS)).to be_valid
+    let!(:company) { create(:company, domain: 'softserve.com') }
+    let!(:bing) { BingApiV7.new(company) }
+
+    subject { bing.pages_process }
+
+    context 'with API data response', vcr: true do
+      it 'creates pages for company' do
+        expect { subject }.to change { company.pages.count }.by(10)
       end
     end
 
-    context '#pages_process', vcr: true do
-      let!(:company) { Company.create(domain: 'softserve') }
-      let!(:bing) { BingApiV7.new(company) }
-      let!(:pages) { bing.search["webPages"]["value"] }
-
-      it 'should not to get error if search method return empty response' do
+    context 'with blank API data response' do
+      it 'does not creates pages for company' do
         allow(bing).to receive(:search).and_return({})
-        expect { bing.pages_process }.not_to raise_error
+
+        expect { subject }.not_to change { company.pages.count }
       end
 
-      it 'should have min 2 main values for our pages' do
-        expect(pages).to all(have_key("name"))
-        expect(pages).to all(have_key("displayUrl"))
+      it 'returns nil if "webPages" data is blank' do
+        allow(bing).to receive(:search).and_return({ 'webPages' => nil })
+
+        expect(subject).to eq(nil)
+      end
+
+      it 'returns nil if "webPages" "value" is blank' do
+        allow(bing).to receive(:search).and_return({ 'webPages' => { 'value' => nil } })
+
+        expect(subject).to eq(nil)
       end
     end
   end
