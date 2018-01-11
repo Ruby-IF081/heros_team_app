@@ -23,25 +23,25 @@ RSpec.describe BingApiV7, type: :lib do
     subject { BingApiV7.new(company) }
 
     it 'sets @company from given args' do
-      expect(subject.instance_variable_get(:@company)).to eq(company)
+      expect(subject.instance_variable_get(:@element)).to eq(company)
     end
   end
 
   describe '#uri' do
-    let!(:company) { build(:company) }
+    let!(:company) { build(:company, domain: 'softserve.com') }
 
     subject { BingApiV7.new(company) }
 
     it 'builds correct url' do
-      expect(subject.uri.to_s).to eq("#{BingApiV7::BING_URI}#{BingApiV7::BING_PATH}?q=#{CGI.escape(company.domain)}")
+      expect(subject.uri(company.domain).to_s).to eq("#{BingApiV7::BING_URI}#{BingApiV7::BING_PATH}?q=#{CGI.escape(company.domain || '')}")
     end
   end
 
-  describe '#search' do
+  describe '#search', vcr: true do
     let!(:company) { create(:company, domain: 'softserve.com') }
     let!(:bing) { BingApiV7.new(company) }
 
-    subject { bing.search }
+    subject { bing.search(query: company.domain) }
 
     context 'with valid API response', vcr: true do
       it 'returns parsed response' do
@@ -55,13 +55,13 @@ RSpec.describe BingApiV7, type: :lib do
     end
   end
 
-  describe '#pages_process' do
+  describe '#pages_process', vcr: true do
     let!(:company) { create(:company, domain: 'softserve.com') }
     let!(:bing) { BingApiV7.new(company) }
 
     subject { bing.pages_process }
 
-    context 'with API data response', vcr: true do
+    context 'with API data response' do
       it 'creates pages for company' do
         expect { subject }.to change { company.pages.count }.by(10)
       end

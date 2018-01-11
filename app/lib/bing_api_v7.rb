@@ -2,16 +2,16 @@ class BingApiV7
   BING_URI = 'https://api.cognitive.microsoft.com'.freeze
   BING_PATH = '/bing/v7.0/search'.freeze
 
-  def initialize(company)
-    @company = company
+  def initialize(element)
+    @element = element
   end
 
-  def uri
-    URI(BING_URI + BING_PATH + "?q=" + CGI.escape(@company.domain))
+  def uri(*query)
+    URI(BING_URI + BING_PATH + "?q=" + CGI.escape(query[0] || ''))
   end
 
-  def search
-    request = Net::HTTP::Get.new(uri)
+  def search(options = {})
+    request = Net::HTTP::Get.new(uri(options[:query]))
     request['Ocp-Apim-Subscription-Key'] = api_key
 
     response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
@@ -22,7 +22,7 @@ class BingApiV7
   end
 
   def pages_process
-    response = search
+    response = search(query: @element.domain)
 
     return unless response["webPages"]
     return unless response["webPages"]['value']
@@ -30,7 +30,7 @@ class BingApiV7
     pages = response["webPages"]["value"]
 
     pages.each do |page|
-      @company.pages.create(page_type: Page::BING_TYPE, title: page["name"],
+      @element.pages.create(page_type: Page::BING_TYPE, title: page["name"],
                             source_url: page["displayUrl"], status: Page::PENDING_STATUS)
     end
   end
