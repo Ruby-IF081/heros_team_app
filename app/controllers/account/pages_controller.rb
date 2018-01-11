@@ -1,6 +1,7 @@
 class Account::PagesController < ApplicationController
   def index
     @pages = collection.page(params[:page]).per(10)
+    @company = current_company
   end
 
   def show
@@ -24,6 +25,10 @@ class Account::PagesController < ApplicationController
   end
 
   def collection
-    current_user.companies.find(params[:company_id]).pages.by_rating
+    current_company.pages.by_rating
+  end
+
+  def current_company
+    current_user.companies.find(params[:company_id])
   end
 end

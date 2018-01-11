@@ -1,0 +1,8 @@
+ul.breadcrumb
+  - nav.each do |title, path|
+    - if path.nil?
+      li.breadcrumb-item.active
+        = title
+    - else
+      li.breadcrumb-item
+        = link_to title, path

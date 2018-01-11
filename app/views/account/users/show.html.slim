@@ -5,11 +5,9 @@
         = @user.full_name
       .row.breadcrumbs-top
         .breadcrumb-wrapper.col-12
-          ol.breadcrumb
-            li.breadcrumb-item
-              = link_to 'All Users', account_users_path
-            li.breadcrumb-item.active
-              = @user.full_name
+          = render_breadcrumbs({ 'Dashboard' => account_root_path,
+                                 'Users' => account_users_path,
+                                 @user.full_name => nil })
     .content-header-right.text-md-right.col-md-6.col-12
       .form-group
         = link_to edit_account_user_path,

@@ -1,26 +1,31 @@
-.container
-  .content-wrapper
-    .content-header.row
-      .content-header-left.col-md-6.col-12.mb-2
-        = link_to  'Back to all pages', account_company_pages_path, class: 'btn btn-primary'
-        h1.content-header-title.mb-0= @page.title
-      .content-header-right.text-md-right.col-md-6.col-12
-        .row-arrow-right
-          p Rate this page:
-        .row-arrow-right
-          = render 'rate_form', page: @page
-  div
+.content-wrapper
+  .content-header.row
+    .content-header-left.col-md-6.col-12.mb-2
+      .content-header-title.mb-0
+        h2 = @page.title
+      .row.breadcrumbs-top
+        .breadcrumb-wrapper.col-12
+          = render_breadcrumbs({'Dashboard' => account_root_path,
+                                @page.company_name => account_company_path(@page.company),
+                                'Pages' => account_company_pages_path,
+                                @page.title => nil})
+    .content-header-right.text-md-right.col-md-6.col-12
+      .row-arrow-right
+        p Rate this page:
+      .row-arrow-right
+        = render 'rate_form', page: @page
+div
     h3 Page type:
     p= @page.page_type
-  div
+div
     h3 Status:
     p= @page.status
-  div
+div
     h3 Content:
     p= @page.content
-  div
+div
     h3 Content html:
     p= @page.content_html
-  div
+div
     h3 Screenshot url:
     p= @page.screenshot
