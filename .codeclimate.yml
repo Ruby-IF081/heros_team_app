@@ -1,6 +1,6 @@
 engines:
   brakeman:
-    enabled: true
+    enabled: false
     checks:
       file_access:
         enabled: false
