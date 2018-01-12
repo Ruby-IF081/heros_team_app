@@ -144,4 +144,11 @@ RSpec.describe Account::CompaniesController, type: :controller do
       expect(response).to redirect_to account_companies_path
     end
   end
+
+  describe 'GET download' do
+    it 'open pdf' do
+      get :download, params: { id: company.id }, format: 'pdf'
+      expect(response).to have_http_status(200)
+    end
+  end
 end
