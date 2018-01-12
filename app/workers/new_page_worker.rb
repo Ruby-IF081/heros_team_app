@@ -5,7 +5,7 @@ class NewPageWorker
   def perform(page_id)
     @page = Page.find(page_id)
     process
-  rescue SocketError, Gastly::FetchError, OpenURI::HTTPError, Net::OpenTimeout
+  rescue IOError, Gastly::FetchError
     page.update_attributes(status: Page::ERROR_STATUS)
   end
 
@@ -31,7 +31,11 @@ class NewPageWorker
   end
 
   def download_content
-    Nokogiri::HTML(open(page.source_url))
+    file = open(page.source_url)
+    Nokogiri::HTML(file)
+  rescue StandardError => msg
+    page.update_attributes(response_status: msg.to_s)
+    raise IOError
   end
 
   def parse_html_content
