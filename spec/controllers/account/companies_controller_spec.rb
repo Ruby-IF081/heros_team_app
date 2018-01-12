@@ -34,6 +34,19 @@ RSpec.describe Account::CompaniesController, type: :controller do
     end
   end
 
+  describe "GET #edit" do
+    it "assigns the requested company to @company" do
+      get :edit, params: { id: company.id }
+      expect(assigns(:company)).to eq(company)
+    end
+
+    it "renders the #edit view" do
+      get :edit, params: { id: company.id }
+      expect(response).to have_http_status(200)
+      expect(response).to render_template :edit
+    end
+  end
+
   describe "GET #new" do
     it "initiate empty Company" do
       get :new
