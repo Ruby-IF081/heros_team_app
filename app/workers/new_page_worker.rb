@@ -1,6 +1,6 @@
 class NewPageWorker
   include Sidekiq::Worker
-  attr_reader :page, :doc_html
+  attr_reader :page
 
   def perform(page_id)
     @page = Page.find(page_id)
@@ -13,7 +13,6 @@ class NewPageWorker
 
   def process
     page.update_attributes(status: Page::IN_PROGRESS_STATUS)
-    @doc_html = download_content
     parse_html_content
     make_screenshot
     page.update_attributes(status: Page::PROCESSED_STATUS)
@@ -35,6 +34,7 @@ class NewPageWorker
   end
 
   def parse_html_content
+    doc_html = download_content
     if doc_html.content.present?
       title = doc_html.css('title').first.content
       doc = doc_html.css('body').first.content

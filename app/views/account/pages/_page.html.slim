@@ -3,7 +3,7 @@ tbody
     td
       = link_to account_company_page_path(page.company, page) do
         .page-logo-container-index
-          =image_tag(page.screenshot, class: 'page-logo')
+          = image_tag(page.screenshot, class: 'page-logo')
         .crearfix
         span = page.title
     td = page.page_type
