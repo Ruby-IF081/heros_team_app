@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     current_user&.tenant
   end
 
+  def current_companies
+    current_tenant&.companies
+  end
+
   def authorize_admin!
     redirect_to(root_path) unless true_user&.admin?
   end

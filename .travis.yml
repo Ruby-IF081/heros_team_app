@@ -1,3 +1,6 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=521af1b02867133476650ab702c87dea9f23c68252aa18b98b5f911da36a7f4a
 language: ruby
 rvm:
   - 2.4.1
@@ -5,6 +8,7 @@ rvm:
 cache: bundler
 
 script:
+
   - bundle exec rake db:create db:migrate
   - bundle exec rake spec
   - bundle exec rubocop
@@ -18,5 +22,11 @@ services:
 before_script:
   - cp config/database.yml.example config/database.yml
   - cp config/secrets.yml.example config/secrets.yml
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
   - bundle exec sidekiq -d -L /tmp/sidekiq.log
   - sleep 1
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
