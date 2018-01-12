@@ -7,5 +7,9 @@ FactoryBot.define do
     trait :invalid_domain do
       domain { Faker::Internet.email }
     end
+
+    trait :worker_domain do
+      domain { 'softserve.ua' }
+    end
   end
 end

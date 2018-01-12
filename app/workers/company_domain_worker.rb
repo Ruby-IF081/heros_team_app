@@ -1,6 +1,7 @@
 class CompanyDomainWorker
   include Sidekiq::Worker
   sidekiq_options retry: false
+  attr_reader :company, :filt_links, :domain
 
   def perform(company_id)
     @company = Company.find(company_id)
@@ -13,9 +14,8 @@ class CompanyDomainWorker
   private
 
   def sub_pages_process
-    sub_links = filtered_sub_pages_links
-    sub_links.each do |link|
-      link = page_url(link)
+    @filt_links = filtered_sub_pages_links
+    @filt_links.each do |link|
       page_create_pending(link)
     end
   end
@@ -34,6 +34,7 @@ class CompanyDomainWorker
     links.each do |link|
       next if link == '#'
       next if link.include?('://') && link.exclude?(@domain)
+      link = page_url(link)
       sub_links.push(link)
     end
     sub_links
