@@ -1,0 +1,19 @@
+.container
+  = search_form_for search, url: account_users_path do |f|
+    .form-group.row
+      = f.label :first_name_or_last_name_or_email_cont,
+              'First name, last name or e-mail contains',
+              class: 'col-md-4 col-form-label'
+      = f.search_field :first_name_or_last_name_or_email_cont,
+              class: 'col-md-7 form-control'
+
+    .form-group.row
+      = f.label :role_eq, 'Role', class: 'col-md-4 col-form-label'
+      = f.select :role_eq,
+              options_for_select(User::ROLES),
+              include_blank: true,
+              class: 'col-md-7 form-control'
+
+    .form-group.row
+      = f.submit 'Filter', class: 'offset-md-4 col-md-1 btn btn-success'
+      = link_to 'Reset', account_users_path, class: 'offset-md-5 col-md-1 btn btn-danger'

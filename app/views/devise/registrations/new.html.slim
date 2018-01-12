@@ -1,4 +1,4 @@
-.app-content.content
+.app-content.container.my-4.py-5
   .content-wrapper
     .content-body
       section.flexbox-container
@@ -16,4 +16,6 @@
                 .card-body
                   = render 'devise/shared/registration_form'
                 p.text-center
-                  | If you already have an Admin Account then log in.
+                  | If you already have an Admin Account then&nbsp;
+                  = link_to  "log in", new_user_session_path
+                  | .

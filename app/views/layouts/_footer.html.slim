@@ -1,11 +1,19 @@
-footer.footer.fixed-bottom.footer-light.navbar-shadow
+footer.footer.footer-light.navbar-shadow.position-static
   p.clearfix.blue-grey.lighten-2.text-sm-center.mb-0.px-2
-    span.float-md-left.d-block.d-md-inline-block
+    span.float-md-left.d-block.d-md-inline-block.mt-2
       | Copyright ©
       =  Date.today.year
       a.text-bold-800.grey.darken-2[href="https://softserveinc.com/en-us/" target="_blank"]
         |  SoftServe
       | , All rights reserved.
-    span.float-md-right.d-block.d-md-inline-blockd-none.d-lg-block
+    span.float-md-none.d-block.d-md-inline-block.text-uppercase
+      = link_to "home", home_path, class: "nav-link"
+    span.float-md-none.d-block.d-md-inline-block.text-uppercase
+      = link_to "about us", about_us_path, class: "nav-link"
+    span.float-md-none.d-block.d-md-inline-block.text-uppercase
+      = link_to "pricing", pricing_path, class: "nav-link"
+    span.float-md-none.d-block.d-md-inline-block.text-uppercase
+      = link_to "contacts", contacts_path, class: "nav-link"
+    span.float-md-right.d-block.d-md-inline-blockd-none.d-lg-block.mt-2
       | Hand-crafted & Made with
       i.fe.fe-heart.pink

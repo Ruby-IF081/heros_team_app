@@ -1,3 +1,3 @@
 class HomeController < ApplicationController
-  def index; end
+  layout "landing"
 end

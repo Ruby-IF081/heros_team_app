@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  get 'home', to: 'home#index'
+  get 'pricing', to: 'home#pricing'
+  get 'about-us', to: 'home#about_us'
+  get 'contacts', to: 'home#contacts'
+
   devise_for :users, path: 'account', controllers: {
     registrations: 'users/registrations'
   }
@@ -22,4 +26,10 @@ Rails.application.routes.draw do
       post :stop_impersonating, on: :collection
     end
   end
+
+  authenticated :user do
+    root 'account/dashboard#index', as: :authenticated_root
+  end
+
+  root 'home#index'
 end

@@ -3,7 +3,8 @@ class Account::UsersController < ApplicationController
   before_action :authorize_admin!
 
   def index
-    @users = collection.page(params[:page]).per(10)
+    @search = current_tenant.users.ransack(params[:q])
+    @users = @search.result.page(params[:page]).per(10)
   end
 
   def impersonate
