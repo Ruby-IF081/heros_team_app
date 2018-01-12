@@ -116,6 +116,8 @@ GEM
       sexp_processor
     codeclimate-engine-rb (0.4.1)
       virtus (~> 1.0)
+    codeclimate-test-reporter (1.0.7)
+      simplecov
     coderay (1.1.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -418,6 +420,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   carrierwave
   chartkick
+  codeclimate-test-reporter (~> 1.0.0)
   database_cleaner
   devise
   dynamic_form
