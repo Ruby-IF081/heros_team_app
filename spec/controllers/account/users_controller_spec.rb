@@ -180,12 +180,14 @@ RSpec.describe Account::UsersController, type: :controller do
 
     it 'admin should pretend as another user' do
       post :impersonate, params: { id: pretended_user.id }
+      expect(subject.current_user).to eq(pretended_user)
       expect(response).to have_http_status(302)
       expect(response).to redirect_to root_path
     end
 
     it 'admin should stop pretending as another user' do
       post :stop_impersonating
+      expect(subject.current_user).to eq(@user)
       expect(response).to have_http_status(302)
       expect(response).to redirect_to root_path
     end
