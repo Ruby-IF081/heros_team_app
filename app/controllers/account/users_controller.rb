@@ -1,6 +1,6 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize_admin!
+  before_action :authorize_admins!
 
   def index
     @search = current_tenant.users.ransack(params[:q])

@@ -11,7 +11,8 @@
       = link_to 'Add new', new_account_user_path, class: 'btn btn-primary'
   .content-body
     section.row
-      = render 'search_form', search: @search
+      .col-md-12
+        = render 'search_form', search: @search
     section.row
       .col-md-12
         = render 'users_table', users: @users
