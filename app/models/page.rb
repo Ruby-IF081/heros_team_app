@@ -16,21 +16,30 @@
 #
 
 class Page < ApplicationRecord
-  ACTIVE_STATUS = 'active'.freeze
-  PENDING_STATUS = 'pending'.freeze
-  FINISHED_STATUS = 'finished'.freeze
-  STATUSES = [ACTIVE_STATUS, PENDING_STATUS, FINISHED_STATUS].freeze
+  IN_PROGRESS_STATUS = 'in progress'.freeze
+  PENDING_STATUS     = 'pending'.freeze
+  PROCESSED_STATUS   = 'processed'.freeze
+  ERROR_STATUS       = 'error'.freeze
+  STATUSES           = [IN_PROGRESS_STATUS, PENDING_STATUS, PROCESSED_STATUS, ERROR_STATUS].freeze
 
-  BING_TYPE = 'bing'.freeze
-  ANGLECO_TYPE = 'angle.co'.freeze
-  LINKEDIN_TYPE = 'linkedin'.freeze
-  CRUNCHBASE_TYPE = 'crunchbase'.freeze
-  CHROME_EXTENSION = 'chrome_extension'.freeze
-  PAGE_TYPES = [BING_TYPE, ANGLECO_TYPE, LINKEDIN_TYPE, CRUNCHBASE_TYPE, CHROME_EXTENSION].freeze
+  BING_TYPE         = 'bing'.freeze
+  ANGLECO_TYPE      = 'angle.co'.freeze
+  LINKEDIN_TYPE     = 'linkedin'.freeze
+  CRUNCHBASE_TYPE   = 'crunchbase'.freeze
+  CHROME_EXTENSION  = 'chrome_extension'.freeze
+  PAGE_TYPES        = [BING_TYPE,
+                       ANGLECO_TYPE,
+                       LINKEDIN_TYPE,
+                       CRUNCHBASE_TYPE,
+                       CHROME_EXTENSION].freeze
 
-  LEGAL_RATING = %w[1000 100 50 10 -10 -50 -100 -1000].freeze
+  LEGAL_RATING      = %w[1000 100 50 10 -10 -50 -100 -1000].freeze
 
   belongs_to :company
+
+  mount_uploader :screenshot, ScreenshotUploader
+
+  after_commit :start_worker, on: :create
 
   validates :title, presence: { message: 'Title cannot be empty' }, allow_blank: false
   validates :source_url, presence: { message: 'Source URL cannot be empty' }, allow_blank: false
@@ -50,5 +59,11 @@ class Page < ApplicationRecord
 
   def update_rating(new_rating)
     update(rating: new_rating.to_i + rating) if LEGAL_RATING.include?(new_rating)
+  end
+
+  private
+
+  def start_worker
+    NewPageWorker.perform_async(id)
   end
 end

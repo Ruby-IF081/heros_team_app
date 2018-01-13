@@ -29,6 +29,7 @@ IrresponsibleModule:
 exclude_paths:
   - db/migrate
   - vendor
+  - app/workers
 UtilityFunction:
   public_methods_only: true
 TooManyConstants:
