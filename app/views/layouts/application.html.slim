@@ -8,10 +8,10 @@ html
     = javascript_include_tag 'application'
   body
     = render 'layouts/header'
-    p.alert
-      - flash.each do |message_type, message|
-        = content_tag(:div, message, class: "alert alert-#{message_type} col-md-3")
     .app-content.container.center-layout.mt-2.mb-5
+      .row.alert
+        - flash.each do |message_type, message|
+          = content_tag(:div, message, class: "alert alert-#{message_type} col-md-3")
       = yield
     = any_login_here if defined?(AnyLogin)
     = render 'layouts/footer'

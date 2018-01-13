@@ -1,0 +1,44 @@
+.image-modal-content {
+  max-width: 1200px;
+}
+
+.modal-image {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.show-pointer {
+  cursor: pointer;
+}
+
+.page-logo {
+  max-width: 100%;
+}
+
+.page-logo-container-index {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  float: left;
+  margin-right: 10px;
+}
+
+.page-logo-container {
+  height: 100px;
+  overflow: hidden;
+}
+
+// Index table
+
+.t-title {
+  width: 60%;
+}
+.t-type {
+  width: 15%;
+}
+.t-status {
+  width: 15%;
+}
+.t-rating {
+  width: 10%;
+}

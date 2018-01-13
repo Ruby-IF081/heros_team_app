@@ -11,5 +11,11 @@
   .content-body
     section.row
       .col-md-12
-        = render 'pages_table', pages: @pages
+        table.table.table-bordered
+          thead
+            th.t-title Title
+            th.t-type Type
+            th.t-status Status
+            th.t-rating Rating
+          = render @pages
         = paginate @pages

@@ -49,5 +49,8 @@ bower.json
 # Ignore Byebug command history file.
 .byebug_history
 
+# Ignore public files
+public/uploads
+
 # Ignore simplecov
 coverage/
