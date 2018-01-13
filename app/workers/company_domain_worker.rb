@@ -20,15 +20,19 @@ class CompanyDomainWorker
     end
   end
 
-  def page_html_links(link)
+  def link_open(link)
     link = 'http://' + link if link.exclude? '://'
-    domain_index = Nokogiri::HTML(open(link))
+    Nokogiri::HTML(open(link))
+  end
+
+  def page_html_links
+    domain_index = link_open(@domain)
     main_html = domain_index.css('body')
     main_html.css('a').map { |href_link| href_link['href'] }
   end
 
   def filtered_sub_pages_links
-    links = page_html_links(@domain)
+    links = page_html_links
     links = links.uniq.reject { |page_link| page_link.to_s.empty? }
     sub_links = []
     links.each do |link|
