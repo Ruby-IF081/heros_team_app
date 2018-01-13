@@ -6,8 +6,9 @@
               placeholder: 'First name, last name or e-mail contains'
     = f.select :role_eq,
             options_for_select(User::ROLES),
-            class: 'col-md-7 form-control',
+            class:'form-control',
             include_blank: false
-    = f.submit 'Filter', class: ' offset-md-1 col-md-1 btn btn-success '
-    = link_to 'Reset', account_users_path, class: 'col-md-1  btn btn-danger'
-
+    = f.button type: 'submit', class: 'col-sm-1 btn btn-blue 'do
+      i.fa.fa-filter
+    = link_to account_users_path, class: ' btn btn-info' do
+      i.fa.fa-refresh

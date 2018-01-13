@@ -3,12 +3,13 @@ class Account::UsersController < ApplicationController
   before_action :authorize_admins!
 
   def index
-    @search = current_tenant.users.ransack(params[:q])
+    users = current_user.super_admin? ? super_admin_collection : admin_collection
+    @search = users.ransack(params[:q])
     @users = @search.result.page(params[:page]).per(10)
   end
 
   def impersonate
-    user = resource
+    user = determine_resource
     impersonate_user(user)
     redirect_to root_path
   end
@@ -19,7 +20,7 @@ class Account::UsersController < ApplicationController
   end
 
   def show
-    @user = resource
+    @user = determine_resource
   end
 
   def new
@@ -39,11 +40,11 @@ class Account::UsersController < ApplicationController
   end
 
   def edit
-    @user = resource
+    @user = determine_resource
   end
 
   def update
-    @user = resource
+    @user = determine_resource
     if @user.update_attributes(resource_params)
       redirect_to account_users_path, flash: { success: 'Successfuly updated!' }
     else
@@ -53,7 +54,7 @@ class Account::UsersController < ApplicationController
   end
 
   def destroy
-    @user = resource
+    @user = determine_resource
     @user.destroy
     redirect_to account_users_path, flash: { success: 'User deleted!' }
   end
@@ -64,11 +65,23 @@ class Account::UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :role)
   end
 
-  def collection
+  def admin_collection
     current_tenant.users.by_date
   end
 
-  def resource
-    collection.find(params[:id])
+  def admin_resource
+    admin_collection.find(params[:id])
+  end
+
+  def super_admin_collection
+    User.all.by_date
+  end
+
+  def super_admin_resource
+    super_admin_collection.find(params[:id])
+  end
+
+  def determine_resource
+    current_user.super_admin? ? super_admin_resource : admin_resource
   end
 end

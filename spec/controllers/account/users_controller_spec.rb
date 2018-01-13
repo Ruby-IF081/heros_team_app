@@ -189,4 +189,30 @@ RSpec.describe Account::UsersController, type: :controller do
       expect(response).to redirect_to root_path
     end
   end
+
+  describe 'Super_admin collection and resourse' do
+    before :each do
+      @super_user = FactoryBot.create(:user, :super_admin)
+      sign_out @user
+      sign_in @super_user
+    end
+
+    it 'should get all users when super-user' do
+      get :index
+      expect(assigns(:users)).to contain_exactly(@super_user, @user)
+      expect(response).to render_template(:index)
+    end
+
+    context 'super admin' do
+      it 'should assign the requested user to @user' do
+        get :show, params: { id: @user.id }
+        expect(assigns(:user)).to eq(@user)
+      end
+      it 'should render the :show view for super user' do
+        get :show, params: { id: @user.id }
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:show)
+      end
+    end
+  end
 end

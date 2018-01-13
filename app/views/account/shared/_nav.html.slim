@@ -7,7 +7,7 @@
             i.ft-home
             span
               | Dashboard
-        - if current_user.admin?
+        - if current_user.admin? || current_user.super_admin?
           li.dropdown.nav-item[data-menu="dropdown"]
             a.dropdown-toggle.nav-link[href="#" data-toggle="dropdown"]
               i.ft-monitor
@@ -15,18 +15,11 @@
                 | Users
             ul.dropdown-menu
               li.dropdown[data-menu="dropdown-submenu"]
-                a.dropdown-item[href="#" data-toggle="dropdown"]
-                  | Users list
+                = link_to 'User list',account_users_path, class:'dropdown-item'
               li.dropdown[data-menu="dropdown-submenu"]
-                a.dropdown-item[href="#" data-toggle="dropdown"]
-                  | Add new user
+                = link_to 'Add new user', new_account_user_path, class:'dropdown-item'
         li.dropdown.nav-item[data-menu="dropdown"]
-          a.dropdown-toggle.nav-link[href="#" data-toggle="dropdown"]
-            span
-              | Companies
+          = link_to 'Companies', account_companies_path,class:'dropdown-toggle nav-link'
         - if current_user.admin?
           li.dropdown.nav-item[data-menu="dropdown"]
-            a.dropdown-toggle.nav-link[href="#" data-toggle="dropdown"]
-              i.ft-zap
-              span
-                | My Tenant
+            = link_to 'My Tenant', account_my_tenant_path,class: 'dropdown-toggle nav-link'
