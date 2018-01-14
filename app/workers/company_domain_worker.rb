@@ -20,7 +20,7 @@ class CompanyDomainWorker
   end
 
   def link_open(link)
-    link = 'http://' + link if link.exclude?('://')
+    link = 'http://' + link unless link.start_with?('http://', 'https://')
     Nokogiri::HTML(open(link))
   end
 
@@ -31,20 +31,22 @@ class CompanyDomainWorker
   end
 
   def filtered_sub_pages_links
-    links = page_html_links.uniq.reject { |page_link| page_link.to_s.empty? }
+    links = page_html_links.uniq.reject(&:blank?)
     sub_links = []
     links.each do |link|
-      next if link == '#'
-      next if link.include?('://') && link.exclude?(domain)
+      next if invalidity_check(link)
       link = page_url(link)
       sub_links.push(link)
     end
     sub_links
   end
 
+  def invalidity_check(link)
+    link == '#' || (link.include?('://') && link.exclude?(domain)) ? true : false
+  end
+
   def page_url(link)
-    return (domain + link) if link.exclude?('://')
-    link
+    link.exclude?('://') ? (domain + link) : link
   end
 
   def create_pending_page(source_url)

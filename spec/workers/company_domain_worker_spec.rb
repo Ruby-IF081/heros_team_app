@@ -10,18 +10,15 @@ RSpec.describe CompanyDomainWorker, sidekiq: true do
     worker.perform(company.id)
   end
 
-  describe 'with valid data' do
-    let!(:response_html) { Nokogiri::HTML(open('spec/factories/test.html')) }
-
-    it 'testing worker queueing' do
-      expect { CompanyDomainWorker.perform_async(1) }.to change(CompanyDomainWorker.jobs, :size).by(1)
-    end
+  context 'with valid data' do
+    let!(:response_fixture) { Rails.root.join('spec/fixtures/test.html').to_s }
+    let!(:response_html) { Nokogiri::HTML(File.read(response_fixture)) }
 
     it 'worker company should be as created one' do
       expect(worker.company).to eq(company)
     end
 
-    it 'sub_links content should be correct. not nil, empty, outside' do
+    it 'sub_links content should be correct. should not be nil, empty or outside links' do
       worker.send(:filtered_sub_pages_links).each do |link|
         expect(link).not_to be_nil
         expect(link).not_to be_empty
@@ -32,11 +29,11 @@ RSpec.describe CompanyDomainWorker, sidekiq: true do
     end
 
     it 'number of created pages should be as number of sub_links' do
-      expect { worker.perform(company.id) }.to change(Page, :count).by(89)
+      expect { worker.perform(company.id) }.to change { Page.where(page_type: Page::OFFICIAL_PAGE).count }.by(89)
     end
   end
 
-  describe 'with invalid data' do
+  context 'with invalid data' do
     let!(:response_html) do
       Nokogiri::HTML('<html><head><title>Hello World</title></head>
                       <body><a href="#"></a>
@@ -52,7 +49,7 @@ RSpec.describe CompanyDomainWorker, sidekiq: true do
     it 'number of created pages should be as number of sub_links' do
       # 1 because worker still creates page with company_domain
       # inserted by user while creating a company
-      expect { worker.perform(company.id) }.to change(Page, :count).by(1)
+      expect { worker.perform(company.id) }.to change { Page.where(page_type: Page::OFFICIAL_PAGE).count }.by(1)
     end
   end
 end

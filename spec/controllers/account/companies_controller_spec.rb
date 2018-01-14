@@ -30,7 +30,7 @@ RSpec.describe Account::CompaniesController, type: :controller do
     it "renders the #show view" do
       get :show, params: { id: company.id }
       expect(response).to have_http_status(200)
-      expect(response).to render_template :show
+      expect(response).to render_template(:show)
     end
   end
 
@@ -43,7 +43,7 @@ RSpec.describe Account::CompaniesController, type: :controller do
     it "renders the #edit view" do
       get :edit, params: { id: company.id }
       expect(response).to have_http_status(200)
-      expect(response).to render_template :edit
+      expect(response).to render_template(:edit)
     end
   end
 
@@ -69,7 +69,14 @@ RSpec.describe Account::CompaniesController, type: :controller do
         post :create, params: { company: { name: val_company.name,
                                            domain: val_company.domain } }
         expect(response).to have_http_status(302)
-        expect(response).to redirect_to account_company_path(Company.last)
+        expect(response).to redirect_to(account_company_path(Company.last))
+      end
+
+      it "triggers company_domain_worker" do
+        expect do
+          post :create, params: { company: { name: val_company.name,
+                                             domain: val_company.domain } }
+        end.to change(CompanyDomainWorker.jobs, :size).by(1)
       end
     end
 
@@ -87,7 +94,7 @@ RSpec.describe Account::CompaniesController, type: :controller do
         post :create, params: { company: { name: inval_company.name,
                                            domain: inval_company.domain } }
         expect(response).to have_http_status(200)
-        expect(response).to render_template :new
+        expect(response).to render_template(:new)
       end
     end
   end
@@ -113,7 +120,7 @@ RSpec.describe Account::CompaniesController, type: :controller do
         put :update, params: { id: company.id,
                                company: { name: 'edited', domain: 'edited.com' } }
         expect(response).to have_http_status(302)
-        expect(response).to redirect_to account_company_path
+        expect(response).to redirect_to(account_company_path)
       end
     end
 
@@ -141,7 +148,7 @@ RSpec.describe Account::CompaniesController, type: :controller do
                                company: { name: inval_company.name,
                                           domain: inval_company.domain } }
         expect(response).to have_http_status(200)
-        expect(response).to render_template :edit
+        expect(response).to render_template(:edit)
       end
     end
   end
@@ -154,7 +161,7 @@ RSpec.describe Account::CompaniesController, type: :controller do
     it "redirects to company#index" do
       delete :destroy, params: { id: company.id }
       expect(response).to have_http_status(302)
-      expect(response).to redirect_to account_companies_path
+      expect(response).to redirect_to(account_companies_path)
     end
   end
 
