@@ -7,7 +7,7 @@
             i.ft-home
             span
               | Dashboard
-        - if current_user.admin? || current_user.super_admin?
+        - if current_user.privileged?
           li.dropdown.nav-item[data-menu="dropdown"]
             a.dropdown-toggle.nav-link[href="#" data-toggle="dropdown"]
               i.ft-monitor

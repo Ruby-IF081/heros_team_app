@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_admins!
-    redirect_to(root_path) unless true_user&.super_admin? || true_user&.admin?
+    redirect_to(root_path) unless true_user&.privileged?
   end
 
   def layout_by_resource
