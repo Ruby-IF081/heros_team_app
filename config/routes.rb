@@ -26,10 +26,10 @@ Rails.application.routes.draw do
       post :impersonate, on: :member
       post :stop_impersonating, on: :collection
     end
-    get 'chart-for-users-by-week',     to: 'charts#users_by_week'
-    get 'chart-for-companies-by-week', to: 'charts#companies_by_week'
-    get 'chart-for-users-by-month',    to: 'charts#users_by_month'
-    get 'chart-for-users-logins',      to: 'charts#users_logins'
+    get 'chart-for-users-by-week',     to: 'charts#chart_for_user_registration'
+    get 'chart-for-companies-by-week', to: 'charts#chart_for_companies'
+    get 'chart-for-users-by-month',    to: 'charts#chart_for_user_registraion_summary'
+    get 'chart-for-users-logins',      to: 'charts#chart_for_users_logins'
   end
 
   authenticated :user do

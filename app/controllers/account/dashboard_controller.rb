@@ -3,6 +3,6 @@ class Account::DashboardController < ApplicationController
   layout 'account'
 
   def index
-    render locals: { chart_value: current_companies }
+    @chart_value = current_companies
   end
 end
