@@ -14,6 +14,7 @@ gem 'fullcontact', '0.13.0'
 gem 'gastly'
 gem 'gravatar_image_tag'
 gem 'groupdate'
+gem 'httparty'
 gem 'jbuilder', '~> 2.5'
 gem 'kaminari'
 gem 'mini_magick'
@@ -57,10 +58,6 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'vcr'
   gem 'webmock', require: 'webmock/rspec'
-end
-
-group :test do
-  gem 'simplecov', require: false, group: :test
 end
 
 group :development do

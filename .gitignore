@@ -56,3 +56,5 @@ public/uploads
 # Ignore simplecov
 coverage/
 .idea/
+
+dump.rdb
