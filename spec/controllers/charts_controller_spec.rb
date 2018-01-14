@@ -6,7 +6,7 @@ RSpec.describe Account::ChartsController, type: :controller do
       @user = FactoryBot.create(:user, :admin)
       sign_in @user
     end
-    
+
     it "returns a 200 status code with json response" do
       get :chart_for_user_registration
       expect(response).to have_http_status(200)
