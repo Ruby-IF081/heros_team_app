@@ -4,7 +4,6 @@ FactoryBot.define do
     last_name { Faker::Name.unique.last_name }
     sequence(:email) { |n| "#{n}#{Faker::Internet.email}" }
     tenant { build(:tenant) }
-    # visit { build(:visit, tenant_id: 2) }
     password { Faker::Internet.password }
     created_at { rand(3.month.ago..Time.now) }
 
