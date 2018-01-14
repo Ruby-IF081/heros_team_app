@@ -19,14 +19,15 @@ class CompanyDomainWorker
     end
   end
 
-  def link_open(link)
+  def download_url(link)
+    link = link.downcase
     link = 'http://' + link unless link.start_with?('http://', 'https://')
     Nokogiri::HTML(open(link))
   end
 
   def page_html_links
-    domain_index = link_open(domain)
-    main_html = domain_index.css('body')
+    content = download_url(domain)
+    main_html = content.css('body')
     main_html.css('a').map { |href_link| href_link['href'] }
   end
 
@@ -34,14 +35,14 @@ class CompanyDomainWorker
     links = page_html_links.uniq.reject(&:blank?)
     sub_links = []
     links.each do |link|
-      next if invalidity_check(link)
+      next if invalid_link?(link)
       link = page_url(link)
       sub_links.push(link)
     end
     sub_links
   end
 
-  def invalidity_check(link)
+  def invalid_link?(link)
     link == '#' || (link.include?('://') && link.exclude?(domain))
   end
 

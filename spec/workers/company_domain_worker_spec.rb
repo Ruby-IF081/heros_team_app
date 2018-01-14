@@ -5,7 +5,7 @@ RSpec.describe CompanyDomainWorker, sidekiq: true do
   let!(:worker) { CompanyDomainWorker.new }
 
   before(:each) do
-    allow(worker).to receive(:link_open).and_return(response_html)
+    allow(worker).to receive(:download_url).and_return(response_html)
 
     worker.perform(company.id)
   end
