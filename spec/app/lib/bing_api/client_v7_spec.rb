@@ -1,47 +1,36 @@
 require 'rails_helper'
 
-RSpec.describe BingApiV7, type: :lib do
-  context 'contants' do
-    let(:bing_uri) {  'https://api.cognitive.microsoft.com' }
-    let(:bing_path) { '/bing/v7.0/search' }
+RSpec.describe BingApi::ClientV7, type: :lib do
+  context 'path + uri' do
+    let(:base_uri) {  'https://api.cognitive.microsoft.com' }
+    let(:base_path) { '/bing/v7.0/search' }
 
-    subject { BingApiV7 }
+    subject { BingApi::ClientV7 }
 
-    it 'has BING_URI constant with correct value' do
-      expect(subject::BING_URI).to eq(bing_uri)
+    it 'has base_uri with correct value' do
+      expect(subject.base_uri).to eq(base_uri)
     end
 
-    it 'has BING_PATH constant with correct value' do
-      expect(subject::BING_PATH).to eq(bing_path)
+    it 'has base_path with correct value' do
+      expect(subject.base_path).to eq(base_path)
     end
   end
-
 
   describe 'initialize' do
-    let!(:company) { build(:company) }
+    let!(:company) { create(:company) }
 
-    subject { BingApiV7.new(company) }
+    subject { BingApi::ClientV7.new(company_id: company.id) }
 
     it 'sets @company from given args' do
-      expect(subject.instance_variable_get(:@element)).to eq(company)
-    end
-  end
-
-  describe '#uri' do
-    let!(:company) { build(:company, domain: 'softserve.com') }
-
-    subject { BingApiV7.new(company) }
-
-    it 'builds correct url' do
-      expect(subject.uri(company.domain).to_s).to eq("#{BingApiV7::BING_URI}#{BingApiV7::BING_PATH}?q=#{CGI.escape(company.domain || '')}")
+      expect(subject.instance_variable_get(:@options)).to eq(company_id: company.id)
     end
   end
 
   describe '#search', vcr: true do
     let!(:company) { create(:company, domain: 'softserve.com') }
-    let!(:bing) { BingApiV7.new(company) }
+    let!(:bing) { BingApi::ClientV7.new(company_id: company.id) }
 
-    subject { bing.search(query: company.domain) }
+    subject { bing.search }
 
     context 'with valid API response', vcr: true do
       it 'returns parsed response' do
@@ -57,7 +46,7 @@ RSpec.describe BingApiV7, type: :lib do
 
   describe '#pages_process', vcr: true do
     let!(:company) { create(:company, domain: 'softserve.com') }
-    let!(:bing) { BingApiV7.new(company) }
+    let!(:bing) { BingApi::ClientV7.new(company_id: company.id) }
 
     subject { bing.pages_process }
 

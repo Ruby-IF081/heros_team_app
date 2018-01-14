@@ -51,3 +51,5 @@ bower.json
 .byebug_history
 
 .idea/
+
+dump.rdb
