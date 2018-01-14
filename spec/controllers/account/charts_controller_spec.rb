@@ -7,25 +7,25 @@ RSpec.describe Account::ChartsController, type: :controller do
   end
 
   it "returns a 200 status code with json response" do
-    get :chart_for_user_registration
+    get :registered_users
     expect(response).to have_http_status(200)
     expect(response.content_type).to eq "application/json"
   end
-  
+
   it "returns a 200 status code with json response" do
-    get :chart_for_companies
+    get :created_companies
     expect(response).to have_http_status(200)
     expect(response.content_type).to eq "application/json"
   end
-  
+
   it "returns a 200 status code with json response" do
-    get :chart_for_user_registraion_summary
+    get :registered_users_summary
     expect(response).to have_http_status(200)
     expect(response.content_type).to eq "application/json"
   end
-  
+
   it "returns a 200 status code with json response" do
-    get :chart_for_users_logins
+    get :users_logins
     expect(response).to have_http_status(200)
     expect(response.content_type).to eq "application/json"
   end
