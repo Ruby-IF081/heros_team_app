@@ -1,6 +1,11 @@
 .row
   .col-md-3
     h2 Add new User
+.row.breadcrumbs-top
+  .breadcrumb-wrapper.col-12
+    = render_breadcrumbs({'Dashboard' => account_root_url,
+            'Users' => account_users_path,
+            'New user' => nil})
 .row
   .col-md-3
     = render 'form', button_text: 'Create', user: @user

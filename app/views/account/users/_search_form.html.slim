@@ -5,10 +5,10 @@
               type:'search',
               placeholder: 'First name, last name or e-mail contains'
     = f.select :role_eq,
-            options_for_select(User::ROLES),
+            options_for_select(User::ROLES, search.role_eq),
             class:'form-control',
-            include_blank: false
-    = f.button type: 'submit', class: 'col-sm-1 btn btn-blue 'do
-      i.fa.fa-filter
+            include_blank: 'Select role:'
+    = f.button type: 'submit', class: 'btn btn-blue' do
+      i.fa.fa-search
     = link_to account_users_path, class: ' btn btn-info' do
       i.fa.fa-refresh
