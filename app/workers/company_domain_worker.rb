@@ -42,7 +42,7 @@ class CompanyDomainWorker
   end
 
   def invalidity_check(link)
-    link == '#' || (link.include?('://') && link.exclude?(domain)) ? true : false
+    link == '#' || (link.include?('://') && link.exclude?(domain))
   end
 
   def page_url(link)
