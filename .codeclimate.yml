@@ -1,0 +1,39 @@
+engines:
+  brakeman:
+    enabled: false
+    checks:
+      file_access:
+        enabled: false
+      dynamic_render_path:
+        enabled: false
+  bundler-audit:
+    enabled: true
+  csslint:
+    enabled: false
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  rubocop:
+    enabled: true
+ratings:
+  paths:
+  - Gemfile.lock
+  - "**.erb"
+  - "**.haml"
+  - "**.rb"
+  - "**.slim"
+  - "**.css"
+  - "**.js"
+exclude_paths:
+- config/
+- db/
+- spec/
+- vendor/
+- public/

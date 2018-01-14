@@ -17,5 +17,9 @@ FactoryBot.define do
     trait :super_admin do
       role { User::SUPER_ADMIN_ROLE }
     end
+
+    trait :old_random_date do
+      created_at { rand(3.month.ago..Time.now) }
+    end
   end
 end
