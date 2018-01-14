@@ -29,7 +29,9 @@ RSpec.describe CompanyDomainWorker, sidekiq: true do
     end
 
     it 'number of created pages should be as number of sub_links' do
-      expect { worker.perform(company.id) }.to change { Page.where(page_type: Page::OFFICIAL_PAGE).count }.by(89)
+      expect do
+        worker.perform(company.id)
+      end.to change { Page.where(page_type: Page::OFFICIAL_PAGE).count }.by(89)
     end
   end
 
@@ -49,7 +51,9 @@ RSpec.describe CompanyDomainWorker, sidekiq: true do
     it 'number of created pages should be as number of sub_links' do
       # 1 because worker still creates page with company_domain
       # inserted by user while creating a company
-      expect { worker.perform(company.id) }.to change { Page.where(page_type: Page::OFFICIAL_PAGE).count }.by(1)
+      expect do
+        worker.perform(company.id)
+      end.to change { Page.where(page_type: Page::OFFICIAL_PAGE).count }.by(1)
     end
   end
 end
