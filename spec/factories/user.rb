@@ -5,7 +5,6 @@ FactoryBot.define do
     sequence(:email) { |n| "#{n}#{Faker::Internet.email}" }
     tenant { build(:tenant) }
     password { Faker::Internet.password }
-    created_at { rand(3.month.ago..Time.now) }
 
     trait :admin do
       role { User::ADMIN_ROLE }
@@ -17,6 +16,10 @@ FactoryBot.define do
 
     trait :super_admin do
       role { User::SUPER_ADMIN_ROLE }
+    end
+    
+    trait :old_random_date do
+      created_at { rand(3.month.ago..Time.now) }
     end
   end
 end
