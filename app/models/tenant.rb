@@ -4,6 +4,7 @@ class Tenant < ApplicationRecord
 
   has_many :users, dependent: :destroy
   has_many :companies, through: :users
+  has_many :visits, dependent: :destroy
   has_one :owner, class_name: 'User'
 
   validates :name, presence: true, length: { minimum: 3, maximum: 64 }

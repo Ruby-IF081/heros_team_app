@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'contacts', to: 'home#contacts'
 
   devise_for :users, path: 'account', controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations', sessions: 'users/track_sessions'
   }
 
   namespace :account do
@@ -21,10 +21,15 @@ Rails.application.routes.draw do
     end
     resources :tenants, only: %i[show index]
     resource :my_tenant, only: %i[show edit update]
+    resources :analytics, only: %i[index]
     resources :users do
       post :impersonate, on: :member
       post :stop_impersonating, on: :collection
     end
+    get 'chart-for-users-by-week',     to: 'charts#registered_users'
+    get 'chart-for-companies-by-week', to: 'charts#created_companies'
+    get 'chart-for-users-by-month',    to: 'charts#registered_users_summary'
+    get 'chart-for-users-logins',      to: 'charts#users_logins'
   end
 
   authenticated :user do

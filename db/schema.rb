@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180106101438) do
+ActiveRecord::Schema.define(version: 20180112152933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,19 +18,6 @@ ActiveRecord::Schema.define(version: 20180106101438) do
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "domain"
-    t.string "youtube"
-    t.string "twitter"
-    t.string "linkedincompany"
-    t.string "facebook"
-    t.string "angellist"
-    t.string "owler"
-    t.string "crunchbasecompany"
-    t.string "pinterest"
-    t.string "google"
-    t.string "klout"
-    t.string "overview"
-    t.integer "founded"
-    t.integer "approx_employees"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -96,6 +83,15 @@ ActiveRecord::Schema.define(version: 20180106101438) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["tenant_id"], name: "index_users_on_tenant_id"
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "tenant_id"
+    t.index ["tenant_id"], name: "index_visits_on_tenant_id"
+    t.index ["user_id"], name: "index_visits_on_user_id"
   end
 
   add_foreign_key "companies", "users"

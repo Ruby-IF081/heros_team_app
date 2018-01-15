@@ -5,6 +5,7 @@ rvm:
 cache: bundler
 
 script:
+
   - bundle exec rake db:create db:migrate
   - bundle exec rake spec
   - bundle exec rubocop
@@ -20,3 +21,9 @@ before_script:
   - cp config/secrets.yml.example config/secrets.yml
   - bundle exec sidekiq -d -L /tmp/sidekiq.log
   - sleep 1
+
+addons:
+    code_climate:
+        repo_token: 521af1b02867133476650ab702c87dea9f23c68252aa18b98b5f911da36a7f4a
+after_success:
+  - bundle exec codeclimate-test-reporter
