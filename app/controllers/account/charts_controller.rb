@@ -18,8 +18,4 @@ class Account::ChartsController < ApplicationController
     users_list = current_tenant.visits
     render json: users_list.group_by_week(:created_at).count
   end
-
-  def time_range
-    3.month.ago..Time.current
-  end
 end
