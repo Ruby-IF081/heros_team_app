@@ -1,17 +1,19 @@
 .content-wrapper
-  .content-header.row
-    .content-header-left.col-md-6.col-12.mb-2
-      .content-header-title.mb-0
-        h2 Users
-      .row.breadcrumbs-top
-        .breadcrumb-wrapper.col-12
-          = render_breadcrumbs({'Dashboard' => account_root_url,
+  .content-header
+    .row
+      .content-header-left.col-md-6.col-12.mb-2
+        .content-header-title.mb-0
+          h2 Users
+        .row.breadcrumbs-top
+          .breadcrumb-wrapper.col-12
+            = render_breadcrumbs({'Dashboard' => account_root_url,
                   'Users' => nil})
-    .content-header-right.text-md-right.col-md-6.col-12
-      = link_to 'Add new', new_account_user_path, class: 'btn btn-primary'
+      .content-header-right.text-md-right.col-md-6.col-12
+        = link_to 'New user', new_account_user_path, class: 'btn btn-primary'
   .content-body
-    section.row
-      = render 'search_form', search: @search
-    section.row
+    .section
+      .col-md-12
+        = render 'search_form', search: @search
+    .row
       .col-md-12
         = render 'users_table', users: @users

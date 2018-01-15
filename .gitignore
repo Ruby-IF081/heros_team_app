@@ -1,3 +1,4 @@
+
 *.rbc
 capybara-*.html
 .rspec
@@ -54,3 +55,6 @@ public/uploads
 
 # Ignore simplecov
 coverage/
+.idea/
+
+dump.rdb

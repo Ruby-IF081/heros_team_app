@@ -1,0 +1,6 @@
+= simple_form_for [:account, company],
+        defaults: { input_html: { class: 'form-control' } } do |f|
+  = f.input :name
+  = f.input :domain, placeholder: 'company.com',
+          hint: "Only '-' of special characters is allowed."
+  = f.button :submit, button_text , class: "btn btn-primary"

@@ -2,6 +2,11 @@
   .row
     .col-md-12
       h1 Edit Tenant
+  .row.breadcrumbs-top
+    .breadcrumb-wrapper.col-12
+      = render_breadcrumbs({'Dashboard' => account_root_url,
+              'Users' => account_users_path,
+              'Edit my tenant' => nil})
       div
         .row
           .col-md-3.col-md-offset-3

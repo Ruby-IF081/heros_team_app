@@ -1,5 +1,6 @@
 class Account::ChartsController < ApplicationController
   before_action :authorize_admin!
+  include ApplicationHelper
   def registered_users
     chart_data = current_tenant.users
     render json: chart_data.group_by_week(:created_at, range: time_range).count
@@ -17,9 +18,5 @@ class Account::ChartsController < ApplicationController
   def users_logins
     users_list = current_tenant.visits
     render json: users_list.group_by_week(:created_at).count
-  end
-
-  def time_range
-    3.month.ago..Time.current
   end
 end

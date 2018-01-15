@@ -7,7 +7,7 @@
 }
 
 .image1 {
-  background: linear-gradient(rgba(0, 0, 0, 0.16), rgba(0,0,0,.16)),url('landing_back1.jpeg') no-repeat fixed center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.16), rgba(0,0,0,.16)),image-url('landing_back1.jpeg') no-repeat fixed center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -16,7 +16,7 @@
 }
 
 .image2 {
-  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url('landing_back2.jpeg') no-repeat fixed;
+  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),image-url('landing_back2.jpeg') no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

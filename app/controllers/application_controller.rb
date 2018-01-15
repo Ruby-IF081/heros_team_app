@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path) unless true_user&.super_admin?
   end
 
+  def authorize_admins!
+    redirect_to(root_path) unless true_user&.privileged?
+  end
+
   def layout_by_resource
     if %w[registrations sessions].include?(controller_name) && action_name == 'new'
       "landing"

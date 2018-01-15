@@ -7,14 +7,30 @@ RSpec.describe Account::UsersController, type: :controller do
   end
 
   describe 'action #index' do
-    it 'should get the user of current tenant' do
-      get :index
-      expect(assigns(:users)).to contain_exactly(@user)
+    context 'admin' do
+      it 'should get the user of current tenant' do
+        get :index
+        expect(assigns(:users)).to contain_exactly(@user)
+      end
+      it 'should render the :index view' do
+        get :index
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:index)
+      end
     end
-    it 'should render the :index view' do
-      get :index
-      expect(response).to have_http_status(200)
-      expect(response).to render_template(:index)
+
+    context 'super_admin' do
+      before :each do
+        @super_user = FactoryBot.create(:user, :super_admin)
+        sign_out @user
+        sign_in @super_user
+      end
+
+      it 'should get all users when super-user' do
+        get :index
+        expect(assigns(:users)).to contain_exactly(@super_user, @user)
+        expect(response).to render_template(:index)
+      end
     end
   end
 
@@ -31,14 +47,33 @@ RSpec.describe Account::UsersController, type: :controller do
   end
 
   describe 'action #show' do
-    it 'should assign the requested user to @user' do
-      get :show, params: { id: @user.id }
-      expect(assigns(:user)).to eq(@user)
+    context 'admin' do
+      it 'should assign the requested user to @user' do
+        get :show, params: { id: @user.id }
+        expect(assigns(:user)).to eq(@user)
+      end
+      it 'should render the :show view' do
+        get :show, params: { id: @user.id }
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:show)
+      end
     end
-    it 'should render the :show view' do
-      get :show, params: { id: @user.id }
-      expect(response).to have_http_status(200)
-      expect(response).to render_template(:show)
+
+    context 'super admin' do
+      before :each do
+        @super_user = FactoryBot.create(:user, :super_admin)
+        sign_out @user
+        sign_in @super_user
+      end
+      it 'should assign the requested user to @user' do
+        get :show, params: { id: @user.id }
+        expect(assigns(:user)).to eq(@user)
+      end
+      it 'should render the :show view for super user' do
+        get :show, params: { id: @user.id }
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:show)
+      end
     end
   end
 

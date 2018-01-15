@@ -1,9 +1,9 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize_admin!
+  before_action :authorize_admins!
 
   def index
-    @search = current_tenant.users.ransack(params[:q])
+    @search = collection.ransack(params[:q])
     @users = @search.result.page(params[:page]).per(10)
   end
 
@@ -64,11 +64,19 @@ class Account::UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :role)
   end
 
-  def collection
+  def admin_collection
     current_tenant.users.by_date
+  end
+
+  def super_admin_collection
+    User.all.by_date
   end
 
   def resource
     collection.find(params[:id])
+  end
+
+  def collection
+    current_user.super_admin? ? super_admin_collection : admin_collection
   end
 end

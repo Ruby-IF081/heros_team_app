@@ -34,4 +34,8 @@ class User < ApplicationRecord
   def super_admin?
     role == User::SUPER_ADMIN_ROLE
   end
+
+  def privileged?
+    admin? || super_admin?
+  end
 end
