@@ -7,11 +7,14 @@ end
 
 gem 'brakeman', '~> 4.1', '>= 4.1.1'
 gem 'carrierwave'
+gem 'chartkick'
 gem 'devise'
 gem 'dynamic_form'
 gem 'fullcontact', '0.13.0'
 gem 'gastly'
 gem 'gravatar_image_tag'
+gem 'groupdate'
+gem 'httparty'
 gem 'jbuilder', '~> 2.5'
 gem 'kaminari'
 gem 'meta-tags'
@@ -54,6 +57,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'vcr'
+  gem 'webmock', require: 'webmock/rspec'
 end
 
 group :development do
@@ -71,6 +76,7 @@ group :development do
 end
 
 group :test do
+  gem "codeclimate-test-reporter", "~> 1.0.0"
   gem 'simplecov', require: false
 end
 

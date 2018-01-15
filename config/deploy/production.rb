@@ -6,7 +6,6 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-server "heroes-team.pp.ua", user: "deploy", roles: %w[app db web]
 
 set :branch, :master
 set :deploy_to, "/var/www/heroes_team_app"
@@ -57,7 +56,7 @@ set :deploy_to, "/var/www/heroes_team_app"
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-server "heroes-team.pp.ua",
+server "ec2-52-57-126-232.eu-central-1.compute.amazonaws.com",
        user: "deploy",
        roles: %w[web app],
        ssh_options: {

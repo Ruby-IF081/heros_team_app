@@ -6,6 +6,7 @@ class User < ApplicationRecord
   DEFAULT_PASSWORD = 'password'.freeze
 
   has_many :companies, dependent: :destroy
+  has_many :visits, dependent: :destroy
   belongs_to :tenant, optional: true
 
   accepts_nested_attributes_for :tenant
@@ -32,5 +33,9 @@ class User < ApplicationRecord
 
   def super_admin?
     role == User::SUPER_ADMIN_ROLE
+  end
+
+  def privileged?
+    admin? || super_admin?
   end
 end

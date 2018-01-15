@@ -1,0 +1,15 @@
+.container
+  .row
+    .col-md-6
+      = line_chart account_chart_for_users_by_week_path, legend: true, label: "Users registration for last 3 month, group by week",
+      download: true, xtitle: "Time", ytitle: "User count"
+    .col-md-6
+      = column_chart account_chart_for_companies_by_week_path, legend: true, label: "Companies analytics for last 3 month, group by week", colors: ["#b00"],
+      download: true, xtitle: "Time", ytitle: "Companies count"
+  .row
+    .col-md-6
+      = column_chart account_chart_for_users_by_month_path, legend: true, label: "Users registraion per months",
+      download: true, xtitle: "Months", ytitle: "User count"
+    .col-md-6
+      = column_chart account_chart_for_users_logins_path, legend: true, label: "Users logins, group by week",
+      download: true, xtitle: "Time", ytitle: "Users logins"
