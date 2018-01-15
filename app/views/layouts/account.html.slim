@@ -1,9 +1,7 @@
 doctype html
 html
   head
-    title
-      | Dashboard by&nbsp;
-      = current_user.full_name
+    = display_meta_tags site: 'Heroes Team App', reverse: true
     = csrf_meta_tags
     = stylesheet_link_tag    'account/application', media: 'all'
     = stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Montserrat'
