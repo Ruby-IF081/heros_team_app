@@ -33,4 +33,4 @@ exclude_paths:
 UtilityFunction:
   public_methods_only: true
 TooManyConstants:
-  max_constants: 12
+  max_constants: 14
