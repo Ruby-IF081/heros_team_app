@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get 'about-us', to: 'home#about_us'
   get 'contacts', to: 'home#contacts'
 
+  get "/404", to: "errors#not_found"
+  get "/422", to: "errors#unacceptable"
+  get "/500", to: "errors#internal_error"
+
   devise_for :users, path: 'account', controllers: {
     registrations: 'users/registrations', sessions: 'users/track_sessions'
   }

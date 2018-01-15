@@ -1,0 +1,23 @@
+- set_meta_tags title: "Internal Server Error (500)",
+        description: "Configuration data is invalid (HTTP 500)"
+.error-code
+  h2.text-center 500
+  h3.text-uppercase.text-center Internal Server Error
+.error-content.card-text
+  p
+    span.danger We're sorry, but something went wrong on our end.
+  p
+    i Things to try:
+  ul.list-style-circle
+    li Reload the web page.
+    li Come back later.
+    li
+      = link_to 'Contact us', contacts_path
+      | &nbsp;to report the issue.
+  .row.py-3
+    .col-12.col-sm-6.col-md-6
+      = link_to :back, class: "btn btn-primary btn-block" do
+        i.fa.fa-arrow-left &nbsp;Go back
+    .col-12.col-sm-6.col-md-6
+      = link_to root_path, class: "btn btn-danger btn-block" do
+        i.fa.fa-home &nbsp;Home page

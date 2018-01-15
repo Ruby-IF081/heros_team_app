@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    = display_meta_tags site: 'Heroes Team App', reverse: true
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"
+  body.blank-page
+    .app-content.container.center-layout.mt-2.mb-5
+      .content-wrapper
+        .content-body
+          section.flexbox-container
+            .col-12.d-flex.justify-content-center
+              .col-md-4.p-0
+                = yield
+                .error-footer.card-footer.bg-transparent
+                  .row
+                    p.text-muted.text-center.col-12.py-1
+                      | Copyright ©&nbsp;
+                      = Date.today.year
+                      | &nbsp;
+                      = link_to 'SoftServe', "https://softserveinc.com", target: "_blank"
+                      | .&nbsp;All rights reserved.
+    = any_login_here if defined?(AnyLogin)

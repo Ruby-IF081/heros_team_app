@@ -1,0 +1,20 @@
+- set_meta_tags title: "Unprocessable request (422)",
+        description: "Change was rejected (HTTP 422)"
+.error-code
+  h2.text-center 422
+  h3.text-uppercase.text-center Unprocessable request
+.error-content.card-text
+  p
+    span.danger The change you wanted was rejected.
+  p Maybe you tried to change something you didn't have access to.
+  p
+    | Please,&nbsp;
+    = link_to 'contact us', contacts_path
+    | ,&nbsp;if you have any questions.
+  .row.py-3
+    .col-12.col-sm-6.col-md-6
+      = link_to :back, class: "btn btn-primary btn-block" do
+        i.fa.fa-arrow-left &nbsp;Go back
+    .col-12.col-sm-6.col-md-6
+      = link_to root_path, class: "btn btn-danger btn-block" do
+        i.fa.fa-home &nbsp;Home page
