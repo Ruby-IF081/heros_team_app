@@ -34,9 +34,7 @@ module BingApi
 
     def search
       handle_timeouts do
-        handle_caching do
-          self.class.get(build_url_from_options, headers: api_key_hash, format: :json)
-        end
+        self.class.get(build_url_from_options, headers: api_key_hash, format: :json).to_hash
       end
     end
 
@@ -60,25 +58,6 @@ module BingApi
     rescue Net::OpenTimeout, Net::ReadTimeout => e
       Rails.logger.warn("Handle_timeouts #{e}")
       {}
-    end
-
-    def cache_key
-      if options[:company_id]
-        "BingApi:ClientV7:company_id:#{ options[:company_id] }"
-      # elsif
-      # add extra options[:parameters] when exist
-      end
-    end
-
-    def handle_caching
-      redis = Redis.new
-      if cached = redis.get(cache_key)
-        JSON[cached]
-      else
-        yield.tap do |results|
-          redis.setex(cache_key, 3600, results.to_json)
-        end
-      end
     end
 
     def company
