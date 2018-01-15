@@ -17,9 +17,8 @@ class Account::CompaniesController < ApplicationController
     @company = current_user.companies.build(company_params)
     FullContactCompanyProcessor.new(company: @company).process
     if @company.save
-      NewCompanyWorker.perform_async(@company.id)
+      perform_workers(@company)
       flash[:success] = "Company successfully created"
-      CompanyDomainWorker.perform_async(@company.id)
       redirect_to account_company_path(@company)
     else
       render :new
@@ -66,5 +65,11 @@ class Account::CompaniesController < ApplicationController
 
   def current_company
     current_user.companies.find(params[:id])
+  end
+
+  def perform_workers(new_company)
+    company_id = new_company.id
+    NewCompanyWorker.perform_async(company_id)
+    CompanyDomainWorker.perform_async(company_id)
   end
 end
