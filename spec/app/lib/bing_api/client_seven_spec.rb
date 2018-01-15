@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe BingApi::ClientV7, type: :lib do
+RSpec.describe BingApi::ClientSeven, type: :lib do
   context 'path + uri' do
     let(:base_uri) {  'https://api.cognitive.microsoft.com' }
     let(:base_path) { '/bing/v7.0/search' }
 
-    subject { BingApi::ClientV7 }
+    subject { BingApi::ClientSeven }
 
     it 'has base_uri with correct value' do
       expect(subject.base_uri).to eq(base_uri)
@@ -19,7 +19,7 @@ RSpec.describe BingApi::ClientV7, type: :lib do
   describe 'initialize' do
     let!(:company) { create(:company) }
 
-    subject { BingApi::ClientV7.new(company_id: company.id) }
+    subject { BingApi::ClientSeven.new(company_id: company.id) }
 
     it 'sets @company from given args' do
       expect(subject.instance_variable_get(:@options)).to eq(company_id: company.id)
@@ -28,7 +28,7 @@ RSpec.describe BingApi::ClientV7, type: :lib do
 
   describe '#search', vcr: true do
     let!(:company) { create(:company, domain: 'softserve.com') }
-    let!(:bing) { BingApi::ClientV7.new(company_id: company.id) }
+    let!(:bing) { BingApi::ClientSeven.new(company_id: company.id) }
 
     subject { bing.search }
 
@@ -46,7 +46,7 @@ RSpec.describe BingApi::ClientV7, type: :lib do
 
   describe '#pages_process', vcr: true do
     let!(:company) { create(:company, domain: 'softserve.com') }
-    let!(:bing) { BingApi::ClientV7.new(company_id: company.id) }
+    let!(:bing) { BingApi::ClientSeven.new(company_id: company.id) }
 
     subject { bing.pages_process }
 
@@ -60,17 +60,17 @@ RSpec.describe BingApi::ClientV7, type: :lib do
       it 'does not creates pages for company' do
         allow(bing).to receive(:search).and_return({})
 
-        expect { subject }.not_to change { company.pages.count }
+        expect { subject }.to_not change(company.pages, :count)
       end
 
       it 'returns nil if "webPages" data is blank' do
-        allow(bing).to receive(:search).and_return({ 'webPages' => nil })
+        allow(bing).to receive(:search).and_return('webPages': nil)
 
         expect(subject).to eq(nil)
       end
 
       it 'returns nil if "webPages" "value" is blank' do
-        allow(bing).to receive(:search).and_return({ 'webPages' => { 'value' => nil } })
+        allow(bing).to receive(:search).and_return('webPages': { 'value': nil })
 
         expect(subject).to eq(nil)
       end

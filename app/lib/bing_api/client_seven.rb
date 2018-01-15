@@ -1,5 +1,5 @@
 module BingApi
-  class ClientV7
+  class ClientSeven
     include HTTParty
     base_uri 'https://api.cognitive.microsoft.com'
     default_timeout 1 # hard timeout after 1 second
@@ -12,24 +12,13 @@ module BingApi
       end
     end
 
-    def api_key
-      Rails.application.secrets.bing_api_v7
-    end
-
     def api_key_hash
-      { "Ocp-Apim-Subscription-Key": api_key }
-    end
-
-    def pages_process_key1
-      'webPages'
-    end
-
-    def pages_process_key2
-      'value'
+      { "Ocp-Apim-Subscription-Key": @api_key }
     end
 
     def initialize(options)
       @options = options
+      @api_key = Rails.application.secrets.bing_api_v7
     end
 
     def search
@@ -40,9 +29,9 @@ module BingApi
 
     def pages_process
       data = search
-      return unless pages_data?(data)
-      data[pages_process_key1][pages_process_key2].each do |page_data|
-        company.pages.create!(
+      return unless data.dig("webPages", "value")
+      data["webPages"]["value"].each do |page_data|
+        company.pages.create(
           title: page_data['name'],
           source_url: page_data['url'],
           page_type: Page::BING_TYPE,
@@ -55,8 +44,8 @@ module BingApi
 
     def handle_timeouts
       yield
-    rescue Net::OpenTimeout, Net::ReadTimeout => e
-      Rails.logger.warn("Handle_timeouts #{e}")
+    rescue Net::OpenTimeout, Net::ReadTimeout => error
+      Rails.logger.warn("Handle_timeouts #{error}")
       {}
     end
 
@@ -66,16 +55,12 @@ module BingApi
 
     def build_url_from_options
       if options[:company_id]
-        "#{ self.class.base_path }?q=#{ company.domain }"
+        "#{self.class.base_path}?q=#{company.domain}"
       # elsif options[:parameters]
       #   "#{ base_path }?q=#{ options[:parameters] }"
       else
         raise ArgumentError, "options must specify parameters_id"
       end
-    end
-
-    def pages_data?(json_data)
-      json_data[pages_process_key1].present? && json_data[pages_process_key1][pages_process_key2].present?
     end
   end
 end

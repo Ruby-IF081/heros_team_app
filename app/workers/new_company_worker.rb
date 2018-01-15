@@ -4,6 +4,6 @@ class NewCompanyWorker
   def perform(id)
     puts "Company #{id} created!"
 
-    BingApi::ClientV7.new(company_id: id).pages_process
+    BingApi::ClientSeven.new(company_id: id).pages_process
   end
 end

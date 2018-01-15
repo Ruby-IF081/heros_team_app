@@ -56,7 +56,7 @@ set :deploy_to, "/var/www/heroes_team_app"
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-server "heroes-team.pp.ua",
+server "ec2-52-57-126-232.eu-central-1.compute.amazonaws.com",
        user: "deploy",
        roles: %w[web app],
        ssh_options: {
