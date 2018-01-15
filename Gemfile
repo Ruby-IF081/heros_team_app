@@ -7,11 +7,13 @@ end
 
 gem 'brakeman', '~> 4.1', '>= 4.1.1'
 gem 'carrierwave'
+gem 'chartkick'
 gem 'devise'
 gem 'dynamic_form'
 gem 'fullcontact', '0.13.0'
 gem 'gastly'
 gem 'gravatar_image_tag'
+gem 'groupdate'
 gem 'jbuilder', '~> 2.5'
 gem 'kaminari'
 gem 'mini_magick'
@@ -70,6 +72,7 @@ group :development do
 end
 
 group :test do
+  gem "codeclimate-test-reporter", "~> 1.0.0"
   gem 'simplecov', require: false
 end
 

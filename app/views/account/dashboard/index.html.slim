@@ -150,4 +150,5 @@
                       td.text-truncate
                         | 2017/10/22
         .col-xl-4.col-lg-12
-          
+          = line_chart @chart_value.group_by_day('companies.created_at', last: 30,).count, download: true, xtitle: "Time", ytitle: "Companies count"
+

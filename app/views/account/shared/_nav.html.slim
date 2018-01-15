@@ -3,7 +3,7 @@
     .navbar-container.main-menu-content[data-menu="menu-container"]
       ul#main-menu-navigation.nav.navbar-nav[data-menu="menu-navigation"]
         li.dropdown.nav-item.active[data-menu="dropdown"]
-          a.dropdown-toggle.nav-link[href="index.html" data-toggle="dropdown"]
+          = link_to(account_root_path, class: 'dropdown-toggle nav-link') do
             i.ft-home
             span
               | Dashboard
@@ -30,3 +30,8 @@
               i.ft-zap
               span
                 | My Tenant
+          li.dropdown.nav-item[data-menu="dropdown"]
+            = link_to(account_analytics_path, class: 'dropdown-toggle nav-link') do
+              i.ft-zap
+              span
+                | Analytics
