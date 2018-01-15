@@ -18,6 +18,19 @@ ActiveRecord::Schema.define(version: 20180112152933) do
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "domain"
+    t.string "youtube"
+    t.string "twitter"
+    t.string "linkedincompany"
+    t.string "facebook"
+    t.string "angellist"
+    t.string "owler"
+    t.string "crunchbasecompany"
+    t.string "pinterest"
+    t.string "google"
+    t.string "klout"
+    t.string "overview"
+    t.integer "founded"
+    t.integer "approx_employees"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
