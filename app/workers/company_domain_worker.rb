@@ -51,6 +51,7 @@ class CompanyDomainWorker
   end
 
   def create_pending_page(source_url)
+    source_url = 'http://' + source_url unless source_url.start_with?('http://', 'https://')
     company.pages.create(title: Page::PENDING_TITLE,
                          page_type: Page::OFFICIAL_PAGE,
                          source_url: source_url,
