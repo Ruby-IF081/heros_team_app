@@ -3,7 +3,7 @@
     .navbar-container.main-menu-content[data-menu="menu-container"]
       ul#main-menu-navigation.nav.navbar-nav[data-menu="menu-navigation"]
         li.dropdown.nav-item.active[data-menu="dropdown"]
-          = link_to(account_root_path, class: 'dropdown-toggle nav-link') do
+          = link_to account_root_path, class:'dropdown-toggle nav-link' do
             i.ft-home
             span
               | Dashboard
@@ -15,19 +15,19 @@
                 | Users
             ul.dropdown-menu
               li.dropdown[data-menu="dropdown-submenu"]
-                = link_to 'User list',account_users_path, class:'dropdown-item'
+                = link_to 'User list', account_users_path, class:'dropdown-item'
               li.dropdown[data-menu="dropdown-submenu"]
                 = link_to 'Add new user', new_account_user_path, class:'dropdown-item'
         li.dropdown.nav-item[data-menu="dropdown"]
-          = link_to 'Companies', account_companies_path,class:'dropdown-toggle nav-link'
+          = link_to 'Companies', account_companies_path, class:'dropdown-toggle nav-link'
         - if current_user.admin?
           li.dropdown.nav-item[data-menu="dropdown"]
-            = link_to account_my_tenant_path,class: 'dropdown-toggle nav-link' do
+            = link_to account_my_tenant_path, class:'dropdown-toggle nav-link' do
               i.ft-zap
               span
                 | My Tenant
           li.dropdown.nav-item[data-menu="dropdown"]
-            = link_to(account_analytics_path, class: 'dropdown-toggle nav-link') do
+            = link_to account_analytics_path, class:'dropdown-toggle nav-link' do
               i.ft-zap
               span
                 | Analytics
