@@ -35,6 +35,7 @@ RSpec.describe BingApi::ClientV7, type: :lib do
     context 'with valid API response', vcr: true do
       it 'returns parsed response' do
         expect { subject }.not_to raise_error
+        binding.pry
         expect(subject).to be_a(Hash)
         expect(subject).not_to be_empty
         expect(subject).to have_key('webPages')
