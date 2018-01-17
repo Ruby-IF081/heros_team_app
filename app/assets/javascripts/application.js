@@ -12,6 +12,8 @@
 //
 //= require jquery3
 //= require popper
-//= require bootstrap
+//= require ./stack_theme/core/app-menu
 //= require rails-ujs
+//= require Chart.bundle
+//= require chartkick
 //= require rating

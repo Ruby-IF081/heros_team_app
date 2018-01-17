@@ -14,4 +14,8 @@ module ApplicationHelper
   def time_range
     3.month.ago..Time.current
   end
+
+  def impersonated?
+    current_user != true_user
+  end
 end

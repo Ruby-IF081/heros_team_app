@@ -5,12 +5,12 @@ ul.nav.navbar-nav.float-right
         = gravatar_image_tag(current_user.email)
         i
       span.user-name
-        | John Doe
+        = current_user.full_name
     .dropdown-menu.dropdown-menu-right
       = link_to edit_user_registration_path, class: "dropdown-item" do
         i.fa
         | Edit Profile
-      - if current_user != true_user
+      - if impersonated?
         .dropdown-divider
         = link_to stop_impersonating_account_users_path, method: :post, class: "dropdown-item" do
           i.fa.fa-arrow-left
