@@ -1,9 +1,10 @@
 = form_for page, url: rate_account_company_page_path, id: 'rateForm' do |f|
   = f.hidden_field :rating, id:'pageRating'
-  - Page::LEGAL_RATING.each do |rating|
-    - if rating.to_i > 0
-      button onclick="changeRating(#{rating});" class='btn btn-success btn-sm' +#{rating}
-    - elsif rating.to_i == 0
-      button onclick="changeRating(-#{page.rating});" class='btn btn-info btn-sm' +#{rating}
-    - else
-      button onclick="changeRating(#{rating});" class='btn btn-danger btn-sm' #{rating}
+  .btn-group
+    - Page::LEGAL_RATING.each do |rating|
+      - if rating.to_i > 0
+        button onclick="changeRating(#{rating});" class='btn btn-success' +#{rating}
+      - elsif rating.to_i == 0
+        button onclick="changeRating(-#{page.rating});" class='btn btn-info' +#{rating}
+      - else
+        button onclick="changeRating(#{rating});" class='btn btn-danger' #{rating}
