@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def layout_by_resource
-    if %w[registrations sessions].include?(controller_name) && action_name == 'new'
+    if devise_controller?
       "landing"
     else
       "application"

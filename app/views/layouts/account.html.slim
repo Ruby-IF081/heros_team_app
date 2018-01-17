@@ -10,7 +10,7 @@ html
   body data-open="hover" data-menu="horizontal-menu" data-col="2-columns" class="horizontal-layout horizontal-menu 2-columns   menu-expanded"
     = render 'account/shared/header'
     = render 'account/shared/nav'
-    = yield
-    = render 'account/shared/footer'
+    .content
+      = yield
+    = render 'layouts/footer'
     = any_login_here if defined?(AnyLogin)
-   
