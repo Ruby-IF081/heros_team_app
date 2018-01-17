@@ -1,16 +1,20 @@
 table.table.table-bordered
   thead
     tr
-      th.col-md-3 Full Name
-      th.col-md-3 Email
-      th.col-md-3 Role
-      th.col-md-4 Operation
+      th scope='col' Full Name
+      th scope='col' Email
+      th scope='col' Role
+      - if current_user.super_admin?
+        th scope='col' Tenant
+      th scope='col' Operation
   tbody
     - users.each do |user|
       tr
         td = link_to user.full_name, account_user_path(user)
         td = user.email
         td = user.role
+        - if current_user.super_admin?
+          td = user.tenant_name
         td
           .btn-group
             .col-md-offset-4
