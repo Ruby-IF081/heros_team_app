@@ -2,7 +2,7 @@
                 description: "#{@page.title} page content"
 .content-wrapper
   .content-header.row
-    .content-header-left.col-md-6.col-12.mb-2
+    .content-header-left.col-12.mb-2
       .content-header-title.mb-0
         h2 = @page.title
       .row.breadcrumbs-top
@@ -11,7 +11,7 @@
                   @page.company_name => account_company_path(@page.company),
                   'Pages' => account_company_pages_path,
                   @page.title => nil})
-    .content-header-right.text-md-right.col-md-6.col-12
+    .content-header-right.text-md-right.col-12
       .row-arrow-right
         p Rate this page:
       .row-arrow-right
