@@ -1,6 +1,8 @@
 doctype html
 html
   head
+    = render 'layouts/shared/google_analytics'
+
     = display_meta_tags site: 'Heroes Team App', reverse: true
     = csrf_meta_tags
     = stylesheet_link_tag    'account/application', media: 'all'
