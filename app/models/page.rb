@@ -48,6 +48,9 @@ class Page < ApplicationRecord
   validates :title, presence: { message: 'Title cannot be empty' }, allow_blank: false
   validates :source_url, presence: { message: 'Source URL cannot be empty' }, allow_blank: false
   validates :company_id, presence: { message: 'Company must be selected' }
+  validates_uniqueness_of :source_url,
+                          scope: %i[company_id page_type],
+                          message: 'Has already been taken'
 
   scope :by_rating, -> { order(rating: :desc) }
 

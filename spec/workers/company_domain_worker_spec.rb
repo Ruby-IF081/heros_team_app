@@ -6,8 +6,6 @@ RSpec.describe CompanyDomainWorker, sidekiq: true do
 
   before(:each) do
     allow(worker).to receive(:download_url).and_return(response_html)
-
-    worker.perform(company.id)
   end
 
   context 'with valid data' do
@@ -15,10 +13,12 @@ RSpec.describe CompanyDomainWorker, sidekiq: true do
     let!(:response_html) { Nokogiri::HTML(File.read(response_fixture)) }
 
     it 'worker company should be as created one' do
+      worker.perform(company.id)
       expect(worker.company).to eq(company)
     end
 
     it 'sub_links content should be correct. should not be nil, empty or outside links' do
+      worker.perform(company.id)
       worker.send(:filtered_sub_pages_links).each do |link|
         expect(link).not_to be_nil
         expect(link).not_to be_empty
@@ -45,6 +45,7 @@ RSpec.describe CompanyDomainWorker, sidekiq: true do
     end
 
     it 'empty sub_links array' do
+      worker.perform(company.id)
       expect(worker.send(:filtered_sub_pages_links)).to be_empty
     end
 
