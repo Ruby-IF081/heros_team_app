@@ -5,8 +5,8 @@
               type:'search',
               placeholder: 'First name, last name or e-mail contains'
     - if current_user.super_admin?
-      = f.select :tenant_name_eq,
-              options_for_select(Tenant.all.map {|a| a.name}, search.tenant_name_eq),
+      = f.select :tenant_id_eq,
+              options_for_select(Tenant.ordered.map {|a| [a.name, a.id]}, search.tenant_id_eq),
               class: 'form-control',
               include_blank: 'Select tenant:'
     = f.select :role_eq,
