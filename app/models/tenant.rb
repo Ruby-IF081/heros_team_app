@@ -2,6 +2,8 @@ class Tenant < ApplicationRecord
   VALID_WEBSITE_REGEX = /\A(www.)?[^_\W][-a-zA-Z0-9_]+\.+[-a-zA-Z0-9]+\z/i
   VALID_PHONE_REGEX = /\A[+]?[\d\-.() ]+\z/
 
+  scope :ordered, -> { order(name: :asc) }
+
   has_many :users, dependent: :destroy
   has_many :companies, through: :users
   has_many :visits, dependent: :destroy

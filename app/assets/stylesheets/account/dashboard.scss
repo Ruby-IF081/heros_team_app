@@ -1,38 +1,3 @@
-#navbar-mobile {
-  float: right !important;
-}
-
-div.navbar-header {
-  left: 5% !important;
-}
-
-.open > .dropdown-menu {
-   transform: scale(1, 1);
-   opacity: 1;
-   display: block !important; 
-}
-
-#sticky-wrapper {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
-nav.bg-gradient-x-grey-blue {
-	background-image: linear-gradient(to left, #697EA4 0%, #F3F4F6 46%);
-}
-
-img#logo {
-  height: 90px;
-  width: 140px;
-  margin-top: -20px;
-  margin-left: 7em;
-}
-
-div.navbar-header {
-  z-index: 9999;
-}
-
 .margin-head-footer {
   margin-left: 1rem !important;
 }

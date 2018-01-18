@@ -50,6 +50,7 @@ class Account::CompaniesController < ApplicationController
     respond_to do |format|
       format.pdf do
         render pdf: "Company #{current_company.name}.pdf",
+               disposition: 'attachment',
                template: 'account/companies/show',
                layout: 'application',
                locals: { company: current_company }

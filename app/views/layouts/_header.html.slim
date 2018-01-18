@@ -1,7 +1,9 @@
-nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.navbar-light.navbar-border.pl-5
+nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.navbar-dark.bg-gradient-x-grey-blue.navbar-brand-center
   .navbar-wrapper
-    .navbar-container.content
-      = link_to root_path do
-        = image_tag("logo1.png", alt: 'Sales Assistant', id: 'logo')
-      - if user_signed_in?
-        = render 'layouts/shared/user_menu'
+    .navbar-container.container
+      #navbar-mobile.collapse.navbar-collapse.container.center-layout
+        ul.nav.navbar-nav.mr-auto.float-left
+          = link_to root_path do
+            = image_tag("logo2.png", alt: 'Sales Assistant', id: 'logo1')
+        - if user_signed_in?
+          = render 'layouts/shared/user_menu'

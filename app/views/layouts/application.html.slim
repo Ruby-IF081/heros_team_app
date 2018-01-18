@@ -4,11 +4,13 @@ html
     = render 'layouts/shared/google_analytics'
 
     = display_meta_tags site: 'Heroes Team App', reverse: true
+    = favicon_link_tag 'favicon.ico'
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-  body
+  body data-open="hover"
     = render 'layouts/header'
+    = render 'layouts/nav' if user_signed_in?
     .content
       .app-content.container.center-layout
         .row.alert

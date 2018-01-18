@@ -1,0 +1,16 @@
+nav.bg-gradient-x-grey-blue {
+  background-image: linear-gradient(to left, #697EA4 0%, #F3F4F6 46%);
+}
+
+#sticky-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 56px;
+}
+
+.open > .dropdown-menu {
+  transform: scale(1, 1);
+  opacity: 1;
+  display: block !important;
+}

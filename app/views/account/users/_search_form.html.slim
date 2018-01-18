@@ -4,11 +4,16 @@
               class: 'col-md-3 form-control',
               type:'search',
               placeholder: 'First name, last name or e-mail contains'
+    - if current_user.super_admin?
+      = f.select :tenant_id_eq,
+              options_for_select(Tenant.ordered.map {|a| [a.name, a.id]}, search.tenant_id_eq),
+              class: 'form-control',
+              include_blank: 'Select tenant:'
     = f.select :role_eq,
             options_for_select(User::ROLES, search.role_eq),
             class:'form-control',
             include_blank: 'Select role:'
     = f.button type: 'submit', class: 'btn btn-blue' do
       i.fa.fa-search
-    = link_to account_users_path, class: ' btn btn-info' do
+    = link_to account_users_path, class: 'btn btn-info' do
       i.fa.fa-refresh
