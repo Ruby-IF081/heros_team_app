@@ -12,7 +12,7 @@ html {
       position: relative;
       transition: 300ms ease all;
       backface-visibility: hidden;
-      min-height: calc(100% - 32px); }
+      min-height: calc(100% - 250px); }
       html body .content.app-content {
         overflow: hidden; }
       html body .content .content-wrapper {
