@@ -5,6 +5,7 @@ class Account::UsersController < ApplicationController
   def index
     @search = collection.ransack(params[:q])
     @users = @search.result.page(params[:page]).per(10)
+    @roles = select_role
   end
 
   def impersonate
@@ -24,12 +25,14 @@ class Account::UsersController < ApplicationController
 
   def new
     @user = User.new
+    @roles = select_role
   end
 
   def create
     @user = User.new(resource_params)
     @user.assign_attributes(tenant: current_tenant, password: User::DEFAULT_PASSWORD)
-    if @user.save
+    if @user.valid? && legal_role?
+      @user.save
       UsersMailer.credentials(@user).deliver
       redirect_to account_users_path, flash: { success: 'New user is successfuly created!' }
     else
@@ -40,11 +43,13 @@ class Account::UsersController < ApplicationController
 
   def edit
     @user = resource
+    @roles = select_role
   end
 
   def update
     @user = resource
-    if @user.update_attributes(resource_params)
+    if @user.valid? && legal_role?
+      @user.update_attributes(resource_params)
       redirect_to account_users_path, flash: { success: 'Successfuly updated!' }
     else
       flash[:danger] = 'Failed to update!'
@@ -78,5 +83,13 @@ class Account::UsersController < ApplicationController
 
   def collection
     current_user.super_admin? ? super_admin_collection : admin_collection
+  end
+
+  def select_role
+    current_user.admin? ? User::ROLES.reject { |role| role == User::SUPER_ADMIN_ROLE } : User::ROLES
+  end
+
+  def legal_role?
+    select_role.include?(resource_params[:role])
   end
 end
