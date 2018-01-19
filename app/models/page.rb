@@ -51,6 +51,10 @@ class Page < ApplicationRecord
   validates_uniqueness_of :source_url,
                           scope: %i[company_id page_type],
                           message: 'Has already been taken'
+  validates_uniqueness_of :title,
+                          scope: %i[company_id page_type],
+                          message: 'Has already been taken',
+                          if: proc { |page| page.title != Page::PENDING_TITLE }
 
   scope :by_rating, -> { order(rating: :desc) }
 
