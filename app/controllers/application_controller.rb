@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   impersonates :user
+  helper_method :available_roles
 
   layout :layout_by_resource
 
@@ -30,5 +31,9 @@ class ApplicationController < ActionController::Base
     else
       "application"
     end
+  end
+
+  def available_roles
+    current_user.admin? ? User::ROLES.reject { |role| role == User::SUPER_ADMIN_ROLE } : User::ROLES
   end
 end
