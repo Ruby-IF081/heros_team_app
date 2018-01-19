@@ -5,7 +5,7 @@ class Account::UsersController < ApplicationController
   def index
     @search = collection.ransack(params[:q])
     @users = @search.result.page(params[:page]).per(10)
-    @roles = select_role
+    @roles = select_roles
   end
 
   def impersonate
@@ -25,7 +25,7 @@ class Account::UsersController < ApplicationController
 
   def new
     @user = User.new
-    @roles = select_role
+    @roles = select_roles
   end
 
   def create
@@ -43,7 +43,7 @@ class Account::UsersController < ApplicationController
 
   def edit
     @user = resource
-    @roles = select_role
+    @roles = select_roles
   end
 
   def update
@@ -85,11 +85,11 @@ class Account::UsersController < ApplicationController
     current_user.super_admin? ? super_admin_collection : admin_collection
   end
 
-  def select_role
+  def select_roles
     current_user.admin? ? User::ROLES.reject { |role| role == User::SUPER_ADMIN_ROLE } : User::ROLES
   end
 
   def legal_role?
-    select_role.include?(resource_params[:role])
+    select_roles.include?(resource_params[:role])
   end
 end
