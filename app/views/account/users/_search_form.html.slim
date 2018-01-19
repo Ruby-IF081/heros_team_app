@@ -10,7 +10,7 @@
               class: 'form-control',
               include_blank: 'Select tenant:'
     = f.select :role_eq,
-            options_for_select(@roles, search.role_eq),
+            options_for_select(roles, search.role_eq),
             class:'form-control',
             include_blank: 'Select role:'
     = f.button type: 'submit', class: 'btn btn-blue' do

@@ -85,14 +85,16 @@ RSpec.describe Account::UsersController, type: :controller do
         expect do
           post :create, params: { user: { first_name: val_user.first_name,
                                           last_name: val_user.last_name,
-                                          email: val_user.email } }
+                                          email: val_user.email,
+                                          role: val_user.role } }
         end.to change(User, :count).by(1)
       end
 
       it 'should redirect to the all users' do
         post :create, params: { user: { first_name: val_user.first_name,
                                         last_name: val_user.last_name,
-                                        email: val_user.email } }
+                                        email: val_user.email,
+                                        role: val_user.role } }
         expect(response).to have_http_status(302)
         expect(response).to redirect_to account_users_path
         expect(controller).to set_flash[:success]
@@ -116,6 +118,19 @@ RSpec.describe Account::UsersController, type: :controller do
         expect(controller).to set_flash[:danger]
       end
     end
+
+    context 'tenant admin' do
+      let!(:super_admin) { build(:user, role: 'super_admin') }
+
+      it 'should not create user with role super_user' do
+        expect do
+          post :create, params: { user: { first_name: super_admin.first_name,
+                                          last_name: super_admin.last_name,
+                                          email: super_admin.email,
+                                          role: super_admin.role } }
+        end.to_not change(User, :count)
+      end
+    end
   end
 
   describe 'action #update' do
@@ -132,18 +147,21 @@ RSpec.describe Account::UsersController, type: :controller do
         put :update, params: { id: @user.id,
                                user: { first_name: 'Firstname',
                                        last_name: 'Lastname',
-                                       email: 'email@mail.com' } }
+                                       email: 'email@mail.com',
+                                       role: 'admin' } }
         @user.reload
         expect(@user.first_name).to eq('Firstname')
         expect(@user.last_name).to eq('Lastname')
         expect(@user.email).to eq('email@mail.com')
+        expect(@user.role).to eq('admin')
       end
 
       it 'should redirect to the users table' do
         put :update, params: { id: @user.id,
                                user: { first_name: 'Firstname',
                                        last_name: 'Lastname',
-                                       email: 'email@mail.com' } }
+                                       email: 'email@mail.com',
+                                       role: 'admin' } }
         expect(response).to have_http_status(302)
         expect(response).to redirect_to account_users_path
         expect(controller).to set_flash[:success]
@@ -178,6 +196,14 @@ RSpec.describe Account::UsersController, type: :controller do
         expect(response).to have_http_status(200)
         expect(response).to render_template :edit
         expect(controller).to set_flash[:danger]
+      end
+    end
+    context 'tenant admin' do
+      it 'should not update a sale to role super_user' do
+        put :update, params: { id: @user.id,
+                               user: { role: 'super_admin' } }
+        @user.reload
+        expect(@user.role).to_not eq('super_admin')
       end
     end
   end
