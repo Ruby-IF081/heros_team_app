@@ -21,14 +21,14 @@ RSpec.describe Account::UsersController, type: :controller do
 
     context 'super_admin' do
       before :each do
-        @super_user = FactoryBot.create(:user, :super_admin)
+        @super_admin = FactoryBot.create(:user, :super_admin)
         sign_out @user
-        sign_in @super_user
+        sign_in @super_admin
       end
 
       it 'should get all users when super-user' do
         get :index
-        expect(assigns(:users)).to contain_exactly(@super_user, @user)
+        expect(assigns(:users)).to contain_exactly(@super_admin, @user)
         expect(response).to render_template(:index)
       end
     end
@@ -69,7 +69,7 @@ RSpec.describe Account::UsersController, type: :controller do
         get :show, params: { id: @user.id }
         expect(assigns(:user)).to eq(@user)
       end
-      it 'should render the :show view for super user' do
+      it 'should render the :show view for super admin' do
         get :show, params: { id: @user.id }
         expect(response).to have_http_status(200)
         expect(response).to render_template(:show)
@@ -120,9 +120,9 @@ RSpec.describe Account::UsersController, type: :controller do
     end
 
     context 'tenant admin' do
-      let!(:super_admin) { build(:user, role: 'super_admin') }
+      let!(:super_admin) { build(:user, role: User::SUPER_ADMIN_ROLE) }
 
-      it 'should not create user with role super_user' do
+      it 'should not create user with role super_admin' do
         expect do
           post :create, params: { user: { first_name: super_admin.first_name,
                                           last_name: super_admin.last_name,
@@ -148,12 +148,12 @@ RSpec.describe Account::UsersController, type: :controller do
                                user: { first_name: 'Firstname',
                                        last_name: 'Lastname',
                                        email: 'email@mail.com',
-                                       role: 'admin' } }
+                                       role: User::ADMIN_ROLE } }
         @user.reload
         expect(@user.first_name).to eq('Firstname')
         expect(@user.last_name).to eq('Lastname')
         expect(@user.email).to eq('email@mail.com')
-        expect(@user.role).to eq('admin')
+        expect(@user.role).to eq(User::ADMIN_ROLE)
       end
 
       it 'should redirect to the users table' do
@@ -161,7 +161,7 @@ RSpec.describe Account::UsersController, type: :controller do
                                user: { first_name: 'Firstname',
                                        last_name: 'Lastname',
                                        email: 'email@mail.com',
-                                       role: 'admin' } }
+                                       role: User::ADMIN_ROLE } }
         expect(response).to have_http_status(302)
         expect(response).to redirect_to account_users_path
         expect(controller).to set_flash[:success]
@@ -199,11 +199,11 @@ RSpec.describe Account::UsersController, type: :controller do
       end
     end
     context 'tenant admin' do
-      it 'should not update a sale to role super_user' do
+      it 'should not update a sale to role super_admin' do
         put :update, params: { id: @user.id,
-                               user: { role: 'super_admin' } }
+                               user: { role: User::SUPER_ADMIN_ROLE } }
         @user.reload
-        expect(@user.role).to_not eq('super_admin')
+        expect(@user.role).to_not eq(User::SUPER_ADMIN_ROLE)
       end
     end
   end
