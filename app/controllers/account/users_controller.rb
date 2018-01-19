@@ -29,8 +29,7 @@ class Account::UsersController < ApplicationController
   def create
     @user = User.new(resource_params)
     @user.assign_attributes(tenant: current_tenant, password: User::DEFAULT_PASSWORD)
-    if @user.valid? && legal_role?
-      @user.save
+    if @user.save
       UsersMailer.credentials(@user).deliver
       redirect_to account_users_path, flash: { success: 'New user is successfuly created!' }
     else
@@ -45,8 +44,7 @@ class Account::UsersController < ApplicationController
 
   def update
     @user = resource
-    if @user.valid? && legal_role?
-      @user.update_attributes(resource_params)
+    if @user.update_attributes(resource_params)
       redirect_to account_users_path, flash: { success: 'Successfuly updated!' }
     else
       flash[:danger] = 'Failed to update!'
@@ -63,7 +61,11 @@ class Account::UsersController < ApplicationController
   private
 
   def resource_params
-    params.require(:user).permit(:first_name, :last_name, :email, :role)
+    if current_user.privileged?
+      params.require(:user).permit(:first_name, :last_name, :email, :role)
+    else
+      params.require(:user).permit(:first_name, :last_name, :email, :role).except(:role)
+    end
   end
 
   def admin_collection
@@ -80,9 +82,5 @@ class Account::UsersController < ApplicationController
 
   def collection
     current_user.super_admin? ? super_admin_collection : admin_collection
-  end
-
-  def legal_role?
-    available_roles.include?(resource_params[:role])
   end
 end
