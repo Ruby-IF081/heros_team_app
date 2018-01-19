@@ -34,6 +34,6 @@ class ApplicationController < ActionController::Base
   end
 
   def available_roles
-    current_user.admin? ? User::ROLES.reject { |e| e.eql?(User::SUPER_ADMIN_ROLE) } : User::ROLES
+    current_user.admin? ? User::ROLES.reject { |el| el.eql?(User::SUPER_ADMIN_ROLE) } : User::ROLES
   end
 end

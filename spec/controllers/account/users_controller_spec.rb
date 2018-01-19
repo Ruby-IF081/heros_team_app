@@ -124,11 +124,15 @@ RSpec.describe Account::UsersController, type: :controller do
 
       it 'should not create user with role super_admin' do
         expect do
-          post :create, params: { user: { first_name: super_admin.first_name,
+          post :create, params: { id: super_admin.id,
+                                  user: { first_name: super_admin.first_name,
                                           last_name: super_admin.last_name,
                                           email: super_admin.email,
-                                          role: super_admin.role } }
-        end.to_not change(User, :count)
+                                          role: User::SUPER_ADMIN_ROLE } }
+        end.to change(User, :count).by(1)
+        saved_user = User.find_by(first_name: super_admin.first_name)
+        expect(saved_user).not_to eq(super_admin)
+        expect(saved_user.role).to eq(User::SALE_ROLE)
       end
     end
   end
