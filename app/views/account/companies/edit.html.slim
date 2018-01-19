@@ -1,13 +1,16 @@
 - set_meta_tags title: "Edit - #{@company.name}",
                 description: 'Edit company data'
-.row
-  .col-md-3
-    h2 Edit company
-.row.breadcrumbs-top
-  .breadcrumb-wrapper.col-12
-    = render_breadcrumbs({'Dashboard' => account_root_url,
-            'Companies' => account_companies_path,
-            'Edit company' => nil})
-.row
-  .col-md-3.col-md-offset-3
-    = render 'form', button_text: 'Edit', company: @company
+.content-wrapper
+  .content-header
+    .row
+      .col-md-3
+        h2 Edit company
+    .row.breadcrumbs-top
+      .breadcrumb-wrapper.col-12
+        = render_breadcrumbs({'Dashboard' => account_root_url,
+                'Companies' => account_companies_path,
+                'Edit company' => nil})
+  .content-body
+    .row
+      .col-md-12
+        = render 'update_form', button_text: 'Edit', company: @company

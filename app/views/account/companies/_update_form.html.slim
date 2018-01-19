@@ -1,0 +1,42 @@
+= simple_form_for [:account, company], defaults: { input_html: { class: 'form-control' } } do |f|
+  .row
+    .col-6
+      = f.input :name
+    .col-6
+      = f.input :domain
+  .row
+    .col-6
+      = f.input :approx_employees
+    .col-6
+      = f.input :founded
+  .row
+    .col-12
+      = f.input :overview, as: :text
+  .row
+    .col-6
+      = f.input :google, label: 'Google+'
+    .col-6
+      = f.input :youtube
+  .row
+    .col-6
+      = f.input :facebook
+    .col-6
+      = f.input :twitter
+  .row
+    .col-6
+      = f.input :pinterest
+    .col-6
+      = f.input :linkedincompany, label: 'LinkedIn'
+  .row
+    .col-6
+      = f.input :crunchbasecompany, label: 'Crunchbase'
+    .col-6
+      = f.input :owler
+  .row
+    .col-6
+      = f.input :angellist, label: 'AngelList'
+    .col-6
+      = f.input :klout
+  .row
+    .col-12
+      = f.button :submit, button_text , class: 'btn btn-primary'

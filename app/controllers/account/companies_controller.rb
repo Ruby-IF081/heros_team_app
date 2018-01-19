@@ -61,7 +61,9 @@ class Account::CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :domain)
+    params.require(:company).permit(:name, :domain, :founded, :overview, :approx_employees,
+                                    :youtube, :google, :twitter, :facebook, :linkedincompany,
+                                    :angellist, :owler, :crunchbasecompany, :pinterest, :klout)
   end
 
   def current_company
