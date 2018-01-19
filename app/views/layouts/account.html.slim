@@ -1,14 +1,12 @@
 doctype html
 html
   head
-    = render 'layouts/shared/google_analytics'
-
     = display_meta_tags site: 'Heroes Team App', reverse: true
     = csrf_meta_tags
     = stylesheet_link_tag    'account/application', media: 'all'
     = stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Montserrat'
     = javascript_include_tag 'account/application'
-
+    = render_google_analytics
   body data-open="hover" data-menu="horizontal-menu" data-col="2-columns" class="horizontal-layout horizontal-menu 2-columns   menu-expanded"
     = render 'account/shared/header'
     = render 'account/shared/nav'
