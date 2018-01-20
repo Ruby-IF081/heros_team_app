@@ -1,4 +1,6 @@
 "app/controllers":
+  TooManyMethods:
+    max_methods: 16
   TooManyStatements:
     max_statements: 20
   NestedIterators:

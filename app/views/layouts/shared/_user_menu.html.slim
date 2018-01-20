@@ -1,6 +1,7 @@
 ul.nav.navbar-nav.float-right
   li.dropdown.dropdown-user.nav-item
-    a.dropdown-toggle.nav-link.dropdown-user-link[href="#" data-toggle="dropdown"]
+    = link_to account_user_path(current_user.id), { class: 'dropdown-toggle nav-link dropdown-user-link',
+                                                    'data-toggle' => 'dropdown' } do
       span.avatar.avatar-online
         = gravatar_image_tag(current_user.email)
         i

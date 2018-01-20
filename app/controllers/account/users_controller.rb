@@ -58,6 +58,18 @@ class Account::UsersController < ApplicationController
     redirect_to account_users_path, flash: { success: 'User deleted!' }
   end
 
+  def generate_token
+    @user = resource
+    auth_token = @user.generate_auth_token
+    redirect_to account_user_path, flash: { success: "Your new API key is #{auth_token}" }
+  end
+
+  def invalidate_token
+    @user = resource
+    @user.invalidate_auth_token
+    redirect_to account_user_path, flash: { info: "Your API key was successfully destroyed" }
+  end
+
   private
 
   def resource_params

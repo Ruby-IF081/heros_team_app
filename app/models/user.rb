@@ -14,6 +14,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  after_commit :generate_auth_token, on: :create
+
   validates :first_name, presence: true
   validates :last_name,  presence: true
   validates :tenant,     presence: true
@@ -37,5 +39,15 @@ class User < ApplicationRecord
 
   def privileged?
     admin? || super_admin?
+  end
+
+  def generate_auth_token
+    token = SecureRandom.hex
+    update_columns(auth_token: token, token_created_at: Time.zone.now)
+    token
+  end
+
+  def invalidate_auth_token
+    update_columns(auth_token: nil, token_created_at: nil)
   end
 end
