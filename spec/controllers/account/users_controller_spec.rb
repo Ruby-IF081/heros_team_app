@@ -254,4 +254,54 @@ RSpec.describe Account::UsersController, type: :controller do
       expect(response).to redirect_to root_path
     end
   end
+
+  describe 'PUT generate_token' do
+    it 'located the requested user' do
+      put :generate_token, params: { id: @user.id }
+
+      expect(assigns(:user)).to eq(@user)
+    end
+
+    it 'should redirect to the user show' do
+      put :generate_token, params: { id: @user.id }
+
+      expect(response).to have_http_status(302)
+      expect(response).to redirect_to(account_user_path)
+      expect(controller).to set_flash[:success]
+    end
+
+    it "should change user's token attributes" do
+      old_token = @user.auth_token
+      old_time = @user.token_created_at
+      put :generate_token, params: { id: @user.id }
+      @user.reload
+
+      expect(@user.auth_token).not_to eq(old_token)
+      expect(@user.token_created_at).not_to eq(old_time)
+    end
+  end
+
+  describe 'PUT invalidate_token' do
+    it 'located the requested user' do
+      put :invalidate_token, params: { id: @user.id }
+
+      expect(assigns(:user)).to eq(@user)
+    end
+
+    it 'should redirect to the user show' do
+      put :invalidate_token, params: { id: @user.id }
+
+      expect(response).to have_http_status(302)
+      expect(response).to redirect_to(account_user_path)
+      expect(controller).to set_flash[:info]
+    end
+
+    it "should change user's token attributes" do
+      put :invalidate_token, params: { id: @user.id }
+      @user.reload
+
+      expect(@user.auth_token).to eq(nil)
+      expect(@user.token_created_at).to eq(nil)
+    end
+  end
 end

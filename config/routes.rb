@@ -29,8 +29,7 @@ Rails.application.routes.draw do
     resources :users do
       member do
         post :impersonate
-        put :generate_token
-        delete :invalidate_token
+        put :generate_token, :invalidate_token
       end
       post   :stop_impersonating, on: :collection
     end

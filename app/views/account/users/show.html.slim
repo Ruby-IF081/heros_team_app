@@ -63,7 +63,7 @@
                   = @user.auth_token
                 .card-text.col-sm-1
                   .btn-group.btn-group-sm
-                    = link_to invalidate_token_account_user_path, method: :delete, class: 'btn btn-danger'
+                    = link_to invalidate_token_account_user_path, method: :put, class: 'btn btn-danger'
                       i.fa.fa-minus
                     = link_to generate_token_account_user_path, method: :put, class: 'btn btn-success'
                       i.fa.fa-plus
