@@ -35,6 +35,7 @@ gem 'simple_form'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
 gem 'validates_email_format_of'
+gem 'yt'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
