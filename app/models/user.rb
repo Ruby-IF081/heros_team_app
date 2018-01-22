@@ -42,12 +42,7 @@ class User < ApplicationRecord
   end
 
   def generate_auth_token
-    token = SecureRandom.hex
+    token = SecureRandom.urlsafe_base64
     update_columns(auth_token: token, token_created_at: Time.zone.now)
-    token
-  end
-
-  def invalidate_auth_token
-    update_columns(auth_token: nil, token_created_at: nil)
   end
 end

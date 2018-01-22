@@ -4,7 +4,11 @@ class Api::BaseController < ActionController::Base
 
   def require_login!
     return true if authenticate_token
-    render json: { errors: [{ detail: "Access denied" }] }, status: 401
+    if token_exists
+      render json: { errors: [{ detail: 'Your key is expired' }] }, status: 401
+    else
+      render json: { errors: [{ detail: 'Access denied' }] }, status: 401
+    end
   end
 
   def current_person
@@ -13,9 +17,15 @@ class Api::BaseController < ActionController::Base
 
   private
 
+  def token_exists
+    authenticate_with_http_token do |token|
+      User.find_by(auth_token: token)
+    end
+  end
+
   def authenticate_token
     authenticate_with_http_token do |token|
-      User.where(auth_token: token).where("token_created_at >= ?", 1.month.ago).first
+      User.where(auth_token: token).find_by("token_created_at >= ?", 1.month.ago)
     end
   end
 end
