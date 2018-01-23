@@ -73,6 +73,7 @@ class Page < ApplicationRecord
     {
       title: title,
       source_url: source_url,
+      content: content,
       company_id: company.id
     }
   end
