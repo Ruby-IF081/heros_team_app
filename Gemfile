@@ -28,6 +28,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'reek', '~> 4.7', '>= 4.7.3'
 gem 'rubocop', '~> 0.51.0', require: false
 gem 'sass-rails', '~> 5.0'
+gem 'searchkick'
 gem 'sidekiq'
 gem 'simple_form'
 gem 'slim'
@@ -76,7 +77,7 @@ group :development do
 end
 
 group :test do
-  gem "codeclimate-test-reporter", "~> 1.0.0"
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'simplecov', require: false
 end
 

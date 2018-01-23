@@ -1,0 +1,5 @@
+= form_for account_company_pages_path, method: :get do |f|
+  .input-group.mb-3
+    = text_field_tag :q, params[:q], placeholder: 'Search page', class: 'form-control'
+    .input-group-append
+      = submit_tag 'Search', class: 'btn btn-outline-secondary'

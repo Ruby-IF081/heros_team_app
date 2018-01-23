@@ -15,6 +15,7 @@ script:
 services:
   - postgresql
   - redis-server
+  - elasticsearch
 
 before_script:
   - cp config/database.yml.example config/database.yml
