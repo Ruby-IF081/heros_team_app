@@ -3,14 +3,18 @@ class TokensController < ApplicationController
 
   def generate_token
     @user = current_user
-    token = SecureRandom.urlsafe_base64(25)
-    @user.update_columns(auth_token: token, token_created_at: Time.zone.now)
-    redirect_to account_user_path(@user), flash: { success: "Your new API key is #{token}" }
+    @user.generate_auth_token
+    if @user.save
+      flash[:success] = "Your new API key is #{@user.auth_token}"
+    else
+      flash[:danger] = "Something went wrong, please contact support"
+    end
+    redirect_to account_user_path(@user)
   end
 
   def deactivate_token
     @user = current_user
-    @user.update_columns(auth_token: nil, token_created_at: nil)
+    @user.update(auth_token: nil, token_created_at: nil)
     redirect_to account_user_path(@user),
                 flash: { info: "Your API key was successfully deactivated" }
   end

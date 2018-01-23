@@ -12,7 +12,11 @@ class Api::BaseController < ActionController::Base
   end
 
   def current_person
-    @current_person ||= authenticate_token
+    @current_person ||= token_exists
+  end
+
+  def person_present
+    current_person.present?
   end
 
   private
@@ -24,8 +28,6 @@ class Api::BaseController < ActionController::Base
   end
 
   def authenticate_token
-    authenticate_with_http_token do |token|
-      User.where(auth_token: token).find_by("token_created_at >= ?", 1.month.ago)
-    end
+    current_person.token_created_at >= 1.month.ago if person_present
   end
 end

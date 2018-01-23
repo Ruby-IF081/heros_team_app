@@ -14,7 +14,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  after_commit :generate_auth_token, on: :create
+  before_create :generate_auth_token
 
   validates :first_name, presence: true
   validates :last_name,  presence: true
@@ -43,6 +43,6 @@ class User < ApplicationRecord
 
   def generate_auth_token
     token = SecureRandom.urlsafe_base64
-    update_columns(auth_token: token, token_created_at: Time.zone.now)
+    assign_attributes(auth_token: token, token_created_at: Time.zone.now)
   end
 end
