@@ -8,14 +8,13 @@ Rails.application.routes.draw do
   get "/422", to: "errors#unacceptable"
   get "/500", to: "errors#internal_error"
 
-  match :generate_token, via: %i[post patch], to: 'tokens#generate_token'
-  delete :deactivate_token,                   to: 'tokens#deactivate_token'
-
   devise_for :users, path: 'account', controllers: {
     registrations: 'users/registrations', sessions: 'users/track_sessions'
   }
 
   namespace :account do
+    resource :tokens, only: %i[create destroy]
+
     root 'dashboard#index'
     resources    :companies do
       resources  :pages, only: %i[show index] do
@@ -47,7 +46,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     as :user do
-      get '/companies', to: 'responses#companies'
+      resources :companies, only: :index
     end
   end
 end

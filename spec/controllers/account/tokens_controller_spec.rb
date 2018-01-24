@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe TokensController, type: :controller do
+RSpec.describe Account::TokensController, type: :controller do
   let!(:user) { create(:user, :admin) }
   before(:each) { sign_in user }
 
@@ -8,7 +8,7 @@ RSpec.describe TokensController, type: :controller do
     it 'should change users token attributes' do
       old_token = user.auth_token
       old_time = user.token_created_at
-      post :generate_token
+      post :create
       user.reload
 
       expect(user.auth_token).not_to eq(old_token)
@@ -16,7 +16,7 @@ RSpec.describe TokensController, type: :controller do
     end
 
     it 'redirects to the user show' do
-      post :generate_token
+      post :create
 
       expect(response).to have_http_status(302)
       expect(response).to redirect_to(account_user_path(user))
@@ -26,7 +26,7 @@ RSpec.describe TokensController, type: :controller do
 
   describe 'action #deactivate_token' do
     it 'should destroy users token attributes' do
-      delete :deactivate_token
+      delete :destroy
       user.reload
 
       expect(user.auth_token).to eq(nil)
@@ -34,7 +34,7 @@ RSpec.describe TokensController, type: :controller do
     end
 
     it 'redirects to the user show' do
-      delete :deactivate_token
+      delete :destroy
 
       expect(response).to have_http_status(302)
       expect(response).to redirect_to(account_user_path(user))

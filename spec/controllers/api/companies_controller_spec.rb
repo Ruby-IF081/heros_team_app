@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Api::ResponsesController, type: :controller do
+RSpec.describe Api::CompaniesController, type: :controller do
   let!(:user) { create(:user, :admin) }
 
-  describe 'action #companies' do
+  describe 'action #index' do
     context 'with valid tokens' do
       it 'should respond with companies data' do
         request.headers['Authorization'] = "Token token=#{user.auth_token}"
-        get :companies, as: :json
+        get :index, as: :json
 
         expect(response.body).to have_text('companies')
         expect(response).to have_http_status(:ok)
@@ -17,7 +17,7 @@ RSpec.describe Api::ResponsesController, type: :controller do
         create_list(:company, 10, user: user)
 
         request.headers['Authorization'] = "Token token=#{user.auth_token}"
-        get :companies, as: :json
+        get :index, as: :json
         parsed_response = JSON.parse(response.body)
 
         expect(response.body).to have_text('companies')
@@ -28,17 +28,26 @@ RSpec.describe Api::ResponsesController, type: :controller do
     context 'with invalid token' do
       it 'should not respond with companies data' do
         request.headers['Authorization'] = 'Token token=123'
-        get :companies, as: :json
+        get :index, as: :json
 
         expect(response).to have_http_status(401)
         expect(response.body).to have_text('Access denied')
       end
 
-      context 'with expired token' do
-        it 'should not respond with companies data' do
+      context 'with incorrect created_at' do
+        it 'should not respond with companies data when token expired' do
           user.update_columns(token_created_at: 2.month.ago)
           request.headers['Authorization'] = "Token token=#{user.auth_token}"
-          get :companies, as: :json
+          get :index, as: :json
+
+          expect(response).to have_http_status(401)
+          expect(response.body).to have_text('Your key is expired')
+        end
+
+        it 'should not respond with companies data when token nil' do
+          user.update_columns(token_created_at: nil)
+          request.headers['Authorization'] = "Token token=#{user.auth_token}"
+          get :index, as: :json
 
           expect(response).to have_http_status(401)
           expect(response.body).to have_text('Your key is expired')
