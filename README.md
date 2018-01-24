@@ -24,3 +24,17 @@
 ## Install Chrome plugin
 
 To load plugin in Chrome, open up chrome://extensions/ in your browser and click “Developer mode” in the top right. Now click “Load unpacked extension…” and select the extension’s directory (heroes_team_app/chrome_extension). You should now see your extension in the list.
+
+## Install Elasticsearch
+
+Elasticsearch requires at least Java 8. Before you install Elasticsearch, please check your Java version first by running (and then install/upgrade accordingly if needed): `java -version`
+
+Download the Elasticsearch 6.1.2 tar as follows:
+`curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.1.2.tar.gz`
+
+Then extract it as follows: `tar -xvf elasticsearch-6.1.2.tar.gz`
+
+Go into the bin directory as follows: `cd elasticsearch-6.1.2/bin`
+
+Start elasticsearch as follows: `./elasticsearch`
+

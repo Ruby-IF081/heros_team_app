@@ -51,4 +51,12 @@ class User < ApplicationRecord
   def authenticate_token_creation
     token_created_at.is_a?(ActiveSupport::TimeWithZone) && token_created_at >= 1.month.ago
   end
+
+  comma do
+    id
+    full_name
+    email
+    role
+    created_at { |created_at| created_at.strftime("%d %b %y %H:%M") }
+  end
 end

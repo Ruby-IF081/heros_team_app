@@ -14,8 +14,9 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
-
 class Page < ApplicationRecord
+  searchkick
+
   IN_PROGRESS_STATUS = 'in progress'.freeze
   PENDING_STATUS     = 'pending'.freeze
   PROCESSED_STATUS   = 'processed'.freeze
@@ -66,6 +67,15 @@ class Page < ApplicationRecord
     page.page_type = Page::CHROME_EXTENSION
     page.status = Page::PENDING_STATUS
     page
+  end
+
+  def search_data
+    {
+      title: title,
+      source_url: source_url,
+      content: content,
+      company_id: company.id
+    }
   end
 
   def update_rating(new_rating)

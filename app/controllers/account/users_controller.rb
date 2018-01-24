@@ -58,6 +58,10 @@ class Account::UsersController < ApplicationController
     redirect_to account_users_path, flash: { success: 'User deleted!' }
   end
 
+  def download
+    send_data collection.to_comma, filename: "Users #{Date.today}.csv", disposition: 'attachment'
+  end
+
   private
 
   def resource_params

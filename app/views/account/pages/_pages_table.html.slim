@@ -1,0 +1,13 @@
+- if pages.empty?
+  h3 Nothing match found
+- else
+  table.table
+    tbody
+      - pages.each do |page|
+        tr
+          td
+            h3 = link_to page.title, controller: 'account/pages', action: 'show', id: page.id
+            p = page.source_url
+          td = page.status
+          td = page.rating
+  = paginate pages

@@ -254,4 +254,14 @@ RSpec.describe Account::UsersController, type: :controller do
       expect(response).to redirect_to root_path
     end
   end
+
+  describe 'GET download' do
+    it 'download csv' do
+      get :download
+      expect(response).to have_http_status(:success)
+      expect(response.headers["Content-Type"]).to eq "text/csv"
+      expect(response.headers["Content-Disposition"])
+        .to eq "attachment; filename=\"Users #{Date.today}.csv\""
+    end
+  end
 end

@@ -1,6 +1,6 @@
 class Account::PagesController < ApplicationController
   def index
-    @pages = collection.by_rating.page(params[:page]).per(10)
+    @pages = params[:q].blank? ? list_without_params : list_with_params
     @company = parent
   end
 
@@ -32,5 +32,13 @@ class Account::PagesController < ApplicationController
 
   def collection
     parent.pages
+  end
+
+  def list_without_params
+    collection.by_rating.page(params[:page]).per(10)
+  end
+
+  def list_with_params
+    Page.search(params[:q], where: { company_id: parent.id }, page: params[:page], per_page: 10)
   end
 end
