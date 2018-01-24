@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Api::CompaniesController, type: :controller do
   let!(:user) { create(:user, :admin) }
-  before(:each) { request.headers['Authorization'] = "Token token=#{user.auth_token}" }
+  before(:each) do
+    user.generate_auth_token
+    user.save
+    request.headers['Authorization'] = "Token token=#{user.auth_token}"
+  end
 
   describe 'action #index' do
     context 'with valid tokens' do

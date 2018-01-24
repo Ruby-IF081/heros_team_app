@@ -14,8 +14,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  before_create :generate_auth_token
-
   validates :first_name, presence: true
   validates :last_name,  presence: true
   validates :tenant,     presence: true
