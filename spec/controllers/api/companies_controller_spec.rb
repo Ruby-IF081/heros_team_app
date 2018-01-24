@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Api::CompaniesController, type: :controller do
   let!(:user) { create(:user, :admin) }
+  before(:each) { request.headers['Authorization'] = "Token token=#{user.auth_token}" }
 
   describe 'action #index' do
     context 'with valid tokens' do
       it 'should respond with companies data' do
-        request.headers['Authorization'] = "Token token=#{user.auth_token}"
         get :index, as: :json
 
         expect(response.body).to have_text('companies')
@@ -16,7 +16,6 @@ RSpec.describe Api::CompaniesController, type: :controller do
       it 'should respond with data on correct amount of companies' do
         create_list(:company, 10, user: user)
 
-        request.headers['Authorization'] = "Token token=#{user.auth_token}"
         get :index, as: :json
         parsed_response = JSON.parse(response.body)
 
@@ -37,7 +36,6 @@ RSpec.describe Api::CompaniesController, type: :controller do
       context 'with incorrect created_at' do
         it 'should not respond with companies data when token expired' do
           user.update_columns(token_created_at: 2.month.ago)
-          request.headers['Authorization'] = "Token token=#{user.auth_token}"
           get :index, as: :json
 
           expect(response).to have_http_status(401)
@@ -46,7 +44,6 @@ RSpec.describe Api::CompaniesController, type: :controller do
 
         it 'should not respond with companies data when token nil' do
           user.update_columns(token_created_at: nil)
-          request.headers['Authorization'] = "Token token=#{user.auth_token}"
           get :index, as: :json
 
           expect(response).to have_http_status(401)
