@@ -38,7 +38,7 @@
                   = image_tag(@company.logo.thumb, alt: @company.name, class: "company-logo")
                 .card-text.col-sm-10
                   h4= @company.name
-                  a href="http://#{@company.domain}" target="_blank"=  @company.domain
+                  a href= urlify(@company.domain) target="_blank" =urlify(@company.domain)
               .row
                 .card-text.col-sm-2
                   h6 Description
