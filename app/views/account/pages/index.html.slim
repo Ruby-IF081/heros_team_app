@@ -11,9 +11,28 @@
                                  @company.name => account_company_path(@company),
                                  'Pages' => nil })
   .content-body
-    section.row
-      .col-md-12
-        = render 'search_form'
-    section.row
-      .col-md-12
-        = render 'pages_table', pages: @pages
+    - if @company.pages.empty?
+      section.row
+        .col-md-12
+          h3 This company hasn't had any pages yet
+    - else
+      section.row
+        .col-md-12
+          = render 'search_form', partial: @partial
+      section
+        - if @pages.empty?
+          .row
+            .col-12
+              h3 Nothing match found
+        - else
+          .row
+            .col-12
+              .btn-icon.btn
+                = link_to account_company_pages_path(view: 'pages_list', q: params[:q]) do
+                  = fa_icon 'list'
+              .btn-icon.btn
+                = link_to account_company_pages_path(view: 'pages_card', q: params[:q]) do
+                  = fa_icon 'th-large'
+          .row
+            .col-12
+              = render @partial, pages: @pages
