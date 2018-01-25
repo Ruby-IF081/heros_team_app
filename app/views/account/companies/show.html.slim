@@ -67,3 +67,10 @@
           .card-content
             .card-body
               = render 'account/companies/html/social_links', company: @company
+        - unless @company.twitter.blank?
+          .card
+            .card-header
+              h4.card-title= "#{@company.name} tweets"
+            .card-content
+              .card-body
+                = render 'account/companies/html/tweets', company: @tweets

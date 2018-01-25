@@ -1,0 +1,23 @@
+/ .row
+/ - @tweets.each do |tweet|
+/   .card-text.col-sm-2
+/     p= "#{tweet.user.screen_name}: #{tweet.text}"
+
+.row
+  .col-lg-12
+    ul.timeline
+      - @tweets.each do |tweet|
+        .timeline-panel
+          .timeline-heading
+            /! Show user name
+            h4
+              = tweet.user.name
+            h4.subheading
+              = "@#{tweet.user.screen_name}"
+          .timeline-body
+            p.text-muted
+              = tweet.text
+            i.fa.fa-retweet
+              = tweet.retweet_count
+            i.fa.fa-heart
+              = tweet.favorite_count
