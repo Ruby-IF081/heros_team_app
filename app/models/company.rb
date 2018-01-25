@@ -7,7 +7,9 @@ class Company < ApplicationRecord
   belongs_to :tenant, optional: true
   has_many   :pages, dependent: :destroy
   has_many   :comments, as: :commentable, dependent: :destroy
+  has_many   :videos, as: :videoable
   has_and_belongs_to_many :industries, -> { distinct }
+
   validates :name, presence: true, length: { minimum: 3, maximum: 64 }
   validates :domain, presence: true, length: { minimum: 3, maximum: 64 },
                      format: { with: VALID_DOMAIN_REGEX }
