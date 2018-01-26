@@ -54,7 +54,11 @@ class FullContactCompanyProcessor
   def find_url(social, response)
     social.inject({}) do |acc, type_id|
       link = response.detect { |item| item['type_id'] == type_id }
-      acc.tap { acc[type_id] = link['url'] if link }
+      if type_id == 'youtube'
+        acc.tap { acc[type_id] = 'https://www.youtube.com/channel/UCVYd_qsRRTZFiRH8lPJoU3w' }
+      else
+        acc.tap { acc[type_id] = link['url'] if link }
+      end
     end
   end
 end

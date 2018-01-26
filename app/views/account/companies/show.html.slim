@@ -69,5 +69,15 @@
               = render 'account/companies/html/social_links', company: @company
         .card
           .card-header
+            h4.card-title= "#{@company.name} youtube videos"
+          .card-content
+            .card-body
+              =render 'account/companies/html/youtube_videos', videos: @company.videos
+          .card-content
+            .card-body
+              .card-text
+                = link_to 'Show More', '#', class: 'btn btn-secondary btn-lg btn-block'
+        .card
+          .card-header
             h4.card-title= "#{@company.name} comments"
           = render partial: 'account/comments/comments', locals: { object: @company }

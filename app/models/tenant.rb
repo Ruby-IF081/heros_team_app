@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: tenants
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  phone      :string
+#  website    :string
+#  logo       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  owner_id   :integer
+#
+
 class Tenant < ApplicationRecord
   VALID_WEBSITE_REGEX = /\A(www.)?[^_\W][-a-zA-Z0-9_]+\.+[-a-zA-Z0-9]+\z/i
   VALID_PHONE_REGEX = /\A[+]?[\d\-.() ]+\z/

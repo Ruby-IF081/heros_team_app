@@ -287,6 +287,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.5.1)
+      byebug (~> 9.1)
+      pry (~> 0.10)
     public_suffix (3.0.1)
     puma (3.11.0)
     rack (2.0.3)
@@ -524,6 +527,7 @@ DEPENDENCIES
   popper_js (~> 1.12.9)
   pretender
   pry (~> 0.10.3)
+  pry-byebug
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails-controller-testing
