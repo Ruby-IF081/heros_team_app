@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources  :pages, only: %i[show index] do
         patch    :rate,  on: :member
       end
+      resources :videos, only: %i[index]
       get :download, on: :member
       collection do
         resource :chrome_extensions, only: %i[new create]
@@ -55,6 +56,4 @@ Rails.application.routes.draw do
       resources :companies, only: :index
     end
   end
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
 end

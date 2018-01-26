@@ -47,18 +47,26 @@ class Company < ApplicationRecord
   private
 
   def create_video
-    channel = authenticate
-    channel_videos = channel.videos
-    channel_videos.each do |vid|
-      # binding.pry
-      videos.build(title: vid.title,
-                embed_code: "<iframe src='https://www.youtube.com/embed/#{vid.id}?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>")
+    if youtube.present?
+      channel = authenticate
+      channel_videos = get_videos(channel)
+      channel_videos.each do |vid|
+        videos.build(title: vid.title, embed_code: get_embed_code(vid.id))
+      end
     end
-    save
+  end
+
+  def get_videos(channel)
+    channel.videos
   end
 
   def authenticate
     Yt.configuration.api_key = Rails.application.secrets.google_api_key
     Yt::Channel.new id: youtube.split('channel/').last
+  end
+
+  def get_embed_code(id)
+    "<iframe src='https://www.youtube.com/embed/" + id.to_s +
+      "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>"
   end
 end

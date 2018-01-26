@@ -7,6 +7,7 @@ class Account::CompaniesController < ApplicationController
 
   def show
     @company = current_company
+    @videos = @company.videos.first(3)
   end
 
   def new
