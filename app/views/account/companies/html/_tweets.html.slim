@@ -5,11 +5,11 @@
         .card.box-shadow-0.border-primary.bg-transparent
           .card-content.collapse.show
             .card-body
-              p
+              p.text-secondary
                 = tweet.text
               .card-footer.text-muted.mt-2
                 span
-                  = "#{time_ago_in_words(tweet.created_at)} ago"
+                  = timeago_tag tweet.created_at
                 span.float-right
                   i.fa.fa-retweet
                     = number_to_human(tweet.retweet_count, precision: 2)

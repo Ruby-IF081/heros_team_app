@@ -298,6 +298,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-timeago (2.16.0)
+      actionpack (>= 3.1)
+      activesupport (>= 3.1)
     rails_best_practices (1.19.0)
       activesupport
       code_analyzer (>= 0.4.8)
@@ -506,6 +509,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails-controller-testing
+  rails-timeago (~> 2.0)
   rails_best_practices
   ransack!
   reek (~> 4.7, >= 4.7.3)

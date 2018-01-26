@@ -45,6 +45,7 @@ gem 'font-awesome-rails'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
+gem 'rails-timeago', '~> 2.0'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 
 group :development, :test do
