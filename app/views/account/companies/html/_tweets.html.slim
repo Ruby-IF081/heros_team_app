@@ -1,23 +1,17 @@
-/ .row
-/ - @tweets.each do |tweet|
-/   .card-text.col-sm-2
-/     p= "#{tweet.user.screen_name}: #{tweet.text}"
-
 .row
-  .col-lg-12
-    ul.timeline
-      - @tweets.each do |tweet|
-        .timeline-panel
-          .timeline-heading
-            /! Show user name
-            h4
-              = tweet.user.name
-            h4.subheading
-              = "@#{tweet.user.screen_name}"
-          .timeline-body
-            p.text-muted
-              = tweet.text
-            i.fa.fa-retweet
-              = tweet.retweet_count
-            i.fa.fa-heart
-              = tweet.favorite_count
+  - tweets.each do |tweet|
+    .col-md-4
+      =link_to "#{tweet.uri}", target: '_blank' do
+        .card.box-shadow-0.border-primary.bg-transparent
+          .card-content.collapse.show
+            .card-body
+              p
+                = tweet.text
+              .card-footer.text-muted.mt-2
+                span
+                  = "#{time_ago_in_words(tweet.created_at)} ago"
+                span.float-right
+                  i.fa.fa-retweet
+                    = number_to_human(tweet.retweet_count, precision: 2)
+                  i.fa.fa-heart.ml-1
+                    = number_to_human(tweet.favorite_count, precision: 2)

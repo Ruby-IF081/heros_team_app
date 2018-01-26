@@ -7,10 +7,9 @@ class Account::CompaniesController < ApplicationController
 
   def show
     @company = current_company
-    unless current_company.twitter.blank?
-      twitter_client = initialize_twitter_client
-      screen_name = current_company.twitter.sub('https://twitter.com/', '')
-      @tweets = twitter_client.user_timeline(screen_name, count: 5)
+    twitter_link = @company.twitter
+    unless twitter_link.blank?
+      @tweets = TwitterProcessor.new(twitter_link: twitter_link).process
     end
   end
 
@@ -79,13 +78,5 @@ class Account::CompaniesController < ApplicationController
     company_id = new_company.id
     NewCompanyWorker.perform_async(company_id)
     CompanyDomainWorker.perform_async(company_id)
-  end
-
-  def initialize_twitter_client
-    require "twitter"
-    Twitter::REST::Client.new do |config|
-      config.consumer_key        = Rails.application.secrets.twitter_consumer_key
-      config.consumer_secret     = Rails.application.secrets.twitter_consumer_secret
-    end
   end
 end
