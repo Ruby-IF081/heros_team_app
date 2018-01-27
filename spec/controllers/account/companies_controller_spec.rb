@@ -32,6 +32,14 @@ RSpec.describe Account::CompaniesController, type: :controller do
       expect(response).to have_http_status(200)
       expect(response).to render_template(:show)
     end
+
+    context "with non-existing twitter value" do
+      it "doesn't populate an array of tweets" do
+        get :show, params: { id: company.id }
+
+        expect(assigns(:tweets)).to be(nil)
+      end
+    end
   end
 
   describe "GET #edit" do

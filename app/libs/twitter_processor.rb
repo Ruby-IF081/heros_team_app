@@ -1,14 +1,14 @@
 require "twitter"
 
 class TwitterProcessor
-  def initialize(twitter_link:)
+  def initialize(twitter_link:, number_of_tweets:)
     @twitter_link = twitter_link
+    @count = number_of_tweets
   end
 
   def process
-    twitter_client = initialize_twitter_client
     screen_name = @twitter_link.sub('https://twitter.com/', '')
-    twitter_client.user_timeline(screen_name, count: 6)
+    scrape_tweets(screen_name)
   rescue Twitter::Error
     nil
   end
@@ -21,5 +21,10 @@ class TwitterProcessor
       config.consumer_key        = secrets.twitter_consumer_key
       config.consumer_secret     = secrets.twitter_consumer_secret
     end
+  end
+
+  def scrape_tweets(screen_name)
+    twitter_client = initialize_twitter_client
+    twitter_client.user_timeline(screen_name, count: @count)
   end
 end
