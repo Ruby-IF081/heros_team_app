@@ -1,0 +1,6 @@
+.row
+  .card-text.col-sm-2
+    = image_tag("icon/#{link}.png", class: "icon-right")
+    span = link.capitalize.gsub('company', '')
+  .card-text.col-sm-8
+    a href=company[link] target="_blank" = company[link]

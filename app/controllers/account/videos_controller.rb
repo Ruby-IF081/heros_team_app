@@ -7,7 +7,7 @@ class Account::VideosController < ApplicationController
   private
 
   def parent
-    current_user.companies.find(params[:company_id])
+    @parent ||= current_user.companies.find(params[:company_id])
   end
 
   def collection

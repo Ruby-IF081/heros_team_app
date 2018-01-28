@@ -6,9 +6,7 @@ class CreateVideos < ActiveRecord::Migration[5.1]
       t.integer :videoable_id
       t.string  :videoable_type
       t.timestamps
+      t.index [:videoable_id, :videoable_type]
     end
-
-    add_index :videos, :videoable_id
-    add_index :videos, :videoable_type
   end
 end

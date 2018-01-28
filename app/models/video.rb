@@ -13,4 +13,6 @@
 
 class Video < ApplicationRecord
   belongs_to :videoable, polymorphic: true
+
+  validates :embed_code, presence: true
 end

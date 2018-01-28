@@ -14,7 +14,6 @@
 //= require popper
 //= require bootstrap
 //= require ./stack_theme/core/app-menu
-//= require ./stack_theme/core/vendors.min
 //= require rails-ujs
 //= require Chart.bundle
 //= require chartkick

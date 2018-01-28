@@ -7,7 +7,7 @@ class Account::CompaniesController < ApplicationController
 
   def show
     @company = current_company
-    @videos = @company.videos.first(3)
+    @videos = @company.videos.take(3)
   end
 
   def new
@@ -73,6 +73,7 @@ class Account::CompaniesController < ApplicationController
 
   def perform_workers(new_company)
     company_id = new_company.id
+    CompanyVideoWorker.perform_async(company_id)
     NewCompanyWorker.perform_async(company_id)
     CompanyDomainWorker.perform_async(company_id)
   end

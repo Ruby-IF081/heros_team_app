@@ -21,6 +21,8 @@ company = Company.first
 
 FactoryBot.create_list(:page, 20, :with_content, company: company)
 
+FactoryBot.create_list(:video, 20, videoable: company)
+
 FactoryBot.create_list(:tenant, 10)
 
 FactoryBot.create_list(:user, 200, :old_random_date, role: 'sale', tenant: tenant)

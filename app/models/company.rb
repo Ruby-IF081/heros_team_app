@@ -26,6 +26,8 @@
 
 class Company < ApplicationRecord
   VALID_DOMAIN_REGEX = /\A[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6}\z/ix
+  SOCIAL_LINKS = %w[twitter facebook linkedincompany youtube angellist owler crunchbasecompany
+                    pinterest google klout].freeze
 
   scope :ordered, -> { order(name: :asc) }
 
@@ -33,40 +35,16 @@ class Company < ApplicationRecord
   belongs_to :tenant, optional: true
   has_many   :pages, dependent: :destroy
   has_many   :comments, as: :commentable, dependent: :destroy
-  has_many   :videos, as: :videoable
+  has_many   :videos, as: :videoable, dependent: :destroy
   has_and_belongs_to_many :industries, -> { distinct }
 
   mount_uploader :logo, CompanyLogoUploader
-
-  after_create :create_video
 
   validates :name, presence: true, length: { minimum: 3, maximum: 64 }
   validates :domain, presence: true, length: { minimum: 3, maximum: 64 },
                      format: { with: VALID_DOMAIN_REGEX }
 
-  private
-
-  def create_video
-    if youtube.present?
-      channel = authenticate
-      channel_videos = get_videos(channel)
-      channel_videos.each do |vid|
-        videos.build(title: vid.title, embed_code: get_embed_code(vid.id))
-      end
-    end
-  end
-
-  def get_videos(channel)
-    channel.videos
-  end
-
-  def authenticate
-    Yt.configuration.api_key = Rails.application.secrets.google_api_key
-    Yt::Channel.new id: youtube.split('channel/').last
-  end
-
-  def get_embed_code(id)
-    "<iframe src='https://www.youtube.com/embed/" + id.to_s +
-      "?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>"
+  def socials
+    SOCIAL_LINKS.select { |social| social if self[social].present? }
   end
 end
