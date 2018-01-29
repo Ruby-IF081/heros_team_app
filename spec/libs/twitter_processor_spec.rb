@@ -2,7 +2,7 @@ require 'rails_helper'
 RSpec.describe TwitterProcessor do
   let!(:company) { create(:company, twitter: 'https://twitter.com/netflix') }
   let!(:processor) do
-    TwitterProcessor.new(twitter_link: company.twitter, number_of_tweets: 6)
+    TwitterProcessor.new(company: company, number_of_tweets: 6)
   end
 
   describe 'screen name' do
@@ -15,7 +15,7 @@ RSpec.describe TwitterProcessor do
     context 'with twitter link empty' do
       it 'screen name should be empty' do
         company.update_columns(twitter: nil)
-        processor = TwitterProcessor.new(twitter_link: company.twitter, number_of_tweets: 6)
+        processor = TwitterProcessor.new(company: company, number_of_tweets: 6)
 
         expect(processor.screen_name).to be(nil)
       end
@@ -43,12 +43,12 @@ RSpec.describe TwitterProcessor do
       it 'handle TwitterError' do
         allow(processor).to receive(:scrape_tweets).and_raise(Twitter::Error)
 
-        expect(processor.tweets).to eq(nil)
+        expect(processor.tweets).to eq([])
       end
 
       it 'should handle empty twitter_link' do
         company.update_columns(twitter: nil)
-        processor = TwitterProcessor.new(twitter_link: company.twitter, number_of_tweets: 6)
+        processor = TwitterProcessor.new(company: company, number_of_tweets: 6)
 
         expect(processor.tweets).to eq([])
       end
@@ -75,7 +75,7 @@ RSpec.describe TwitterProcessor do
 
       it 'should handle empty twitter_link' do
         company.update_columns(twitter: nil)
-        processor = TwitterProcessor.new(twitter_link: company.twitter, number_of_tweets: 6)
+        processor = TwitterProcessor.new(company: company, number_of_tweets: 6)
 
         expect(processor.followers).to eq(nil)
       end

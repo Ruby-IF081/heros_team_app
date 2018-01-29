@@ -1,9 +1,10 @@
 require "twitter"
 
 class TwitterProcessor
-  def initialize(twitter_link:, number_of_tweets:)
-    @twitter_link = twitter_link
+  def initialize(company:, number_of_tweets:)
+    @twitter_link = company.twitter
     @count = number_of_tweets
+    @client = initialize_twitter_client
   end
 
   def screen_name
@@ -13,7 +14,7 @@ class TwitterProcessor
   def tweets
     screen_name.blank? ? [] : scrape_tweets
   rescue Twitter::Error
-    nil
+    []
   end
 
   def followers
@@ -33,10 +34,10 @@ class TwitterProcessor
   end
 
   def scrape_tweets
-    initialize_twitter_client.user_timeline(screen_name, count: @count)
+    @client.user_timeline(screen_name, count: @count)
   end
 
   def scrape_followers
-    initialize_twitter_client.user(screen_name).followers_count
+    @client.user(screen_name).followers_count
   end
 end

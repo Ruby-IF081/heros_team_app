@@ -7,7 +7,7 @@ class Account::CompaniesController < ApplicationController
 
   def show
     @company = current_company
-    @twitter = TwitterProcessor.new(twitter_link: @company.twitter, number_of_tweets: 6)
+    @twitter = TwitterProcessor.new(company: @company, number_of_tweets: 6)
   end
 
   def new
