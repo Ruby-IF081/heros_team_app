@@ -7,10 +7,7 @@ class Account::CompaniesController < ApplicationController
 
   def show
     @company = current_company
-    twitter_link = @company.twitter
-    unless twitter_link.blank?
-      @tweets = TwitterProcessor.new(twitter_link: twitter_link, number_of_tweets: 6).process
-    end
+    @twitter = TwitterProcessor.new(twitter_link: @company.twitter, number_of_tweets: 6)
   end
 
   def new

@@ -67,7 +67,7 @@
           .card-content
             .card-body
               = render 'account/companies/html/social_links', company: @company
-        - unless @tweets.blank?
+        - unless @twitter.tweets.blank?
           .card
             .card-header
               .row
@@ -75,10 +75,10 @@
                   h4.card-title= "#{@company.name} tweets"
                   h5.card-title
                     =link_to @company.twitter, target: '_blank' do
-                      | @#{@tweets[0].user.screen_name}
+                      | @#{@twitter.screen_name}
                 .col-md-6
                   h5.card-title.float-right
-                    = "Followers: #{number_to_human(@tweets[0].user.followers_count)}"
+                    = "Followers: #{number_to_human(@twitter.followers)}"
             .card-content
               .card-body
-                = render 'account/companies/html/tweets', tweets: @tweets
+                = render 'account/companies/html/tweets', tweets: @twitter.tweets

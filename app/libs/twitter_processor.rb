@@ -6,9 +6,18 @@ class TwitterProcessor
     @count = number_of_tweets
   end
 
-  def process
-    screen_name = @twitter_link.sub('https://twitter.com/', '')
-    scrape_tweets(screen_name)
+  def screen_name
+    @twitter_link.sub('https://twitter.com/', '') unless @twitter_link.blank?
+  end
+
+  def tweets
+    screen_name.blank? ? [] : scrape_tweets
+  rescue Twitter::Error
+    nil
+  end
+
+  def followers
+    screen_name.blank? ? nil : scrape_followers
   rescue Twitter::Error
     nil
   end
@@ -23,8 +32,11 @@ class TwitterProcessor
     end
   end
 
-  def scrape_tweets(screen_name)
-    twitter_client = initialize_twitter_client
-    twitter_client.user_timeline(screen_name, count: @count)
+  def scrape_tweets
+    initialize_twitter_client.user_timeline(screen_name, count: @count)
+  end
+
+  def scrape_followers
+    initialize_twitter_client.user(screen_name).followers_count
   end
 end
