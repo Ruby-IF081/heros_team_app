@@ -1,5 +1,6 @@
 class Account::PagesController < ApplicationController
   def index
+    @partial = whitelisted_partial || 'pages_list'
     @pages = params[:q].blank? ? list_without_params : list_with_params
     @company = parent
   end
@@ -35,10 +36,14 @@ class Account::PagesController < ApplicationController
   end
 
   def list_without_params
-    collection.by_rating.page(params[:page]).per(10)
+    collection.by_rating.page(params[:page]).per(9)
   end
 
   def list_with_params
-    Page.search(params[:q], where: { company_id: parent.id }, page: params[:page], per_page: 10)
+    Page.search(params[:q], where: { company_id: parent.id }, page: params[:page], per_page: 9)
+  end
+
+  def whitelisted_partial
+    %w[pages_list pages_card].detect { |str| str == params[:view] }
   end
 end

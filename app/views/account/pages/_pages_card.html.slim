@@ -1,0 +1,15 @@
+.row
+  - pages.each do |page|
+    .col-4
+      .card.card-view
+        - if page.screenshot?
+          .image-wrapper
+            = image_tag("#{page.screenshot}", class: 'card-img-top', alt: 'Page screenshot')
+        - else
+          .image-wrapper
+            = image_tag('empty.svg', class: 'card-img-top', alt: 'Page screenshot')
+        .card-body
+          h5.card-title = link_to page.title, controller: 'account/pages', action: 'show', id: page.id
+          = link_to page.source_url, page.source_url
+          p.text-right = page.rating
+= paginate pages
