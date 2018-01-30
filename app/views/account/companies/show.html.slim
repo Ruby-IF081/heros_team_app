@@ -67,7 +67,7 @@
           .card-content
             .card-body
               = render 'account/companies/html/social_links', company: @company
-        - if @twitter.tweets.any?
+        - if @twitter.tweets.present?
           .card
             .card-header
               .row

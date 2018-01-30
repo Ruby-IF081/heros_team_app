@@ -1,5 +1,3 @@
-require "twitter"
-
 class TwitterProcessor
   def initialize(company:, number_of_tweets:)
     @twitter_link = company.twitter
@@ -8,19 +6,19 @@ class TwitterProcessor
   end
 
   def screen_name
-    @twitter_link.sub('https://twitter.com/', '') unless @twitter_link.blank?
+    @screen_name ||= @twitter_link.sub('https://twitter.com/', '') if @twitter_link.present?
   end
 
   def tweets
-    screen_name.blank? ? [] : scrape_tweets
-  rescue Twitter::Error
-    []
+    @tweets ||= begin
+      screen_name.blank? ? [] : scrape_tweets
+    end
   end
 
   def followers
-    screen_name.blank? ? nil : scrape_followers
-  rescue Twitter::Error
-    nil
+    @followers ||= begin
+      scrape_followers if screen_name.present?
+    end
   end
 
   private
@@ -35,9 +33,13 @@ class TwitterProcessor
 
   def scrape_tweets
     @client.user_timeline(screen_name, count: @count)
+  rescue Twitter::Error
+    []
   end
 
   def scrape_followers
     @client.user(screen_name).followers_count
+  rescue Twitter::Error
+    nil
   end
 end
