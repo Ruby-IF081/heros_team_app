@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get 'about-us', to: 'home#about_us'
   get 'contacts', to: 'home#contacts'
 
-  get "/404", to: "errors#not_found"
-  get "/422", to: "errors#unacceptable"
-  get "/500", to: "errors#internal_error"
+  get '/404', to: 'errors#not_found'
+  get '/422', to: 'errors#unacceptable'
+  get '/500', to: 'errors#internal_error'
 
   devise_for :users, path: 'account', controllers: {
     registrations: 'users/registrations', sessions: 'users/track_sessions'
@@ -14,19 +14,21 @@ Rails.application.routes.draw do
 
   namespace :account do
     resource :tokens, only: %i[create destroy]
-
     root 'dashboard#index'
     resources    :companies do
       resources  :pages, only: %i[show index] do
         patch    :rate,  on: :member
       end
+      resources :videos, only: %i[index]
       get :download, on: :member
       collection do
         resource :chrome_extensions, only: %i[new create]
       end
     end
+    resources :comments,           only: %i[create destroy]
     resources :tenants,            only: %i[show index]
     resource  :my_tenant,          only: %i[show edit update]
+    resource  :profile,            only: %i[show edit update], controller: 'profile'
     resources :analytics,          only: %i[index]
     resources :users do
       member do

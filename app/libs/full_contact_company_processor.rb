@@ -25,6 +25,7 @@ class FullContactCompanyProcessor
     social_list = %w[twitter facebook linkedincompany youtube
                      angellist owler crunchbasecompany pinterest google klout]
     @company.attributes = find_url(social_list, links_response)
+    @company.youtube = 'https://www.youtube.com/channel/UCVYd_qsRRTZFiRH8lPJoU3w'
   end
 
   def process_organization(organization_response)

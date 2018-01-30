@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180120103004) do
+ActiveRecord::Schema.define(version: 20180125155315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.bigint "user_id"
+    t.text "body"
+    t.bigint "tenant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["tenant_id"], name: "index_comments_on_tenant_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -95,10 +108,28 @@ ActiveRecord::Schema.define(version: 20180120103004) do
     t.bigint "tenant_id"
     t.string "auth_token"
     t.datetime "token_created_at"
+    t.date "birthday"
+    t.string "avatar"
+    t.string "phone"
+    t.string "skills"
+    t.string "social_links"
+    t.text "education"
+    t.text "work"
+    t.text "about"
     t.index ["auth_token", "token_created_at"], name: "index_users_on_auth_token_and_token_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["tenant_id"], name: "index_users_on_tenant_id"
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string "title"
+    t.text "embed_code"
+    t.integer "videoable_id"
+    t.string "videoable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["videoable_id", "videoable_type"], name: "index_videos_on_videoable_id_and_videoable_type"
   end
 
   create_table "visits", force: :cascade do |t|

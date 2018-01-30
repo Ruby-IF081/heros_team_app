@@ -1,0 +1,8 @@
+.card-content
+  .card-body
+    .container
+      .comments
+        = render partial:'account/comments/comment' ,
+                collection: object.comments.recent, as: :comment
+      .comment-form
+        = render 'account/comments/comment_form',  commentable: object

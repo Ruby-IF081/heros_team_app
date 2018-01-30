@@ -8,6 +8,7 @@ class Account::CompaniesController < ApplicationController
   def show
     @company = current_company
     @twitter = TwitterProcessor.new(company: @company, number_of_tweets: 6)
+    @videos = @company.videos.take(3)
   end
 
   def new
@@ -73,6 +74,7 @@ class Account::CompaniesController < ApplicationController
 
   def perform_workers(new_company)
     company_id = new_company.id
+    CompanyVideoWorker.perform_async(company_id)
     NewCompanyWorker.perform_async(company_id)
     CompanyDomainWorker.perform_async(company_id)
   end

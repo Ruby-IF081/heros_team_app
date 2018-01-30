@@ -1,8 +1,0 @@
-- social_list = %w[twitter facebook linkedincompany youtube angellist owler crunchbasecompany pinterest google klout]
-- social_list.each do |link|
-  .row
-    .card-text.col-sm-2
-      = image_tag("icon/#{link}.png", class: "icon-right")
-      span = link.capitalize.gsub('company', '')
-    .card-text.col-sm-8
-      a href=company[link] target="_blank"= company[link]

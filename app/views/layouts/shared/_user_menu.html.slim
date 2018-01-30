@@ -8,7 +8,7 @@ ul.nav.navbar-nav.float-right
       span.user-name
         = current_user.full_name
     .dropdown-menu.dropdown-menu-right
-      = link_to edit_user_registration_path, class: "dropdown-item" do
+      = link_to edit_account_profile_path, class: "dropdown-item" do
         i.fa
         | Edit Profile
       - if impersonated?

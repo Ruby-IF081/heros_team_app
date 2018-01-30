@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: tenants
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  phone      :string
+#  website    :string
+#  logo       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  owner_id   :integer
+#
+
 class Tenant < ApplicationRecord
   VALID_WEBSITE_REGEX = /\A(www.)?[^_\W][-a-zA-Z0-9_]+\.+[-a-zA-Z0-9]+\z/i
   VALID_PHONE_REGEX = /\A[+]?[\d\-.() ]+\z/
@@ -7,6 +21,7 @@ class Tenant < ApplicationRecord
   has_many :users, dependent: :destroy
   has_many :companies, through: :users
   has_many :visits, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one :owner, class_name: 'User'
 
   validates :name, presence: true, length: { minimum: 3, maximum: 64 }

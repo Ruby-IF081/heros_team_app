@@ -1,0 +1,5 @@
+= simple_form_for [:account, Comment.new(commentable: commentable)], remote: true do |f|
+  = f.input :body, input_html: {rows: '2'}, label: false, placeholder: 'Type your comment here.'
+  = f.hidden_field :commentable_id
+  = f.hidden_field :commentable_type
+  = f.button :submit, class: 'btn btn-primary'

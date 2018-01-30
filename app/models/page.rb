@@ -10,10 +10,12 @@
 #  source_url   :string
 #  status       :string
 #  screenshot   :string
-#  rating       :integer          default 0
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  company_id   :integer
+#  rating       :integer          default(0)
 #
+
 class Page < ApplicationRecord
   searchkick
 
@@ -41,6 +43,7 @@ class Page < ApplicationRecord
   PENDING_TITLE    = 'pending'.freeze
 
   belongs_to :company
+  has_many   :comments, as: :commentable, dependent: :destroy
 
   mount_uploader :screenshot, ScreenshotUploader
 

@@ -1,0 +1,29 @@
+.user-name {
+  font-size: 15px;
+}
+
+.thumbnail {
+  padding: 0px;
+}
+
+.panel {
+  position: relative;
+}
+
+.panel>.panel-heading:after,.panel>.panel-heading:before {
+  position: absolute;
+  top: 8px;
+  left: -30px;
+  right: 100%;
+  width: 0;
+  height: 0;
+  display: block;
+  content: "";
+  border-color: transparent;
+  border-style: solid solid outset;
+}
+
+.panel>.panel-heading:after {
+  border-width: 10px;
+  border-right-color: #797979;
+}

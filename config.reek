@@ -1,4 +1,6 @@
 "app/controllers":
+  DuplicateMethodCall:
+    max_calls: 2
   TooManyMethods:
     max_methods: 16
   TooManyStatements:
@@ -9,8 +11,6 @@
     enabled: false
   InstanceVariableAssumption:
     enabled: false
-  TooManyStatements:
-    max_statements: 6
   NilCheck:
     enabled: false
   PrimaDonnaMethod:

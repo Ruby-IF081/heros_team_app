@@ -1,0 +1,20 @@
+- set_meta_tags title: "All videos of #{@company.name}",
+                description: "All videos of #{@company.name} we processed"
+.content-wrapper
+  .content-header.row
+    .content-header-left.col-md-6.col-12.mb-2
+      .content-header-title.mb-0
+        h3 Videos
+      .row.breadcrumbs-top
+        .breadcrumb-wrapper.col-12
+          = render_breadcrumbs({ 'Dashboard' => account_root_path,
+                                 @company.name => account_company_path(@company),
+                                 'Videos' => nil})
+  .content-body
+    section.row
+      .col-md-12
+        .row
+          - @videos.each do |video|
+            .card-text.col-md-4.mb-2
+              = video.embed_code.html_safe
+        = paginate @videos

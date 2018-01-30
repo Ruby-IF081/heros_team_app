@@ -1,0 +1,4 @@
+.row
+  - videos.each do |video|
+    .card-text.col-md-4
+      = video.embed_code.html_safe
