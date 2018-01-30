@@ -43,6 +43,7 @@ class Account::PagesController < ApplicationController
 
   def list_with_params
     Page.search(params[:q],
+                fields: %i[title source_url content company_id],
                 where: { company_id: parent.id },
                 page: params[:page],
                 per_page: PER_PAGE)
