@@ -3,7 +3,16 @@
 }
 
 .card-body  > .header {
-  height: 35px;
+  height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card-body  > .header > h4 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card-link + .card-link {
