@@ -8,12 +8,12 @@ class Account::TokensController < ApplicationController
     else
       flash[:danger] = "Something went wrong, please contact support"
     end
-    redirect_to account_user_path(current_user)
+    redirect_to account_profile_path
   end
 
   def destroy
     current_user.deactivate_token
-    redirect_to account_user_path(current_user),
+    redirect_to account_profile_path,
                 flash: { info: "Your API key was successfully deactivated" }
   end
 end

@@ -19,7 +19,7 @@ RSpec.describe Account::TokensController, type: :controller do
       post :create
 
       expect(response).to have_http_status(302)
-      expect(response).to redirect_to(account_user_path(user))
+      expect(response).to redirect_to(account_profile_path)
       expect(controller).to set_flash[:success]
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe Account::TokensController, type: :controller do
       delete :destroy
 
       expect(response).to have_http_status(302)
-      expect(response).to redirect_to(account_user_path(user))
+      expect(response).to redirect_to(account_profile_path)
       expect(controller).to set_flash[:info]
     end
   end

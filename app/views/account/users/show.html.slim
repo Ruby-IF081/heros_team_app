@@ -12,13 +12,13 @@
                                  @user.full_name => nil })
     .content-header-right.text-md-right.col-md-6.col-12
       .form-group
-        = link_to edit_account_user_path,
-                class: 'button btn-icon btn btn-grey-blue btn-danger-2 btn-round'
-          i.fa.fa-pencil-square-o
-        = link_to account_user_path, method: :delete,
-                  data: {confirm: 'Are you certain you want to delete this user?'},
-                  class: 'button btn-icon btn btn-grey-blue btn-darker-2 btn-round'
-          i.fa.fa-trash-o
+        .btn-icon.btn.btn-white.btn-round
+          = link_to edit_account_user_path
+            i.fa.fa-pencil-square-o
+        .btn-icon.btn.btn-white.btn-round
+          = link_to account_user_path, method: :delete,
+                    data: {confirm: 'Are you certain you want to delete this user?'}
+            i.fa.fa-trash-o
   .content-body
     section.row
       .col-sm-12
@@ -56,17 +56,6 @@
                       h6 Tenant:
                     .card-text.col-sm-10
                       = @user.tenant_name
-              .row.my-2
-                .card-text.col-sm-2
-                  h6 Your API key:
-                .card-text.col-sm-4
-                  = @user.auth_token
-                .card-text.col-sm-1
-                  .btn-group.btn-group-sm
-                    = link_to account_tokens_path, method: :delete, class: 'btn btn-danger'
-                      i.fa.fa-minus
-                    = link_to account_tokens_path, method: :post, class: 'btn btn-success'
-                      i.fa.fa-plus
         .card
           .card-header
             h4.card-title

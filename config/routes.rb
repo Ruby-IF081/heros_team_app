@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   }
 
   namespace :account do
-    resource :tokens, only: %i[create destroy]
     root 'dashboard#index'
     resources    :companies do
       resources  :pages, only: %i[show index] do
@@ -28,8 +27,10 @@ Rails.application.routes.draw do
     resources :comments,           only: %i[create destroy]
     resources :tenants,            only: %i[show index]
     resource  :my_tenant,          only: %i[show edit update]
-    resource  :profile,            only: %i[show edit update], controller: 'profile'
     resources :analytics,          only: %i[index]
+    resource  :profile,            only: %i[show edit update], controller: 'profile' do
+      resource :tokens, only: %i[create destroy]
+    end
     resources :users do
       member do
         post :impersonate

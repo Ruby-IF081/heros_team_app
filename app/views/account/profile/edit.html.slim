@@ -1,56 +1,60 @@
 - set_meta_tags title: "Edit - #{@profile.first_name} #{@profile.last_name} information",
         description: 'Edit user data'
-h1.col-md-6.col-md-offset-3 Edit Profile
-.row.breadcrumbs-top
-  .breadcrumb-wrapper.col-12
-    = render_breadcrumbs({ 'Dashboard' => account_root_path,
-                           'Profile' => account_profile_path,
-                           'Edit profile' => nil })
-= simple_form_for @profile, url: account_profile_path,
-                            defaults: { input_html: { class: 'form-control' } } do |f|
-  section.row
-    .col-sm-12
-      /! Overview
-      #overview.card
-        .card-header
-          h4.card-title Overview
-        .card-content
-          .card-body
-            .row
-              .card-image.col-sm-2
-                = image_tag(@profile.avatar, alt: "Avatar")
-              .card-text.col-sm-9
+.content-wrapper
+  .content-header.row
+    .content-header-left.col-md-6.col-12.mb-2
+      h3.content-header-title.mb-0 Edit Profile
+      .row.breadcrumbs-top
+        .breadcrumb-wrapper.col-12
+          = render_breadcrumbs({ 'Dashboard' => account_root_path,
+                                 'Profile' => account_profile_path,
+                                 'Edit profile' => nil })
+  .content-body
+    = simple_form_for @profile, url: account_profile_path,
+                                defaults: { input_html: { class: 'form-control' } } do |f|
+      section.row
+        .col-sm-12
+          /! Overview
+          #overview.card
+            .card-header
+              h4.card-title Overview
+            .card-content
+              .card-body
                 .row
-                  .col-sm-5
-                    = f.input :first_name
-                  .col-sm-5
-                    = f.input :last_name
-                = f.input :birthday, as: :date, start_year: 100.years.ago.year, end_year: 18.years.ago.year, order: [:day, :month, :year]
-                .row
-                  .col-sm-6
-                    = f.input :email, placeholder: 'user@domain.com'
-                  .col-sm-4
-                    = f.input :phone, label: 'Phone number', placeholder: 'No special characters.'
-      /! / Overview
-      /! Work & Education
-      .card
-        .card-header
-          h4.card-title Work & Education
-        .card-content.collapse.show
-          .card-body
-            .card-text
-              = f.input :work
-              = f.input :skills, label: 'Professional skills'
-              = f.input :education
-      /! / Work & Education
-      /! About
-      .card
-        .card-header
-          h4.card-title About
-        .card-content.collapse.show
-          .card-body
-            .card-text
-              = f.input :about, label: 'About you', placeholder: 'Write some details about yourself'
-      /! / About
-  = f.button :submit, 'Save Changes', class: "btn btn-primary"
+                  .card-image.col-sm-3
+                    = image_tag(@profile.avatar, alt: "Avatar")
+                  .card-text.col-sm-9
+                    .row
+                      .col-sm-5
+                        = f.input :first_name
+                      .col-sm-5
+                        = f.input :last_name
+                    = f.input :birthday, as: :date, start_year: 100.years.ago.year, end_year: 18.years.ago.year, order: [:day, :month, :year]
+                    .row
+                      .col-sm-6
+                        = f.input :email, placeholder: 'user@domain.com'
+                      .col-sm-4
+                        = f.input :phone, label: 'Phone number', placeholder: 'No special characters.'
+          /! / Overview
+          /! Work & Education
+          .card
+            .card-header
+              h4.card-title Work & Education
+            .card-content.collapse.show
+              .card-body
+                .card-text
+                  = f.input :work
+                  = f.input :skills, label: 'Professional skills'
+                  = f.input :education
+          /! / Work & Education
+          /! About
+          .card
+            .card-header
+              h4.card-title About
+            .card-content.collapse.show
+              .card-body
+                .card-text
+                  = f.input :about, label: 'About you', placeholder: 'Write some details about yourself'
+          /! / About
+      = f.button :submit, 'Save Changes', class: "btn btn-primary"
 

@@ -10,9 +10,9 @@
           = render_breadcrumbs({ 'Dashboard' => account_root_path,
                                  'Profile' => nil })
     .content-header-right.text-md-right.col-md-6.col-12
-      = link_to edit_account_profile_path,
-                class: 'button btn-icon btn btn-grey-blue btn-danger-2 btn-round'
-        i.fa.fa-pencil-square-o
+      .btn-icon.btn.btn-white.btn-round
+        = link_to edit_account_profile_path do
+          i.fa.fa-pencil-square-o
   .content-body
     section.row
       .col-sm-12
@@ -22,7 +22,7 @@
           .card-content
             .card-body
               .row
-                .card-image.col-sm-2
+                .card-image.col-sm-3
                   = image_tag(@profile.avatar)
                 .card-text.col-sm-9
                   .row
@@ -52,6 +52,18 @@
                       h6 Role:
                     .card-text.col-sm-9
                       = @profile.role
+                  .row.my-2
+                    .card-text.col-sm-2
+                      h6 Your API key:
+                    - if @profile.auth_token?
+                      .card-text.col-sm-4
+                        = @profile.auth_token
+                    .card-text.col-sm-1
+                      .btn-group.btn-group-sm
+                        = link_to account_profile_tokens_path, method: :delete, class: 'btn btn-danger'
+                          i.fa.fa-minus
+                        = link_to account_profile_tokens_path, method: :post, class: 'btn btn-success'
+                          i.fa.fa-plus
     .card
       - if @profile.work?
         .card-header
