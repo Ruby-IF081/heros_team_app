@@ -1,0 +1,988 @@
+---
+- !ruby/object:Twitter::Tweet
+  attrs:
+    :created_at: Wed Jan 31 01:41:21 +0000 2018
+    :id: 958515515047030784
+    :id_str: '958515515047030784'
+    :text: 'RT @decider: .@GraceandFrankie is one of the funniest, most genuinely
+      charming shows ever produced by Netflix: https://t.co/6grxNkJ6xT http…'
+    :truncated: false
+    :entities:
+      :hashtags: []
+      :symbols: []
+      :user_mentions:
+      - :screen_name: decider
+        :name: Decider
+        :id: 2479845637
+        :id_str: '2479845637'
+        :indices:
+        - 3
+        - 11
+      - :screen_name: GraceandFrankie
+        :name: Grace and Frankie
+        :id: 2397078144
+        :id_str: '2397078144'
+        :indices:
+        - 14
+        - 30
+      :urls:
+      - :url: https://t.co/6grxNkJ6xT
+        :expanded_url: http://dcdr.me/2FtpTBl
+        :display_url: dcdr.me/2FtpTBl
+        :indices:
+        - 111
+        - 134
+    :source: <a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>
+    :in_reply_to_status_id: 
+    :in_reply_to_status_id_str: 
+    :in_reply_to_user_id: 
+    :in_reply_to_user_id_str: 
+    :in_reply_to_screen_name: 
+    :user:
+      :id: 16573941
+      :id_str: '16573941'
+      :name: Netflix US
+      :screen_name: netflix
+      :location: Los Gatos, CA
+      :description: Beyoncé, pink the color, P!NK the person, hot dogs, basically
+        anything that is awesome, sno cones
+      :url: https://t.co/i4spcePMBR
+      :entities:
+        :url:
+          :urls:
+          - :url: https://t.co/i4spcePMBR
+            :expanded_url: http://netflix.com
+            :display_url: netflix.com
+            :indices:
+            - 0
+            - 23
+        :description:
+          :urls: []
+      :protected: false
+      :followers_count: 4650205
+      :friends_count: 969
+      :listed_count: 14778
+      :created_at: Fri Oct 03 04:16:17 +0000 2008
+      :favourites_count: 11841
+      :utc_offset: -28800
+      :time_zone: Pacific Time (US & Canada)
+      :geo_enabled: true
+      :verified: true
+      :statuses_count: 21854
+      :lang: en
+      :contributors_enabled: false
+      :is_translator: false
+      :is_translation_enabled: false
+      :profile_background_color: C0DEED
+      :profile_background_image_url: http://pbs.twimg.com/profile_background_images/682982712886476800/tXck5049.jpg
+      :profile_background_image_url_https: https://pbs.twimg.com/profile_background_images/682982712886476800/tXck5049.jpg
+      :profile_background_tile: false
+      :profile_image_url: http://pbs.twimg.com/profile_images/744949842720391168/wuzyVTTX_normal.jpg
+      :profile_image_url_https: https://pbs.twimg.com/profile_images/744949842720391168/wuzyVTTX_normal.jpg
+      :profile_banner_url: https://pbs.twimg.com/profile_banners/16573941/1516668779
+      :profile_link_color: E50914
+      :profile_sidebar_border_color: FFFFFF
+      :profile_sidebar_fill_color: DDEEF6
+      :profile_text_color: '333333'
+      :profile_use_background_image: false
+      :has_extended_profile: false
+      :default_profile: false
+      :default_profile_image: false
+      :following: 
+      :follow_request_sent: 
+      :notifications: 
+      :translator_type: none
+    :geo: 
+    :coordinates: 
+    :place: 
+    :contributors: 
+    :retweeted_status:
+      :created_at: Tue Jan 30 15:43:04 +0000 2018
+      :id: 958364952351387648
+      :id_str: '958364952351387648'
+      :text: ".@GraceandFrankie is one of the funniest, most genuinely charming shows
+        ever produced by Netflix:… https://t.co/0s5SayYvdN"
+      :truncated: true
+      :entities:
+        :hashtags: []
+        :symbols: []
+        :user_mentions:
+        - :screen_name: GraceandFrankie
+          :name: Grace and Frankie
+          :id: 2397078144
+          :id_str: '2397078144'
+          :indices:
+          - 1
+          - 17
+        :urls:
+        - :url: https://t.co/0s5SayYvdN
+          :expanded_url: https://twitter.com/i/web/status/958364952351387648
+          :display_url: twitter.com/i/web/status/9…
+          :indices:
+          - 99
+          - 122
+      :source: <a href="http://www.socialflow.com" rel="nofollow">SocialFlow</a>
+      :in_reply_to_status_id: 
+      :in_reply_to_status_id_str: 
+      :in_reply_to_user_id: 
+      :in_reply_to_user_id_str: 
+      :in_reply_to_screen_name: 
+      :user:
+        :id: 2479845637
+        :id_str: '2479845637'
+        :name: Decider
+        :screen_name: decider
+        :location: ''
+        :description: 'Can’t decide what to watch? We’re here to help. Decider cuts
+          through the clutter to find the best movies and shows to stream. Subscribe:
+          https://t.co/oFvlXyAIxF'
+        :url: https://t.co/pATMRAXe7R
+        :entities:
+          :url:
+            :urls:
+            - :url: https://t.co/pATMRAXe7R
+              :expanded_url: http://decider.com
+              :display_url: decider.com
+              :indices:
+              - 0
+              - 23
+          :description:
+            :urls:
+            - :url: https://t.co/oFvlXyAIxF
+              :expanded_url: http://dcdr.me/1GBs2cw
+              :display_url: dcdr.me/1GBs2cw
+              :indices:
+              - 137
+              - 160
+        :protected: false
+        :followers_count: 23501
+        :friends_count: 5573
+        :listed_count: 442
+        :created_at: Tue May 06 13:35:44 +0000 2014
+        :favourites_count: 11303
+        :utc_offset: -14400
+        :time_zone: Atlantic Time (Canada)
+        :geo_enabled: true
+        :verified: true
+        :statuses_count: 43499
+        :lang: en
+        :contributors_enabled: false
+        :is_translator: false
+        :is_translation_enabled: false
+        :profile_background_color: C0DEED
+        :profile_background_image_url: http://abs.twimg.com/images/themes/theme1/bg.png
+        :profile_background_image_url_https: https://abs.twimg.com/images/themes/theme1/bg.png
+        :profile_background_tile: false
+        :profile_image_url: http://pbs.twimg.com/profile_images/875736851990138880/HHL2GvLX_normal.jpg
+        :profile_image_url_https: https://pbs.twimg.com/profile_images/875736851990138880/HHL2GvLX_normal.jpg
+        :profile_banner_url: https://pbs.twimg.com/profile_banners/2479845637/1514905932
+        :profile_link_color: 1DA1F2
+        :profile_sidebar_border_color: C0DEED
+        :profile_sidebar_fill_color: DDEEF6
+        :profile_text_color: '333333'
+        :profile_use_background_image: true
+        :has_extended_profile: false
+        :default_profile: true
+        :default_profile_image: false
+        :following: 
+        :follow_request_sent: 
+        :notifications: 
+        :translator_type: none
+      :geo: 
+      :coordinates: 
+      :place: 
+      :contributors: 
+      :is_quote_status: false
+      :retweet_count: 174
+      :favorite_count: 899
+      :favorited: false
+      :retweeted: false
+      :possibly_sensitive: false
+      :lang: en
+    :is_quote_status: false
+    :retweet_count: 174
+    :favorite_count: 0
+    :favorited: false
+    :retweeted: false
+    :possibly_sensitive: false
+    :lang: en
+- !ruby/object:Twitter::Tweet
+  attrs:
+    :created_at: Wed Jan 31 00:12:12 +0000 2018
+    :id: 958493079505313792
+    :id_str: '958493079505313792'
+    :text: "@abi_jean curse them by knowing their life will never be as blessed as
+      Shrek: The Musical"
+    :truncated: false
+    :entities:
+      :hashtags: []
+      :symbols: []
+      :user_mentions:
+      - :screen_name: abi_jean
+        :name: Abi Rein
+        :id: 361025316
+        :id_str: '361025316'
+        :indices:
+        - 0
+        - 9
+      :urls: []
+    :source: <a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for
+      iPhone</a>
+    :in_reply_to_status_id: 958487192183087104
+    :in_reply_to_status_id_str: '958487192183087104'
+    :in_reply_to_user_id: 361025316
+    :in_reply_to_user_id_str: '361025316'
+    :in_reply_to_screen_name: abi_jean
+    :user:
+      :id: 16573941
+      :id_str: '16573941'
+      :name: Netflix US
+      :screen_name: netflix
+      :location: Los Gatos, CA
+      :description: Beyoncé, pink the color, P!NK the person, hot dogs, basically
+        anything that is awesome, sno cones
+      :url: https://t.co/i4spcePMBR
+      :entities:
+        :url:
+          :urls:
+          - :url: https://t.co/i4spcePMBR
+            :expanded_url: http://netflix.com
+            :display_url: netflix.com
+            :indices:
+            - 0
+            - 23
+        :description:
+          :urls: []
+      :protected: false
+      :followers_count: 4650205
+      :friends_count: 969
+      :listed_count: 14778
+      :created_at: Fri Oct 03 04:16:17 +0000 2008
+      :favourites_count: 11841
+      :utc_offset: -28800
+      :time_zone: Pacific Time (US & Canada)
+      :geo_enabled: true
+      :verified: true
+      :statuses_count: 21854
+      :lang: en
+      :contributors_enabled: false
+      :is_translator: false
+      :is_translation_enabled: false
+      :profile_background_color: C0DEED
+      :profile_background_image_url: http://pbs.twimg.com/profile_background_images/682982712886476800/tXck5049.jpg
+      :profile_background_image_url_https: https://pbs.twimg.com/profile_background_images/682982712886476800/tXck5049.jpg
+      :profile_background_tile: false
+      :profile_image_url: http://pbs.twimg.com/profile_images/744949842720391168/wuzyVTTX_normal.jpg
+      :profile_image_url_https: https://pbs.twimg.com/profile_images/744949842720391168/wuzyVTTX_normal.jpg
+      :profile_banner_url: https://pbs.twimg.com/profile_banners/16573941/1516668779
+      :profile_link_color: E50914
+      :profile_sidebar_border_color: FFFFFF
+      :profile_sidebar_fill_color: DDEEF6
+      :profile_text_color: '333333'
+      :profile_use_background_image: false
+      :has_extended_profile: false
+      :default_profile: false
+      :default_profile_image: false
+      :following: 
+      :follow_request_sent: 
+      :notifications: 
+      :translator_type: none
+    :geo: 
+    :coordinates: 
+    :place: 
+    :contributors: 
+    :is_quote_status: false
+    :retweet_count: 28
+    :favorite_count: 319
+    :favorited: false
+    :retweeted: false
+    :lang: en
+- !ruby/object:Twitter::Tweet
+  attrs:
+    :created_at: Tue Jan 30 23:40:25 +0000 2018
+    :id: 958485078329315328
+    :id_str: '958485078329315328'
+    :text: "@CalumMcSwiggan shan't"
+    :truncated: false
+    :entities:
+      :hashtags: []
+      :symbols: []
+      :user_mentions:
+      - :screen_name: CalumMcSwiggan
+        :name: Calum McSwiggan
+        :id: 570841197
+        :id_str: '570841197'
+        :indices:
+        - 0
+        - 15
+      :urls: []
+    :source: <a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for
+      iPhone</a>
+    :in_reply_to_status_id: 958483752384069632
+    :in_reply_to_status_id_str: '958483752384069632'
+    :in_reply_to_user_id: 570841197
+    :in_reply_to_user_id_str: '570841197'
+    :in_reply_to_screen_name: CalumMcSwiggan
+    :user:
+      :id: 16573941
+      :id_str: '16573941'
+      :name: Netflix US
+      :screen_name: netflix
+      :location: Los Gatos, CA
+      :description: Beyoncé, pink the color, P!NK the person, hot dogs, basically
+        anything that is awesome, sno cones
+      :url: https://t.co/i4spcePMBR
+      :entities:
+        :url:
+          :urls:
+          - :url: https://t.co/i4spcePMBR
+            :expanded_url: http://netflix.com
+            :display_url: netflix.com
+            :indices:
+            - 0
+            - 23
+        :description:
+          :urls: []
+      :protected: false
+      :followers_count: 4650205
+      :friends_count: 969
+      :listed_count: 14778
+      :created_at: Fri Oct 03 04:16:17 +0000 2008
+      :favourites_count: 11841
+      :utc_offset: -28800
+      :time_zone: Pacific Time (US & Canada)
+      :geo_enabled: true
+      :verified: true
+      :statuses_count: 21854
+      :lang: en
+      :contributors_enabled: false
+      :is_translator: false
+      :is_translation_enabled: false
+      :profile_background_color: C0DEED
+      :profile_background_image_url: http://pbs.twimg.com/profile_background_images/682982712886476800/tXck5049.jpg
+      :profile_background_image_url_https: https://pbs.twimg.com/profile_background_images/682982712886476800/tXck5049.jpg
+      :profile_background_tile: false
+      :profile_image_url: http://pbs.twimg.com/profile_images/744949842720391168/wuzyVTTX_normal.jpg
+      :profile_image_url_https: https://pbs.twimg.com/profile_images/744949842720391168/wuzyVTTX_normal.jpg
+      :profile_banner_url: https://pbs.twimg.com/profile_banners/16573941/1516668779
+      :profile_link_color: E50914
+      :profile_sidebar_border_color: FFFFFF
+      :profile_sidebar_fill_color: DDEEF6
+      :profile_text_color: '333333'
+      :profile_use_background_image: false
+      :has_extended_profile: false
+      :default_profile: false
+      :default_profile_image: false
+      :following: 
+      :follow_request_sent: 
+      :notifications: 
+      :translator_type: none
+    :geo: 
+    :coordinates: 
+    :place: 
+    :contributors: 
+    :is_quote_status: false
+    :retweet_count: 6
+    :favorite_count: 276
+    :favorited: false
+    :retweeted: false
+    :lang: en
+- !ruby/object:Twitter::Tweet
+  attrs:
+    :created_at: Tue Jan 30 23:37:53 +0000 2018
+    :id: 958484440757358592
+    :id_str: '958484440757358592'
+    :text: "@edwardistheman thank you for representing the cause"
+    :truncated: false
+    :entities:
+      :hashtags: []
+      :symbols: []
+      :user_mentions:
+      - :screen_name: edwardistheman
+        :name: Edward Sanchez
+        :id: 78109015
+        :id_str: '78109015'
+        :indices:
+        - 0
+        - 15
+      :urls: []
+    :source: <a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for
+      iPhone</a>
+    :in_reply_to_status_id: 958482810221809664
+    :in_reply_to_status_id_str: '958482810221809664'
+    :in_reply_to_user_id: 78109015
+    :in_reply_to_user_id_str: '78109015'
+    :in_reply_to_screen_name: edwardistheman
+    :user:
+      :id: 16573941
+      :id_str: '16573941'
+      :name: Netflix US
+      :screen_name: netflix
+      :location: Los Gatos, CA
+      :description: Beyoncé, pink the color, P!NK the person, hot dogs, basically
+        anything that is awesome, sno cones
+      :url: https://t.co/i4spcePMBR
+      :entities:
+        :url:
+          :urls:
+          - :url: https://t.co/i4spcePMBR
+            :expanded_url: http://netflix.com
+            :display_url: netflix.com
+            :indices:
+            - 0
+            - 23
+        :description:
+          :urls: []
+      :protected: false
+      :followers_count: 4650205
+      :friends_count: 969
+      :listed_count: 14778
+      :created_at: Fri Oct 03 04:16:17 +0000 2008
+      :favourites_count: 11841
+      :utc_offset: -28800
+      :time_zone: Pacific Time (US & Canada)
+      :geo_enabled: true
+      :verified: true
+      :statuses_count: 21854
+      :lang: en
+      :contributors_enabled: false
+      :is_translator: false
+      :is_translation_enabled: false
+      :profile_background_color: C0DEED
+      :profile_background_image_url: http://pbs.twimg.com/profile_background_images/682982712886476800/tXck5049.jpg
+      :profile_background_image_url_https: https://pbs.twimg.com/profile_background_images/682982712886476800/tXck5049.jpg
+      :profile_background_tile: false
+      :profile_image_url: http://pbs.twimg.com/profile_images/744949842720391168/wuzyVTTX_normal.jpg
+      :profile_image_url_https: https://pbs.twimg.com/profile_images/744949842720391168/wuzyVTTX_normal.jpg
+      :profile_banner_url: https://pbs.twimg.com/profile_banners/16573941/1516668779
+      :profile_link_color: E50914
+      :profile_sidebar_border_color: FFFFFF
+      :profile_sidebar_fill_color: DDEEF6
+      :profile_text_color: '333333'
+      :profile_use_background_image: false
+      :has_extended_profile: false
+      :default_profile: false
+      :default_profile_image: false
+      :following: 
+      :follow_request_sent: 
+      :notifications: 
+      :translator_type: none
+    :geo: 
+    :coordinates: 
+    :place: 
+    :contributors: 
+    :is_quote_status: false
+    :retweet_count: 0
+    :favorite_count: 71
+    :favorited: false
+    :retweeted: false
+    :lang: en
+- !ruby/object:Twitter::Tweet
+  attrs:
+    :created_at: Tue Jan 30 23:30:59 +0000 2018
+    :id: 958482707897552896
+    :id_str: '958482707897552896'
+    :text: 'You have been visited by Shrek: The Musical. RT to curse a timeline https://t.co/MkrvinO9iY'
+    :truncated: false
+    :entities:
+      :hashtags: []
+      :symbols: []
+      :user_mentions: []
+      :urls: []
+      :media:
+      - :id: 958479562798747648
+        :id_str: '958479562798747648'
+        :indices:
+        - 68
+        - 91
+        :media_url: http://pbs.twimg.com/media/DU00FYkXUAAOGeC.jpg
+        :media_url_https: https://pbs.twimg.com/media/DU00FYkXUAAOGeC.jpg
+        :url: https://t.co/MkrvinO9iY
+        :display_url: pic.twitter.com/MkrvinO9iY
+        :expanded_url: https://twitter.com/netflix/status/958482707897552896/photo/1
+        :type: photo
+        :sizes:
+          :large:
+            :w: 674
+            :h: 643
+            :resize: fit
+          :thumb:
+            :w: 150
+            :h: 150
+            :resize: crop
+          :medium:
+            :w: 674
+            :h: 643
+            :resize: fit
+          :small:
+            :w: 674
+            :h: 643
+            :resize: fit
+    :extended_entities:
+      :media:
+      - :id: 958479562798747648
+        :id_str: '958479562798747648'
+        :indices:
+        - 68
+        - 91
+        :media_url: http://pbs.twimg.com/media/DU00FYkXUAAOGeC.jpg
+        :media_url_https: https://pbs.twimg.com/media/DU00FYkXUAAOGeC.jpg
+        :url: https://t.co/MkrvinO9iY
+        :display_url: pic.twitter.com/MkrvinO9iY
+        :expanded_url: https://twitter.com/netflix/status/958482707897552896/photo/1
+        :type: photo
+        :sizes:
+          :large:
+            :w: 674
+            :h: 643
+            :resize: fit
+          :thumb:
+            :w: 150
+            :h: 150
+            :resize: crop
+          :medium:
+            :w: 674
+            :h: 643
+            :resize: fit
+          :small:
+            :w: 674
+            :h: 643
+            :resize: fit
+      - :id: 958479586739785729
+        :id_str: '958479586739785729'
+        :indices:
+        - 68
+        - 91
+        :media_url: http://pbs.twimg.com/media/DU00GxwWkAESp7D.jpg
+        :media_url_https: https://pbs.twimg.com/media/DU00GxwWkAESp7D.jpg
+        :url: https://t.co/MkrvinO9iY
+        :display_url: pic.twitter.com/MkrvinO9iY
+        :expanded_url: https://twitter.com/netflix/status/958482707897552896/photo/1
+        :type: photo
+        :sizes:
+          :thumb:
+            :w: 150
+            :h: 150
+            :resize: crop
+          :large:
+            :w: 1275
+            :h: 694
+            :resize: fit
+          :medium:
+            :w: 1200
+            :h: 653
+            :resize: fit
+          :small:
+            :w: 680
+            :h: 370
+            :resize: fit
+      - :id: 958482468922970114
+        :id_str: '958482468922970114'
+        :indices:
+        - 68
+        - 91
+        :media_url: http://pbs.twimg.com/media/DU02uiuX0AIsynE.jpg
+        :media_url_https: https://pbs.twimg.com/media/DU02uiuX0AIsynE.jpg
+        :url: https://t.co/MkrvinO9iY
+        :display_url: pic.twitter.com/MkrvinO9iY
+        :expanded_url: https://twitter.com/netflix/status/958482707897552896/photo/1
+        :type: photo
+        :sizes:
+          :medium:
+            :w: 491
+            :h: 612
+            :resize: fit
+          :thumb:
+            :w: 150
+            :h: 150
+            :resize: crop
+          :large:
+            :w: 491
+            :h: 612
+            :resize: fit
+          :small:
+            :w: 491
+            :h: 612
+            :resize: fit
+    :source: <a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>
+    :in_reply_to_status_id: 
+    :in_reply_to_status_id_str: 
+    :in_reply_to_user_id: 
+    :in_reply_to_user_id_str: 
+    :in_reply_to_screen_name: 
+    :user:
+      :id: 16573941
+      :id_str: '16573941'
+      :name: Netflix US
+      :screen_name: netflix
+      :location: Los Gatos, CA
+      :description: Beyoncé, pink the color, P!NK the person, hot dogs, basically
+        anything that is awesome, sno cones
+      :url: https://t.co/i4spcePMBR
+      :entities:
+        :url:
+          :urls:
+          - :url: https://t.co/i4spcePMBR
+            :expanded_url: http://netflix.com
+            :display_url: netflix.com
+            :indices:
+            - 0
+            - 23
+        :description:
+          :urls: []
+      :protected: false
+      :followers_count: 4650205
+      :friends_count: 969
+      :listed_count: 14778
+      :created_at: Fri Oct 03 04:16:17 +0000 2008
+      :favourites_count: 11841
+      :utc_offset: -28800
+      :time_zone: Pacific Time (US & Canada)
+      :geo_enabled: true
+      :verified: true
+      :statuses_count: 21854
+      :lang: en
+      :contributors_enabled: false
+      :is_translator: false
+      :is_translation_enabled: false
+      :profile_background_color: C0DEED
+      :profile_background_image_url: http://pbs.twimg.com/profile_background_images/682982712886476800/tXck5049.jpg
+      :profile_background_image_url_https: https://pbs.twimg.com/profile_background_images/682982712886476800/tXck5049.jpg
+      :profile_background_tile: false
+      :profile_image_url: http://pbs.twimg.com/profile_images/744949842720391168/wuzyVTTX_normal.jpg
+      :profile_image_url_https: https://pbs.twimg.com/profile_images/744949842720391168/wuzyVTTX_normal.jpg
+      :profile_banner_url: https://pbs.twimg.com/profile_banners/16573941/1516668779
+      :profile_link_color: E50914
+      :profile_sidebar_border_color: FFFFFF
+      :profile_sidebar_fill_color: DDEEF6
+      :profile_text_color: '333333'
+      :profile_use_background_image: false
+      :has_extended_profile: false
+      :default_profile: false
+      :default_profile_image: false
+      :following: 
+      :follow_request_sent: 
+      :notifications: 
+      :translator_type: none
+    :geo: 
+    :coordinates: 
+    :place: 
+    :contributors: 
+    :is_quote_status: false
+    :retweet_count: 9994
+    :favorite_count: 13677
+    :favorited: false
+    :retweeted: false
+    :possibly_sensitive: false
+    :lang: en
+- !ruby/object:Twitter::Tweet
+  attrs:
+    :created_at: Tue Jan 30 22:22:11 +0000 2018
+    :id: 958465393902854144
+    :id_str: '958465393902854144'
+    :text: "RT @AltCarb: How much life does your body have left? \n\nTake the Bodyfax
+      test now!\n\n https://t.co/439NJPIpHa https://t.co/kuCz5pKObh"
+    :truncated: false
+    :entities:
+      :hashtags: []
+      :symbols: []
+      :user_mentions:
+      - :screen_name: AltCarb
+        :name: Altered Carbon
+        :id: 860202308423921664
+        :id_str: '860202308423921664'
+        :indices:
+        - 3
+        - 11
+      :urls:
+      - :url: https://t.co/439NJPIpHa
+        :expanded_url: http://bit.ly/Bodyfax
+        :display_url: bit.ly/Bodyfax
+        :indices:
+        - 84
+        - 107
+      :media:
+      - :id: 958449510463651841
+        :id_str: '958449510463651841'
+        :indices:
+        - 108
+        - 131
+        :media_url: http://pbs.twimg.com/media/DU0YwG5VQAE8dn0.jpg
+        :media_url_https: https://pbs.twimg.com/media/DU0YwG5VQAE8dn0.jpg
+        :url: https://t.co/kuCz5pKObh
+        :display_url: pic.twitter.com/kuCz5pKObh
+        :expanded_url: https://twitter.com/AltCarb/status/958459056070381568/photo/1
+        :type: photo
+        :sizes:
+          :thumb:
+            :w: 150
+            :h: 150
+            :resize: crop
+          :large:
+            :w: 1080
+            :h: 419
+            :resize: fit
+          :small:
+            :w: 680
+            :h: 264
+            :resize: fit
+          :medium:
+            :w: 1080
+            :h: 419
+            :resize: fit
+        :source_status_id: 958459056070381568
+        :source_status_id_str: '958459056070381568'
+        :source_user_id: 860202308423921664
+        :source_user_id_str: '860202308423921664'
+    :extended_entities:
+      :media:
+      - :id: 958449510463651841
+        :id_str: '958449510463651841'
+        :indices:
+        - 108
+        - 131
+        :media_url: http://pbs.twimg.com/media/DU0YwG5VQAE8dn0.jpg
+        :media_url_https: https://pbs.twimg.com/media/DU0YwG5VQAE8dn0.jpg
+        :url: https://t.co/kuCz5pKObh
+        :display_url: pic.twitter.com/kuCz5pKObh
+        :expanded_url: https://twitter.com/AltCarb/status/958459056070381568/photo/1
+        :type: photo
+        :sizes:
+          :thumb:
+            :w: 150
+            :h: 150
+            :resize: crop
+          :large:
+            :w: 1080
+            :h: 419
+            :resize: fit
+          :small:
+            :w: 680
+            :h: 264
+            :resize: fit
+          :medium:
+            :w: 1080
+            :h: 419
+            :resize: fit
+        :source_status_id: 958459056070381568
+        :source_status_id_str: '958459056070381568'
+        :source_user_id: 860202308423921664
+        :source_user_id_str: '860202308423921664'
+    :source: <a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>
+    :in_reply_to_status_id: 
+    :in_reply_to_status_id_str: 
+    :in_reply_to_user_id: 
+    :in_reply_to_user_id_str: 
+    :in_reply_to_screen_name: 
+    :user:
+      :id: 16573941
+      :id_str: '16573941'
+      :name: Netflix US
+      :screen_name: netflix
+      :location: Los Gatos, CA
+      :description: Beyoncé, pink the color, P!NK the person, hot dogs, basically
+        anything that is awesome, sno cones
+      :url: https://t.co/i4spcePMBR
+      :entities:
+        :url:
+          :urls:
+          - :url: https://t.co/i4spcePMBR
+            :expanded_url: http://netflix.com
+            :display_url: netflix.com
+            :indices:
+            - 0
+            - 23
+        :description:
+          :urls: []
+      :protected: false
+      :followers_count: 4650205
+      :friends_count: 969
+      :listed_count: 14778
+      :created_at: Fri Oct 03 04:16:17 +0000 2008
+      :favourites_count: 11841
+      :utc_offset: -28800
+      :time_zone: Pacific Time (US & Canada)
+      :geo_enabled: true
+      :verified: true
+      :statuses_count: 21854
+      :lang: en
+      :contributors_enabled: false
+      :is_translator: false
+      :is_translation_enabled: false
+      :profile_background_color: C0DEED
+      :profile_background_image_url: http://pbs.twimg.com/profile_background_images/682982712886476800/tXck5049.jpg
+      :profile_background_image_url_https: https://pbs.twimg.com/profile_background_images/682982712886476800/tXck5049.jpg
+      :profile_background_tile: false
+      :profile_image_url: http://pbs.twimg.com/profile_images/744949842720391168/wuzyVTTX_normal.jpg
+      :profile_image_url_https: https://pbs.twimg.com/profile_images/744949842720391168/wuzyVTTX_normal.jpg
+      :profile_banner_url: https://pbs.twimg.com/profile_banners/16573941/1516668779
+      :profile_link_color: E50914
+      :profile_sidebar_border_color: FFFFFF
+      :profile_sidebar_fill_color: DDEEF6
+      :profile_text_color: '333333'
+      :profile_use_background_image: false
+      :has_extended_profile: false
+      :default_profile: false
+      :default_profile_image: false
+      :following: 
+      :follow_request_sent: 
+      :notifications: 
+      :translator_type: none
+    :geo: 
+    :coordinates: 
+    :place: 
+    :contributors: 
+    :retweeted_status:
+      :created_at: Tue Jan 30 21:57:00 +0000 2018
+      :id: 958459056070381568
+      :id_str: '958459056070381568'
+      :text: "How much life does your body have left? \n\nTake the Bodyfax test now!\n\n
+        https://t.co/439NJPIpHa https://t.co/kuCz5pKObh"
+      :truncated: false
+      :entities:
+        :hashtags: []
+        :symbols: []
+        :user_mentions: []
+        :urls:
+        - :url: https://t.co/439NJPIpHa
+          :expanded_url: http://bit.ly/Bodyfax
+          :display_url: bit.ly/Bodyfax
+          :indices:
+          - 71
+          - 94
+        :media:
+        - :id: 958449510463651841
+          :id_str: '958449510463651841'
+          :indices:
+          - 95
+          - 118
+          :media_url: http://pbs.twimg.com/media/DU0YwG5VQAE8dn0.jpg
+          :media_url_https: https://pbs.twimg.com/media/DU0YwG5VQAE8dn0.jpg
+          :url: https://t.co/kuCz5pKObh
+          :display_url: pic.twitter.com/kuCz5pKObh
+          :expanded_url: https://twitter.com/AltCarb/status/958459056070381568/photo/1
+          :type: photo
+          :sizes:
+            :thumb:
+              :w: 150
+              :h: 150
+              :resize: crop
+            :large:
+              :w: 1080
+              :h: 419
+              :resize: fit
+            :small:
+              :w: 680
+              :h: 264
+              :resize: fit
+            :medium:
+              :w: 1080
+              :h: 419
+              :resize: fit
+      :extended_entities:
+        :media:
+        - :id: 958449510463651841
+          :id_str: '958449510463651841'
+          :indices:
+          - 95
+          - 118
+          :media_url: http://pbs.twimg.com/media/DU0YwG5VQAE8dn0.jpg
+          :media_url_https: https://pbs.twimg.com/media/DU0YwG5VQAE8dn0.jpg
+          :url: https://t.co/kuCz5pKObh
+          :display_url: pic.twitter.com/kuCz5pKObh
+          :expanded_url: https://twitter.com/AltCarb/status/958459056070381568/photo/1
+          :type: photo
+          :sizes:
+            :thumb:
+              :w: 150
+              :h: 150
+              :resize: crop
+            :large:
+              :w: 1080
+              :h: 419
+              :resize: fit
+            :small:
+              :w: 680
+              :h: 264
+              :resize: fit
+            :medium:
+              :w: 1080
+              :h: 419
+              :resize: fit
+      :source: <a href="https://studio.twitter.com" rel="nofollow">Media Studio</a>
+      :in_reply_to_status_id: 
+      :in_reply_to_status_id_str: 
+      :in_reply_to_user_id: 
+      :in_reply_to_user_id_str: 
+      :in_reply_to_screen_name: 
+      :user:
+        :id: 860202308423921664
+        :id_str: '860202308423921664'
+        :name: Altered Carbon
+        :screen_name: AltCarb
+        :location: ''
+        :description: "#AlteredCarbon a Netflix Original series coming 02.02.18."
+        :url: https://t.co/ziJ6tXdKgd
+        :entities:
+          :url:
+            :urls:
+            - :url: https://t.co/ziJ6tXdKgd
+              :expanded_url: http://www.netflix.com/AlteredCarbon
+              :display_url: netflix.com/AlteredCarbon
+              :indices:
+              - 0
+              - 23
+          :description:
+            :urls: []
+        :protected: false
+        :followers_count: 7638
+        :friends_count: 23
+        :listed_count: 74
+        :created_at: Thu May 04 18:39:46 +0000 2017
+        :favourites_count: 653
+        :utc_offset: -28800
+        :time_zone: Pacific Time (US & Canada)
+        :geo_enabled: false
+        :verified: true
+        :statuses_count: 258
+        :lang: en
+        :contributors_enabled: false
+        :is_translator: false
+        :is_translation_enabled: false
+        :profile_background_color: F5F8FA
+        :profile_background_image_url: 
+        :profile_background_image_url_https: 
+        :profile_background_tile: false
+        :profile_image_url: http://pbs.twimg.com/profile_images/951477169875595265/ZQlZjE8L_normal.jpg
+        :profile_image_url_https: https://pbs.twimg.com/profile_images/951477169875595265/ZQlZjE8L_normal.jpg
+        :profile_banner_url: https://pbs.twimg.com/profile_banners/860202308423921664/1515684795
+        :profile_link_color: 1DA1F2
+        :profile_sidebar_border_color: C0DEED
+        :profile_sidebar_fill_color: DDEEF6
+        :profile_text_color: '333333'
+        :profile_use_background_image: true
+        :has_extended_profile: false
+        :default_profile: true
+        :default_profile_image: false
+        :following: 
+        :follow_request_sent: 
+        :notifications: 
+        :translator_type: none
+      :geo: 
+      :coordinates: 
+      :place: 
+      :contributors: 
+      :is_quote_status: false
+      :retweet_count: 64
+      :favorite_count: 297
+      :favorited: false
+      :retweeted: false
+      :possibly_sensitive: false
+      :lang: en
+    :is_quote_status: false
+    :retweet_count: 64
+    :favorite_count: 0
+    :favorited: false
+    :retweeted: false
+    :possibly_sensitive: false
+    :lang: en

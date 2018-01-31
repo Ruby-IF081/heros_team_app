@@ -24,10 +24,10 @@ RSpec.describe TwitterProcessor do
 
   describe 'tweets' do
     context 'working scrape' do
-      let!(:response_fixture) { Rails.root.join('spec/fixtures/tweets.json').to_s }
-      let!(:response_json) { Nokogiri::HTML(File.read(response_fixture)) }
+      let!(:response_fixture) { Rails.root.join('spec/fixtures/tweets.yml').to_s }
+      let!(:response_yaml) { YAML.load_file(response_fixture) }
       before(:each) do
-        allow(processor).to receive(:scrape_tweets).and_return(response_json)
+        allow(processor).to receive(:scrape_tweets).and_return(response_yaml)
       end
 
       it 'tweets should be of right class' do
