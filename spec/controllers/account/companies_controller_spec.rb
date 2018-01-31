@@ -39,7 +39,7 @@ RSpec.describe Account::CompaniesController, type: :controller do
       expect(response).to render_template(:show)
     end
 
-    it "should populate a twitter" do
+    it "assigns twitter to a twitter processor" do
       get :show, params: { id: company.id }
 
       expect(assigns(:twitter)).to be_a(TwitterProcessor)
