@@ -9,89 +9,86 @@
             .card-group
               .card
                 = image_tag('team/sviatoslav_krupa.jpg', class: 'card-img-top', alt: 'Sviatoslav Krupa')
-                .card-img-overlay
                 .card-body
                   h5.card-title SVIATOSLAV KRUPA
                   p.card-text Developed Chrome Extension. Implemented  PDF page generating. Integrated Elasticsearch and user filtration in application.
                   p.card-text Used gems: Devise, Ransack, WickedPdf, Searchkick.
                 .card-footer
-                  a[href="https://github.com/sviatoslav-krupa"]
+                  a[href="https://github.com/sviatoslav-krupa" target="_blank"]
                     i.fa.fa-github
               .card
-                = image_tag('team/example.png', class: 'card-img-top', alt: 'Your photo')
+                = image_tag('team/mykhailo_push.jpeg', class: 'card-img-top', alt: 'Your photo')
                 .card-body
-                  h5.card-title Lorem Ipsum
-                  p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu pellentesque mauris. Morbi iaculis nec arcu faucibus mollis.
-                  p.card-text Maecenas ut rhoncus nisl, non luctus ante.
+                  h5.card-title Mykhailo Push
+                  p.card-text Integrated the base front-end pattern. Developed the user admin side controller, implemented comments, breadcrumbs helper, page rating and wrote tests for all features.
+                  p.card-text Added gem pretender.
                 .card-footer
-                  a[href="#"]
+                  a[href="https://github.com/Misha7776" target="_blank"]
                     i.fa.fa-github
               .card
-                = image_tag('team/example.png', class: 'card-img-top', alt: 'Your photo')
+                = image_tag('team/serhii_bodnaruk.jpeg', class: 'card-img-top', alt: 'Your photo')
                 .card-body
-                  h5.card-title Lorem Ipsum
-                  p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu pellentesque mauris. Morbi iaculis nec arcu faucibus mollis.
-                                  p.card-text Maecenas ut rhoncus nisl, non luctus ante.
+                  h5.card-title Serhii Bodnaruk
+                  p.card-text Responsible for development page entity, add sidekiq, implement worker that fetch data from page after it is created and make screenshot, improve header.
                 .card-footer
-                  a[href="#"]
-                    i.fa.fa-github
-        .row
-          .offset-1.col-10
-            .card-group
-              .card
-                = image_tag('team/example.png', class: 'card-img-top', alt: 'Your photo')
-                .card-body
-                  h5.card-title Lorem Ipsum
-                  p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu pellentesque mauris. Morbi iaculis nec arcu faucibus mollis.
-                  p.card-text Maecenas ut rhoncus nisl, non luctus ante.
-                .card-footer
-                  a[href="#"]
-                    i.fa.fa-github
-              .card
-                = image_tag('team/example.png', class: 'card-img-top', alt: 'Your photo')
-                .card-body
-                  h5.card-title Lorem Ipsum
-                  p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu pellentesque mauris. Morbi iaculis nec arcu faucibus mollis.
-                  p.card-text Maecenas ut rhoncus nisl, non luctus ante.
-                .card-footer
-                  a[href="#"]
-                    i.fa.fa-github
-              .card
-                = image_tag('team/example.png', class: 'card-img-top', alt: 'Your photo')
-                .card-body
-                  h5.card-title Lorem Ipsum
-                  p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu pellentesque mauris. Morbi iaculis nec arcu faucibus mollis.
-                  p.card-text Maecenas ut rhoncus nisl, non luctus ante.
-                .card-footer
-                  a[href="#"]
+                  a[href="https://github.com/sergiwez" target="_blank"]
                     i.fa.fa-github
         .row
           .offset-1.col-10
             .card-group
               .card
-                = image_tag('team/example.png', class: 'card-img-top', alt: 'Your photo')
+                = image_tag('team/mykhailo_dovganych.png', class: 'card-img-top', alt: 'Your photo')
                 .card-body
-                  h5.card-title Lorem Ipsum
+                  h5.card-title Mykhailo Dovhanych
+                  p.card-text Implemented working with API FullContact, and process data about company. Added uploader to upload and resize company logo. Improved company views. Added feature to export users to csv format. Covered all features with test.
+                  p.card-text Used gems: fullcontact, comma, carrierwave.
+                .card-footer
+                  a[href="https://github.com/dovganych" target="_blank"]
+                    i.fa.fa-github
+              .card
+                = image_tag('team/tania_zavediuk.jpeg', class: 'card-img-top', alt: 'Your photo')
+                .card-body
+                  h5.card-title Tania Zavediuk
                   p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu pellentesque mauris. Morbi iaculis nec arcu faucibus mollis.
                   p.card-text Maecenas ut rhoncus nisl, non luctus ante.
                 .card-footer
-                  a[href="#"]
+                  a[href="https://github.com/cervols" target="_blank"]
+                    i.fa.fa-github
+              .card
+                = image_tag('team/anton_chupak.jpg', class: 'card-img-top', alt: 'Your photo')
+                .card-body
+                  h5.card-title Anton Chupak
+                  p.card-text Created Company entity with CRUD and needed views or templates. Designed Landing layout and footer. Developed a basic API for sales, to recieve information from their searches in our application. Implemented a background worker that scrapes internal links from official companies’ pages. Integrated Twitter with companies account last tweets, as well as GoogleAnalytics for our application. Created meta tags for the web pages. All work was supported with tests.
+                .card-footer
+                  a[href="https://github.com/chu4" target="_blank"]
+                    i.fa.fa-github
+        .row
+          .offset-1.col-10
+            .card-group
+              .card
+                = image_tag('team/oleksandr_adamchuk.jpeg', class: 'card-img-top', alt: 'Your photo')
+                .card-body
+                  h5.card-title Oleksandr Adamchuk
+                  p.card-text Created Dashboard section and Analytics tab with charts for admin. Integrated CI tools: Travis CI and Code Climate.
+                  p.card-text Used gems: Rubocop, Brakeman, Reek, Chartkick.
+                .card-footer
+                  a[href="https://github.com/Oleksandr-Adamchuk" target="_blank"]
+                    i.fa.fa-github
+              .card
+                = image_tag('team/iegor_dorovskykh.jpg', class: 'card-img-top', alt: 'Your photo')
+                .card-body
+                  h5.card-title IEgor Dorovskykh
+                  p.card-text Partly models relations, production server (aws, nginx, passenger, redis, deploy), search using Bing service, add pages using modal window.
+                  p.card-text Gems used: vcr, httparty, capistrano, factory_bot, faker, sidekiq, simple_form, rspec, webmock, rubocop, reek, codeclimate, simplecov
+                .card-footer
+                  a[href="https://github.com/egorodessa" target="_blank"]
                     i.fa.fa-github
               .card
                 = image_tag('team/example.png', class: 'card-img-top', alt: 'Your photo')
                 .card-body
-                  h5.card-title Lorem Ipsum
+                  h5.card-title Ivan Pushkedra
                   p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu pellentesque mauris. Morbi iaculis nec arcu faucibus mollis.
                   p.card-text Maecenas ut rhoncus nisl, non luctus ante.
                 .card-footer
-                  a[href="#"]
-                    i.fa.fa-github
-              .card
-                = image_tag('team/example.png', class: 'card-img-top', alt: 'Your photo')
-                .card-body
-                  h5.card-title Lorem Ipsum
-                  p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu pellentesque mauris. Morbi iaculis nec arcu faucibus mollis.
-                  p.card-text Maecenas ut rhoncus nisl, non luctus ante.
-                .card-footer
-                  a[href="#"]
+                  a[href="https://github.com/pushkedra" target="_blank"]
                     i.fa.fa-github
