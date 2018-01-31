@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'kaminari'
 gem 'meta-tags'
 gem 'mini_magick'
+gem "paranoia", "~> 2.2"
 gem 'pg', '~> 0.18'
 gem 'pretender'
 gem 'puma', '~> 3.7'
