@@ -58,11 +58,12 @@
                     - if @profile.auth_token?
                       .card-text.col-sm-4
                         = @profile.auth_token
-                    .card-text.col-sm-1
-                      .btn-group.btn-group-sm
-                        = link_to account_profile_tokens_path, method: :delete, class: 'btn btn-danger'
+                      .card-text.col-sm-1
+                        = link_to account_profile_tokens_path, method: :delete, class: 'btn btn-danger btn-sm'
                           i.fa.fa-minus
-                        = link_to account_profile_tokens_path, method: :post, class: 'btn btn-success'
+                    - else
+                      .card-text.col-sm-1
+                        = link_to account_profile_tokens_path, method: :post, class: 'btn btn-primary btn-sm'
                           i.fa.fa-plus
     .card
       - if @profile.work?

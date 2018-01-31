@@ -14,7 +14,7 @@ html
       .app-content.container.center-layout
         .row.alert
           - flash.each do |message_type, message|
-            = content_tag(:div, message, class: "alert alert-#{message_type} col-md-3")
+            = content_tag(:div, message, class: "alert alert-#{message_type}")
         = yield
     = any_login_here if defined?(AnyLogin)
     = render 'layouts/footer'
