@@ -22,3 +22,5 @@
 //= require rating
 //= require comments_form
 //= require match_tweets_height
+//= require user_contacts
+//= require error_create_contact

@@ -57,6 +57,18 @@ ActiveRecord::Schema.define(version: 20180125155315) do
     t.index ["company_id", "industry_id"], name: "index_companies_industries_on_company_id_and_industry_id"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_contacts_on_email"
+    t.index ["name"], name: "index_contacts_on_name"
+    t.index ["phone"], name: "index_contacts_on_phone"
+  end
+
   create_table "industries", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false

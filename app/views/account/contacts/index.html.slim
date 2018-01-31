@@ -1,0 +1,42 @@
+.container
+  .row
+    .col-sm
+      h1#contact_header Contacts from users
+      = paginate @contacts
+      = search_form_for @q, url: account_contacts_path do |f|
+        .field
+          = f.label :name_cont
+          = f.search_field :name_cont
+          = f.label :email_cont
+          = f.text_field :email_cont
+          = f.label :phone_cont
+          = f.text_field :phone_cont
+        .actions
+          = f.submit "Search"
+      table#contacts_table
+        tr
+          th
+            = sort_link @q, :id, 'ID'
+          th
+            = sort_link @q, :name, 'User Name'
+          th Phone number
+          th
+            = sort_link @q, :email, 'Email address'
+          th
+            =sort_link @q, :created_at, 'Created at'
+          th
+        - @contacts.each do |contact|
+          tr.clicked_row data-contact-id="#{contact.id}"
+            td = contact.id
+            td = contact.name
+            td = contact.phone
+            td = contact.email
+            td = contact.created_at
+            td
+              i.delete_contact class="fa fa-trash-o" aria-hidden="true"
+          tr.contact_message
+            td
+              span
+                | Message:
+            td colspan="5" = contact.message
+      = paginate @contacts

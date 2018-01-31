@@ -30,3 +30,5 @@ FactoryBot.create_list(:user, 200, :old_random_date, role: 'sale', tenant: tenan
 FactoryBot.create_list(:company, 200, :old_random_date, user: user)
 
 FactoryBot.create_list(:visit, 200, :old_random_date, user: user, tenant_id: tenant.id)
+
+FactoryBot.create_list(:contact, 100)

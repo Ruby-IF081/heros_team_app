@@ -1,0 +1,19 @@
+.app-content.center-layout
+  .row
+    .content-wrapper.contacts
+      h4.text-uppercase Contact us
+      #errors
+        ul
+      #status-area
+      = form_for @contact, html: {class: 'form form-horizontal'}, remote: true do | form |
+        = form.label :name
+        = form.text_field :name, placeholder: "John Doe"
+        = form.label :email
+        = form.text_field :email, placeholder: "john@example.com"
+        = form.label :phone
+        = form.text_field :phone, placeholder: "+(123)456-78-90"
+        = form.label :message
+        = form.text_area(:message, size: "24x6", placeholder: "Type your message here...")
+        = form.submit 'Send Message'
+
+

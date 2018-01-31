@@ -31,3 +31,9 @@
               i.ft-zap
               span
                 | Analytics
+        - if current_user.super_admin?
+          li.dropdown.nav-item[data-menu="dropdown"]
+            = link_to account_contacts_path, class:'dropdown-toggle nav-link' do
+              i.ft-zap
+              span
+                | Contacts

@@ -1,0 +1,56 @@
+div.contacts {
+  width: 460px;
+  margin: 100px auto;
+  color: #2e405c;
+  font-size: 1.1rem;
+  background-color: #fbfbfb;
+  div#errors ul {
+    padding: 5px 0;
+    list-style-type: none;
+    color: red;
+    font-weight: 300;
+  }
+  div#status-area {
+    display: none;
+  }
+  form {
+    position: relative;
+    margin-bottom: 100px;
+  }
+  h4 {
+    padding: 0.5rem 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #E6E6E6;
+  }
+  label {
+    width: 25%;
+    float: left;
+    padding-right: 20px;
+
+  }
+  label::after{
+    content: "*";
+    color: red;
+    font-size: 14px;
+  }
+  input {
+    width: 75%;
+    display: block;
+    margin-bottom: 20px;
+    &[type="submit"] {
+      width: 150px;
+      height: 40px;
+      position: absolute;
+      right: 0;
+      margin-top: 12px;
+      border-color: #00A5A8;
+      border-radius: 0.25rem;
+      background-color: #00B5B8;
+      color: #FFFFFF;
+      font-size: 1.1rem;
+    }
+  }
+  textarea {
+    width: 75%;
+  }
+} 

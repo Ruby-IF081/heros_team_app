@@ -36,3 +36,6 @@ UtilityFunction:
   public_methods_only: true
 TooManyConstants:
   max_constants: 16
+UncommunicativeVariableName:
+  accept:
+    - !ruby/regexp /q/

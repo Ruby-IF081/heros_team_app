@@ -12,7 +12,7 @@
       li.nav-item
         = link_to "pricing", pricing_path, class:"nav-link font-medium-2"
       li.nav-item
-        = link_to "contacts", contacts_path, class:"nav-link font-medium-2"
+        = link_to "contact us", new_contact_path, class:"nav-link font-medium-2"
   - if user_signed_in?
     .horizontal-menu.navbar-container
       = render 'layouts/shared/user_menu'

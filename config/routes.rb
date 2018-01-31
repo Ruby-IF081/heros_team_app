@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations', sessions: 'users/track_sessions'
   }
 
+  resources :contacts, only: %i[new create]
+
   namespace :account do
     root 'dashboard#index'
     resources :companies do
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
     resources :tenants,            only: %i[show index]
     resource  :my_tenant,          only: %i[show edit update]
     resources :analytics,          only: %i[index]
+    resources :contacts,           only: %i[index destroy]
     resource  :profile,            only: %i[show edit update], controller: 'profile' do
       resource :tokens, only: %i[create destroy]
     end
