@@ -65,8 +65,12 @@ table#contacts_table {
     border-bottom: 1px solid #e3ebf3;
   }
   tr.clicked_row {
-    line-height: 12px;
+    line-height: 12px !important;
     cursor: pointer;
+    td:nth-child(5){
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
   tr.clicked_row:hover{
     background-color: #e8eaf8;
@@ -80,16 +84,16 @@ table#contacts_table {
   tr.show_message_row {
     display: table-row;
     td {
-      padding: 5px 10px;
+      padding: 5px;
     }
   }
-  i.delete_contact {
+  a.delete_contact {
     color: red;
     font-size: 16px;
     display: block;
     cursor: default;
   }
-  i.delete_contact:hover {
+  a.delete_contact:hover {
     transform: scale(1.8, 1.8);
   }
 }

@@ -13,6 +13,7 @@
           = f.text_field :phone_cont
         .actions
           = f.submit "Search"
+      .error_message
       table#contacts_table
         tr
           th
@@ -33,7 +34,8 @@
             td = contact.email
             td = contact.created_at
             td
-              i.delete_contact class="fa fa-trash-o" aria-hidden="true"
+              = link_to account_contact_path(contact.id), method: :delete, remote:true, class: "delete_contact", data: { confirm: "Are you sure?" }
+                i. class="fa fa-trash-o" aria-hidden="true"
           tr.contact_message
             td
               span

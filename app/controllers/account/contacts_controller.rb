@@ -8,6 +8,5 @@ class Account::ContactsController < ApplicationController
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
-    render json: { success: true }
   end
 end
