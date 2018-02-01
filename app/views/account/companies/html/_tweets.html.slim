@@ -4,9 +4,9 @@
       .card.box-shadow-0.border-primary.bg-transparent.tweet
         .card-content.collapse.show
           .card-body
-            p
+            p.mb-2
               = auto_link(tweet.text, html: { target: '_blank' })
-            .card-footer.text-muted.mt-2.px-0.tweet-footer
+            .tweet-footer.card-footer.border-0.text-muted.mt-2
               span
                 = timeago_tag tweet.created_at
               span.float-right
