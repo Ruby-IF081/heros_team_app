@@ -20,6 +20,7 @@ class Tenant < ApplicationRecord
 
   has_many :users, dependent: :destroy
   has_many :companies, through: :users
+  has_many :pages, through: :companies
   has_many :visits, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one :owner, class_name: 'User'
