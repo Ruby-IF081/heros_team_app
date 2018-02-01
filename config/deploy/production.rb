@@ -8,7 +8,7 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 
 set :branch, :master
-set :deploy_to, "/var/www/heroes_team_app"
+set :deploy_to, "/var/www/heroesapp/code"
 
 # role-based syntax
 # ==================
@@ -56,12 +56,12 @@ set :deploy_to, "/var/www/heroes_team_app"
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-server "ec2-52-57-126-232.eu-central-1.compute.amazonaws.com",
+server "salesassistant.pp.ua",
        user: "deploy",
        roles: %w[web app],
        ssh_options: {
          user:          "deploy",
-         keys:          %w[~/.ssh/heroes_team.pem],
-         forward_agent: true,
+         keys:          %w[~/.ssh/heroes_team_digitalocean],
+         forward_agent: false,
          auth_methods:  ["publickey"]
        }
