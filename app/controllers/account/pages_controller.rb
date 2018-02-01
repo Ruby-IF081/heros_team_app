@@ -23,7 +23,27 @@ class Account::PagesController < ApplicationController
     end
   end
 
+  def new
+    @page = Page.new
+    @company = parent
+  end
+
+  def create
+    @pages = collection
+    @page = @pages.build(page_params.merge(page_type: :manual, status: Page::PENDING_STATUS))
+
+    if @page.save
+      render :create, status: :created
+    else
+      render :new
+    end
+  end
+
   private
+
+  def page_params
+    params.require(:page).permit(:title, :source_url)
+  end
 
   def parent
     @company ||= current_user.companies.find(params[:company_id])

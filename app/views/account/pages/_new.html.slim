@@ -1,0 +1,16 @@
+#new-page-dialog.modal.fade[tabindex="-1" role="dialog" aria-labelledby="new-page-title" aria-hidden="true"]
+  .modal-dialog[role="document"]
+    .modal-content
+      .modal-header
+        h3#new-page-title.modal-title New page form
+        button.close[aria-hidden="true" data-dismiss="modal" type="button" x ]
+          span[aria-hidden="true"] &times;
+
+      = simple_form_for [:account, @company, @page], remote: true do |f|
+        .modal-body
+          = f.input :title, label: 'Title', required: false, error: 'Title is empty or already exist'
+          = f.input :source_url, label: 'Source url', required: false, error: 'Source url is empty or already exist'
+
+        .modal-footer
+          button.btn.btn-secondary[type="button" data-dismiss="modal"] Close
+          = f.button :submit, class: 'btn btn-primary'

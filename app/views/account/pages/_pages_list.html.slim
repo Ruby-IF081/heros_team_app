@@ -7,4 +7,9 @@ table.table
           = link_to page.source_url, page.source_url
         td = page.status
         td = page.rating
+        td
+          .btn-icon.btn.btn-white.btn-round
+            = link_to account_company_page_path(page, id: page.id), method: :delete,
+                    data: {confirm: 'Are you certain you want to delete this page?'} do
+              i.fa.fa-trash-o
 = paginate pages

@@ -17,6 +17,7 @@
 #
 
 class Page < ApplicationRecord
+  acts_as_paranoid
   searchkick
 
   IN_PROGRESS_STATUS = 'in progress'.freeze

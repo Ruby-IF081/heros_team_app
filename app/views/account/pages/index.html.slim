@@ -10,6 +10,11 @@
           = render_breadcrumbs({ 'Dashboard' => account_root_path,
                                  @company.name => account_company_path(@company),
                                  'Pages' => nil })
+    .content-header-right.text-md-right.col-md-6.col-12
+      .form-group
+        .btn-icon.btn.btn-white.btn-round
+          = link_to new_account_company_page_path, {remote: true} do
+            i.fa.fa-plus
   .content-body
     - if @company.pages.empty?
       section.row
@@ -36,3 +41,4 @@
           .row
             .col-12
               = render @partial, pages: @pages
+#pages-modals-container
