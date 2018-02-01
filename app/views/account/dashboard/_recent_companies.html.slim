@@ -1,0 +1,28 @@
+.card[style="height: 395.25px;"]
+  .card-header
+    h4.card-title
+      | Recent Companies
+    a.heading-elements-toggle
+      i.fa.fa-ellipsis-v.font-medium-3
+    .heading-elements
+      ul.list-inline.mb-0
+        li
+          a[data-action="reload"]
+            i.ft-rotate-cw
+        li
+          a[data-action="expand"]
+            i.ft-maximize
+  .card-content
+    .table-responsive
+      table#recent-orders.table.table-hover.mb-0.ps-container.ps-theme-default
+        thead
+          tr
+            th Company name
+            th Domain
+            th Date of creation
+        tbody
+          - recent_companies.each do |company|
+            tr
+              td.text-truncate = link_to company.name, account_company_path(company)
+              td.text-truncate = company.domain
+              td.text-truncate = company.created_at.strftime('%d/%m/%Y  %H:%M')
