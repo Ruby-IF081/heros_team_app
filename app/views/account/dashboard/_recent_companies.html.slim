@@ -25,4 +25,4 @@
             tr
               td.text-truncate = link_to company.name, account_company_path(company)
               td.text-truncate = company.domain
-              td.text-truncate = company.created_at.strftime('%d/%m/%Y  %H:%M')
+              td.text-truncate = l company.created_at, format: :long
