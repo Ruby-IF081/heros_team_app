@@ -4,22 +4,26 @@ div.contacts {
   color: #2e405c;
   font-size: 1.1rem;
   background-color: #fbfbfb;
-  div#errors ul {
-    padding: 5px 0;
-    list-style-type: none;
+  span.help-block {
+    padding-left: 103px;
     color: red;
     font-weight: 300;
   }
   div#status-area {
     display: none;
   }
-  form {
+  form#new_contact {
     position: relative;
     margin-bottom: 100px;
+
   }
+  #new_contact div:nth-child(2) {
+      margin-top: 40px;
+      color: red;
+    }
   h4 {
     padding: 0.5rem 0;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     border-bottom: 1px solid #E6E6E6;
   }
   label {
@@ -31,7 +35,8 @@ div.contacts {
   label::after{
     content: "*";
     color: red;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
   }
   input {
     width: 75%;

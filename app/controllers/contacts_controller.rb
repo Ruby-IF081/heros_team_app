@@ -6,16 +6,19 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(allowed_params)
-    respond_to do |format|
-      if @contact.save
-        format.js
-      else
-        format.json { render json: { errors: @contact.errors.full_messages }, status: 422 }
-      end
+    @contact.save
+    if @contact.save
+      respond_to_format
+    else
+      respond_to_format { render :create_error }
     end
   end
 
   private
+
+  def respond_to_format(&block)
+    respond_to { |format| format.js(&block) }
+  end
 
   def allowed_params
     params.require(:contact).permit(:name, :email, :phone, :message)

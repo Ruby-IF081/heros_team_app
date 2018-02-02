@@ -6,7 +6,13 @@ class Account::ContactsController < ApplicationController
   end
 
   def destroy
-    @contact = Contact.find(params[:id])
+    @contact = resource
     @contact.destroy
+  end
+
+  private
+
+  def resource
+    @contact = Contact.find(params[:id])
   end
 end
