@@ -4,4 +4,4 @@
       h4.text-uppercase Contact us
       #status-area
       #form_wrapper
-        = render 'contacts_form'
+        = render(partial: 'contacts_form', object: @contact)

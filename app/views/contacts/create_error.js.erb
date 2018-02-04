@@ -1,1 +1,1 @@
-$('#form_wrapper').html("<%= j render partial: 'contacts_form' %>");
+$('#form_wrapper').html("<%= j render(partial: 'contacts_form', object: @contact) %>");

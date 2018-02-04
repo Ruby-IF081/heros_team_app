@@ -1,4 +1,4 @@
-= simple_form_for @contact, html: {class: 'form form-horizontal'}, remote: true do |f|
+= simple_form_for contacts_form, html: {class: 'form form-horizontal', id: 'new_contact'}, remote: true do |f|
   = f.error_notification
   = f.input :name, label: 'Name:', placeholder: "John Doe", required: false
   = f.input :email, placeholder: "john@example.com", required: false
