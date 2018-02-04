@@ -30,11 +30,13 @@ class Page < ApplicationRecord
   LINKEDIN_TYPE    = 'linkedin'.freeze
   CRUNCHBASE_TYPE  = 'crunchbase'.freeze
   CHROME_EXTENSION = 'chrome_extension'.freeze
+  BY_AJAX = 'by_ajax'.freeze
   OFFICIAL_PAGE    = 'official_page'.freeze
   PAGE_TYPES       = [BING_TYPE,
                       ANGLECO_TYPE,
                       LINKEDIN_TYPE,
                       CRUNCHBASE_TYPE,
+                      BY_AJAX,
                       CHROME_EXTENSION,
                       OFFICIAL_PAGE].freeze
 

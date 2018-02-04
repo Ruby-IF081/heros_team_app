@@ -30,7 +30,7 @@ class Account::PagesController < ApplicationController
 
   def create
     @pages = collection
-    @page = @pages.build(page_params.merge(page_type: :manual, status: Page::PENDING_STATUS))
+    @page = @pages.build(page_params.merge(page_type: Page::BY_AJAX, status: Page::PENDING_STATUS))
 
     if @page.save
       respond_to_format { render :create, status: :created }
