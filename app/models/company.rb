@@ -30,6 +30,7 @@ class Company < ApplicationRecord
                     pinterest google klout].freeze
 
   scope :ordered, -> { order(name: :asc) }
+  scope :recent,  -> { order(created_at: :desc) }
 
   belongs_to :user
   belongs_to :tenant, optional: true
