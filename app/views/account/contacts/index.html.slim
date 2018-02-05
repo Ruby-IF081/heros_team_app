@@ -13,16 +13,17 @@
         = f.submit "Search", class: 'btn btn-primary'
       .error_message
       table.table.table-striped.table-hover#contacts_table
-        th
-          = sort_link @q, :id, 'ID'
-        th
-          = sort_link @q, :name, 'User Name'
-        th Phone number
-        th
-          = sort_link @q, :email, 'Email address'
-        th
-          = sort_link @q, :created_at, 'Created at'
-        th Action
+        tr
+          th
+            = sort_link @q, :id, 'ID'
+          th
+            = sort_link @q, :name, 'User Name'
+          th Phone number
+          th
+            = sort_link @q, :email, 'Email address'
+          th
+            = sort_link @q, :created_at, 'Created at'
+          th Action
         - @contacts.each do |contact|
           tr.clicked_row data-contact-id="#{contact.id}"
             td = contact.id
