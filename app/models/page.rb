@@ -46,6 +46,8 @@ class Page < ApplicationRecord
   delegate :tenant, to: :company, allow_nil: true
   has_many :comments, as: :commentable, dependent: :destroy
 
+  scope :recent, -> { order(created_at: :desc) }
+
   mount_uploader :screenshot, ScreenshotUploader
 
   after_commit :start_worker, on: :create

@@ -54,7 +54,7 @@
                     i.ft-arrow-up = @count_of_pages
       .row.match-height
         .col-xl-8.col-lg-12
-          = render 'account/dashboard/recent_searches'
+          = render 'account/dashboard/recent_searches', recent_pages: @recent_pages
         .col-xl-4.col-lg-12
           = line_chart @chart_value.group_by_day('companies.created_at', last: 30,).count, download: true, xtitle: "Time", ytitle: "Companies count"
       .row.match-height

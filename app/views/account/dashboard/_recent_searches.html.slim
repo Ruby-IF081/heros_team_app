@@ -1,7 +1,6 @@
 .card
   .card-header
-    h4.card-title
-      | Recent Searches
+    h4.card-title Recent Pages
     a.heading-elements-toggle
       i.fa.fa-ellipsis-v.font-medium-3
     .heading-elements
@@ -14,82 +13,13 @@
             i.ft-maximize
   .card-content
     .table-responsive
-      table#recent-orders.table.table-hover.mb-0.ps-container.ps-theme-default
+      table.table.table-hover.mb-0.ps-container.ps-theme-default
         thead
           tr
-            th
-              | Serach ID
-            th
-              | Search Value
-            th
-              | User Name
-            th
-              | Status
-            th
-              | Date
+            th URL
+            th Added
         tbody
-          tr
-            td.text-truncate
-              | PO-10521
-            td.text-truncate
-              a[href="#"]
-                | INV-001001
-            td.text-truncate
-              | Elizabeth W.
-            td.text-truncate
-              span.badge.badge-default.badge-success
-                | Ok
-            td.text-truncate
-              | 2017/12/16
-          tr
-            td.text-truncate
-              | PO-532521
-            td.text-truncate
-              a[href="#"]
-                | INV-01112
-            td.text-truncate
-              | Doris R.
-            td.text-truncate
-              span.badge.badge-default.badge-warning
-                | Pending
-            td.text-truncate
-              | 2017/12/02
-          tr
-            td.text-truncate
-              | PO-05521
-            td.text-truncate
-              a[href="#"]
-                | INV-001012
-            td.text-truncate
-              | Andrew D.
-            td.text-truncate
-              span.badge.badge-default.badge-success
-                | Ok
-            td.text-truncate
-              | 2017/11/25
-          tr
-            td.text-truncate
-              | PO-15521
-            td.text-truncate
-              a[href="#"]
-                | INV-001401
-            td.text-truncate
-              | Megan S.
-            td.text-truncate
-              span.badge.badge-default.badge-success
-                | Ok
-            td.text-truncate
-              | 2017/12/02
-          tr
-            td.text-truncate
-              | PO-32521
-            td.text-truncate
-              a[href="#"]
-                | INV-008101
-            td.text-truncate
-              | Walter R.
-            td.text-truncate
-              span.badge.badge-default.badge-warning
-                | Pending
-            td.text-truncate
-              | 2017/10/22
+          - recent_pages.each do |page|
+            tr
+              td.text-truncate = link_to urlify(page.source_url), page.source_url
+              td.text-truncate = l page.created_at, format: :long
