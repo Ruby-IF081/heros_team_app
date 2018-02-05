@@ -2,20 +2,19 @@ require 'rails_helper'
 
 RSpec.describe Account::ContactsController, type: :controller do
   describe "GET #index" do
+    let!(:super_admin) { FactoryBot.create(:user, :super_admin) }
     it "returns a 200 status code" do
-      @super_admin = FactoryBot.create(:user, :super_admin)
-      sign_in @super_admin
+      sign_in super_admin
       get :index
       expect(response).to have_http_status(200)
     end
   end
   describe 'DELETE destroy' do
     let!(:contact) { FactoryBot.create(:contact) }
-    render_views
     context 'when user is SuperAdmin' do
+      let!(:super_admin) { FactoryBot.create(:user, :super_admin) }
       it 'should delete the contact' do
-        @super_admin = FactoryBot.create(:user, :super_admin)
-        sign_in @super_admin
+        sign_in super_admin
         expect do
           delete :destroy, xhr: true, params: { id: contact.id }
         end.to change(Contact, :count).by(-1)

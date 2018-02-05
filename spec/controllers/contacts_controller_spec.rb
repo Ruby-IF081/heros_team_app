@@ -9,7 +9,6 @@ RSpec.describe ContactsController, type: :controller do
     end
   end
   describe 'POST create' do
-    render_views
     context 'with valid attributes' do
       it 'should create a new contact' do
         expect do
