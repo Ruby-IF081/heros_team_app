@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'any_login'
 gem 'brakeman', '~> 4.1', '>= 4.1.1'
 gem 'carrierwave'
 gem 'chartkick'
@@ -55,7 +56,6 @@ gem 'sprockets-rails', require: 'sprockets/railtie'
 
 group :development, :test do
   gem 'annotate'
-  gem 'any_login'
   gem 'byebug', '~> 9.0', '>= 9.0.6'
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner'
