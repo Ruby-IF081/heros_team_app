@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.describe ContactsController, type: :controller do
   let!(:valid_contact) { FactoryBot.create(:contact) }
+  describe "GET #new" do
+    it "returns a 200 status code" do
+      get :new
+      expect(response).to have_http_status(200)
+    end
+  end
   describe 'POST create' do
     render_views
     context 'with valid attributes' do
