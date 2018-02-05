@@ -6,7 +6,6 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(allowed_params)
-    @contact.save
     if @contact.save
       respond_to_format
     else

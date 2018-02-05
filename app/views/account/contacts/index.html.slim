@@ -4,41 +4,38 @@
       h1#contact_header Contacts from users
       = paginate @contacts
       = search_form_for @q, url: account_contacts_path do |f|
-        .field
-          = f.label :name_cont
-          = f.search_field :name_cont
-          = f.label :email_cont
-          = f.text_field :email_cont
-          = f.label :phone_cont
-          = f.text_field :phone_cont
-        .actions
-          = f.submit "Search"
+        = f.label :name_cont
+        = f.search_field :name_cont
+        = f.label :email_cont
+        = f.text_field :email_cont
+        = f.label :phone_cont
+        = f.text_field :phone_cont
+        = f.submit "Search", class: 'btn btn-primary'
       .error_message
-      table#contacts_table
-        tr
-          th
-            = sort_link @q, :id, 'ID'
-          th
-            = sort_link @q, :name, 'User Name'
-          th Phone number
-          th
-            = sort_link @q, :email, 'Email address'
-          th
-            =sort_link @q, :created_at, 'Created at'
-          th
+      table.table.table-striped.table-hover#contacts_table
+        th
+          = sort_link @q, :id, 'ID'
+        th
+          = sort_link @q, :name, 'User Name'
+        th Phone number
+        th
+          = sort_link @q, :email, 'Email address'
+        th
+          = sort_link @q, :created_at, 'Created at'
+        th Action
         - @contacts.each do |contact|
           tr.clicked_row data-contact-id="#{contact.id}"
             td = contact.id
             td = contact.name
             td = contact.phone
             td = contact.email
-            td = contact.created_at
-            td
+            td = l contact.created_at, format: :short
+            td.delete-icon
               = link_to account_contact_path(contact.id), method: :delete, remote:true, class: "delete_contact", data: { confirm: "Are you sure?" }
                 i. class="fa fa-trash-o" aria-hidden="true"
           tr.contact_message
-            td
+            td colspan="6"
               span
-                | Message:
-            td colspan="5" = contact.message
+                | Message:&nbsp
+              = contact.message
       = paginate @contacts

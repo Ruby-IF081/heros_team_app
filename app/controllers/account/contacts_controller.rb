@@ -7,10 +7,18 @@ class Account::ContactsController < ApplicationController
 
   def destroy
     @contact = resource
-    @contact.destroy
+    if @contact.destroy
+      respond_to_format
+    else
+      respond_to_format { render :destroy_error }
+    end
   end
 
   private
+
+  def respond_to_format(&block)
+    respond_to { |format| format.js(&block) }
+  end
 
   def resource
     @contact = Contact.find(params[:id])

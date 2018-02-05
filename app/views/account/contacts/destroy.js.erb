@@ -1,0 +1,4 @@
+// Hide table row with message in case it was successfully deleted from DB
+var current_row = $("tr[data-contact-id='<%= @contact.id %>']");
+$(current_row).hide("slow");
+$(current_row).next().hide("slow");
