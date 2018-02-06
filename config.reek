@@ -26,6 +26,9 @@
 "app/mailers":
   InstanceVariableAssumption:
     enabled: false
+"spec/mailers/previews":
+  UtilityFunction:
+    enabled: false
 IrresponsibleModule:
   enabled: false
 exclude_paths:
