@@ -38,6 +38,7 @@ gem 'slim'
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'validates_email_format_of'
+gem 'whenever', require: false
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'yt'

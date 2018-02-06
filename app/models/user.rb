@@ -37,6 +37,8 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :tenant
 
+  delegate :name, to: :tenant, prefix: true
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -49,6 +51,8 @@ class User < ApplicationRecord
                     email_format: { message: 'has invalid format' }
 
   scope :by_date, -> { order(created_at: :asc) }
+  scope :super_admins, -> { where(role: User::SUPER_ADMIN_ROLE) }
+  scope :created_yesterday, -> { where('created_at >= ?', 1.day.ago) }
 
   delegate :name, to: :tenant, prefix: true, allow_nil: true
 

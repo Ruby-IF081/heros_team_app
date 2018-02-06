@@ -1,0 +1,24 @@
+div
+  h1 Here is the list of users created yesterday
+div
+  p  This email contains daily report with information about the users created yesterday. Please do not reply.
+div
+  -if @users.present?
+    table
+      tr
+        th Name
+        th Role
+        th Email
+        th Tenant
+      - @users.each do |user|
+        tr
+          td
+            = user.full_name
+          td
+            = user.role
+          td
+            = user.email
+          td
+            = user.tenant_name
+  -else
+    p There were no users created yesterday
