@@ -2,18 +2,23 @@ class Account::TokensController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    current_user.generate_auth_token
+    @user = current_user
+    @user.generate_auth_token
     if current_user.save
-      flash[:success] = "Your new API key is #{current_user.auth_token}"
+      respond_to_format
     else
-      flash[:danger] = "Something went wrong, please contact support"
+      respond_to_format { render(js: "alert('Something went wrong, please contact support');") }
     end
-    redirect_to account_profile_path
   end
 
   def destroy
     current_user.deactivate_token
-    redirect_to account_profile_path,
-                flash: { info: "Your API key was successfully deactivated" }
+    respond_to_format
+  end
+
+  private
+
+  def respond_to_format(block = nil)
+    respond_to { |format| format.js { block } }
   end
 end

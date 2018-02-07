@@ -1,0 +1,7 @@
+#token.card-text.col-sm-4
+  = profile.auth_token
+#del_token.card-text.col-sm-1
+  = link_to account_profile_tokens_path, method: :delete,
+                                         class: 'btn btn-danger btn-sm',
+                                         remote: true
+    i.fa.fa-minus

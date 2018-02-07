@@ -1,0 +1,2 @@
+$('#del_token').remove();
+$('#gen_token').hide().after('<%= j render "/account/profile/with_token", profile: @user %>');
