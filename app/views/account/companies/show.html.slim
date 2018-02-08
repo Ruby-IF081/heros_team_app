@@ -9,22 +9,22 @@
         .breadcrumb-wrapper.col-12
           = render_breadcrumbs({ 'Dashboard' => account_root_path,
                                  'Companies' => account_companies_path,
-                                 'Company pages' => account_company_pages_path(@company),
                                  @company.name => nil})
     .content-header-right.text-md-right.col-md-6.col-12
       .form-group
-        .btn-icon.btn.btn-white.btn-round
-          = link_to download_account_company_path(@company, format: 'pdf'),
-                  target: '_blank',
-                  class: 'download'
-            i.fa.fa-file-pdf-o
-        .btn-icon.btn.btn-white.btn-round
-          = link_to edit_account_company_path do
-            i.fa.fa-pencil-square-o
-        .btn-icon.btn.btn-white.btn-round
-          = link_to account_company_path, method: :delete,
-                  data: {confirm: 'Are you certain you want to delete this company?'} do
-            i.fa.fa-trash-o
+        .btn-group role="group"
+          button.btn.btn-secondary type="button"
+            = link_to download_account_company_path(@company, format: 'pdf'),
+                    target: '_blank',
+                    class: 'download'
+              i.fa.fa-file-pdf-o.white
+          button.btn.btn-secondary type="button"
+            = link_to edit_account_company_path do
+              i.fa.fa-pencil-square-o.white
+          button.btn.btn-secondary type="button"
+            = link_to account_company_path, method: :delete,
+                    data: {confirm: 'Are you certain you want to delete this company?'} do
+              i.fa.fa-trash-o.white
   .content-body
     section.row
       .col-sm-12
@@ -61,6 +61,12 @@
                   ul
                     - @company.industries.order('name ASC').each do |item|
                       li= item.name
+              .row
+                .card-text.col-12.text-md-right
+                  button.btn.btn-secondary.btn-block type="button"
+                    = link_to 'See company pages',
+                            account_company_pages_path(@company),
+                            class: 'white-link'
         .card
           .card-header
             h4.card-title= "#{@company.name} links"
