@@ -1,10 +1,12 @@
-      tr[id="#{dom_id(page, :table_row)}"]
-        td
-          h3 = link_to page.title, controller: 'account/pages', action: 'show', id: page.id
-          = link_to page.source_url, page.source_url
-        td = page.status
-        td = page.rating
-        td
-          .btn-icon.btn.btn-white.btn-round
-            = link_to account_company_page_path(id: page.id), method: :delete, remote: true
-              i.fa.fa-trash-o
+tr[id="#{dom_id(page, :table_row)}"]
+  td
+    h3 = link_to page.title, controller: 'account/pages', action: 'show', id: page.id
+    = link_to page.source_url, page.source_url
+  td
+    span.badge.badge-pill[class= "#{- get_class(page.status)}"]
+      = page.status
+  td = page.rating
+  td
+    .btn-icon.btn.btn-white.btn-round
+      = link_to account_company_page_path(id: page.id), method: :delete, remote: true
+        i.fa.fa-trash-o
