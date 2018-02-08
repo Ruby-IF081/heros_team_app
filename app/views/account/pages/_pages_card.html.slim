@@ -13,7 +13,7 @@
               = image_tag('empty.svg', class: 'card-img-top', alt: 'Page screenshot')
           .card-body
             p.text-right = page.rating
-            = link_to 'Page link', page.source_url, class: 'card-link theme-color'
+            = link_to 'Page link', page.source_url, class: 'card-link theme-color', target: '_blank'
             = link_to 'Details',
                     {controller: 'account/pages', action: 'show', id: page.id},
                     {class: 'card-link theme-color'}
