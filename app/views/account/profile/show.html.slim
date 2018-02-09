@@ -53,7 +53,7 @@
                     .card-text.col-sm-9
                       = @profile.role
                   .row.my-2
-                    .card-text.col-sm-2
+                    .card-text.col-sm-3
                       h6 Your API key:
                     - if @profile.auth_token?
                       = render 'with_token', profile: @profile
