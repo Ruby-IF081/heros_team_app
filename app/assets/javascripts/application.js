@@ -23,3 +23,6 @@
 //= require comments_form
 //= require match_tweets_height
 //= require user_contacts
+//= require react
+//= require react_ujs
+//= require components
