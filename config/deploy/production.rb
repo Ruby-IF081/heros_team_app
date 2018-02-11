@@ -58,7 +58,7 @@ set :deploy_to, "/var/www/heroesapp/code"
 #   }
 server "salesassistant.pp.ua",
        user: "deploy",
-       roles: %w[web app],
+       roles: %w[web app db],
        ssh_options: {
          user:          "deploy",
          keys:          %w[~/.ssh/heroes_team_digitalocean],
