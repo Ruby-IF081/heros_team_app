@@ -38,3 +38,23 @@ Go into the bin directory as follows: `cd elasticsearch-6.1.2/bin`
 
 Start elasticsearch as follows: `./elasticsearch`
 
+## API instructions
+
+Simple API gives a possibility to receive a JSON of searched companies.
+
+API endpoint: 
+
+`GET api/companies`
+
+Request should contain authorization header
+
+`Authorization: Token token=*your_token_generated_in_profile*`
+
+Response example
+```json
+companies:	
+    0:	
+            id: 	1
+            name:  	"Example Company"
+            url:  	"http://localhost:3000/account/companies/1/download.pdf"
+```
