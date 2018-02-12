@@ -1,5 +1,6 @@
 class CompanyDomainWorker
   include Sidekiq::Worker
+  include BasePresenterHelper
   sidekiq_options retry: false
   attr_reader :company, :domain
 
@@ -21,7 +22,7 @@ class CompanyDomainWorker
 
   def download_url(link)
     link = link.downcase
-    link = 'http://' + link unless link.start_with?('http://', 'https://')
+    link = urlify(link)
     Nokogiri::HTML(open(link))
   end
 
@@ -51,7 +52,7 @@ class CompanyDomainWorker
   end
 
   def create_pending_page(source_url)
-    source_url = 'http://' + source_url unless source_url.start_with?('http://', 'https://')
+    source_url = urlify(source_url)
     company.pages.create(title: Page::PENDING_TITLE,
                          page_type: Page::OFFICIAL_PAGE,
                          source_url: source_url,
