@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get 'home',     to: 'home#index'
   get 'pricing',  to: 'home#pricing'
   get 'about-us', to: 'home#about_us'
-  get 'contacts', to: 'home#contacts'
   get 'sitemap',  to: 'sitemap#index', constraints: { format: 'xml' }
 
   get '/404', to: 'errors#not_found'
