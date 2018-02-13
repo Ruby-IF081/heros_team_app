@@ -41,11 +41,11 @@
 
 @font-face {
     font-family: 'feather';
-    src:  url('css/fonts/feather.eot?9xfrq8');
-    src:  url('css/fonts/feather.eot?9xfrq8#iefix') format('embedded-opentype'),
-    url('css/fonts/feather.ttf?9xfrq8') format('truetype'),
-    url('css/fonts/feather.woff?9xfrq8') format('woff'),
-    url('css/fonts/feather.svg?9xfrq8#feather') format('svg');
+    src: font-url('feather.eot?9xfrq8');
+    src: font-url('feather.eot?9xfrq8#iefix') format('embedded-opentype'),
+    font-url('feather.ttf?9xfrq8') format('truetype'),
+    font-url('feather.woff?9xfrq8') format('woff'),
+    font-url('feather.svg?9xfrq8#feather') format('svg');
     font-weight: normal;
     font-style: normal;
 }
