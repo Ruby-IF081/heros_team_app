@@ -27,44 +27,15 @@
   .content-body
     section.row
       .col-sm-12
-        #overview.card
-          .card-header
-            h4.card-title Overview
-          .card-content
-            .card-body
-              .row
-                .card-image.col-sm-2 
-                  = image_tag(@company.logo.thumb, alt: @company.name, class: "company-logo")
-                .card-text.col-sm-10
-                  h4= @company.name
-                  a href= urlify(@company.domain) target="_blank" =urlify(@company.domain)
-              .row
-                .card-text.col-sm-2
-                  h6 Description
-                .card-text.col-sm-10
-                  = simple_format(@company.overview)
-              .row
-                .card-text.col-sm-2
-                  h6 Founded Year
-                .card-text.col-sm-10
-                  p= @company.founded
-              .row
-                .card-text.col-sm-2
-                  h6 Count of Employees
-                .card-text.col-sm-10
-                  p= @company.approx_employees
-              .row
-                .card-text.col-sm-2
-                  h6 Industries
-                .card-text.col-sm-10
-                  ul
-                    - @company.industries.order('name ASC').each do |item|
-                      li= item.name
-              .row
-                .col-12
-                  = link_to 'See company pages',
-                          account_company_pages_path(@company),
-                          class: 'btn btn-secondary btn-lg btn-block'
+        = react_component 'CompanyOverview', {company: @company.as_json(only: [:name,
+                                                                               :overview,
+                                                                               :founded,
+                                                                               :approx_employees]),
+                                              logo: @company.logo.thumb.url,
+                                              url_domain: urlify(@company.domain),
+                                              industries: @company.industries.as_json(only: [:name]),
+                                              pages_path: account_company_pages_path(@company)},
+                                             {prerender: true}
         .card
           .card-header
             h4.card-title= "#{@company.name} links"
