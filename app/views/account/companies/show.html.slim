@@ -27,15 +27,8 @@
   .content-body
     section.row
       .col-sm-12
-        = react_component 'CompanyOverview', {company: @company.as_json(only: [:name,
-                                                                               :overview,
-                                                                               :founded,
-                                                                               :approx_employees]),
-                                              logo: @company.logo.thumb.url,
-                                              url_domain: urlify(@company.domain),
-                                              industries: @company.industries.as_json(only: [:name]),
-                                              pages_path: account_company_pages_path(@company)},
-                                             {prerender: true}
+        #overview
+          = react_component 'CompanyOverview', {company: CompanyOverview.new(@company).json_presenter}, {prerender: true}
         .card
           .card-header
             h4.card-title= "#{@company.name} links"
