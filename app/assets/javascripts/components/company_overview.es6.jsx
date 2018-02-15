@@ -49,9 +49,9 @@ class CompanyOverview extends React.Component {
                         </div>
                         <div className="card-text col-sm-10">
                             <ul>
-                                {company.industries.map(function(x){
+                                {company.industries.map(function(industry){
                                     return(
-                                        <li key={x.id}>{x.name}</li>
+                                        <li key={industry.id}>{industry.name}</li>
                                     )
                                 })}
                             </ul>
