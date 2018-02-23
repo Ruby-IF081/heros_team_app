@@ -22,40 +22,7 @@
   .content-body
     section.row
       .col-sm-12
-        #overview.card
-          .card-header
-            h4.card-title Profile
-          .card-content
-            .card-body
-              .row
-                .card-image.col-sm-2
-                  = gravatar_image_tag(@user.email,:gravatar => { :size => 120 })
-                .card-text.col-sm-8
-                  .row
-                    .card-text.col-sm-2
-                      h6 Full name:
-                    .card-text.col-sm-4
-                      = @user.full_name
-                  .row
-                    .card-text.col-sm-2
-                      h6 User-email:
-                    .card-text.col-sm-4
-                      = @user.email
-                  .row
-                    .card-text.col-sm-2
-                      h6 Role:
-                    .card-text.col-sm-4
-                      = @user.role
-                  .row
-                    .card-text.col-sm-2
-                      h6 Created at:
-                    .card-text.col-sm-10
-                      = @user.created_at.strftime('%F %r')
-                  .row
-                    .card-text.col-sm-2
-                      h6 Tenant:
-                    .card-text.col-sm-10
-                      = @user.tenant_name
+        = react_component 'UserOverview', {user: UserOverview.new(@user).json_presenter}, {prerender: true}
         .card
           .card-header
             h4.card-title
