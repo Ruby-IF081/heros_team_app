@@ -1,0 +1,9 @@
+- set_meta_tags title: "Hello, world",
+                description: "Greetings to everyone"
+.app-content.container.center-layout
+  .content-wrapper
+    .content-body
+      section.row.content.mt-5.pt-5.ml-5
+        .col-12
+          = audio_tag("/audios/zibrov.mp3", autoplay: true)
+          = react_component('Hello', {greeting: 'Hello', for_whom: 'World'}, {prerender: true})
